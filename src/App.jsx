@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import BibliothequeTemp from "./pages/bibliothequetemp";
@@ -22,6 +23,7 @@ import ChargementTransport from "./pages/ChargementTransport";
 import MinePlanning from "./pages/MinePlanning";
 import ExplorationMiniere from "./pages/ExplorationMiniere";
 import ExploitationMiniere from "./pages/ExploitationMiniere";
+
 import "./App.css";
 
 function Accueil() {
@@ -30,49 +32,49 @@ function Accueil() {
       icon: "📚",
       title: "Bibliothèque",
       description:
-        "Retrouve tes cours de géologie, les chapitres et les ressources pédagogiques.",
+        "Cours de géologie, chapitres et ressources pédagogiques.",
       link: "/bibliotheque",
     },
     {
       icon: "🎓",
       title: "Formation",
       description:
-        "Développe tes connaissances et progresse grâce à des contenus adaptés.",
+        "Développe tes connaissances grâce à des contenus adaptés.",
       link: "/formation",
     },
     {
       icon: "🤖",
       title: "GEO AI",
       description:
-        "Un assistant intelligent pour t'accompagner dans tes études en géologie et mines.",
+        "Un assistant intelligent pour tes études en géologie et mines.",
       link: "/geo-ai",
     },
     {
       icon: "⛏️",
       title: "Mining",
       description:
-        "Découvre l'exploitation minière, les méthodes et les notions essentielles.",
+        "Explore l'exploitation minière et ses principales disciplines.",
       link: "/mining",
     },
     {
       icon: "🪨",
       title: "Roches",
       description:
-        "Explore les différentes familles de roches et leurs caractéristiques.",
+        "Découvre les familles de roches et leurs caractéristiques.",
       link: "/roches",
     },
     {
       icon: "🔬",
       title: "Identification",
       description:
-        "Apprends à identifier les roches et les minéraux grâce à leurs propriétés.",
+        "Apprends à identifier les roches et les minéraux.",
       link: "/identification",
     },
     {
       icon: "🛠️",
       title: "Outils",
       description:
-        "Découvre les outils et ressources utiles au géologue sur le terrain.",
+        "Découvre les outils utiles au géologue sur le terrain.",
       link: "/outils",
     },
   ];
@@ -108,14 +110,14 @@ function Accueil() {
               to="/bibliotheque"
               className="hero-button primary"
             >
-              📚 Explorer la bibliothèque
+              📚 Bibliothèque
             </Link>
 
             <Link
               to="/roches"
               className="hero-button secondary"
             >
-              🪨 Explorer les roches
+              🪨 Roches
             </Link>
           </div>
         </div>
@@ -216,35 +218,73 @@ function Accueil() {
 }
 
 function App() {
+  const [menuOuvert, setMenuOuvert] = useState(false);
+
   return (
     <BrowserRouter>
       <nav className="navbar">
-        <Link to="/" className="nav-logo">
+        <Link
+          to="/"
+          className="nav-logo"
+          onClick={() => setMenuOuvert(false)}
+        >
           🌍 GEO ZONE
         </Link>
 
-        <div className="nav-links">
-          <Link to="/">
+        <button
+          className="mobile-menu-button"
+          type="button"
+          onClick={() => setMenuOuvert(!menuOuvert)}
+          aria-label="Ouvrir le menu"
+          aria-expanded={menuOuvert}
+        >
+          {menuOuvert ? "✕" : "☰"}
+        </button>
+
+        <div
+          className={`nav-links ${
+            menuOuvert ? "mobile-menu-open" : ""
+          }`}
+        >
+          <Link
+            to="/"
+            onClick={() => setMenuOuvert(false)}
+          >
             Accueil
           </Link>
 
-          <Link to="/bibliotheque">
+          <Link
+            to="/bibliotheque"
+            onClick={() => setMenuOuvert(false)}
+          >
             Bibliothèque
           </Link>
 
-          <Link to="/formation">
+          <Link
+            to="/formation"
+            onClick={() => setMenuOuvert(false)}
+          >
             Formation
           </Link>
 
-          <Link to="/geo-ai">
+          <Link
+            to="/geo-ai"
+            onClick={() => setMenuOuvert(false)}
+          >
             GEO AI
           </Link>
 
-          <Link to="/mining">
+          <Link
+            to="/mining"
+            onClick={() => setMenuOuvert(false)}
+          >
             Mining
           </Link>
 
-          <Link to="/roches">
+          <Link
+            to="/roches"
+            onClick={() => setMenuOuvert(false)}
+          >
             Roches
           </Link>
         </div>
@@ -335,23 +375,43 @@ function App() {
           path="/roches/:id"
           element={<RocheDetail />}
         />
+
         <Route
-  path="/mining/drilling"
-  element={<Drilling />}
-/>
-<Route
-  path="/mining/chargement-transport"
-  element={<ChargementTransport />}
-/>
+          path="/mining/drilling"
+          element={<Drilling />}
+        />
+
+        <Route
+          path="/mining/blasting"
+          element={<Blasting />}
+        />
+
+        <Route
+          path="/mining/chargement-transport"
+          element={<ChargementTransport />}
+        />
+
+        <Route
+          path="/mining/mine-planning"
+          element={<MinePlanning />}
+        />
+
+        <Route
+          path="/mining/exploration"
+          element={<ExplorationMiniere />}
+        />
+
+        <Route
+          path="/mining/exploitation"
+          element={<ExploitationMiniere />}
+        />
 
         <Route
           path="*"
           element={
             <div className="container">
               <div className="card">
-                <h1>
-                  404
-                </h1>
+                <h1>404</h1>
 
                 <p>
                   Cette page n'existe pas.
@@ -364,26 +424,6 @@ function App() {
             </div>
           }
         />
-        <Route
-  path="/outils/pendage"
-  element={<Pendage />}
-/>
-<Route
-  path="/mining/blasting"
-  element={<Blasting />}
-/>
-<Route
-  path="/mining/mine-planning"
-  element={<MinePlanning />}
-/>
-<Route
-  path="/mining/exploration"
-  element={<ExplorationMiniere />}
-/>
-<Route
-  path="/mining/exploitation"
-  element={<ExploitationMiniere />}
-/>
       </Routes>
 
       <footer className="geo-footer">

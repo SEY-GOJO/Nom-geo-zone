@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 import categories from "../data/categories";
 import cours from "../data/cours";
 
@@ -22,40 +23,54 @@ function Bibliotheque() {
     <div className="container library-page">
 
       <Link to="/" className="back-link">
-        ← Retour à l'accueil
+        ← Accueil
       </Link>
 
+      {/* HERO */}
       <section className="library-hero">
+
         <div className="library-hero-content">
+
           <span className="library-badge">
             GEO ZONE • RESSOURCES
           </span>
 
-          <h1>📚 Bibliothèque</h1>
+          <h1>
+            📚 Bibliothèque
+          </h1>
 
           <p>
-            Explore une collection de cours et de ressources
-            dédiés à la géologie, aux mines et aux sciences de la Terre.
+            Explore les cours et ressources dédiés à la
+            géologie, aux mines et aux sciences de la Terre.
           </p>
+
         </div>
 
         <div className="library-hero-icon">
           📖
         </div>
+
       </section>
 
+      {/* STATISTIQUES */}
       <section className="library-stats">
 
         <div className="library-stat">
-          <div className="library-stat-icon">📚</div>
+          <div className="library-stat-icon">
+            📚
+          </div>
+
           <div>
             <strong>{totalCours}</strong>
-            <span>Cours disponibles</span>
+            <span>Cours</span>
           </div>
         </div>
 
         <div className="library-stat">
-          <div className="library-stat-icon">🌍</div>
+          <div className="library-stat-icon">
+            🌍
+          </div>
+
           <div>
             <strong>{categories.length}</strong>
             <span>Catégories</span>
@@ -63,38 +78,45 @@ function Bibliotheque() {
         </div>
 
         <div className="library-stat">
-          <div className="library-stat-icon">🎓</div>
+          <div className="library-stat-icon">
+            🎓
+          </div>
+
           <div>
-            <strong>GEO ZONE</strong>
-            <span>Plateforme éducative</span>
+            <strong>GEO</strong>
+            <span>Plateforme</span>
           </div>
         </div>
 
       </section>
 
+      {/* RECHERCHE */}
       <section className="library-search-section">
 
         <div>
           <span className="section-label">
-            EXPLORER LES RESSOURCES
+            RECHERCHE
           </span>
 
           <h2>
-            Trouve rapidement ce que tu cherches
+            Trouve ton cours
           </h2>
 
-          <p>
-            Recherche une catégorie ou une matière dans la bibliothèque.
+          <p className="library-search-description">
+            Recherche rapidement une catégorie ou une matière.
           </p>
         </div>
 
         <div className="library-search-wrapper">
-          <span className="library-search-icon">🔎</span>
+
+          <span className="library-search-icon">
+            🔎
+          </span>
 
           <input
             className="search library-search"
             type="text"
-            placeholder="Rechercher une matière..."
+            placeholder="Rechercher..."
             value={recherche}
             onChange={(e) => setRecherche(e.target.value)}
           />
@@ -108,10 +130,12 @@ function Bibliotheque() {
               ✕
             </button>
           )}
+
         </div>
 
       </section>
 
+      {/* INFORMATION */}
       <section className="library-info">
 
         <div className="library-info-icon">
@@ -119,18 +143,21 @@ function Bibliotheque() {
         </div>
 
         <div>
-          <h2>Ressources géologiques</h2>
+          <h2>
+            Ressources géologiques
+          </h2>
 
           <p>
-            GEO ZONE rassemble progressivement tes cours,
-            documents, exercices et ressources dans une bibliothèque
-            organisée par matière.
+            Tes cours sont organisés par domaine pour
+            faciliter ton apprentissage.
           </p>
         </div>
 
       </section>
 
+      {/* TITRE DES CATÉGORIES */}
       <div className="library-section-title">
+
         <div>
           <span className="section-label">
             CATÉGORIES
@@ -142,16 +169,23 @@ function Bibliotheque() {
         </div>
 
         <span className="category-count">
-          {categoriesFiltrees.length} catégorie
-          {categoriesFiltrees.length > 1 ? "s" : ""}
+          {categoriesFiltrees.length}
+          {categoriesFiltrees.length > 1
+            ? " catégories"
+            : " catégorie"}
         </span>
+
       </div>
 
+      {/* CATÉGORIES */}
       {categoriesFiltrees.length > 0 ? (
+
         <div className="modules library-grid">
 
           {categoriesFiltrees.map((categorie) => {
-            const totalCoursCategorie = nombreCours(categorie.id);
+
+            const totalCoursCategorie =
+              nombreCours(categorie.id);
 
             return (
               <article
@@ -160,6 +194,7 @@ function Bibliotheque() {
               >
 
                 <div className="library-card-top">
+
                   <div className="module-icon library-icon">
                     {categorie.icon}
                   </div>
@@ -167,43 +202,59 @@ function Bibliotheque() {
                   <span className="library-card-number">
                     {String(categorie.id).padStart(2, "0")}
                   </span>
+
                 </div>
 
                 <h2>
                   {categorie.nom}
                 </h2>
 
-                <p>
-                  Explore les cours, documents et ressources
-                  de {categorie.nom.toLowerCase()}.
+                <p className="library-card-description">
+                  Cours et ressources de{" "}
+                  {categorie.nom.toLowerCase()}.
                 </p>
 
                 <div className="library-card-footer">
 
                   <div className="course-count">
-                    <span>📚</span>
-                    <strong>{totalCoursCategorie}</strong>
+
+                    <span>
+                      📚
+                    </span>
+
+                    <strong>
+                      {totalCoursCategorie}
+                    </strong>
+
                     <small>
-                      cours
-                      {totalCoursCategorie > 1 ? " disponibles" : " disponible"}
+                      {totalCoursCategorie > 1
+                        ? "cours"
+                        : "cours"}
                     </small>
+
                   </div>
 
                   {totalCoursCategorie > 0 ? (
+
                     <Link
                       to={`/bibliotheque/${categorie.id}`}
                       className="library-explore"
                     >
                       Explorer
-                      <span>→</span>
+                      <span>
+                        →
+                      </span>
                     </Link>
+
                   ) : (
+
                     <button
                       className="disabled-button"
                       type="button"
                     >
-                      Bientôt disponible
+                      Bientôt
                     </button>
+
                   )}
 
                 </div>
@@ -213,7 +264,9 @@ function Bibliotheque() {
           })}
 
         </div>
+
       ) : (
+
         <div className="card library-empty">
 
           <div className="library-empty-icon">
@@ -232,7 +285,7 @@ function Bibliotheque() {
             type="button"
             onClick={() => setRecherche("")}
           >
-            Réinitialiser la recherche
+            Réinitialiser
           </button>
 
         </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 import roches from "../data/roches";
 
 function Roches() {
@@ -21,9 +22,10 @@ function Roches() {
     <div className="container rocks-page">
 
       <Link to="/" className="back-link">
-        ← Retour à l'accueil
+        ← Accueil
       </Link>
 
+      {/* HERO */}
       <div className="rocks-hero">
 
         <div className="rocks-hero-icon">
@@ -44,32 +46,36 @@ function Roches() {
         </p>
 
         <div className="rocks-stats">
+
           <div>
             <strong>{roches.length}</strong>
-            <span>Roches référencées</span>
+            <span>Roches</span>
           </div>
 
           <div>
             <strong>3</strong>
-            <span>Grandes familles</span>
+            <span>Familles</span>
           </div>
 
           <div>
-            <strong>GEO ZONE</strong>
-            <span>Base géologique</span>
+            <strong>GEO</strong>
+            <span>Base</span>
           </div>
+
         </div>
 
       </div>
 
+      {/* RECHERCHE ET FILTRES */}
       <div className="rocks-search-section">
 
         <div className="rocks-search-title">
-          <h2>🔎 Rechercher une roche</h2>
+          <h2>
+            🔎 Rechercher
+          </h2>
 
           <p>
-            Utilise la recherche ou sélectionne une famille
-            pour trouver rapidement une roche.
+            Recherche une roche ou choisis une famille.
           </p>
         </div>
 
@@ -84,8 +90,13 @@ function Roches() {
         <div className="filters">
 
           <button
-            className={famille === "Toutes" ? "active-filter" : ""}
+            className={
+              famille === "Toutes"
+                ? "active-filter"
+                : ""
+            }
             onClick={() => setFamille("Toutes")}
+            type="button"
           >
             📋 Toutes
           </button>
@@ -96,7 +107,10 @@ function Roches() {
                 ? "active-filter"
                 : ""
             }
-            onClick={() => setFamille("Roche magmatique")}
+            onClick={() =>
+              setFamille("Roche magmatique")
+            }
+            type="button"
           >
             🌋 Magmatiques
           </button>
@@ -107,7 +121,10 @@ function Roches() {
                 ? "active-filter"
                 : ""
             }
-            onClick={() => setFamille("Roche métamorphique")}
+            onClick={() =>
+              setFamille("Roche métamorphique")
+            }
+            type="button"
           >
             🏔️ Métamorphiques
           </button>
@@ -118,7 +135,10 @@ function Roches() {
                 ? "active-filter"
                 : ""
             }
-            onClick={() => setFamille("Roche sédimentaire")}
+            onClick={() =>
+              setFamille("Roche sédimentaire")
+            }
+            type="button"
           >
             🏜️ Sédimentaires
           </button>
@@ -127,6 +147,7 @@ function Roches() {
 
       </div>
 
+      {/* RESULTATS */}
       <div className="rocks-result-header">
 
         <div>
@@ -143,18 +164,21 @@ function Roches() {
 
         {famille !== "Toutes" && (
           <span className="selected-family">
-            {famille}
+            {famille.replace("Roche ", "")}
           </span>
         )}
 
       </div>
 
       {rochesFiltrees.length > 0 ? (
+
         <div className="modules rocks-grid">
 
           {rochesFiltrees.map((roche) => (
-
-            <div className="card rock-card" key={roche.id}>
+            <div
+              className="card rock-card"
+              key={roche.id}
+            >
 
               <div className="rock-card-top">
 
@@ -197,7 +221,9 @@ function Roches() {
 
               <div className="rock-minerals">
 
-                <span>Minéraux principaux</span>
+                <span>
+                  Minéraux principaux
+                </span>
 
                 <p>
                   {roche.mineraux.join(", ")}
@@ -206,16 +232,19 @@ function Roches() {
               </div>
 
               <Link to={`/roches/${roche.id}`}>
-                <button className="rock-button">
-                  Voir la fiche complète →
+                <button
+                  className="rock-button"
+                  type="button"
+                >
+                  Voir la fiche →
                 </button>
               </Link>
 
             </div>
-
           ))}
 
         </div>
+
       ) : (
 
         <div className="card rock-empty">
@@ -229,8 +258,8 @@ function Roches() {
           </h2>
 
           <p>
-            Aucune roche ne correspond à ta recherche ou
-            au filtre sélectionné.
+            Aucune roche ne correspond à ta recherche
+            ou au filtre sélectionné.
           </p>
 
           <button
@@ -238,12 +267,12 @@ function Roches() {
               setRecherche("");
               setFamille("Toutes");
             }}
+            type="button"
           >
-            Réinitialiser les filtres
+            Réinitialiser
           </button>
 
         </div>
-
       )}
 
     </div>
