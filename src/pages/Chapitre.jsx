@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+
 import cours from "../data/cours";
 
 function Chapitre() {
@@ -13,11 +14,17 @@ function Chapitre() {
       <div className="container">
         <div className="card error-card">
           <div className="error-icon">📚</div>
+
           <h1>Cours introuvable</h1>
-          <p>Le cours demandé n'existe pas ou n'est plus disponible.</p>
+
+          <p>
+            Le cours demandé n'existe pas ou n'est plus disponible.
+          </p>
 
           <Link to="/bibliotheque">
-            <button>← Retour à la bibliothèque</button>
+            <button type="button">
+              ← Retour à la bibliothèque
+            </button>
           </Link>
         </div>
       </div>
@@ -33,18 +40,19 @@ function Chapitre() {
       <div className="container">
         <div className="card error-card">
           <div className="error-icon">📖</div>
+
           <h1>Chapitre introuvable</h1>
-          <p>Le chapitre demandé n'existe pas.</p>
+
+          <p>
+            Le chapitre demandé n'existe pas.
+          </p>
 
           <Link
-            to={
-              "/bibliotheque/" +
-              categorieId +
-              "/cours/" +
-              id
-            }
+            to={`/bibliotheque/${categorieId}/cours/${id}`}
           >
-            <button>← Retour au cours</button>
+            <button type="button">
+              ← Retour au cours
+            </button>
           </Link>
         </div>
       </div>
@@ -52,6 +60,7 @@ function Chapitre() {
   }
 
   const chapitre = coursActuel.chapitres[chapitreIndex];
+
   const totalChapitres = coursActuel.chapitres.length;
 
   const progression = Math.round(
@@ -68,42 +77,35 @@ function Chapitre() {
       ? coursActuel.chapitres[chapitreIndex + 1]
       : null;
 
+  const baseUrl =
+    `/bibliotheque/${categorieId}/cours/${id}`;
+
   return (
     <div className="container chapter-page">
-
-      <Link
-        to={
-          "/bibliotheque/" +
-          categorieId +
-          "/cours/" +
-          id
-        }
-        className="back-link"
-      >
+      <Link to={baseUrl} className="back-link">
         ← Retour au cours
       </Link>
 
-      <div className="chapter-hero">
+      <section className="chapter-hero">
+        <div className="chapter-hero-top">
+          <div className="chapter-hero-icon">
+            📖
+          </div>
 
-        <div className="chapter-hero-icon">
-          📖
-        </div>
-
-        <div className="chapter-label">
-          COURS
+          <span className="chapter-label">
+            CHAPITRE {chapterIndexSafe(chapitreIndex)}
+          </span>
         </div>
 
         <p className="chapter-course-name">
           {coursActuel.titre}
         </p>
 
-        <h1>
-          {chapitre.titre}
-        </h1>
+        <h1>{chapitre.titre}</h1>
 
         <div className="chapter-info">
           <span>
-            📖 Chapitre {chapitreIndex + 1} sur {totalChapitres}
+            📖 {chapitreIndex + 1} / {totalChapitres}
           </span>
 
           <span>
@@ -112,141 +114,122 @@ function Chapitre() {
         </div>
 
         <div className="progress-section">
-
           <div className="progress-top">
             <span>Progression du cours</span>
+
             <strong>{progression}%</strong>
           </div>
 
-          <div className="progress-bar">
+          <div
+            className="progress-bar"
+            aria-label={`Progression ${progression}%`}
+          >
             <div
               className="progress-fill"
-              style={{ width: progression + "%" }}
+              style={{
+                width: `${progression}%`,
+              }}
             />
           </div>
-
         </div>
+      </section>
 
-      </div>
-
-      <article className="card course-content">
-
-        <div className="content-heading">
-
+      <article className="chapter-reading-card">
+        <header className="chapter-reading-header">
           <div className="content-icon">
             📚
           </div>
 
           <div>
-            <span>CHAPITRE {chapitreIndex + 1}</span>
+            <span>
+              LEÇON {chapitreIndex + 1}
+            </span>
+
             <h2>{chapitre.titre}</h2>
           </div>
-
-        </div>
+        </header>
 
         <div className="content-body">
-
           {chapitre.contenu ? (
-            chapitre.contenu
-              .split("\n")
-              .map((ligne, index) =>
-                ligne.trim() ? (
-                  <p key={index}>
-                    {ligne}
-                  </p>
-                ) : (
-                  <div
-                    key={index}
-                    className="content-space"
-                  />
-                )
+            chapitre.contenu.split("\n").map((ligne, index) =>
+              ligne.trim() ? (
+                <p key={index}>
+                  {ligne}
+                </p>
+              ) : (
+                <div
+                  key={index}
+                  className="content-space"
+                />
               )
+            )
           ) : (
             <div className="empty-content">
               <div>📚</div>
-              <h3>Contenu bientôt disponible</h3>
+
+              <h3>
+                Contenu bientôt disponible
+              </h3>
+
               <p>
-                Le contenu de ce chapitre sera bientôt ajouté à GEO ZONE.
+                Le contenu de ce chapitre sera bientôt ajouté
+                à GEO ZONE.
               </p>
             </div>
           )}
-
         </div>
-
       </article>
 
       <div className="chapter-navigation">
-
         <div className="navigation-left">
           {chapitrePrecedent ? (
             <Link
-              to={
-                "/bibliotheque/" +
-                categorieId +
-                "/cours/" +
-                id +
-                "/chapitre/" +
-                chapitrePrecedent.id
-              }
+              to={`${baseUrl}/chapitre/${chapitrePrecedent.id}`}
             >
-              <button className="secondary-button">
+              <button
+                type="button"
+                className="secondary-button"
+              >
                 ← Précédent
               </button>
             </Link>
           ) : (
-            <Link
-              to={
-                "/bibliotheque/" +
-                categorieId +
-                "/cours/" +
-                id
-              }
-            >
-              <button className="secondary-button">
-                ← Tous les chapitres
+            <Link to={baseUrl}>
+              <button
+                type="button"
+                className="secondary-button"
+              >
+                ← Chapitres
               </button>
             </Link>
           )}
         </div>
 
         <div className="navigation-right">
-
           {chapitreSuivant ? (
             <Link
-              to={
-                "/bibliotheque/" +
-                categorieId +
-                "/cours/" +
-                id +
-                "/chapitre/" +
-                chapitreSuivant.id
-              }
+              to={`${baseUrl}/chapitre/${chapitreSuivant.id}`}
             >
-              <button>
-                Chapitre suivant →
+              <button type="button">
+                Suivant
+                <span>→</span>
               </button>
             </Link>
           ) : (
-            <Link
-              to={
-                "/bibliotheque/" +
-                categorieId +
-                "/cours/" +
-                id
-              }
-            >
-              <button>
-                ✓ Terminer le cours
+            <Link to={baseUrl}>
+              <button type="button">
+                ✓ Terminer
               </button>
             </Link>
           )}
-
         </div>
-
       </div>
-
     </div>
   );
+}
+
+function chapterIndexSafe(index) {
+  return String(index + 1).padStart(2, "0");
 }
 
 export default Chapitre;

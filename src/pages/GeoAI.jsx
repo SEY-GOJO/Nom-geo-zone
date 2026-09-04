@@ -1,163 +1,142 @@
 import { Link } from "react-router-dom";
 
 function GeoAI() {
+  const domaines = [
+    {
+      icon: "🪨",
+      titre: "Géologie",
+      description:
+        "Pose des questions sur les roches, minéraux, structures, processus géologiques et sciences de la Terre.",
+      label: "Roches • Minéraux • Géologie",
+    },
+    {
+      icon: "⛏️",
+      titre: "Mining",
+      description:
+        "Explore les notions liées à l'exploration, l'exploitation, le drilling et la planification minière.",
+      label: "Exploration • Mining • Drilling",
+    },
+    {
+      icon: "📚",
+      titre: "Cours",
+      description:
+        "Utilise les contenus de GEO ZONE pour approfondir tes cours et réviser plus efficacement.",
+      label: "Cours • Révision • Apprentissage",
+    },
+    {
+      icon: "🧭",
+      titre: "Sciences de la Terre",
+      description:
+        "Approfondis les phénomènes et grands concepts liés au fonctionnement de la Terre.",
+      label: "Terre • Processus • Compréhension",
+    },
+  ];
+
   return (
     <div className="container geoai-page">
-
       <Link to="/" className="back-link">
-        ← Retour à l'accueil
+        ← Accueil
       </Link>
 
-      <div className="geoai-hero">
+      <section className="geoai-hero">
+        <div className="geoai-icon">🤖</div>
 
-        <div className="geoai-icon">
-          🤖
+        <div className="geoai-hero-content">
+          <span className="geoai-badge">
+            INTELLIGENCE GÉOLOGIQUE
+          </span>
+
+          <h1>GEO AI</h1>
+
+          <p>
+            Ton assistant intelligent spécialisé en géologie,
+            mines et sciences de la Terre.
+          </p>
         </div>
+      </section>
 
-        <span className="geoai-badge">
-          INTELLIGENCE GÉOLOGIQUE
-        </span>
-
-        <h1>
-          GEO AI
-        </h1>
-
-        <p>
-          Ton assistant intelligent spécialisé en géologie,
-          mines et sciences de la Terre.
-        </p>
-
-      </div>
-
-      <div className="card geoai-question">
-
+      <section className="geoai-question">
         <div className="geoai-question-header">
-
-          <div className="geoai-small-icon">
-            💬
-          </div>
+          <div className="geoai-small-icon">💬</div>
 
           <div>
-            <h2>
-              Pose ta question
-            </h2>
+            <span className="geoai-question-label">
+              ASSISTANT
+            </span>
+
+            <h2>Pose ta question</h2>
 
             <p>
               Demande une explication et approfondis tes
               connaissances avec GEO AI.
             </p>
           </div>
-
         </div>
 
         <textarea
           placeholder="Exemple : Qu'est-ce qu'une roche métamorphique ?"
-          rows="6"
+          rows="5"
         />
 
         <div className="geoai-action">
+          <span>🌍 Géologie • ⛏️ Mines • 📚 Formation</span>
 
-          <span>
-            🌍 Géologie • ⛏️ Mines • 📚 Formation
-          </span>
-
-          <button>
+          <button type="button">
             🤖 Poser la question
           </button>
-
         </div>
+      </section>
 
-      </div>
-
-      <div className="welcome geoai-section-title">
-
-        <h2>
-          Que peux-tu demander à GEO AI ?
-        </h2>
-
-        <p>
-          Explore différents domaines et obtiens des explications
-          adaptées à ton apprentissage.
-        </p>
-
-      </div>
-
-      <div className="modules">
-
-        <div className="card geoai-topic-card">
-
-          <div className="module-icon">
-            🪨
+      <section className="geoai-section">
+        <div className="geoai-section-heading">
+          <div>
+            <span>EXPLORE GEO AI</span>
+            <h2>Que peux-tu demander ?</h2>
           </div>
 
-          <h2>
-            Géologie
-          </h2>
-
           <p>
-            Pose des questions sur les roches, minéraux,
-            structures, processus géologiques et sciences
-            de la Terre.
+            Choisis un domaine pour orienter ton apprentissage.
           </p>
-
-          <span className="geoai-topic-label">
-            Roches • Minéraux • Géologie
-          </span>
-
         </div>
 
-        <div className="card geoai-topic-card">
+        <div className="geoai-grid">
+          {domaines.map((domaine, index) => (
+            <div
+              className="geoai-topic-card"
+              key={domaine.titre}
+            >
+              <div className="geoai-topic-top">
+                <div className="geoai-topic-icon">
+                  {domaine.icon}
+                </div>
 
-          <div className="module-icon">
-            ⛏️
-          </div>
+                <span className="geoai-topic-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
 
-          <h2>
-            Mining
-          </h2>
+              <div className="geoai-topic-content">
+                <h3>{domaine.titre}</h3>
 
-          <p>
-            Explore les notions liées à l'exploration,
-            l'exploitation, le drilling, le blasting et
-            la planification minière.
-          </p>
+                <p>{domaine.description}</p>
+              </div>
 
-          <span className="geoai-topic-label">
-            Exploration • Mining • Drilling
-          </span>
-
+              <span className="geoai-topic-label">
+                {domaine.label}
+              </span>
+            </div>
+          ))}
         </div>
+      </section>
 
-        <div className="card geoai-topic-card">
-
-          <div className="module-icon">
-            📚
-          </div>
-
-          <h2>
-            Cours
-          </h2>
-
-          <p>
-            Utilise les contenus de GEO ZONE pour approfondir
-            tes cours et réviser plus efficacement.
-          </p>
-
-          <span className="geoai-topic-label">
-            Cours • Révision • Apprentissage
-          </span>
-
-        </div>
-
-      </div>
-
-      <div className="geoai-info">
-
-        <div className="geoai-info-icon">
-          💡
-        </div>
+      <section className="geoai-info">
+        <div className="geoai-info-icon">💡</div>
 
         <div>
+          <span className="geoai-info-label">
+            À PROPOS DE GEO AI
+          </span>
+
           <h3>
             Un assistant pensé pour les géologues
           </h3>
@@ -168,9 +147,7 @@ function GeoAI() {
             approfondir tes connaissances.
           </p>
         </div>
-
-      </div>
-
+      </section>
     </div>
   );
 }

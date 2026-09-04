@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+
 import categories from "../data/categories";
 import cours from "../data/cours";
 
@@ -22,12 +23,14 @@ function CoursDetail() {
           <h1>❌ Cours introuvable</h1>
 
           <p>
-            Le cours que tu recherches n'existe pas ou n'est plus
-            disponible.
+            Le cours que tu recherches n'existe pas ou n'est
+            plus disponible.
           </p>
 
           <Link to="/bibliotheque">
-            <button>← Retour à la bibliothèque</button>
+            <button type="button">
+              ← Retour à la bibliothèque
+            </button>
           </Link>
         </div>
       </div>
@@ -37,17 +40,15 @@ function CoursDetail() {
   const totalChapitres = coursActuel.chapitres.length;
 
   return (
-    <div className="container">
-
+    <div className="container course-detail-page">
       <Link
         to={`/bibliotheque/${categorieId}`}
         className="back-link"
       >
-        ← Retour à {categorie ? categorie.nom : "la catégorie"}
+        ← {categorie ? categorie.nom : "Retour"}
       </Link>
 
       <section className="course-header card">
-
         <div className="course-category">
           {categorie?.icon} {categorie?.nom}
         </div>
@@ -60,22 +61,17 @@ function CoursDetail() {
           COURS DE GÉOLOGIE
         </p>
 
-        <h1>
-          {coursActuel.titre}
-        </h1>
+        <h1>{coursActuel.titre}</h1>
 
         <p className="course-description">
           {coursActuel.description}
         </p>
 
         <div className="course-stats">
-
           <div className="course-stat">
             <span className="stat-icon">📖</span>
 
-            <strong>
-              {totalChapitres}
-            </strong>
+            <strong>{totalChapitres}</strong>
 
             <span>
               Chapitre{totalChapitres > 1 ? "s" : ""}
@@ -85,108 +81,97 @@ function CoursDetail() {
           <div className="course-stat">
             <span className="stat-icon">🎓</span>
 
-            <strong>
-              GEO ZONE
-            </strong>
+            <strong>GEO ZONE</strong>
 
-            <span>
-              Formation
-            </span>
+            <span>Formation</span>
           </div>
 
           <div className="course-stat">
             <span className="stat-icon">🌍</span>
 
-            <strong>
-              Géologie
-            </strong>
+            <strong>Géologie</strong>
 
-            <span>
-              Sciences de la Terre
-            </span>
+            <span>Sciences de la Terre</span>
           </div>
-
         </div>
       </section>
 
       <section className="course-introduction">
-
         <div>
           <span className="section-badge">
             PROGRAMME
           </span>
 
-          <h2>
-            📖 Contenu du cours
-          </h2>
+          <h2>📖 Contenu du cours</h2>
 
           <p>
             Parcours les différents chapitres de ce cours
             pour approfondir tes connaissances et progresser
-            dans ton apprentissage de la géologie.
+            dans ton apprentissage.
           </p>
         </div>
 
         <div className="course-progress-info">
-          <strong>
-            {totalChapitres}
-          </strong>
+          <strong>{totalChapitres}</strong>
 
           <span>
             chapitre{totalChapitres > 1 ? "s" : ""} à découvrir
           </span>
         </div>
-
       </section>
 
-      <section className="modules course-chapters">
+      <section className="course-chapters">
+        <div className="course-chapters-heading">
+          <div>
+            <span>PROGRAMME DU COURS</span>
 
-        {coursActuel.chapitres.map((chapitre, index) => (
+            <h2>Les chapitres</h2>
+          </div>
 
-          <article
-            className="card chapter-card"
-            key={chapitre.id}
-          >
+          <span className="course-chapter-count">
+            {totalChapitres} chapitre
+            {totalChapitres > 1 ? "s" : ""}
+          </span>
+        </div>
 
-            <div className="chapter-top">
+        <div className="course-chapters-grid">
+          {coursActuel.chapitres.map((chapitre, index) => (
+            <article
+              className="chapter-card"
+              key={chapitre.id}
+            >
+              <div className="chapter-top">
+                <div className="chapter-number">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
 
-              <div className="chapter-number">
-                {String(index + 1).padStart(2, "0")}
+                <span className="chapter-label">
+                  CHAPITRE {index + 1}
+                </span>
               </div>
 
-              <span className="chapter-label">
-                CHAPITRE {index + 1}
-              </span>
+              <div className="chapter-content">
+                <h3>{chapitre.titre}</h3>
 
-            </div>
+                <p>
+                  📖 Chapitre {index + 1} sur{" "}
+                  {totalChapitres}
+                </p>
+              </div>
 
-            <div className="chapter-content">
-
-              <h2>
-                {chapitre.titre}
-              </h2>
-
-              <p>
-                📖 Chapitre {index + 1} sur {totalChapitres}
-              </p>
-
-            </div>
-
-            <Link
-              to={`/bibliotheque/${categorieId}/cours/${coursActuel.id}/chapitre/${chapitre.id}`}
-              className="chapter-link"
-            >
-              <button>
-                Commencer le chapitre →
-              </button>
-            </Link>
-
-          </article>
-
-        ))}
-
+              <Link
+                to={`/bibliotheque/${categorieId}/cours/${coursActuel.id}/chapitre/${chapitre.id}`}
+                className="chapter-link"
+              >
+                <button type="button">
+                  Commencer
+                  <span>→</span>
+                </button>
+              </Link>
+            </article>
+          ))}
+        </div>
       </section>
-
     </div>
   );
 }

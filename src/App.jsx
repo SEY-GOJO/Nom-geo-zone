@@ -31,51 +31,51 @@ function Accueil() {
     {
       icon: "📚",
       title: "Bibliothèque",
-      description:
-        "Cours de géologie, chapitres et ressources pédagogiques.",
+      description: "Cours, chapitres et ressources pédagogiques.",
       link: "/bibliotheque",
+      className: "library",
     },
     {
       icon: "🎓",
       title: "Formation",
-      description:
-        "Développe tes connaissances grâce à des contenus adaptés.",
+      description: "Développe tes connaissances en sciences de la Terre.",
       link: "/formation",
+      className: "formation",
     },
     {
       icon: "🤖",
       title: "GEO AI",
-      description:
-        "Un assistant intelligent pour tes études en géologie et mines.",
+      description: "Ton assistant intelligent pour apprendre la géologie.",
       link: "/geo-ai",
+      className: "geo-ai",
     },
     {
       icon: "⛏️",
       title: "Mining",
-      description:
-        "Explore l'exploitation minière et ses principales disciplines.",
+      description: "Explore les principales disciplines minières.",
       link: "/mining",
+      className: "mining",
     },
     {
       icon: "🪨",
       title: "Roches",
-      description:
-        "Découvre les familles de roches et leurs caractéristiques.",
+      description: "Découvre les familles et caractéristiques des roches.",
       link: "/roches",
+      className: "rocks",
     },
     {
       icon: "🔬",
       title: "Identification",
-      description:
-        "Apprends à identifier les roches et les minéraux.",
+      description: "Apprends à identifier les roches et minéraux.",
       link: "/identification",
+      className: "identification",
     },
     {
       icon: "🛠️",
       title: "Outils",
-      description:
-        "Découvre les outils utiles au géologue sur le terrain.",
+      description: "Calculs et outils utiles au géologue.",
       link: "/outils",
+      className: "tools",
     },
   ];
 
@@ -95,14 +95,13 @@ function Accueil() {
           </h1>
 
           <p className="hero-subtitle">
-            L'espace numérique dédié à la géologie,
-            aux mines et aux sciences de la Terre.
+            L'univers numérique de la géologie et des mines.
           </p>
 
           <p className="hero-description">
-            Apprends, explore et développe tes connaissances
-            grâce à une plateforme pensée pour les étudiants
-            et passionnés des sciences de la Terre.
+            Apprends, explore et développe tes connaissances grâce à
+            une plateforme pensée pour les étudiants et passionnés
+            des sciences de la Terre.
           </p>
 
           <div className="hero-buttons">
@@ -117,17 +116,15 @@ function Accueil() {
               to="/roches"
               className="hero-button secondary"
             >
-              🪨 Roches
+              🪨 Explorer les roches
             </Link>
           </div>
         </div>
       </section>
 
       <main className="home-container">
-        <section className="intro-section">
-          <div className="section-label">
-            GEO ZONE
-          </div>
+        <section className="intro-section home-intro">
+          <div className="section-label">GEO ZONE</div>
 
           <h2>
             Tout ton univers géologique,
@@ -136,10 +133,10 @@ function Accueil() {
           </h2>
 
           <p>
-            GEO ZONE rassemble progressivement les ressources
-            essentielles pour apprendre la géologie et les mines :
-            cours, roches, identification, outils, formation et
-            intelligence artificielle.
+            Cours, roches, formation, outils, identification,
+            mining et intelligence artificielle : GEO ZONE rassemble
+            progressivement les ressources essentielles pour apprendre
+            et progresser.
           </p>
         </section>
 
@@ -150,9 +147,7 @@ function Accueil() {
                 EXPLORE LA PLATEFORME
               </span>
 
-              <h2>
-                Découvre nos espaces
-              </h2>
+              <h2>Nos espaces</h2>
             </div>
 
             <p>
@@ -161,44 +156,56 @@ function Accueil() {
           </div>
 
           <div className="home-modules">
-            {modules.map((module, index) => (
+            {modules.map((module) => (
               <Link
-                to={module.link}
-                className={`home-module-card ${
-                  index === 0 ? "featured-module" : ""
-                }`}
                 key={module.title}
+                to={module.link}
+                className={`home-module-card ${module.className}`}
               >
                 <div className="module-top">
                   <div className="home-module-icon">
                     {module.icon}
                   </div>
 
-                  <span className="module-arrow">
-                    →
-                  </span>
+                  <span className="module-arrow">↗</span>
                 </div>
 
-                <h3>
-                  {module.title}
-                </h3>
+                <h3>{module.title}</h3>
 
-                <p>
-                  {module.description}
-                </p>
+                <p>{module.description}</p>
 
                 <span className="module-link">
-                  Découvrir →
+                  Ouvrir <span>→</span>
                 </span>
               </Link>
             ))}
           </div>
         </section>
 
-        <section className="home-quote">
-          <div className="quote-icon">
-            🌍
+        <section className="home-quick-access">
+          <div className="home-quick-icon">⚡</div>
+
+          <div className="home-quick-content">
+            <span>ACCÈS RAPIDE</span>
+
+            <h2>
+              Commence ton exploration
+            </h2>
+
+            <p>
+              Accède directement aux ressources les plus utiles.
+            </p>
           </div>
+
+          <div className="home-quick-actions">
+            <Link to="/bibliotheque">📚 Cours</Link>
+            <Link to="/roches">🪨 Roches</Link>
+            <Link to="/outils">🛠️ Outils</Link>
+          </div>
+        </section>
+
+        <section className="home-quote">
+          <div className="quote-icon">🌍</div>
 
           <div>
             <h2>
@@ -223,72 +230,167 @@ function App() {
   return (
     <BrowserRouter>
       <nav className="navbar">
-        <Link
-          to="/"
-          className="nav-logo"
-          onClick={() => setMenuOuvert(false)}
-        >
-          🌍 GEO ZONE
-        </Link>
+  <Link
+    to="/"
+    className="nav-logo"
+    onClick={() => setMenuOuvert(false)}
+  >
+    🌍 GEO ZONE
+  </Link>
 
-        <button
-          className="mobile-menu-button"
-          type="button"
-          onClick={() => setMenuOuvert(!menuOuvert)}
-          aria-label="Ouvrir le menu"
-          aria-expanded={menuOuvert}
-        >
-          {menuOuvert ? "✕" : "☰"}
-        </button>
+  <button
+    className="mobile-menu-button"
+    type="button"
+    onClick={() => setMenuOuvert((ancienEtat) => !ancienEtat)}
+    aria-label="Menu"
+    aria-expanded={menuOuvert}
+  >
+    {menuOuvert ? "✕" : "☰"}
+  </button>
 
-        <div
-          className={`nav-links ${
-            menuOuvert ? "mobile-menu-open" : ""
-          }`}
-        >
-          <Link
-            to="/"
-            onClick={() => setMenuOuvert(false)}
-          >
-            Accueil
-          </Link>
+  {menuOuvert && (
+    <div
+      className="mobile-menu-overlay"
+      onClick={() => setMenuOuvert(false)}
+    ></div>
+  )}
 
-          <Link
-            to="/bibliotheque"
-            onClick={() => setMenuOuvert(false)}
-          >
-            Bibliothèque
-          </Link>
+  <div
+    className={`nav-links ${
+      menuOuvert ? "mobile-menu-open" : ""
+    }`}
+  >
+    <div className="mobile-menu-header">
+      <div>
+        <span className="mobile-menu-eyebrow">
+          NAVIGATION
+        </span>
 
-          <Link
-            to="/formation"
-            onClick={() => setMenuOuvert(false)}
-          >
-            Formation
-          </Link>
+        <strong>🌍 GEO ZONE</strong>
+      </div>
 
-          <Link
-            to="/geo-ai"
-            onClick={() => setMenuOuvert(false)}
-          >
-            GEO AI
-          </Link>
+      <button
+        type="button"
+        className="mobile-menu-close"
+        onClick={() => setMenuOuvert(false)}
+        aria-label="Fermer le menu"
+      >
+        ✕
+      </button>
+    </div>
 
-          <Link
-            to="/mining"
-            onClick={() => setMenuOuvert(false)}
-          >
-            Mining
-          </Link>
+    <div className="mobile-menu-section">
+      <span className="mobile-menu-section-title">
+        PRINCIPAL
+      </span>
 
-          <Link
-            to="/roches"
-            onClick={() => setMenuOuvert(false)}
-          >
-            Roches
-          </Link>
-        </div>
-      </nav>
+      <Link
+        to="/"
+        onClick={() => setMenuOuvert(false)}
+      >
+        <span className="mobile-menu-icon">🏠</span>
+        <span className="mobile-menu-text">
+          <strong>Accueil</strong>
+          <small>Page principale</small>
+        </span>
+      </Link>
+
+      <Link
+        to="/bibliotheque"
+        onClick={() => setMenuOuvert(false)}
+      >
+        <span className="mobile-menu-icon">📚</span>
+        <span className="mobile-menu-text">
+          <strong>Bibliothèque</strong>
+          <small>Cours et ressources</small>
+        </span>
+      </Link>
+
+      <Link
+        to="/formation"
+        onClick={() => setMenuOuvert(false)}
+      >
+        <span className="mobile-menu-icon">🎓</span>
+        <span className="mobile-menu-text">
+          <strong>Formation</strong>
+          <small>Apprendre et progresser</small>
+        </span>
+      </Link>
+
+      <Link
+        to="/geo-ai"
+        onClick={() => setMenuOuvert(false)}
+      >
+        <span className="mobile-menu-icon">🤖</span>
+        <span className="mobile-menu-text">
+          <strong>GEO AI</strong>
+          <small>Assistant géologique</small>
+        </span>
+      </Link>
+    </div>
+
+    <div className="mobile-menu-divider"></div>
+
+    <div className="mobile-menu-section">
+      <span className="mobile-menu-section-title">
+        EXPLORER
+      </span>
+
+      <Link
+        to="/mining"
+        onClick={() => setMenuOuvert(false)}
+      >
+        <span className="mobile-menu-icon">⛏️</span>
+        <span className="mobile-menu-text">
+          <strong>Mining</strong>
+          <small>Univers minier</small>
+        </span>
+      </Link>
+
+      <Link
+        to="/roches"
+        onClick={() => setMenuOuvert(false)}
+      >
+        <span className="mobile-menu-icon">🪨</span>
+        <span className="mobile-menu-text">
+          <strong>Roches</strong>
+          <small>Base de données</small>
+        </span>
+      </Link>
+
+      <Link
+        to="/identification"
+        onClick={() => setMenuOuvert(false)}
+      >
+        <span className="mobile-menu-icon">🔬</span>
+        <span className="mobile-menu-text">
+          <strong>Identification</strong>
+          <small>Identifier les roches</small>
+        </span>
+      </Link>
+
+      <Link
+        to="/outils"
+        onClick={() => setMenuOuvert(false)}
+      >
+        <span className="mobile-menu-icon">🛠️</span>
+        <span className="mobile-menu-text">
+          <strong>Outils</strong>
+          <small>Outils du géologue</small>
+        </span>
+      </Link>
+    </div>
+
+    <div className="mobile-menu-footer">
+      <span>🌍</span>
+
+      <div>
+        <strong>GEO ZONE</strong>
+        <small>Apprendre • Explorer • Comprendre</small>
+      </div>
+    </div>
+  </div>
+</nav>
 
       <Routes>
         <Route
@@ -440,47 +542,23 @@ function App() {
           </div>
 
           <div className="geo-footer-links">
-            <h3>
-              Navigation
-            </h3>
+            <h3>Navigation</h3>
 
-            <Link to="/">
-              Accueil
-            </Link>
-
-            <Link to="/bibliotheque">
-              Bibliothèque
-            </Link>
-
-            <Link to="/formation">
-              Formation
-            </Link>
-
-            <Link to="/roches">
-              Roches
-            </Link>
+            <Link to="/">Accueil</Link>
+            <Link to="/bibliotheque">Bibliothèque</Link>
+            <Link to="/formation">Formation</Link>
+            <Link to="/roches">Roches</Link>
           </div>
 
           <div className="geo-footer-links">
-            <h3>
-              Explorer
-            </h3>
+            <h3>Explorer</h3>
 
-            <Link to="/geo-ai">
-              GEO AI
-            </Link>
-
-            <Link to="/mining">
-              Mining
-            </Link>
-
+            <Link to="/geo-ai">GEO AI</Link>
+            <Link to="/mining">Mining</Link>
             <Link to="/identification">
               Identification
             </Link>
-
-            <Link to="/outils">
-              Outils
-            </Link>
+            <Link to="/outils">Outils</Link>
           </div>
         </div>
 

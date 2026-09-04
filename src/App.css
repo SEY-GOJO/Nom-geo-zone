@@ -6166,3 +6166,7531 @@ textarea:focus-visible {
     text-decoration: none !important;
   }
 }
+/* =========================================================
+   GEO ZONE — ACCUEIL MOBILE V3
+   STYLE APPLICATION
+========================================================= */
+
+.home-quick-access {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 25px;
+  padding: 22px;
+  border: 1px solid #dce8e1;
+  border-radius: 18px;
+  background: #edf5f0;
+}
+
+.home-quick-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: white;
+  font-size: 25px;
+}
+
+.home-quick-content {
+  flex: 1;
+}
+
+.home-quick-content > span {
+  display: block;
+  margin-bottom: 4px;
+  color: #176044;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+.home-quick-content h2 {
+  margin: 0 0 4px;
+  color: #0b2e20;
+  font-size: 18px;
+}
+
+.home-quick-content p {
+  margin: 0;
+  color: #66736c;
+  font-size: 13px;
+}
+
+.home-quick-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.home-quick-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border-radius: 9px;
+  background: white;
+  color: #176044;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid #dce8e1;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .home-page {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* HERO */
+
+  .home-page .hero {
+    min-height: auto;
+    padding: 34px 14px 28px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .home-page .hero-content {
+    max-width: 100%;
+  }
+
+  .home-page .hero-badge {
+    margin-bottom: 15px;
+    padding: 7px 10px;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .home-page .hero h1 {
+    margin: 0;
+    font-size: 38px;
+    letter-spacing: 2px;
+  }
+
+  .home-page .hero-subtitle {
+    margin: 12px auto 0;
+    max-width: 330px;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .home-page .hero-description {
+    max-width: 340px;
+    margin: 10px auto 0;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .home-page .hero-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 370px;
+    margin: 19px auto 0;
+    gap: 8px;
+  }
+
+  .home-page .hero-button {
+    width: 100%;
+    min-height: 43px;
+    padding: 9px 7px;
+    font-size: 11px;
+    border-radius: 9px;
+  }
+
+  /* CONTENU */
+
+  .home-page .home-container {
+    padding: 23px 10px 35px;
+  }
+
+  .home-page .home-intro {
+    margin: 0 0 27px;
+    padding: 0 2px;
+  }
+
+  .home-page .section-label {
+    margin-bottom: 5px;
+    font-size: 9px;
+  }
+
+  .home-page .intro-section h2 {
+    margin-bottom: 8px;
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .home-page .intro-section p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* TITRE */
+
+  .home-page .section-heading {
+    margin-bottom: 11px;
+  }
+
+  .home-page .section-small-title {
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+
+  .home-page .section-heading h2 {
+    margin-top: 4px;
+    font-size: 20px;
+  }
+
+  .home-page .section-heading > p {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+
+  /* =====================================================
+     CARTES 2 PAR 2
+  ===================================================== */
+
+  .home-page .home-modules {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    width: 100%;
+  }
+
+  .home-page .home-module-card {
+    min-height: 145px;
+    padding: 13px;
+    border-radius: 13px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.045);
+  }
+
+  .home-page .home-module-card:hover {
+    transform: none;
+  }
+
+  .home-page .module-top {
+    margin-bottom: 10px;
+  }
+
+  .home-page .home-module-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    font-size: 22px;
+  }
+
+  .home-page .module-arrow {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #edf5f0;
+    color: #176044;
+    font-size: 14px;
+  }
+
+  .home-page .featured-module .module-arrow {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .home-page .home-module-card h3 {
+    margin: 0 0 5px;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  .home-page .home-module-card p {
+    margin: 0;
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .home-page .module-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 9px;
+    font-size: 10px;
+  }
+
+  .home-page .module-link span {
+    font-size: 13px;
+  }
+
+  /* 7e carte */
+
+  .home-page .home-module-card:nth-child(7) {
+    grid-column: 1 / -1;
+    min-height: 112px;
+  }
+
+  .home-page .home-module-card:nth-child(7) .module-top {
+    margin-bottom: 7px;
+  }
+
+  /* ACCÈS RAPIDE */
+
+  .home-page .home-quick-access {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 15px;
+    border-radius: 14px;
+  }
+
+  .home-page .home-quick-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    font-size: 21px;
+  }
+
+  .home-page .home-quick-content > span {
+    font-size: 8px;
+  }
+
+  .home-page .home-quick-content h2 {
+    font-size: 16px;
+  }
+
+  .home-page .home-quick-content p {
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .home-page .home-quick-actions {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    width: 100%;
+  }
+
+  .home-page .home-quick-actions a {
+    min-height: 38px;
+    padding: 7px 5px;
+    font-size: 10px;
+    border-radius: 8px;
+  }
+
+  /* CITATION */
+
+  .home-page .home-quote {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .home-page .quote-icon {
+    min-width: 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    font-size: 21px;
+  }
+
+  .home-page .home-quote h2 {
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .home-page .home-quote p {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+}
+
+/* =========================================================
+   TRÈS PETITS TÉLÉPHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .home-page .hero {
+    padding: 29px 11px 25px;
+  }
+
+  .home-page .hero h1 {
+    font-size: 34px;
+  }
+
+  .home-page .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .home-page .hero-description {
+    font-size: 11px;
+  }
+
+  .home-page .home-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .home-page .home-modules {
+    gap: 7px;
+  }
+
+  .home-page .home-module-card {
+    min-height: 138px;
+    padding: 11px;
+  }
+
+  .home-page .home-module-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 20px;
+  }
+
+  .home-page .home-module-card h3 {
+    font-size: 14px;
+  }
+
+  .home-page .home-module-card p {
+    font-size: 9.5px;
+  }
+
+  .home-page .module-link {
+    font-size: 9px;
+  }
+}
+/* =========================================================
+   GEO ZONE — MENU MOBILE TYPE APPLICATION
+========================================================= */
+
+.mobile-menu-overlay {
+  display: none;
+}
+
+.mobile-menu-header,
+.mobile-menu-section,
+.mobile-menu-divider,
+.mobile-menu-footer {
+  display: none;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    min-height: 58px !important;
+    padding: 8px 12px !important;
+
+    background: #08251a !important;
+    color: white !important;
+  }
+
+  .nav-logo {
+    width: auto !important;
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: 900 !important;
+  }
+
+  .mobile-menu-button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 42px !important;
+    height: 42px !important;
+    min-height: 42px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-radius: 11px !important;
+
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: white !important;
+
+    font-size: 22px !important;
+    line-height: 1 !important;
+  }
+
+  .mobile-menu-button:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    transform: none !important;
+  }
+
+  /* Fond derrière le panneau */
+
+  .mobile-menu-overlay {
+    display: block;
+
+    position: fixed;
+    inset: 58px 0 0 0;
+
+    background: rgba(0, 0, 0, 0.38);
+
+    z-index: 9998;
+
+    backdrop-filter: blur(2px);
+  }
+
+  /* Panneau */
+
+  .navbar .nav-links {
+    position: fixed !important;
+
+    top: 58px !important;
+    right: 0 !important;
+    left: auto !important;
+
+    width: min(88vw, 360px) !important;
+    height: calc(100vh - 58px) !important;
+
+    display: none !important;
+    flex-direction: column !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    overflow-y: auto !important;
+
+    background: #ffffff !important;
+    color: #17221d !important;
+
+    border: none !important;
+    border-radius: 18px 0 0 18px !important;
+
+    box-shadow: -12px 0 35px rgba(0, 0, 0, 0.18) !important;
+
+    z-index: 9999 !important;
+  }
+
+  .navbar .nav-links.mobile-menu-open {
+    display: flex !important;
+  }
+
+  /* En-tête du panneau */
+
+  .mobile-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 21px 18px;
+
+    background: linear-gradient(
+      135deg,
+      #08251a,
+      #176044
+    );
+
+    color: white;
+  }
+
+  .mobile-menu-header > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .mobile-menu-eyebrow {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    opacity: 0.72;
+  }
+
+  .mobile-menu-header strong {
+    font-size: 18px;
+  }
+
+  .mobile-menu-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+    min-height: 38px;
+
+    padding: 0 !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 10px !important;
+
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+
+    font-size: 18px !important;
+  }
+
+  .mobile-menu-close:hover {
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.16) !important;
+  }
+
+  /* Sections */
+
+  .mobile-menu-section {
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 16px 12px 8px;
+  }
+
+  .mobile-menu-section-title {
+    margin: 0 8px 7px;
+
+    color: #8a958f;
+
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.3px;
+  }
+
+  /* Liens */
+
+  .navbar .nav-links .mobile-menu-section a {
+    display: flex !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    min-height: 61px !important;
+
+    margin: 2px 0 !important;
+    padding: 8px 10px !important;
+
+    border-radius: 12px !important;
+
+    color: #17221d !important;
+
+    text-decoration: none !important;
+
+    background: transparent !important;
+
+    gap: 11px;
+  }
+
+  .navbar .nav-links .mobile-menu-section a:hover {
+    background: #edf5f0 !important;
+    transform: none !important;
+  }
+
+  .mobile-menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background: #edf5f0;
+
+    font-size: 21px;
+  }
+
+  .mobile-menu-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    min-width: 0;
+  }
+
+  .mobile-menu-text strong {
+    color: #17221d;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .mobile-menu-text small {
+    color: #7a857f;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  /* Séparation */
+
+  .mobile-menu-divider {
+    display: block;
+
+    height: 1px;
+
+    margin: 4px 20px;
+
+    background: #e7ece9;
+  }
+
+  /* Bas du menu */
+
+  .mobile-menu-footer {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: auto;
+
+    padding: 17px 18px 22px;
+
+    border-top: 1px solid #edf0ee;
+  }
+
+  .mobile-menu-footer > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    background: #edf5f0;
+
+    font-size: 18px;
+  }
+
+  .mobile-menu-footer > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .mobile-menu-footer strong {
+    color: #176044;
+    font-size: 12px;
+  }
+
+  .mobile-menu-footer small {
+    color: #8a958f;
+    font-size: 9px;
+  }
+}
+
+/* =========================================================
+   PETIT ÉCRAN
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .navbar .nav-links {
+    width: 92vw !important;
+  }
+
+  .mobile-menu-header {
+    padding: 18px 15px;
+  }
+
+  .mobile-menu-section {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .navbar .nav-links .mobile-menu-section a {
+    min-height: 57px !important;
+  }
+
+  .mobile-menu-icon {
+    width: 39px;
+    height: 39px;
+    font-size: 19px;
+  }
+
+  .mobile-menu-text strong {
+    font-size: 13px;
+  }
+
+  .mobile-menu-text small {
+    font-size: 9px;
+  }
+}
+/* =========================================================
+   CORRECTION MENU ☰ — GEO ZONE
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  .navbar {
+    overflow: visible !important;
+  }
+
+  .navbar .nav-links {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .navbar .nav-links.mobile-menu-open {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .mobile-menu-overlay {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+/* =========================================================
+   GEO ZONE — ACCUEIL MOBILE FINAL
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  /* =======================================================
+     STRUCTURE GÉNÉRALE
+  ======================================================= */
+
+  .home-page {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .home-page .home-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px 10px 35px;
+  }
+
+  /* =======================================================
+     HERO
+  ======================================================= */
+
+  .home-page .hero {
+    width: 100%;
+    min-height: auto;
+    padding: 32px 15px 28px;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .home-page .hero-content {
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .home-page .hero-badge {
+    margin-bottom: 13px;
+    padding: 7px 10px;
+    font-size: 9px;
+    letter-spacing: 0.9px;
+  }
+
+  .home-page .hero h1 {
+    margin: 0;
+    font-size: clamp(34px, 11vw, 40px);
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+
+  .home-page .hero-subtitle {
+    max-width: 340px;
+    margin: 12px auto 0;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .home-page .hero-description {
+    max-width: 340px;
+    margin: 9px auto 0;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .home-page .hero-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    max-width: 360px;
+    margin: 19px auto 0;
+  }
+
+  .home-page .hero-button {
+    width: 100%;
+    min-height: 43px;
+    padding: 9px 6px;
+    border-radius: 9px;
+    font-size: 11px;
+  }
+
+  /* =======================================================
+     INTRODUCTION
+  ======================================================= */
+
+  .home-page .home-intro {
+    margin: 0 0 28px;
+    padding: 0 2px;
+  }
+
+  .home-page .home-intro .section-label {
+    margin-bottom: 5px;
+    font-size: 9px;
+  }
+
+  .home-page .home-intro h2 {
+    margin: 0 0 9px;
+    font-size: 22px;
+    line-height: 1.22;
+  }
+
+  .home-page .home-intro p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  /* =======================================================
+     TITRE MODULES
+  ======================================================= */
+
+  .home-page .section-heading {
+    margin-bottom: 11px;
+  }
+
+  .home-page .section-small-title {
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+
+  .home-page .section-heading h2 {
+    margin: 4px 0 0;
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .home-page .section-heading > p {
+    margin: 5px 0 0;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  /* =======================================================
+     MODULES — 2 PAR 2
+  ======================================================= */
+
+  .home-page .home-modules {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    width: 100%;
+  }
+
+  .home-page .home-module-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 150px;
+
+    padding: 13px;
+
+    border-radius: 14px;
+
+    box-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.045);
+
+    overflow: hidden;
+  }
+
+  .home-page .home-module-card:hover {
+    transform: none;
+  }
+
+  .home-page .module-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .home-page .home-module-icon {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    font-size: 22px;
+  }
+
+  .home-page .module-arrow {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #edf5f0;
+    color: #176044;
+
+    font-size: 13px;
+  }
+
+  .home-page .featured-module .module-arrow {
+    background: rgba(255, 255, 255, 0.13);
+    color: white;
+  }
+
+  .home-page .home-module-card h3 {
+    margin: 0 0 5px;
+
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  .home-page .home-module-card p {
+    margin: 0;
+
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .home-page .module-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    margin-top: auto;
+    padding-top: 9px;
+
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  .home-page .module-link span {
+    font-size: 13px;
+  }
+
+  /* =======================================================
+     7e MODULE — OUTILS
+  ======================================================= */
+
+  .home-page .home-module-card:nth-child(7) {
+    grid-column: 1 / -1;
+    min-height: 105px;
+  }
+
+  .home-page .home-module-card:nth-child(7) .module-top {
+    margin-bottom: 7px;
+  }
+
+  /* =======================================================
+     ACCÈS RAPIDE
+  ======================================================= */
+
+  .home-page .home-quick-access {
+    display: grid;
+    grid-template-columns: 43px 1fr;
+    gap: 10px;
+
+    width: 100%;
+
+    margin-top: 18px;
+    padding: 14px;
+
+    border-radius: 14px;
+  }
+
+  .home-page .home-quick-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 11px;
+
+    font-size: 20px;
+  }
+
+  .home-page .home-quick-content {
+    min-width: 0;
+  }
+
+  .home-page .home-quick-content > span {
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+
+  .home-page .home-quick-content h2 {
+    margin: 2px 0 4px;
+    font-size: 15px;
+  }
+
+  .home-page .home-quick-content p {
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .home-page .home-quick-actions {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    width: 100%;
+
+    gap: 6px;
+  }
+
+  .home-page .home-quick-actions a {
+    min-height: 37px;
+
+    padding: 7px 4px;
+
+    border-radius: 8px;
+
+    font-size: 9.5px;
+    text-align: center;
+  }
+
+  /* =======================================================
+     CITATION
+  ======================================================= */
+
+  .home-page .home-quote {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+
+    gap: 11px;
+
+    margin-top: 18px;
+    padding: 15px;
+
+    border-radius: 14px;
+  }
+
+  .home-page .quote-icon {
+    width: 41px;
+    min-width: 41px;
+    height: 41px;
+
+    border-radius: 11px;
+
+    font-size: 20px;
+  }
+
+  .home-page .home-quote h2 {
+    margin: 0 0 5px;
+
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .home-page .home-quote p {
+    margin: 0;
+
+    font-size: 10px;
+    line-height: 1.45;
+  }
+}
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .home-page .home-container {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .home-page .hero {
+    padding: 28px 11px 25px;
+  }
+
+  .home-page .hero h1 {
+    font-size: 33px;
+  }
+
+  .home-page .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .home-page .hero-description {
+    font-size: 11px;
+  }
+
+  .home-page .home-modules {
+    gap: 7px;
+  }
+
+  .home-page .home-module-card {
+    min-height: 140px;
+    padding: 11px;
+  }
+
+  .home-page .home-module-icon {
+    width: 39px;
+    height: 39px;
+    font-size: 20px;
+  }
+
+  .home-page .home-module-card h3 {
+    font-size: 14px;
+  }
+
+  .home-page .home-module-card p {
+    font-size: 9.5px;
+  }
+
+  .home-page .module-link {
+    font-size: 9px;
+  }
+
+  .home-page .home-quick-actions a {
+    font-size: 9px;
+  }
+}
+/* =========================================================
+   GEO ZONE — BIBLIOTHÈQUE MOBILE
+   STYLE GRILLE APPLICATION
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  .library-page {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 10px 30px !important;
+  }
+
+  /* -------------------------------------------------------
+     HERO
+  ------------------------------------------------------- */
+
+  .library-hero {
+    min-height: auto !important;
+    padding: 20px 16px !important;
+    margin-bottom: 12px !important;
+    border-radius: 14px !important;
+  }
+
+  .library-hero-content {
+    max-width: 100%;
+  }
+
+  .library-badge {
+    margin-bottom: 8px !important;
+    padding: 5px 8px !important;
+    font-size: 8px !important;
+  }
+
+  .library-hero h1 {
+    margin-bottom: 7px !important;
+    font-size: 25px !important;
+  }
+
+  .library-hero p {
+    font-size: 11px !important;
+    line-height: 1.5 !important;
+  }
+
+  .library-hero-icon {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 13px !important;
+    font-size: 25px !important;
+  }
+
+  /* -------------------------------------------------------
+     STATISTIQUES
+  ------------------------------------------------------- */
+
+  .library-stats {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .library-stat {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 10px 5px !important;
+    border-radius: 10px !important;
+    text-align: center !important;
+  }
+
+  .library-stat-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+    font-size: 17px !important;
+  }
+
+  .library-stat strong {
+    margin: 0 !important;
+    font-size: 14px !important;
+  }
+
+  .library-stat span {
+    font-size: 8px !important;
+  }
+
+  /* -------------------------------------------------------
+     RECHERCHE
+  ------------------------------------------------------- */
+
+  .library-search-section {
+    gap: 10px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .library-search-section h2 {
+    margin-bottom: 4px !important;
+    font-size: 18px !important;
+  }
+
+  .library-search-section p {
+    font-size: 10px !important;
+  }
+
+  .library-search-wrapper {
+    width: 100% !important;
+  }
+
+  .library-search {
+    min-height: 40px !important;
+    padding: 9px 40px !important;
+    font-size: 13px !important;
+    border-radius: 9px !important;
+  }
+
+  .library-search-icon {
+    left: 13px !important;
+    font-size: 15px !important;
+  }
+
+  /* -------------------------------------------------------
+     INFORMATION
+  ------------------------------------------------------- */
+
+  .library-info {
+    gap: 10px !important;
+    padding: 13px !important;
+    margin-bottom: 18px !important;
+    border-left-width: 3px !important;
+    border-radius: 10px !important;
+  }
+
+  .library-info-icon {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    font-size: 19px !important;
+  }
+
+  .library-info h2 {
+    margin-bottom: 3px !important;
+    font-size: 14px !important;
+  }
+
+  .library-info p {
+    font-size: 9px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* -------------------------------------------------------
+     TITRE
+  ------------------------------------------------------- */
+
+  .library-section-title {
+    align-items: center !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .library-section-title h2 {
+    font-size: 19px !important;
+  }
+
+  .category-count {
+    padding: 5px 8px !important;
+    font-size: 9px !important;
+  }
+
+  /* -------------------------------------------------------
+     GRILLE 2 × 2
+  ------------------------------------------------------- */
+
+  .library-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  /* -------------------------------------------------------
+     CARTES
+  ------------------------------------------------------- */
+
+  .library-card {
+    position: relative !important;
+
+    min-width: 0 !important;
+    min-height: 170px !important;
+
+    padding: 13px !important;
+
+    border-radius: 12px !important;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.045) !important;
+  }
+
+  .library-card-top {
+    margin-bottom: 9px !important;
+  }
+
+  .library-icon {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    font-size: 21px !important;
+  }
+
+  .library-card-number {
+    font-size: 8px !important;
+  }
+
+  .library-card h2 {
+    margin-bottom: 5px !important;
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+  }
+
+  .library-card > p {
+    margin-bottom: 10px !important;
+    font-size: 9.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  .library-card-footer {
+    gap: 6px !important;
+    padding-top: 9px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  .course-count {
+    gap: 3px !important;
+  }
+
+  .course-count span {
+    font-size: 10px !important;
+  }
+
+  .course-count strong {
+    font-size: 11px !important;
+  }
+
+  .course-count small {
+    font-size: 8px !important;
+  }
+
+  .library-explore {
+    width: auto !important;
+    min-height: 31px !important;
+    padding: 6px 8px !important;
+    border-radius: 7px !important;
+    font-size: 8px !important;
+  }
+
+  .library-explore span {
+    font-size: 11px !important;
+  }
+
+  /* -------------------------------------------------------
+     PETITE ANIMATION AU TOUCHER
+  ------------------------------------------------------- */
+
+  .library-card:active {
+    transform: scale(0.98);
+  }
+
+  .library-explore:active {
+    transform: scale(0.97);
+  }
+}
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .library-grid {
+    gap: 6px !important;
+  }
+
+  .library-card {
+    min-height: 155px !important;
+    padding: 11px !important;
+  }
+
+  .library-icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 19px !important;
+  }
+
+  .library-card h2 {
+    font-size: 13px !important;
+  }
+
+  .library-card > p {
+    font-size: 8.5px !important;
+  }
+
+  .library-explore {
+    padding: 5px 7px !important;
+    font-size: 7.5px !important;
+  }
+}
+/* =========================================================
+   GEO ZONE — ROCHES MOBILE FINAL
+   STYLE CATALOGUE / APPLICATION
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  /* -------------------------------------------------------
+     PAGE
+  ------------------------------------------------------- */
+
+  .rocks-page {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    margin: 0 !important;
+
+    padding: 12px 9px 30px !important;
+  }
+
+  /* -------------------------------------------------------
+     LIEN RETOUR
+  ------------------------------------------------------- */
+
+  .rocks-page .back-link {
+    display: inline-flex !important;
+
+    margin-bottom: 9px !important;
+    padding: 5px 8px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 11px !important;
+  }
+
+  /* -------------------------------------------------------
+     HERO
+  ------------------------------------------------------- */
+
+  .rocks-hero {
+    width: 100% !important;
+
+    min-height: auto !important;
+
+    margin-bottom: 10px !important;
+    padding: 18px 15px !important;
+
+    border-radius: 14px !important;
+  }
+
+  .rocks-hero-icon {
+    width: 43px !important;
+    height: 43px !important;
+
+    margin-bottom: 8px !important;
+
+    border-radius: 11px !important;
+
+    font-size: 22px !important;
+  }
+
+  .rocks-label {
+    margin-bottom: 5px !important;
+
+    padding: 4px 7px !important;
+
+    border-radius: 6px !important;
+
+    font-size: 8px !important;
+    letter-spacing: 0.6px !important;
+  }
+
+  .rocks-hero h1 {
+    margin: 0 !important;
+
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+
+  .rocks-hero > p {
+    margin: 7px 0 0 !important;
+
+    font-size: 10.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* -------------------------------------------------------
+     STATISTIQUES
+  ------------------------------------------------------- */
+
+  .rocks-stats {
+    display: grid !important;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 5px !important;
+
+    width: 100% !important;
+
+    margin-top: 13px !important;
+  }
+
+  .rocks-stats > div {
+    min-width: 0 !important;
+
+    padding: 8px 4px !important;
+
+    border-radius: 8px !important;
+
+    text-align: center !important;
+  }
+
+  .rocks-stats strong {
+    margin-bottom: 2px !important;
+
+    font-size: 12px !important;
+  }
+
+  .rocks-stats span {
+    font-size: 7.5px !important;
+  }
+
+  /* -------------------------------------------------------
+     RECHERCHE
+  ------------------------------------------------------- */
+
+  .rocks-search-section {
+    width: 100% !important;
+
+    margin-bottom: 11px !important;
+
+    padding: 12px !important;
+
+    border-radius: 11px !important;
+  }
+
+  .rocks-search-title h2 {
+    margin-bottom: 3px !important;
+
+    font-size: 16px !important;
+  }
+
+  .rocks-search-title p {
+    margin-bottom: 9px !important;
+
+    font-size: 9px !important;
+    line-height: 1.4 !important;
+  }
+
+  .rocks-search-section .search {
+    width: 100% !important;
+
+    min-height: 39px !important;
+
+    margin-bottom: 8px !important;
+
+    padding: 8px 10px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+  }
+
+  /* -------------------------------------------------------
+     FILTRES — TUILES
+  ------------------------------------------------------- */
+
+  .rocks-search-section .filters {
+    display: grid !important;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 5px !important;
+
+    width: 100% !important;
+
+    margin-top: 7px !important;
+  }
+
+  .rocks-search-section .filters button {
+    width: 100% !important;
+
+    min-height: 34px !important;
+
+    padding: 6px 4px !important;
+
+    border-radius: 7px !important;
+
+    font-size: 9px !important;
+  }
+
+  /* -------------------------------------------------------
+     EN-TÊTE DES RÉSULTATS
+  ------------------------------------------------------- */
+
+  .rocks-result-header {
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    gap: 8px !important;
+
+    margin-bottom: 8px !important;
+  }
+
+  .rocks-result-header h2 {
+    margin: 0 !important;
+
+    font-size: 17px !important;
+    line-height: 1.2 !important;
+  }
+
+  .rocks-result-header p {
+    margin: 2px 0 0 !important;
+
+    font-size: 8.5px !important;
+  }
+
+  .selected-family {
+    max-width: 115px !important;
+
+    padding: 5px 7px !important;
+
+    border-radius: 7px !important;
+
+    font-size: 8px !important;
+
+    text-align: center !important;
+  }
+
+  /* -------------------------------------------------------
+     GRILLE DES ROCHES — 2 × 2
+  ------------------------------------------------------- */
+
+  .rocks-grid {
+    display: grid !important;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 7px !important;
+
+    width: 100% !important;
+  }
+
+  /* -------------------------------------------------------
+     CARTE
+  ------------------------------------------------------- */
+
+  .rocks-grid .rock-card {
+    display: flex !important;
+    flex-direction: column !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    padding: 10px !important;
+
+    border-radius: 11px !important;
+
+    overflow: hidden !important;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .rocks-grid .rock-card:hover {
+    transform: none !important;
+  }
+
+  .rock-card:active {
+    transform: scale(0.98) !important;
+  }
+
+  /* -------------------------------------------------------
+     HAUT DE CARTE
+  ------------------------------------------------------- */
+
+  .rock-card-top {
+    width: 100% !important;
+
+    margin-bottom: 7px !important;
+  }
+
+  .rock-icon {
+    width: 34px !important;
+    height: 34px !important;
+
+    border-radius: 9px !important;
+
+    font-size: 18px !important;
+  }
+
+  .rock-family {
+    max-width: 68px !important;
+
+    padding: 4px 5px !important;
+
+    border-radius: 6px !important;
+
+    font-size: 7px !important;
+
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  /* -------------------------------------------------------
+     NOM
+  ------------------------------------------------------- */
+
+  .rock-card h2 {
+    margin: 0 0 3px !important;
+
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+
+    word-break: break-word !important;
+  }
+
+  .rock-subfamily {
+    margin: 0 0 7px !important;
+
+    font-size: 8px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* -------------------------------------------------------
+     DÉTAILS
+  ------------------------------------------------------- */
+
+  .rock-details {
+    display: grid !important;
+
+    grid-template-columns: 1fr !important;
+
+    gap: 3px !important;
+
+    margin: 0 0 7px !important;
+  }
+
+  .rock-details > div {
+    min-width: 0 !important;
+
+    padding: 5px !important;
+
+    border-radius: 6px !important;
+  }
+
+  .rock-details span {
+    margin-bottom: 2px !important;
+
+    font-size: 6.5px !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  .rock-details strong {
+    font-size: 8px !important;
+    line-height: 1.2 !important;
+
+    word-break: break-word !important;
+  }
+
+  /* -------------------------------------------------------
+     MINÉRAUX
+  ------------------------------------------------------- */
+
+  .rock-minerals {
+    margin: 0 0 7px !important;
+  }
+
+  .rock-minerals > span {
+    margin-bottom: 2px !important;
+
+    font-size: 6.5px !important;
+  }
+
+  .rock-minerals p {
+    margin: 0 !important;
+
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+
+    overflow: hidden !important;
+
+    font-size: 8px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* -------------------------------------------------------
+     BOUTON
+  ------------------------------------------------------- */
+
+  .rock-card > a {
+    width: 100% !important;
+
+    margin-top: auto !important;
+  }
+
+  .rock-button {
+    width: 100% !important;
+
+    min-height: 32px !important;
+
+    padding: 6px 4px !important;
+
+    border-radius: 7px !important;
+
+    font-size: 8.5px !important;
+  }
+
+  /* -------------------------------------------------------
+     RÉSULTAT VIDE
+  ------------------------------------------------------- */
+
+  .rock-empty {
+    padding: 28px 12px !important;
+  }
+
+  .rock-empty-icon {
+    width: 58px !important;
+    height: 58px !important;
+
+    margin-bottom: 12px !important;
+
+    border-radius: 16px !important;
+
+    font-size: 26px !important;
+  }
+
+  .rock-empty h2 {
+    font-size: 17px !important;
+  }
+
+  .rock-empty p {
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .rocks-page {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .rocks-grid {
+    gap: 6px !important;
+  }
+
+  .rocks-grid .rock-card {
+    padding: 8px !important;
+    border-radius: 10px !important;
+  }
+
+  .rock-icon {
+    width: 31px !important;
+    height: 31px !important;
+
+    font-size: 16px !important;
+  }
+
+  .rock-card h2 {
+    font-size: 13px !important;
+  }
+
+  .rock-subfamily {
+    font-size: 7.5px !important;
+  }
+
+  .rock-details {
+    gap: 2px !important;
+  }
+
+  .rock-details > div {
+    padding: 4px !important;
+  }
+
+  .rock-details span,
+  .rock-minerals > span {
+    font-size: 6px !important;
+  }
+
+  .rock-details strong,
+  .rock-minerals p {
+    font-size: 7.5px !important;
+  }
+
+  .rock-button {
+    min-height: 29px !important;
+    font-size: 8px !important;
+  }
+}
+/* =========================================================
+   GEO ZONE — OUTILS MOBILE FINAL
+   STYLE APPLICATION / TUILES
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  /* =======================================================
+     PAGE OUTILS
+  ======================================================= */
+
+  .tools-page,
+  .outils-page {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 12px 9px 30px !important;
+  }
+
+  /* =======================================================
+     HERO / BLOC D'ACCUEIL
+  ======================================================= */
+
+  .tools-page .welcome,
+  .outils-page .welcome {
+    margin-bottom: 13px !important;
+    padding: 18px 15px !important;
+    border-radius: 14px !important;
+  }
+
+  .tools-page .welcome h1,
+  .outils-page .welcome h1 {
+    margin-bottom: 6px !important;
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+
+  .tools-page .welcome p,
+  .outils-page .welcome p {
+    font-size: 10.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  .tools-page .module-icon,
+  .outils-page .module-icon {
+    width: 43px !important;
+    height: 43px !important;
+    margin-bottom: 9px !important;
+    border-radius: 11px !important;
+    font-size: 22px !important;
+  }
+
+  /* =======================================================
+     TITRES
+  ======================================================= */
+
+  .tools-page .welcome + h2,
+  .outils-page .welcome + h2 {
+    margin: 14px 2px 9px !important;
+    color: #0b2e20 !important;
+    font-size: 18px !important;
+  }
+
+  /* =======================================================
+     GRILLE DES OUTILS
+  ======================================================= */
+
+  .tools-page .modules,
+  .outils-page .modules {
+    display: grid !important;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 8px !important;
+
+    width: 100% !important;
+
+    margin-top: 0 !important;
+  }
+
+  /* =======================================================
+     CARTES
+  ======================================================= */
+
+  .tools-page .modules .card,
+  .outils-page .modules .card {
+    display: flex !important;
+    flex-direction: column !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 145px !important;
+
+    padding: 13px !important;
+
+    border-radius: 12px !important;
+
+    overflow: hidden !important;
+
+    text-decoration: none !important;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.045) !important;
+  }
+
+  .tools-page .modules .card:hover,
+  .outils-page .modules .card:hover {
+    transform: none !important;
+  }
+
+  .tools-page .modules .card:active,
+  .outils-page .modules .card:active {
+    transform: scale(0.98) !important;
+  }
+
+  /* =======================================================
+     ICÔNE
+  ======================================================= */
+
+  .tools-page .modules .card .module-icon,
+  .outils-page .modules .card .module-icon {
+    width: 42px !important;
+    height: 42px !important;
+
+    margin: 0 0 10px !important;
+
+    border-radius: 11px !important;
+
+    background: #edf5f0 !important;
+
+    font-size: 22px !important;
+  }
+
+  /* =======================================================
+     TITRE CARTE
+  ======================================================= */
+
+  .tools-page .modules .card h2,
+  .outils-page .modules .card h2 {
+    margin: 0 0 5px !important;
+
+    color: #17221d !important;
+
+    font-size: 14px !important;
+
+    line-height: 1.2 !important;
+  }
+
+  /* =======================================================
+     DESCRIPTION
+  ======================================================= */
+
+  .tools-page .modules .card p,
+  .outils-page .modules .card p {
+    margin: 0 !important;
+
+    color: #66736c !important;
+
+    font-size: 9.5px !important;
+
+    line-height: 1.45 !important;
+  }
+
+  /* =======================================================
+     FLÈCHE
+  ======================================================= */
+
+  .tools-page .modules .card::after,
+  .outils-page .modules .card::after {
+    content: "→" !important;
+
+    position: absolute !important;
+
+    right: 10px !important;
+    bottom: 10px !important;
+
+    width: 24px !important;
+    height: 24px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 50% !important;
+
+    background: #edf5f0 !important;
+
+    color: #176044 !important;
+
+    font-size: 13px !important;
+    font-weight: 800 !important;
+  }
+
+  /* =======================================================
+     5e OUTIL — PLEINE LARGEUR
+  ======================================================= */
+
+  .tools-page .modules .card:nth-child(5),
+  .outils-page .modules .card:nth-child(5) {
+    grid-column: 1 / -1 !important;
+
+    min-height: 100px !important;
+  }
+
+  .tools-page .modules .card:nth-child(5) .module-icon,
+  .outils-page .modules .card:nth-child(5) .module-icon {
+    margin-bottom: 7px !important;
+  }
+
+  /* =======================================================
+     SECTION SUPPLÉMENTAIRE
+  ======================================================= */
+
+  .tools-page .card:not(.modules .card),
+  .outils-page .card:not(.modules .card) {
+    width: 100% !important;
+  }
+}
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .tools-page,
+  .outils-page {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .tools-page .modules,
+  .outils-page .modules {
+    gap: 6px !important;
+  }
+
+  .tools-page .modules .card,
+  .outils-page .modules .card {
+    min-height: 137px !important;
+    padding: 11px !important;
+  }
+
+  .tools-page .modules .card .module-icon,
+  .outils-page .modules .card .module-icon {
+    width: 38px !important;
+    height: 38px !important;
+
+    font-size: 20px !important;
+  }
+
+  .tools-page .modules .card h2,
+  .outils-page .modules .card h2 {
+    font-size: 13px !important;
+  }
+
+  .tools-page .modules .card p,
+  .outils-page .modules .card p {
+    font-size: 8.5px !important;
+  }
+
+  .tools-page .modules .card::after,
+  .outils-page .modules .card::after {
+    width: 22px !important;
+    height: 22px !important;
+
+    right: 8px !important;
+    bottom: 8px !important;
+
+    font-size: 12px !important;
+  }
+}
+/* =========================================================
+   GEO ZONE — OUTILS
+   INTERFACE TYPE APPLICATION
+========================================================= */
+
+.tools-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  margin-bottom: 28px;
+  padding: 28px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255, 255, 255, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #08251a, #176044);
+
+  color: white;
+
+  box-shadow: 0 12px 30px rgba(11, 46, 32, 0.15);
+}
+
+.tools-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 250px;
+  height: 250px;
+
+  right: -120px;
+  top: -160px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+}
+
+.tools-hero-icon {
+  position: relative;
+  z-index: 1;
+
+  width: 68px;
+  height: 68px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 34px;
+}
+
+.tools-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.tools-hero-content > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+}
+
+.tools-hero h1 {
+  margin: 0 0 6px;
+
+  font-size: 31px;
+  line-height: 1.15;
+}
+
+.tools-hero p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.tools-section {
+  margin-bottom: 40px;
+}
+
+.tools-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 18px;
+}
+
+.tools-section-heading > div > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #176044;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+}
+
+.tools-section-heading h2 {
+  margin: 0;
+
+  color: #0b2e20;
+
+  font-size: 27px;
+}
+
+.tools-section-heading > p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   GRILLE
+========================================================= */
+
+.tools-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 17px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   CARTE
+========================================================= */
+
+.tool-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 220px;
+
+  padding: 20px;
+
+  border: 1px solid #e1e8e3;
+  border-radius: 17px;
+
+  background: white;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.045);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.tool-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 115px;
+  height: 115px;
+
+  right: -60px;
+  bottom: -60px;
+
+  border-radius: 50%;
+
+  background: #f0f6f2;
+
+  pointer-events: none;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #cbdad1;
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+.tool-card-disabled {
+  cursor: default;
+}
+
+.tool-card-disabled:hover {
+  transform: none;
+}
+
+
+/* =========================================================
+   HAUT
+========================================================= */
+
+.tool-card-top {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.tool-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #edf5f0;
+
+  font-size: 27px;
+}
+
+.tool-number {
+  color: #b2bdb7;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CONTENU
+========================================================= */
+
+.tool-card-content {
+  position: relative;
+  z-index: 1;
+
+  flex: 1;
+}
+
+.tool-card-content h3 {
+  margin: 0 0 8px;
+
+  color: #17221d;
+
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.tool-card-content p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BAS DE CARTE
+========================================================= */
+
+.tool-card-footer {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.tool-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #176044;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.tool-action span {
+  font-size: 18px;
+
+  transition: transform 0.2s ease;
+}
+
+.tool-card:hover .tool-action span {
+  transform: translateX(4px);
+}
+
+.tool-coming {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 10px;
+
+  border-radius: 8px;
+
+  background: #f1f3f2;
+
+  color: #8a958f;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   LARGEUR SPÉCIALE
+========================================================= */
+
+.tool-card-wide {
+  grid-column: auto;
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .tools-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tools-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .outils-page {
+    padding: 12px 9px 30px !important;
+  }
+
+  /* HERO */
+
+  .tools-hero {
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 17px;
+
+    padding: 17px 14px;
+
+    border-radius: 14px;
+  }
+
+  .tools-hero-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 11px;
+
+    font-size: 22px;
+  }
+
+  .tools-hero-content {
+    min-width: 0;
+  }
+
+  .tools-hero-content > span {
+    margin-bottom: 3px;
+
+    font-size: 8px;
+  }
+
+  .tools-hero h1 {
+    margin-bottom: 4px;
+
+    font-size: 22px;
+  }
+
+  .tools-hero p {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  /* SECTION */
+
+  .tools-section-heading {
+    margin-bottom: 10px;
+  }
+
+  .tools-section-heading > div > span {
+    font-size: 8px;
+  }
+
+  .tools-section-heading h2 {
+    font-size: 19px;
+  }
+
+  .tools-section-heading > p {
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+  /* GRILLE 2 × 2 */
+
+  .tools-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+  /* CARTE */
+
+  .tool-card {
+    min-height: 151px;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .tool-card:hover {
+    transform: none;
+  }
+
+  .tool-card:active {
+    transform: scale(0.98);
+  }
+
+  .tool-card::after {
+    width: 80px;
+    height: 80px;
+
+    right: -42px;
+    bottom: -42px;
+  }
+
+  /* ICÔNE */
+
+  .tool-card-top {
+    margin-bottom: 12px;
+  }
+
+  .tool-icon {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+  }
+
+  .tool-number {
+    font-size: 8px;
+  }
+
+  /* TITRE */
+
+  .tool-card-content h3 {
+    margin-bottom: 5px;
+
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  /* DESCRIPTION */
+
+  .tool-card-content p {
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  /* ACTION */
+
+  .tool-card-footer {
+    margin-top: 10px;
+  }
+
+  .tool-action {
+    font-size: 9px;
+  }
+
+  .tool-action span {
+    font-size: 13px;
+  }
+
+  .tool-coming {
+    padding: 5px 7px;
+
+    font-size: 7.5px;
+
+    border-radius: 6px;
+  }
+
+  /* SIXIÈME CARTE */
+
+  .tool-card-wide {
+    grid-column: 1 / -1;
+
+    min-height: 92px;
+  }
+
+  .tool-card-wide .tool-card-top {
+    margin-bottom: 7px;
+  }
+
+  .tool-card-wide .tool-icon {
+    width: 36px;
+    height: 36px;
+
+    font-size: 19px;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .tools-grid {
+    gap: 6px;
+  }
+
+  .tool-card {
+    min-height: 143px;
+
+    padding: 10px;
+  }
+
+  .tool-icon {
+    width: 36px;
+    height: 36px;
+
+    font-size: 18px;
+  }
+
+  .tool-card-content h3 {
+    font-size: 12.5px;
+  }
+
+  .tool-card-content p {
+    font-size: 8.5px;
+  }
+
+  .tool-action {
+    font-size: 8.5px;
+  }
+
+  .tool-coming {
+    font-size: 7px;
+  }
+}
+/* =========================================================
+   GEO ZONE — MINING
+   INTERFACE MOBILE TYPE APPLICATION
+========================================================= */
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.mining-hero {
+  position: relative;
+  overflow: hidden;
+
+  margin-bottom: 20px;
+  padding: 32px;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255, 255, 255, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #08251a, #176044);
+
+  color: white;
+
+  box-shadow:
+    0 12px 30px rgba(11, 46, 32, 0.15);
+}
+
+.mining-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -140px;
+  top: -180px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+}
+
+.mining-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mining-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 17px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 33px;
+}
+
+.mining-badge {
+  display: inline-block;
+
+  margin-bottom: 8px;
+  padding: 6px 10px;
+
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.2px;
+}
+
+.mining-hero h1 {
+  margin: 0 0 8px;
+
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.mining-hero p {
+  max-width: 680px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.83);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.mining-intro-card {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 17px;
+
+  margin-bottom: 28px;
+  padding: 22px;
+
+  border: 1px solid #e2e9e4;
+  border-radius: 17px;
+
+  background: white;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.mining-intro-icon {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #edf5f0;
+
+  font-size: 24px;
+}
+
+.mining-intro-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #176044;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.mining-intro-card h2 {
+  margin: 0 0 7px;
+
+  color: #0b2e20;
+
+  font-size: 20px;
+}
+
+.mining-intro-card p {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.mining-section {
+  margin-bottom: 30px;
+}
+
+.mining-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 17px;
+}
+
+.mining-section-heading > div > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #176044;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+}
+
+.mining-section-heading h2 {
+  margin: 0;
+
+  color: #0b2e20;
+
+  font-size: 27px;
+}
+
+.mining-section-heading > p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   GRILLE
+========================================================= */
+
+.mining-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 17px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   CARTE DOMAINE
+========================================================= */
+
+.mining-domain-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 225px;
+
+  padding: 20px;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 17px;
+
+  background: white;
+
+  color: inherit;
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.045);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.mining-domain-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 110px;
+  height: 110px;
+
+  right: -55px;
+  bottom: -55px;
+
+  border-radius: 50%;
+
+  background: #f0f6f2;
+
+  pointer-events: none;
+}
+
+.mining-domain-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #cbdad1;
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   HAUT
+========================================================= */
+
+.mining-domain-top {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.mining-domain-icon {
+  width: 51px;
+  height: 51px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #edf5f0;
+
+  font-size: 27px;
+}
+
+.mining-domain-number {
+  color: #b2bdb7;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CONTENU
+========================================================= */
+
+.mining-domain-content {
+  position: relative;
+  z-index: 1;
+
+  flex: 1;
+}
+
+.mining-domain-content h3 {
+  margin: 0 0 8px;
+
+  color: #17221d;
+
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.mining-domain-content p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BAS
+========================================================= */
+
+.mining-domain-footer {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 18px;
+}
+
+.mining-domain-footer span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #176044;
+
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.mining-domain-footer strong {
+  font-size: 18px;
+
+  transition: transform 0.2s ease;
+}
+
+.mining-domain-card:hover
+.mining-domain-footer strong {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.mining-info {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 15px;
+
+  padding: 21px;
+
+  border:
+    1px solid #dce8e1;
+
+  border-radius: 16px;
+
+  background: #edf5f0;
+}
+
+.mining-info-icon {
+  width: 44px;
+  height: 44px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: white;
+
+  font-size: 21px;
+}
+
+.mining-info h3 {
+  margin: 0 0 6px;
+
+  color: #0b2e20;
+
+  font-size: 17px;
+}
+
+.mining-info p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .mining-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .mining-section-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 7px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .mining-page {
+    padding:
+      12px 9px 30px !important;
+  }
+
+  /* HERO */
+
+  .mining-hero {
+    margin-bottom: 11px;
+
+    padding: 18px 14px;
+
+    border-radius: 14px;
+  }
+
+  .mining-icon {
+    width: 43px;
+    height: 43px;
+
+    margin-bottom: 8px;
+
+    border-radius: 11px;
+
+    font-size: 22px;
+  }
+
+  .mining-badge {
+    margin-bottom: 5px;
+
+    padding: 4px 7px;
+
+    font-size: 7px;
+    letter-spacing: 0.7px;
+  }
+
+  .mining-hero h1 {
+    margin-bottom: 5px;
+
+    font-size: 24px;
+  }
+
+  .mining-hero p {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+
+  /* INTRO */
+
+  .mining-intro-card {
+    gap: 10px;
+
+    margin-bottom: 17px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+  }
+
+  .mining-intro-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 9px;
+
+    font-size: 19px;
+  }
+
+  .mining-intro-label {
+    margin-bottom: 3px;
+
+    font-size: 7px;
+  }
+
+  .mining-intro-card h2 {
+    margin-bottom: 4px;
+
+    font-size: 14px;
+  }
+
+  .mining-intro-card p {
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+
+  /* SECTION */
+
+  .mining-section-heading {
+    margin-bottom: 9px;
+  }
+
+  .mining-section-heading > div > span {
+    font-size: 8px;
+  }
+
+  .mining-section-heading h2 {
+    font-size: 19px;
+  }
+
+  .mining-section-heading > p {
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+
+  /* =====================================================
+     2 × 2
+  ===================================================== */
+
+  .mining-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+
+    width: 100%;
+  }
+
+
+  /* =====================================================
+     CARTES
+  ===================================================== */
+
+  .mining-domain-card {
+    min-height: 155px;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .mining-domain-card:hover {
+    transform: none;
+  }
+
+  .mining-domain-card:active {
+    transform: scale(0.98);
+  }
+
+  .mining-domain-card::after {
+    width: 80px;
+    height: 80px;
+
+    right: -40px;
+    bottom: -40px;
+  }
+
+
+  /* HAUT */
+
+  .mining-domain-top {
+    margin-bottom: 10px;
+  }
+
+  .mining-domain-icon {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+  }
+
+  .mining-domain-number {
+    font-size: 8px;
+  }
+
+
+  /* CONTENU */
+
+  .mining-domain-content h3 {
+    margin-bottom: 5px;
+
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .mining-domain-content p {
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+
+  /* FOOTER */
+
+  .mining-domain-footer {
+    margin-top: 9px;
+  }
+
+  .mining-domain-footer span {
+    gap: 5px;
+
+    font-size: 9px;
+  }
+
+  .mining-domain-footer strong {
+    font-size: 13px;
+  }
+
+
+  /* INFO */
+
+  .mining-info {
+    gap: 9px;
+
+    margin-top: 17px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+  }
+
+  .mining-info-icon {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+  }
+
+  .mining-info h3 {
+    margin-bottom: 4px;
+
+    font-size: 13px;
+  }
+
+  .mining-info p {
+    font-size: 9px;
+    line-height: 1.45;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .mining-page {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .mining-grid {
+    gap: 6px;
+  }
+
+  .mining-domain-card {
+    min-height: 147px;
+    padding: 10px;
+  }
+
+  .mining-domain-icon {
+    width: 36px;
+    height: 36px;
+
+    font-size: 18px;
+  }
+
+  .mining-domain-content h3 {
+    font-size: 12px;
+  }
+
+  .mining-domain-content p {
+    font-size: 8px;
+  }
+
+  .mining-domain-footer span {
+    font-size: 8px;
+  }
+}
+/* =========================================================
+   GEO ZONE — GEO AI
+   INTERFACE MOBILE TYPE APPLICATION
+========================================================= */
+
+/* HERO */
+
+.geoai-hero {
+  position: relative;
+  overflow: hidden;
+
+  margin-bottom: 18px;
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255, 255, 255, 0.13),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #08251a, #176044);
+
+  color: white;
+
+  box-shadow:
+    0 12px 30px rgba(11, 46, 32, 0.15);
+}
+
+.geoai-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -140px;
+  top: -180px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+}
+
+.geoai-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.geoai-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border-radius: 17px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 33px;
+}
+
+.geoai-badge {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  padding: 6px 10px;
+
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+.geoai-hero h1 {
+  margin: 0 0 7px;
+
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.geoai-hero p {
+  max-width: 680px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.84);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ZONE QUESTION
+========================================================= */
+
+.geoai-question-card {
+  margin-bottom: 28px;
+
+  padding: 23px;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 17px;
+
+  background: white;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.045);
+}
+
+.geoai-question-header {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 14px;
+
+  margin-bottom: 17px;
+}
+
+.geoai-small-icon {
+  width: 47px;
+  height: 47px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #edf5f0;
+
+  font-size: 23px;
+}
+
+.geoai-question-label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #176044;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.geoai-question-header h2 {
+  margin: 0 0 5px;
+
+  color: #0b2e20;
+
+  font-size: 21px;
+}
+
+.geoai-question-header p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+/* TEXTAREA */
+
+.geoai-textarea {
+  width: 100%;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  border:
+    1px solid #d1d8d4;
+
+  border-radius: 13px;
+
+  background: #fafcfb;
+
+  color: #17221d;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  resize: vertical;
+
+  outline: none;
+}
+
+.geoai-textarea:focus {
+  border-color: #176044;
+
+  background: white;
+
+  box-shadow:
+    0 0 0 4px rgba(23, 96, 68, 0.1);
+}
+
+.geoai-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 13px;
+}
+
+.geoai-action > span {
+  color: #66736c;
+
+  font-size: 11px;
+}
+
+.geoai-action button {
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.geoai-section {
+  margin-bottom: 28px;
+}
+
+.geoai-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 17px;
+}
+
+.geoai-section-heading > div > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #176044;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+}
+
+.geoai-section-heading h2 {
+  margin: 0;
+
+  color: #0b2e20;
+
+  font-size: 27px;
+}
+
+.geoai-section-heading > p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   GRILLE
+========================================================= */
+
+.geoai-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 8px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   CARTES
+========================================================= */
+
+.geoai-domain-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 185px;
+
+  padding: 14px;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 13px;
+
+  background: white;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 13px rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.geoai-domain-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 80px;
+  height: 80px;
+
+  right: -40px;
+  bottom: -40px;
+
+  border-radius: 50%;
+
+  background: #f0f6f2;
+
+  pointer-events: none;
+}
+
+.geoai-domain-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 26px rgba(0, 0, 0, 0.07);
+}
+
+
+/* TOP */
+
+.geoai-domain-top {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.geoai-domain-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #edf5f0;
+
+  font-size: 22px;
+}
+
+.geoai-domain-number {
+  color: #b2bdb7;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+/* CONTENU */
+
+.geoai-domain-content {
+  position: relative;
+  z-index: 1;
+
+  flex: 1;
+}
+
+.geoai-domain-content h3 {
+  margin: 0 0 6px;
+
+  color: #17221d;
+
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.geoai-domain-content p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+/* TAG */
+
+.geoai-domain-tag {
+  position: relative;
+  z-index: 1;
+
+  display: inline-flex;
+  align-self: flex-start;
+
+  margin-top: 10px;
+
+  padding: 5px 7px;
+
+  border-radius: 7px;
+
+  background: #edf5f0;
+
+  color: #176044;
+
+  font-size: 7.5px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.geoai-info {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  padding: 18px;
+
+  border:
+    1px solid #dce8e1;
+
+  border-radius: 14px;
+
+  background: #edf5f0;
+}
+
+.geoai-info-icon {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: white;
+
+  font-size: 20px;
+}
+
+.geoai-info h3 {
+  margin: 0 0 5px;
+
+  color: #0b2e20;
+
+  font-size: 15px;
+}
+
+.geoai-info p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 11px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  .geoai-page {
+    padding:
+      12px 9px 30px !important;
+  }
+
+  .geoai-hero {
+    margin-bottom: 11px;
+
+    padding: 19px 14px;
+
+    border-radius: 14px;
+  }
+
+  .geoai-icon {
+    width: 43px;
+    height: 43px;
+
+    margin-bottom: 8px;
+
+    border-radius: 11px;
+
+    font-size: 22px;
+  }
+
+  .geoai-badge {
+    padding: 4px 7px;
+
+    font-size: 7px;
+    letter-spacing: 0.7px;
+  }
+
+  .geoai-hero h1 {
+    font-size: 24px;
+  }
+
+  .geoai-hero p {
+    font-size: 10px;
+
+    line-height: 1.5;
+  }
+
+
+  /* QUESTION */
+
+  .geoai-question-card {
+    margin-bottom: 17px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+  }
+
+  .geoai-question-header {
+    gap: 9px;
+
+    margin-bottom: 11px;
+  }
+
+  .geoai-small-icon {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+  }
+
+  .geoai-question-label {
+    font-size: 7px;
+  }
+
+  .geoai-question-header h2 {
+    font-size: 15px;
+  }
+
+  .geoai-question-header p {
+    font-size: 9px;
+
+    line-height: 1.45;
+  }
+
+  .geoai-textarea {
+    min-height: 100px;
+
+    padding: 10px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+  }
+
+  .geoai-action {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 8px;
+
+    margin-top: 9px;
+  }
+
+  .geoai-action > span {
+    font-size: 8px;
+  }
+
+  .geoai-action button {
+    width: 100%;
+
+    min-height: 40px;
+
+    font-size: 11px;
+  }
+
+
+  /* SECTION */
+
+  .geoai-section-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-bottom: 9px;
+  }
+
+  .geoai-section-heading > div > span {
+    font-size: 8px;
+  }
+
+  .geoai-section-heading h2 {
+    font-size: 19px;
+  }
+
+  .geoai-section-heading > p {
+    font-size: 10px;
+  }
+
+
+  /* GRID */
+
+  .geoai-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+
+  /* CARDS */
+
+  .geoai-domain-card {
+    min-height: 157px;
+
+    padding: 12px;
+
+    border-radius: 11px;
+  }
+
+  .geoai-domain-card:hover {
+    transform: none;
+  }
+
+  .geoai-domain-card:active {
+    transform: scale(0.98);
+  }
+
+  .geoai-domain-top {
+    margin-bottom: 9px;
+  }
+
+  .geoai-domain-icon {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+  }
+
+  .geoai-domain-number {
+    font-size: 7px;
+  }
+
+  .geoai-domain-content h3 {
+    font-size: 13px;
+  }
+
+  .geoai-domain-content p {
+    font-size: 8.5px;
+
+    line-height: 1.45;
+  }
+
+  .geoai-domain-tag {
+    margin-top: 8px;
+
+    padding: 4px 6px;
+
+    font-size: 7px;
+  }
+
+
+  /* INFO */
+
+  .geoai-info {
+    gap: 9px;
+
+    margin-top: 17px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+  }
+
+  .geoai-info-icon {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+  }
+
+  .geoai-info h3 {
+    font-size: 13px;
+  }
+
+  .geoai-info p {
+    font-size: 9px;
+
+    line-height: 1.45;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .geoai-grid {
+    gap: 6px;
+  }
+
+  .geoai-domain-card {
+    min-height: 150px;
+
+    padding: 10px;
+  }
+
+  .geoai-domain-icon {
+    width: 35px;
+    height: 35px;
+
+    font-size: 18px;
+  }
+
+  .geoai-domain-content h3 {
+    font-size: 12px;
+  }
+
+  .geoai-domain-content p {
+    font-size: 8px;
+  }
+
+  .geoai-domain-tag {
+    font-size: 6.5px;
+  }
+}
+/* =========================================================
+   GEO ZONE — IDENTIFICATION
+   INTERFACE MOBILE TYPE APPLICATION
+========================================================= */
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.identification-hero {
+  position: relative;
+
+  margin-bottom: 18px;
+  padding: 30px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255, 255, 255, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #08251a, #176044);
+
+  color: white;
+
+  box-shadow:
+    0 12px 30px rgba(11, 46, 32, 0.15);
+}
+
+.identification-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -140px;
+  top: -180px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+}
+
+.identification-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.identification-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  border-radius: 17px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 33px;
+}
+
+.identification-badge {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  padding: 6px 10px;
+
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+}
+
+.identification-hero h1 {
+  margin: 0 0 7px;
+
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.identification-hero p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.84);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PANNEAU DE FILTRES
+========================================================= */
+
+.identification-panel {
+  margin-bottom: 28px;
+
+  padding: 23px;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 17px;
+
+  background: white;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.045);
+}
+
+.identification-panel-header {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.identification-small-icon {
+  width: 47px;
+  height: 47px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #edf5f0;
+
+  font-size: 23px;
+}
+
+.identification-panel-header > div:last-child > span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #176044;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.identification-panel-header h2 {
+  margin: 0 0 5px;
+
+  color: #0b2e20;
+
+  font-size: 21px;
+}
+
+.identification-panel-header p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   FILTRES
+========================================================= */
+
+.identification-filters {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+.identification-filter {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.identification-filter label {
+  color: #34493f;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.identification-filter select {
+  width: 100%;
+
+  margin: 0;
+
+  min-height: 45px;
+
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.identification-actions {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-top: 18px;
+  padding-top: 16px;
+
+  border-top:
+    1px solid #e8edea;
+}
+
+.identification-result-count {
+  color: #66736c;
+
+  font-size: 13px;
+}
+
+.identification-result-count strong {
+  color: #176044;
+
+  font-size: 16px;
+}
+
+.identification-actions button {
+  width: auto;
+
+  min-height: 40px;
+}
+
+
+/* =========================================================
+   RÉSULTATS
+========================================================= */
+
+.identification-results {
+  margin-bottom: 30px;
+}
+
+.identification-results-heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 17px;
+}
+
+.identification-results-heading > div > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #176044;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+}
+
+.identification-results-heading h2 {
+  margin: 0;
+
+  color: #0b2e20;
+
+  font-size: 27px;
+}
+
+.identification-results-heading > p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   GRILLE
+========================================================= */
+
+.identification-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 17px;
+}
+
+
+/* =========================================================
+   CARTE
+========================================================= */
+
+.identification-card {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 255px;
+
+  padding: 19px;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 16px;
+
+  background: white;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 17px rgba(0, 0, 0, 0.045);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.identification-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -50px;
+  bottom: -50px;
+
+  border-radius: 50%;
+
+  background: #f0f6f2;
+
+  pointer-events: none;
+}
+
+.identification-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 13px 28px rgba(0, 0, 0, 0.075);
+}
+
+.identification-card-top {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 17px;
+}
+
+.identification-rock-icon {
+  width: 49px;
+  height: 49px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #edf5f0;
+
+  font-size: 26px;
+}
+
+.identification-family {
+  max-width: 120px;
+
+  padding: 6px 8px;
+
+  border-radius: 7px;
+
+  background: #f3f7f5;
+
+  color: #176044;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  text-align: center;
+}
+
+.identification-card h3 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 13px;
+
+  color: #17221d;
+
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+
+/* =========================================================
+   DÉTAILS
+========================================================= */
+
+.identification-details {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 6px;
+
+  flex: 1;
+}
+
+.identification-details > div {
+  padding: 8px 9px;
+
+  border-radius: 8px;
+
+  background: #f5f7f6;
+}
+
+.identification-details span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #8a958f;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.identification-details strong {
+  display: block;
+
+  color: #31463c;
+
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   BOUTON CARTE
+========================================================= */
+
+.identification-card-button {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+
+  min-height: 40px;
+
+  margin-top: 13px;
+
+  padding: 9px 11px;
+
+  box-sizing: border-box;
+
+  border-radius: 9px;
+
+  background: #176044;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.identification-card-button span {
+  font-size: 16px;
+
+  transition: transform 0.2s ease;
+}
+
+.identification-card-button:hover span {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   VIDE
+========================================================= */
+
+.identification-empty {
+  padding: 45px 20px;
+
+  text-align: center;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 16px;
+
+  background: white;
+}
+
+.identification-empty-icon {
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 15px;
+
+  border-radius: 17px;
+
+  background: #edf5f0;
+
+  font-size: 29px;
+}
+
+.identification-empty h2 {
+  margin: 0 0 7px;
+
+  color: #0b2e20;
+
+  font-size: 20px;
+}
+
+.identification-empty p {
+  max-width: 500px;
+
+  margin: 0 auto 18px;
+
+  color: #66736c;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.identification-empty button {
+  width: auto;
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .identification-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .identification-filters {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .identification-results-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 7px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .identification-page {
+    padding:
+      12px 9px 30px !important;
+  }
+
+  /* HERO */
+
+  .identification-hero {
+    margin-bottom: 11px;
+
+    padding: 19px 14px;
+
+    border-radius: 14px;
+  }
+
+  .identification-icon {
+    width: 43px;
+    height: 43px;
+
+    margin-bottom: 8px;
+
+    border-radius: 11px;
+
+    font-size: 22px;
+  }
+
+  .identification-badge {
+    padding: 4px 7px;
+
+    font-size: 7px;
+    letter-spacing: 0.7px;
+  }
+
+  .identification-hero h1 {
+    font-size: 24px;
+  }
+
+  .identification-hero p {
+    font-size: 10px;
+
+    line-height: 1.5;
+  }
+
+
+  /* PANNEAU */
+
+  .identification-panel {
+    margin-bottom: 17px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+  }
+
+  .identification-panel-header {
+    gap: 9px;
+
+    margin-bottom: 11px;
+  }
+
+  .identification-small-icon {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+  }
+
+  .identification-panel-header > div:last-child > span {
+    font-size: 7px;
+  }
+
+  .identification-panel-header h2 {
+    font-size: 15px;
+  }
+
+  .identification-panel-header p {
+    font-size: 9px;
+  }
+
+
+  /* FILTRES */
+
+  .identification-filters {
+    display: grid;
+
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 5px;
+  }
+
+  .identification-filter {
+    gap: 4px;
+  }
+
+  .identification-filter label {
+    font-size: 8px;
+  }
+
+  .identification-filter select {
+    min-height: 38px;
+
+    padding: 7px 5px;
+
+    border-radius: 8px;
+
+    font-size: 9px;
+  }
+
+
+  /* ACTIONS */
+
+  .identification-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 8px;
+
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  .identification-result-count {
+    text-align: center;
+
+    font-size: 9px;
+  }
+
+  .identification-result-count strong {
+    font-size: 12px;
+  }
+
+  .identification-actions button {
+    width: 100%;
+
+    min-height: 38px;
+
+    font-size: 10px;
+  }
+
+
+  /* RÉSULTATS */
+
+  .identification-results-heading {
+    margin-bottom: 9px;
+
+    gap: 4px;
+  }
+
+  .identification-results-heading > div > span {
+    font-size: 8px;
+  }
+
+  .identification-results-heading h2 {
+    font-size: 19px;
+  }
+
+  .identification-results-heading > p {
+    font-size: 9px;
+
+    line-height: 1.45;
+  }
+
+
+  /* GRILLE 2 × 2 */
+
+  .identification-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+
+  /* CARTE */
+
+  .identification-card {
+    min-height: 190px;
+
+    padding: 11px;
+
+    border-radius: 11px;
+  }
+
+  .identification-card::after {
+    width: 70px;
+    height: 70px;
+
+    right: -35px;
+    bottom: -35px;
+  }
+
+  .identification-card-top {
+    margin-bottom: 9px;
+  }
+
+  .identification-rock-icon {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 9px;
+
+    font-size: 19px;
+  }
+
+  .identification-family {
+    max-width: 65px;
+
+    padding: 4px 5px;
+
+    border-radius: 6px;
+
+    font-size: 6.5px;
+  }
+
+  .identification-card h3 {
+    margin-bottom: 8px;
+
+    font-size: 13px;
+  }
+
+
+  /* DÉTAILS */
+
+  .identification-details {
+    gap: 4px;
+  }
+
+  .identification-details > div {
+    padding: 5px;
+
+    border-radius: 6px;
+  }
+
+  .identification-details span {
+    margin-bottom: 2px;
+
+    font-size: 6.5px;
+  }
+
+  .identification-details strong {
+    font-size: 8px;
+
+    line-height: 1.25;
+  }
+
+
+  /* BOUTON */
+
+  .identification-card-button {
+    min-height: 32px;
+
+    margin-top: 8px;
+
+    padding: 6px 7px;
+
+    border-radius: 7px;
+
+    font-size: 8px;
+  }
+
+  .identification-card-button span {
+    font-size: 12px;
+  }
+
+
+  /* VIDE */
+
+  .identification-empty {
+    padding: 30px 14px;
+
+    border-radius: 12px;
+  }
+
+  .identification-empty-icon {
+    width: 55px;
+    height: 55px;
+
+    margin-bottom: 11px;
+
+    font-size: 26px;
+  }
+
+  .identification-empty h2 {
+    font-size: 17px;
+  }
+
+  .identification-empty p {
+    font-size: 10px;
+  }
+
+  .identification-empty button {
+    width: 100%;
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .identification-grid {
+    gap: 6px;
+  }
+
+  .identification-card {
+    min-height: 180px;
+
+    padding: 9px;
+  }
+
+  .identification-rock-icon {
+    width: 34px;
+    height: 34px;
+
+    font-size: 17px;
+  }
+
+  .identification-card h3 {
+    font-size: 12px;
+  }
+
+  .identification-details strong {
+    font-size: 7.5px;
+  }
+
+  .identification-card-button {
+    min-height: 29px;
+
+    font-size: 7.5px;
+  }
+}
+/* =========================================================
+   GEO ZONE — FORMATION
+   INTERFACE MOBILE TYPE APPLICATION
+========================================================= */
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.formation-hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  margin-bottom: 20px;
+  padding: 28px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255, 255, 255, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #08251a, #176044);
+
+  color: white;
+
+  box-shadow:
+    0 12px 30px rgba(11, 46, 32, 0.15);
+}
+
+.formation-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 290px;
+  height: 290px;
+
+  right: -140px;
+  top: -170px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+}
+
+.formation-hero-icon {
+  position: relative;
+  z-index: 1;
+
+  width: 66px;
+  height: 66px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 17px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 32px;
+}
+
+.formation-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.formation-hero-content > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+}
+
+.formation-hero h1 {
+  margin: 0 0 7px;
+
+  font-size: 33px;
+  line-height: 1.15;
+}
+
+.formation-hero p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.84);
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.formation-intro {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 16px;
+
+  margin-bottom: 27px;
+  padding: 21px;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.045);
+}
+
+.formation-intro-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  background: #edf5f0;
+
+  font-size: 24px;
+}
+
+.formation-intro > div:last-child > span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #176044;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.formation-intro h2 {
+  margin: 0 0 7px;
+
+  color: #0b2e20;
+
+  font-size: 20px;
+}
+
+.formation-intro p {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.formation-section {
+  margin-bottom: 30px;
+}
+
+.formation-section-heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 17px;
+}
+
+.formation-section-heading > div > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #176044;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+}
+
+.formation-section-heading h2 {
+  margin: 0;
+
+  color: #0b2e20;
+
+  font-size: 27px;
+}
+
+.formation-section-heading > p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   GRILLE
+========================================================= */
+
+.formation-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 17px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   CARTE
+========================================================= */
+
+.formation-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  min-height: 215px;
+
+  padding: 20px;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 17px;
+
+  background: white;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.045);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.formation-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 110px;
+  height: 110px;
+
+  right: -55px;
+  bottom: -55px;
+
+  border-radius: 50%;
+
+  background: #f0f6f2;
+
+  pointer-events: none;
+}
+
+.formation-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 13px 28px rgba(0, 0, 0, 0.075);
+}
+
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.formation-card-top {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 19px;
+}
+
+.formation-card-icon {
+  width: 51px;
+  height: 51px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #edf5f0;
+
+  font-size: 27px;
+}
+
+.formation-number {
+  color: #b2bdb7;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   CONTENU
+========================================================= */
+
+.formation-card-content {
+  position: relative;
+  z-index: 1;
+
+  flex: 1;
+}
+
+.formation-card-content h3 {
+  margin: 0 0 8px;
+
+  color: #17221d;
+
+  font-size: 19px;
+
+  line-height: 1.25;
+}
+
+.formation-card-content p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.formation-card-footer {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 17px;
+}
+
+.formation-coming {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 10px;
+
+  border-radius: 8px;
+
+  background: #f1f3f2;
+
+  color: #8a958f;
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .formation-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .formation-section-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 7px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .formation-page {
+    padding:
+      12px 9px 30px !important;
+  }
+
+
+  /* HERO */
+
+  .formation-hero {
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 11px;
+
+    padding: 18px 14px;
+
+    border-radius: 14px;
+  }
+
+  .formation-hero-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 11px;
+
+    font-size: 22px;
+  }
+
+  .formation-hero-content > span {
+    margin-bottom: 4px;
+
+    font-size: 7px;
+  }
+
+  .formation-hero h1 {
+    margin-bottom: 5px;
+
+    font-size: 24px;
+  }
+
+  .formation-hero p {
+    font-size: 10px;
+
+    line-height: 1.5;
+  }
+
+
+  /* INTRO */
+
+  .formation-intro {
+    gap: 9px;
+
+    margin-bottom: 17px;
+
+    padding: 13px;
+
+    border-radius: 11px;
+  }
+
+  .formation-intro-icon {
+    width: 37px;
+    height: 37px;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+  }
+
+  .formation-intro > div:last-child > span {
+    font-size: 7px;
+  }
+
+  .formation-intro h2 {
+    margin-bottom: 4px;
+
+    font-size: 14px;
+  }
+
+  .formation-intro p {
+    font-size: 9px;
+
+    line-height: 1.45;
+  }
+
+
+  /* SECTION */
+
+  .formation-section-heading {
+    margin-bottom: 9px;
+  }
+
+  .formation-section-heading > div > span {
+    font-size: 8px;
+  }
+
+  .formation-section-heading h2 {
+    font-size: 19px;
+  }
+
+  .formation-section-heading > p {
+    font-size: 10px;
+    line-height: 1.45;
+  }
+
+
+  /* GRILLE 2 × 2 */
+
+  .formation-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+
+  /* CARTE */
+
+  .formation-card {
+    min-height: 157px;
+
+    padding: 12px;
+
+    border-radius: 11px;
+  }
+
+  .formation-card:hover {
+    transform: none;
+  }
+
+  .formation-card:active {
+    transform: scale(0.98);
+  }
+
+  .formation-card::after {
+    width: 80px;
+    height: 80px;
+
+    right: -40px;
+    bottom: -40px;
+  }
+
+
+  /* TOP */
+
+  .formation-card-top {
+    margin-bottom: 10px;
+  }
+
+  .formation-card-icon {
+    width: 39px;
+    height: 39px;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+  }
+
+  .formation-number {
+    font-size: 8px;
+  }
+
+
+  /* CONTENU */
+
+  .formation-card-content h3 {
+    margin-bottom: 5px;
+
+    font-size: 13px;
+
+    line-height: 1.2;
+  }
+
+  .formation-card-content p {
+    font-size: 9px;
+
+    line-height: 1.45;
+  }
+
+
+  /* FOOTER */
+
+  .formation-card-footer {
+    margin-top: 9px;
+  }
+
+  .formation-coming {
+    padding: 5px 7px;
+
+    border-radius: 6px;
+
+    font-size: 7.5px;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .formation-grid {
+    gap: 6px;
+  }
+
+  .formation-card {
+    min-height: 150px;
+
+    padding: 10px;
+  }
+
+  .formation-card-icon {
+    width: 35px;
+    height: 35px;
+
+    font-size: 18px;
+  }
+
+  .formation-card-content h3 {
+    font-size: 12px;
+  }
+
+  .formation-card-content p {
+    font-size: 8px;
+  }
+
+  .formation-coming {
+    font-size: 7px;
+  }
+}
+/* =========================================================
+   GEO ZONE — DÉTAIL DU COURS
+   INTERFACE MOBILE TYPE APPLICATION
+========================================================= */
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.course-detail-page {
+  width: 100%;
+}
+
+
+/* =========================================================
+   EN-TÊTE DU COURS
+========================================================= */
+
+.course-detail-page .course-header {
+  position: relative;
+
+  overflow: hidden;
+
+  margin-bottom: 25px;
+
+  padding: 42px 30px;
+
+  border-radius: 21px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(23, 96, 68, 0.09),
+      transparent 28%
+    ),
+    white;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.045);
+}
+
+.course-detail-page .course-category {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 18px;
+
+  padding: 7px 12px;
+
+  border-radius: 30px;
+
+  background: #edf5f0;
+
+  color: #176044;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.course-detail-page .course-main-icon {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 14px;
+
+  border-radius: 20px;
+
+  background: #176044;
+
+  color: white;
+
+  font-size: 38px;
+
+  box-shadow:
+    0 10px 25px rgba(23, 96, 68, 0.16);
+}
+
+.course-detail-page .course-label {
+  margin: 0 0 7px;
+
+  color: #176044;
+
+  font-size: 10px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.6px;
+
+  text-align: center;
+}
+
+.course-detail-page .course-header h1 {
+  max-width: 900px;
+
+  margin: 0 auto 15px;
+
+  color: #0b2e20;
+
+  font-size: 38px;
+
+  line-height: 1.2;
+
+  text-align: center;
+}
+
+.course-detail-page .course-description {
+  max-width: 780px;
+
+  margin: 0 auto;
+
+  color: #66736c;
+
+  font-size: 15px;
+
+  line-height: 1.75;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   STATISTIQUES
+========================================================= */
+
+.course-detail-page .course-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  max-width: 850px;
+
+  gap: 12px;
+
+  margin: 28px auto 0;
+}
+
+.course-detail-page .course-stat {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  min-height: 90px;
+
+  padding: 13px;
+
+  border:
+    1px solid #e2ebe5;
+
+  border-radius: 13px;
+
+  background: #f3f7f5;
+
+  text-align: center;
+}
+
+.course-detail-page .course-stat .stat-icon {
+  font-size: 20px;
+}
+
+.course-detail-page .course-stat strong {
+  color: #176044;
+
+  font-size: 15px;
+}
+
+.course-detail-page .course-stat span:last-child {
+  color: #66736c;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.course-detail-page .course-introduction {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 20px;
+
+  padding: 5px 0;
+}
+
+.course-detail-page .course-introduction h2 {
+  margin: 0 0 7px;
+
+  color: #0b2e20;
+
+  font-size: 26px;
+}
+
+.course-detail-page .course-introduction p {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+.course-detail-page .section-badge {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #176044;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+}
+
+.course-detail-page .course-progress-info {
+  min-width: 170px;
+
+  padding: 15px;
+
+  border-radius: 14px;
+
+  background: #edf5f0;
+
+  text-align: center;
+}
+
+.course-detail-page .course-progress-info strong {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #176044;
+
+  font-size: 25px;
+}
+
+.course-detail-page .course-progress-info span {
+  color: #66736c;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   TITRE CHAPITRES
+========================================================= */
+
+.course-chapters {
+  width: 100%;
+}
+
+.course-chapters-heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 15px;
+}
+
+.course-chapters-heading > div > span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #176044;
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.3px;
+}
+
+.course-chapters-heading h2 {
+  margin: 0;
+
+  color: #0b2e20;
+
+  font-size: 26px;
+}
+
+.course-chapter-count {
+  padding: 7px 10px;
+
+  border-radius: 8px;
+
+  background: #edf5f0;
+
+  color: #176044;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   GRILLE DES CHAPITRES
+========================================================= */
+
+.course-chapters-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 15px;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   CARTE CHAPITRE
+========================================================= */
+
+.course-detail-page .chapter-card {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  min-height: 220px;
+
+  padding: 19px;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 16px;
+
+  background: white;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 16px rgba(0, 0, 0, 0.045);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.course-detail-page .chapter-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -50px;
+  bottom: -50px;
+
+  border-radius: 50%;
+
+  background: #f0f6f2;
+
+  pointer-events: none;
+}
+
+.course-detail-page .chapter-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 13px 28px rgba(0, 0, 0, 0.075);
+}
+
+
+/* TOP */
+
+.course-detail-page .chapter-top {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+}
+
+.course-detail-page .chapter-number {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #edf5f0;
+
+  color: #176044;
+
+  font-size: 15px;
+
+  font-weight: 900;
+}
+
+.course-detail-page .chapter-label {
+  color: #8a958f;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+
+/* CONTENU */
+
+.course-detail-page .chapter-content {
+  position: relative;
+  z-index: 1;
+
+  flex: 1;
+}
+
+.course-detail-page .chapter-content h3 {
+  margin: 0 0 8px;
+
+  color: #17221d;
+
+  font-size: 17px;
+
+  line-height: 1.3;
+}
+
+.course-detail-page .chapter-content p {
+  margin: 0;
+
+  color: #66736c;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+}
+
+
+/* LIEN */
+
+.course-detail-page .chapter-link {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  margin-top: 15px;
+
+  text-decoration: none;
+}
+
+.course-detail-page .chapter-link button {
+  width: 100%;
+
+  min-height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px 11px;
+
+  border-radius: 9px;
+
+  font-size: 10px;
+}
+
+.course-detail-page .chapter-link button span {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   TABLETTE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .course-chapters-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  .course-detail-page {
+    padding:
+      12px 9px 30px !important;
+  }
+
+  /* EN-TÊTE */
+
+  .course-detail-page .course-header {
+    margin-bottom: 16px;
+
+    padding: 20px 14px;
+
+    border-radius: 14px;
+  }
+
+  .course-detail-page .course-category {
+    margin-bottom: 10px;
+
+    padding: 5px 8px;
+
+    font-size: 8px;
+  }
+
+  .course-detail-page .course-main-icon {
+    width: 47px;
+    height: 47px;
+
+    margin-bottom: 9px;
+
+    border-radius: 12px;
+
+    font-size: 24px;
+  }
+
+  .course-detail-page .course-label {
+    margin-bottom: 5px;
+
+    font-size: 7px;
+  }
+
+  .course-detail-page .course-header h1 {
+    margin-bottom: 8px;
+
+    font-size: 23px;
+
+    line-height: 1.2;
+  }
+
+  .course-detail-page .course-description {
+    font-size: 10px;
+
+    line-height: 1.5;
+  }
+
+
+  /* STATS */
+
+  .course-detail-page .course-stats {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 5px;
+
+    margin-top: 14px;
+  }
+
+  .course-detail-page .course-stat {
+    min-height: 60px;
+
+    padding: 7px 4px;
+
+    border-radius: 8px;
+
+    gap: 2px;
+  }
+
+  .course-detail-page .course-stat .stat-icon {
+    font-size: 14px;
+  }
+
+  .course-detail-page .course-stat strong {
+    font-size: 10px;
+  }
+
+  .course-detail-page .course-stat span:last-child {
+    font-size: 7px;
+  }
+
+
+  /* INTRO */
+
+  .course-detail-page .course-introduction {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+
+    margin-bottom: 15px;
+  }
+
+  .course-detail-page .section-badge {
+    font-size: 7px;
+  }
+
+  .course-detail-page .course-introduction h2 {
+    margin-bottom: 4px;
+
+    font-size: 18px;
+  }
+
+  .course-detail-page .course-introduction p {
+    font-size: 9px;
+
+    line-height: 1.5;
+  }
+
+  .course-detail-page .course-progress-info {
+    min-width: 0;
+
+    width: 100%;
+
+    padding: 10px;
+
+    border-radius: 10px;
+  }
+
+  .course-detail-page .course-progress-info strong {
+    font-size: 18px;
+  }
+
+  .course-detail-page .course-progress-info span {
+    font-size: 8px;
+  }
+
+
+  /* TITRE */
+
+  .course-chapters-heading {
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 9px;
+  }
+
+  .course-chapters-heading > div > span {
+    font-size: 7px;
+  }
+
+  .course-chapters-heading h2 {
+    font-size: 19px;
+  }
+
+  .course-chapter-count {
+    padding: 5px 7px;
+
+    font-size: 7px;
+  }
+
+
+  /* =====================================================
+     CHAPITRES — 2 PAR 2
+  ===================================================== */
+
+  .course-chapters-grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+
+    width: 100%;
+  }
+
+
+  /* CARTES */
+
+  .course-detail-page .chapter-card {
+    min-height: 155px;
+
+    padding: 11px;
+
+    border-radius: 11px;
+
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .course-detail-page .chapter-card:hover {
+    transform: none;
+  }
+
+  .course-detail-page .chapter-card:active {
+    transform: scale(0.98);
+  }
+
+  .course-detail-page .chapter-card::after {
+    width: 70px;
+    height: 70px;
+
+    right: -35px;
+    bottom: -35px;
+  }
+
+
+  /* TOP */
+
+  .course-detail-page .chapter-top {
+    margin-bottom: 9px;
+  }
+
+  .course-detail-page .chapter-number {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+  }
+
+  .course-detail-page .chapter-label {
+    font-size: 6.5px;
+  }
+
+
+  /* TITRE */
+
+  .course-detail-page .chapter-content h3 {
+    margin-bottom: 5px;
+
+    font-size: 12px;
+
+    line-height: 1.25;
+  }
+
+  .course-detail-page .chapter-content p {
+    font-size: 7.5px;
+
+    line-height: 1.4;
+  }
+
+
+  /* BOUTON */
+
+  .course-detail-page .chapter-link {
+    margin-top: 8px;
+  }
+
+  .course-detail-page .chapter-link button {
+    min-height: 30px;
+
+    padding: 5px 7px;
+
+    border-radius: 7px;
+
+    font-size: 8px;
+  }
+
+  .course-detail-page .chapter-link button span {
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .course-chapters-grid {
+    gap: 6px;
+  }
+
+  .course-detail-page .chapter-card {
+    min-height: 148px;
+
+    padding: 9px;
+  }
+
+  .course-detail-page .chapter-number {
+    width: 32px;
+    height: 32px;
+
+    font-size: 11px;
+  }
+
+  .course-detail-page .chapter-content h3 {
+    font-size: 11px;
+  }
+
+  .course-detail-page .chapter-content p {
+    font-size: 7px;
+  }
+
+  .course-detail-page .chapter-link button {
+    min-height: 28px;
+
+    font-size: 7.5px;
+  }
+}/* =========================================================
+   GEO ZONE — LECTURE D'UN CHAPITRE
+   INTERFACE MOBILE TYPE APPLICATION
+========================================================= */
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.chapter-page {
+  width: 100%;
+  max-width: 1050px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.chapter-page .chapter-hero {
+  position: relative;
+
+  margin-bottom: 20px;
+  padding: 28px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(255, 255, 255, 0.12),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #08251a, #176044);
+
+  color: white;
+
+  box-shadow:
+    0 12px 30px rgba(11, 46, 32, 0.15);
+}
+
+.chapter-page .chapter-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  right: -140px;
+  top: -180px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.chapter-hero-top {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+}
+
+.chapter-page .chapter-hero-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
+
+  font-size: 30px;
+}
+
+.chapter-page .chapter-label {
+  position: static;
+
+  padding: 6px 9px;
+
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.11);
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 9px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.chapter-page .chapter-course-name {
+  position: relative;
+  z-index: 1;
+
+  margin: 0 0 7px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.chapter-page .chapter-hero h1 {
+  position: relative;
+  z-index: 1;
+
+  max-width: 850px;
+
+  margin: 0;
+
+  font-size: 34px;
+
+  line-height: 1.2;
+}
+
+.chapter-page .chapter-info {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 17px;
+}
+
+.chapter-page .chapter-info span {
+  padding: 7px 10px;
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  color: rgba(255, 255, 255, 0.86);
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   PROGRESSION
+========================================================= */
+
+.chapter-page .progress-section {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 21px;
+}
+
+.chapter-page .progress-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 8px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 10px;
+}
+
+.chapter-page .progress-top strong {
+  color: white;
+
+  font-size: 11px;
+}
+
+.chapter-page .progress-bar {
+  width: 100%;
+
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.chapter-page .progress-fill {
+  height: 100%;
+
+  border-radius: 20px;
+
+  background: white;
+
+  transition: width 0.5s ease;
+}
+
+
+/* =========================================================
+   LECTURE
+========================================================= */
+
+.chapter-reading-card {
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #e1e8e3;
+
+  border-radius: 18px;
+
+  background: white;
+
+  box-shadow:
+    0 5px 18px rgba(0, 0, 0, 0.045);
+}
+
+.chapter-reading-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 20px 24px;
+
+  border-bottom:
+    1px solid #e2e9e4;
+
+  background: #f3f7f5;
+}
+
+.chapter-reading-header .content-icon {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #e2eee8;
+
+  font-size: 23px;
+}
+
+.chapter-reading-header > div:last-child > span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #176044;
+
+  font-size: 8px;
+
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.chapter-reading-header h2 {
+  margin: 0;
+
+  color: #0b2e20;
+
+  font-size: 19px;
+
+  line-height: 1.3;
+}
+
+.chapter-reading-card .content-body {
+  padding: 34px 38px;
+}
+
+.chapter-reading-card .content-body p {
+  max-width: 850px;
+
+  margin: 0 auto 17px;
+
+  color: #34493f;
+
+  font-size: 16px;
+
+  line-height: 1.9;
+}
+
+.chapter-reading-card .content-space {
+  height: 8px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.chapter-page .chapter-navigation {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-top: 0;
+
+  padding-bottom: 10px;
+}
+
+.chapter-page .chapter-navigation > div {
+  display: flex;
+}
+
+.chapter-page .chapter-navigation a {
+  text-decoration: none;
+}
+
+.chapter-page .chapter-navigation button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-height: 42px;
+
+  padding: 10px 15px;
+
+  border-radius: 10px;
+
+  font-size: 12px;
+}
+
+.chapter-page .chapter-navigation button span {
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+  .chapter-page {
+    padding:
+      12px 9px 25px !important;
+  }
+
+  /* HERO */
+
+  .chapter-page .chapter-hero {
+    margin-bottom: 12px;
+
+    padding: 17px 14px;
+
+    border-radius: 14px;
+  }
+
+  .chapter-hero-top {
+    margin-bottom: 10px;
+  }
+
+  .chapter-page .chapter-hero-icon {
+    width: 43px;
+    height: 43px;
+
+    border-radius: 11px;
+
+    font-size: 22px;
+  }
+
+  .chapter-page .chapter-label {
+    padding: 4px 7px;
+
+    font-size: 7px;
+
+    border-radius: 6px;
+  }
+
+  .chapter-page .chapter-course-name {
+    margin-bottom: 5px;
+
+    font-size: 8px;
+
+    line-height: 1.4;
+  }
+
+  .chapter-page .chapter-hero h1 {
+    font-size: 22px;
+
+    line-height: 1.25;
+  }
+
+  .chapter-page .chapter-info {
+    gap: 5px;
+
+    margin-top: 11px;
+  }
+
+  .chapter-page .chapter-info span {
+    padding: 5px 7px;
+
+    border-radius: 6px;
+
+    font-size: 7px;
+  }
+
+
+  /* PROGRESSION */
+
+  .chapter-page .progress-section {
+    margin-top: 14px;
+  }
+
+  .chapter-page .progress-top {
+    margin-bottom: 5px;
+
+    font-size: 7px;
+  }
+
+  .chapter-page .progress-top strong {
+    font-size: 8px;
+  }
+
+  .chapter-page .progress-bar {
+    height: 6px;
+  }
+
+
+  /* LECTURE */
+
+  .chapter-reading-card {
+    margin-bottom: 12px;
+
+    border-radius: 12px;
+  }
+
+  .chapter-reading-header {
+    gap: 9px;
+
+    padding: 13px;
+
+  }
+
+  .chapter-reading-header .content-icon {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 9px;
+
+    font-size: 18px;
+  }
+
+  .chapter-reading-header > div:last-child > span {
+    margin-bottom: 3px;
+
+    font-size: 6.5px;
+  }
+
+  .chapter-reading-header h2 {
+    font-size: 14px;
+  }
+
+  .chapter-reading-card .content-body {
+    padding: 19px 14px;
+  }
+
+  .chapter-reading-card .content-body p {
+    margin-bottom: 13px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    text-align: left;
+  }
+
+  .chapter-reading-card .content-space {
+    height: 5px;
+  }
+
+
+  /* NAVIGATION */
+
+  .chapter-page .chapter-navigation {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 7px;
+
+    padding-bottom: 5px;
+  }
+
+  .chapter-page .chapter-navigation > div {
+    width: 100%;
+  }
+
+  .chapter-page .chapter-navigation a {
+    width: 100%;
+  }
+
+  .chapter-page .chapter-navigation button {
+    width: 100%;
+
+    min-height: 40px;
+
+    padding: 8px 6px;
+
+    border-radius: 8px;
+
+    font-size: 9px;
+  }
+
+  .chapter-page .chapter-navigation button span {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   TRÈS PETITS ÉCRANS
+========================================================= */
+
+@media screen and (max-width: 380px) {
+
+  .chapter-page {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .chapter-page .chapter-hero {
+    padding: 15px 12px;
+  }
+
+  .chapter-page .chapter-hero h1 {
+    font-size: 20px;
+  }
+
+  .chapter-reading-card .content-body {
+    padding: 17px 12px;
+  }
+
+  .chapter-reading-card .content-body p {
+    font-size: 12.5px;
+    line-height: 1.78;
+  }
+
+  .chapter-page .chapter-navigation button {
+    font-size: 8px;
+  }
+}

@@ -24,7 +24,7 @@ function Formation() {
       icon: "🎯",
       titre: "Évaluation",
       description:
-        "Évalue ton niveau et identifie les notions que tu dois encore approfondir.",
+        "Évalue ton niveau et identifie les notions à approfondir.",
     },
     {
       icon: "📈",
@@ -41,47 +41,85 @@ function Formation() {
   ];
 
   return (
-    <div className="container">
+    <div className="container formation-page">
       <Link to="/" className="back-link">
-        ← Retour à l'accueil
+        ← Accueil
       </Link>
 
-      <div className="welcome">
-        <h1>🎓 Formation</h1>
+      <section className="formation-hero">
+        <div className="formation-hero-icon">🎓</div>
 
-        <p>
-          Apprends, révise et teste tes connaissances en géologie
-          et en sciences de la Terre.
-        </p>
-      </div>
+        <div className="formation-hero-content">
+          <span>ESPACE D'APPRENTISSAGE</span>
 
-      <div className="card">
-        <h2>🚀 Ton espace d'apprentissage</h2>
+          <h1>Formation</h1>
 
-        <p>
-          GEO ZONE te propose plusieurs outils pour progresser,
-          renforcer tes connaissances et mieux te préparer à tes
-          études en géologie et dans le domaine minier.
-        </p>
-      </div>
+          <p>
+            Apprends, révise et teste tes connaissances en géologie
+            et en sciences de la Terre.
+          </p>
+        </div>
+      </section>
 
-      <div className="modules">
-        {formations.map((formation) => (
-          <div className="card" key={formation.titre}>
-            <div className="module-icon">
-              {formation.icon}
-            </div>
+      <section className="formation-intro">
+        <div className="formation-intro-icon">🚀</div>
 
-            <h2>{formation.titre}</h2>
+        <div>
+          <span>APPRENDS À TON RYTHME</span>
 
-            <p>{formation.description}</p>
+          <h2>Ton espace d'apprentissage</h2>
 
-            <button className="disabled-button">
-              Bientôt disponible
-            </button>
+          <p>
+            GEO ZONE rassemble progressivement plusieurs outils
+            pour progresser, renforcer tes connaissances et mieux
+            te préparer à tes études.
+          </p>
+        </div>
+      </section>
+
+      <section className="formation-section">
+        <div className="formation-section-heading">
+          <div>
+            <span>EXPLORE LA FORMATION</span>
+            <h2>Choisis une activité</h2>
           </div>
-        ))}
-      </div>
+
+          <p>
+            De nouveaux contenus seront ajoutés progressivement.
+          </p>
+        </div>
+
+        <div className="formation-grid">
+          {formations.map((formation, index) => (
+            <div
+              className="formation-card"
+              key={formation.titre}
+            >
+              <div className="formation-card-top">
+                <div className="formation-card-icon">
+                  {formation.icon}
+                </div>
+
+                <span className="formation-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </div>
+
+              <div className="formation-card-content">
+                <h3>{formation.titre}</h3>
+
+                <p>{formation.description}</p>
+              </div>
+
+              <div className="formation-card-footer">
+                <span className="formation-coming">
+                  Bientôt disponible
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

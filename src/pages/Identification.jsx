@@ -10,15 +10,21 @@ function Identification() {
   const resultats = roches.filter((roche) => {
     const matchCouleur =
       !couleur ||
-      roche.couleur.toLowerCase().includes(couleur.toLowerCase());
+      roche.couleur
+        .toLowerCase()
+        .includes(couleur.toLowerCase());
 
     const matchTexture =
       !texture ||
-      roche.texture.toLowerCase().includes(texture.toLowerCase());
+      roche.texture
+        .toLowerCase()
+        .includes(texture.toLowerCase());
 
     const matchStructure =
       !structure ||
-      roche.structure.toLowerCase().includes(structure.toLowerCase());
+      roche.structure
+        .toLowerCase()
+        .includes(structure.toLowerCase());
 
     return matchCouleur && matchTexture && matchStructure;
   });
@@ -29,45 +35,57 @@ function Identification() {
     setStructure("");
   };
 
+  const couleurs = [
+    ...new Set(roches.map((roche) => roche.couleur)),
+  ];
+
+  const textures = [
+    ...new Set(roches.map((roche) => roche.texture)),
+  ];
+
+  const structures = [
+    ...new Set(roches.map((roche) => roche.structure)),
+  ];
+
   return (
     <div className="container identification-page">
       <Link to="/" className="back-link">
-        ← Retour à l'accueil
+        ← Accueil
       </Link>
 
-      <div className="identification-hero">
-        <div className="identification-icon">
-          🔬
+      <section className="identification-hero">
+        <div className="identification-hero-content">
+          <div className="identification-icon">
+            🔬
+          </div>
+
+          <span className="identification-badge">
+            OUTIL GÉOLOGIQUE
+          </span>
+
+          <h1>Identification</h1>
+
+          <p>
+            Sélectionne les caractéristiques observées sur ta
+            roche et GEO ZONE recherchera les correspondances
+            dans sa base de données.
+          </p>
         </div>
+      </section>
 
-        <span className="identification-badge">
-          OUTIL GÉOLOGIQUE
-        </span>
-
-        <h1>
-          Identification d'une roche
-        </h1>
-
-        <p>
-          Sélectionne les caractéristiques que tu observes
-          sur ta roche et GEO ZONE recherchera les
-          correspondances dans sa base de données.
-        </p>
-      </div>
-
-      <div className="card identification-panel">
+      <section className="identification-panel">
         <div className="identification-panel-header">
           <div className="identification-small-icon">
             🔎
           </div>
 
           <div>
-            <h2>
-              Caractéristiques de la roche
-            </h2>
+            <span>ANALYSE</span>
+
+            <h2>Caractéristiques de la roche</h2>
 
             <p>
-              Utilise les filtres pour affiner ta recherche.
+              Sélectionne les propriétés que tu observes.
             </p>
           </div>
         </div>
@@ -81,19 +99,19 @@ function Identification() {
             <select
               id="couleur"
               value={couleur}
-              onChange={(e) => setCouleur(e.target.value)}
+              onChange={(event) =>
+                setCouleur(event.target.value)
+              }
             >
               <option value="">
                 Toutes les couleurs
               </option>
 
-              {[...new Set(roches.map((roche) => roche.couleur))].map(
-                (item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                )
-              )}
+              {couleurs.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -105,19 +123,19 @@ function Identification() {
             <select
               id="texture"
               value={texture}
-              onChange={(e) => setTexture(e.target.value)}
+              onChange={(event) =>
+                setTexture(event.target.value)
+              }
             >
               <option value="">
                 Toutes les textures
               </option>
 
-              {[...new Set(roches.map((roche) => roche.texture))].map(
-                (item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                )
-              )}
+              {textures.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -129,113 +147,121 @@ function Identification() {
             <select
               id="structure"
               value={structure}
-              onChange={(e) => setStructure(e.target.value)}
+              onChange={(event) =>
+                setStructure(event.target.value)
+              }
             >
               <option value="">
                 Toutes les structures
               </option>
 
-              {[...new Set(roches.map((roche) => roche.structure))].map(
-                (item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                )
-              )}
+              {structures.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
             </select>
           </div>
         </div>
 
         <div className="identification-actions">
-          <button onClick={reinitialiser}>
-            🔄 Réinitialiser
-          </button>
-
-          <span>
-            {resultats.length} roche
-            {resultats.length > 1 ? "s" : ""} trouvée
+          <span className="identification-result-count">
+            <strong>{resultats.length}</strong>{" "}
+            roche{resultats.length > 1 ? "s" : ""} trouvée
             {resultats.length > 1 ? "s" : ""}
           </span>
-        </div>
-      </div>
 
-      <div className="welcome identification-results-title">
-        <h2>
-          🔎 Résultats de l'identification
-        </h2>
-
-        <p>
-          Voici les roches correspondant aux caractéristiques
-          sélectionnées.
-        </p>
-      </div>
-
-      {resultats.length > 0 ? (
-        <div className="modules">
-          {resultats.map((roche) => (
-            <div
-              className="card identification-card"
-              key={roche.id}
-            >
-              <div className="identification-card-top">
-                <div className="module-icon">
-                  🪨
-                </div>
-
-                <span className="identification-family">
-                  {roche.famille}
-                </span>
-              </div>
-
-              <h2>
-                {roche.nom}
-              </h2>
-
-              <div className="identification-details">
-                <p>
-                  <strong>🎨 Couleur</strong>
-                  <span>{roche.couleur}</span>
-                </p>
-
-                <p>
-                  <strong>🔎 Texture</strong>
-                  <span>{roche.texture}</span>
-                </p>
-
-                <p>
-                  <strong>🧱 Structure</strong>
-                  <span>{roche.structure}</span>
-                </p>
-              </div>
-
-              <Link to={`/roches/${roche.id}`}>
-                <button>
-                  Voir la fiche →
-                </button>
-              </Link>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="card identification-empty">
-          <div className="identification-empty-icon">
-            🔎
-          </div>
-
-          <h2>
-            Aucune roche trouvée
-          </h2>
-
-          <p>
-            Aucune roche ne correspond aux caractéristiques
-            sélectionnées. Essaie de modifier les filtres.
-          </p>
-
-          <button onClick={reinitialiser}>
-            🔄 Réinitialiser les filtres
+          <button
+            type="button"
+            onClick={reinitialiser}
+          >
+            🔄 Réinitialiser
           </button>
         </div>
-      )}
+      </section>
+
+      <section className="identification-results">
+        <div className="identification-results-heading">
+          <div>
+            <span>RÉSULTATS</span>
+
+            <h2>Roches correspondantes</h2>
+          </div>
+
+          <p>
+            Les fiches correspondent aux caractéristiques
+            sélectionnées.
+          </p>
+        </div>
+
+        {resultats.length > 0 ? (
+          <div className="identification-grid">
+            {resultats.map((roche) => (
+              <article
+                className="identification-card"
+                key={roche.id}
+              >
+                <div className="identification-card-top">
+                  <div className="identification-rock-icon">
+                    🪨
+                  </div>
+
+                  <span className="identification-family">
+                    {roche.famille}
+                  </span>
+                </div>
+
+                <h3>{roche.nom}</h3>
+
+                <div className="identification-details">
+                  <div>
+                    <span>🎨 Couleur</span>
+                    <strong>{roche.couleur}</strong>
+                  </div>
+
+                  <div>
+                    <span>🔎 Texture</span>
+                    <strong>{roche.texture}</strong>
+                  </div>
+
+                  <div>
+                    <span>🧱 Structure</span>
+                    <strong>{roche.structure}</strong>
+                  </div>
+                </div>
+
+                <Link
+                  to={`/roches/${roche.id}`}
+                  className="identification-card-button"
+                >
+                  Voir la fiche
+                  <span>→</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="identification-empty">
+            <div className="identification-empty-icon">
+              🔎
+            </div>
+
+            <h2>Aucune roche trouvée</h2>
+
+            <p>
+              Aucune roche ne correspond aux caractéristiques
+              sélectionnées.
+            </p>
+
+            <button
+              type="button"
+              onClick={reinitialiser}
+            >
+              🔄 Réinitialiser les filtres
+            </button>
+          </div>
+        )}
+      </section>
     </div>
   );
 }

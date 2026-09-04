@@ -1,129 +1,144 @@
 import { Link } from "react-router-dom";
 
 function Outils() {
+  const outils = [
+    {
+      icon: "📐",
+      title: "Conversion des unités",
+      description: "Convertis rapidement les unités utilisées en géologie.",
+      link: "/outils/convertisseur",
+      disponible: true,
+    },
+    {
+      icon: "⚖️",
+      title: "Masse volumique",
+      description: "Calcule la masse volumique d'un matériau.",
+      link: "/outils/masse-volumique",
+      disponible: true,
+    },
+    {
+      icon: "📊",
+      title: "Pourcentage",
+      description: "Effectue rapidement tes calculs de pourcentage.",
+      link: "/outils/pourcentage",
+      disponible: true,
+    },
+    {
+      icon: "🧭",
+      title: "Azimut",
+      description: "Effectue des calculs liés aux directions et orientations.",
+      link: "/outils/azimut",
+      disponible: true,
+    },
+    {
+      icon: "📏",
+      title: "Pendage",
+      description: "Travaille sur la direction et le pendage des structures.",
+      link: "/outils/pendage",
+      disponible: true,
+    },
+    {
+      icon: "⛏️",
+      title: "Mining",
+      description: "Outils spécialisés pour les activités minières.",
+      link: null,
+      disponible: false,
+    },
+  ];
+
   return (
-    <div className="container">
+    <div className="container outils-page">
       <Link to="/" className="back-link">
-        ← Retour à l'accueil
+        ← Accueil
       </Link>
 
-      <div className="welcome">
-        <div className="module-icon">
-          🧮
-        </div>
+      <section className="tools-hero">
+        <div className="tools-hero-icon">🧮</div>
 
-        <h1>
-          Outils géologiques
-        </h1>
+        <div className="tools-hero-content">
+          <span>BOÎTE À OUTILS</span>
 
-        <p>
-          Des outils et calculateurs pratiques pour tes travaux
-          en géologie et en mining.
-        </p>
-      </div>
-
-      <div className="modules">
-
-        <div className="card">
-          <h2>
-            📐 Conversion des unités
-          </h2>
+          <h1>Outils géologiques</h1>
 
           <p>
-            Convertis rapidement les principales unités utilisées
-            en géologie.
+            Des outils pratiques pour effectuer rapidement
+            tes calculs et travaux en géologie.
           </p>
-
-          <Link to="/outils/convertisseur">
-            <button>
-              Ouvrir →
-            </button>
-          </Link>
         </div>
+      </section>
 
-        <div className="card">
-          <h2>
-            ⚖️ Masse volumique
-          </h2>
+      <section className="tools-section">
+        <div className="tools-section-heading">
+          <div>
+            <span>OUTILS DISPONIBLES</span>
+            <h2>Choisis un outil</h2>
+          </div>
 
           <p>
-            Calcule la masse volumique d'un matériau à partir de
-            sa masse et de son volume.
+            Accède directement au calculateur dont tu as besoin.
           </p>
-
-          <Link to="/outils/masse-volumique">
-            <button>
-              Ouvrir →
-            </button>
-          </Link>
         </div>
 
-        <div className="card">
-          <h2>
-            📊 Pourcentage
-          </h2>
+        <div className="tools-grid">
+          {outils.map((outil, index) => {
+            const contenu = (
+              <>
+                <div className="tool-card-top">
+                  <div className="tool-icon">{outil.icon}</div>
 
-          <p>
-            Effectue rapidement différents calculs de pourcentage.
-          </p>
+                  <span className="tool-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
 
-          <Link to="/outils/pourcentage">
-            <button>
-              Ouvrir →
-            </button>
-          </Link>
+                <div className="tool-card-content">
+                  <h3>{outil.title}</h3>
+
+                  <p>{outil.description}</p>
+                </div>
+
+                <div className="tool-card-footer">
+                  {outil.disponible ? (
+                    <span className="tool-action">
+                      Ouvrir
+                      <span>→</span>
+                    </span>
+                  ) : (
+                    <span className="tool-coming">
+                      Bientôt disponible
+                    </span>
+                  )}
+                </div>
+              </>
+            );
+
+            if (outil.disponible) {
+              return (
+                <Link
+                  key={outil.title}
+                  to={outil.link}
+                  className={`tool-card ${
+                    index === 5 ? "tool-card-wide" : ""
+                  }`}
+                >
+                  {contenu}
+                </Link>
+              );
+            }
+
+            return (
+              <div
+                key={outil.title}
+                className={`tool-card tool-card-disabled ${
+                  index === 5 ? "tool-card-wide" : ""
+                }`}
+              >
+                {contenu}
+              </div>
+            );
+          })}
         </div>
-
-        <div className="card">
-          <h2>
-            🧭 Azimut
-          </h2>
-
-          <p>
-            Outil pour effectuer des calculs simples liés aux
-            directions et aux orientations.
-          </p>
-
-          <Link to="/outils/azimut">
-            <button>
-              Ouvrir →
-            </button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <h2>
-            📏 Pendage
-          </h2>
-
-          <p>
-            Outils destinés aux calculs de direction et de pendage
-            des structures géologiques.
-          </p>
-
-          <Link to="/outils/pendage">
-            <button>
-              Ouvrir →
-            </button>
-          </Link>
-        </div>
-
-        <div className="card">
-          <h2>
-            ⛏️ Mining
-          </h2>
-
-          <p>
-            Calculs liés à l'exploitation minière, au forage et
-            au blasting.
-          </p>
-
-          <button>
-            Bientôt disponible
-          </button>
-        </div>
-
-      </div>
+      </section>
     </div>
   );
 }
