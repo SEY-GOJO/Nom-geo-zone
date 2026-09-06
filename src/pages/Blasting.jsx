@@ -68,7 +68,7 @@ function Blasting() {
 
         <div className="card">
           <div className="module-icon">
-            🪨
+            🧱
           </div>
 
           <h2>
@@ -136,6 +136,33 @@ function Blasting() {
         </div>
 
       </div>
+
+      <section className="card">
+        <h2>🧪 Lire les caractéristiques d'un explosif</h2>
+
+        <p>
+          Une fiche technique peut présenter la densité, la vitesse de
+          détonation, l'énergie, la résistance à l'eau, la sensibilité et
+          la nature des fumées. Ces informations servent à comparer un
+          produit aux conditions prévues, jamais à improviser un tir.
+        </p>
+
+        <p>
+          Le choix doit être validé par une personne habilitée et respecter
+          la fiche du fabricant, les autorisations et la réglementation locale.
+        </p>
+      </section>
+
+      <section className="card">
+        <h2>🦺 Contrôle et environnement</h2>
+
+        <p>
+          L'analyse d'un tir prend en compte la fragmentation, les projections,
+          les vibrations, le bruit, les fumées et la stabilité du front. Le
+          contrôle de la zone, le temps d'attente et la gestion des anomalies
+          sont aussi importants que le résultat de fragmentation.
+        </p>
+      </section>
     </div>
   );
 }

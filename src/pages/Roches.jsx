@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import roches from "../data/roches";
+import { getRocheIcon } from "../data/rocheIcons";
 
 function Roches() {
   const [recherche, setRecherche] = useState("");
@@ -29,7 +30,7 @@ function Roches() {
       <div className="rocks-hero">
 
         <div className="rocks-hero-icon">
-          🪨
+          ⛰️
         </div>
 
         <div className="rocks-label">
@@ -183,7 +184,7 @@ function Roches() {
               <div className="rock-card-top">
 
                 <div className="rock-icon">
-                  🪨
+                  {getRocheIcon(roche)}
                 </div>
 
                 <span className="rock-family">

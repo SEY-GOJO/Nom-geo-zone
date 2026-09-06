@@ -214,15 +214,8 @@ function Categorie() {
               to={`/bibliotheque/${idCategorie}/cours/${element.id}`}
               className="course-button-link"
             >
-              <button className="course-button">
-                <span>
-                  Lire le cours
-                </span>
-
-                <span>
-                  →
-                </span>
-              </button>
+              <span>Lire le cours</span>
+              <span>→</span>
             </Link>
 
           </div>

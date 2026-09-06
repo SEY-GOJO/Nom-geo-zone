@@ -23,7 +23,7 @@ function GeoAI() {
 
   const domaines = [
     {
-      icon: "🪨",
+      icon: "⛰️",
       titre: "Géologie",
       description:
         "Pose des questions sur les roches, minéraux, structures, processus géologiques et sciences de la Terre.",

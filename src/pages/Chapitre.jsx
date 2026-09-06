@@ -184,23 +184,14 @@ function Chapitre() {
         <div className="navigation-left">
           {chapitrePrecedent ? (
             <Link
+              className="secondary-button"
               to={`${baseUrl}/chapitre/${chapitrePrecedent.id}`}
             >
-              <button
-                type="button"
-                className="secondary-button"
-              >
-                ← Précédent
-              </button>
+              ← Précédent
             </Link>
           ) : (
-            <Link to={baseUrl}>
-              <button
-                type="button"
-                className="secondary-button"
-              >
-                ← Chapitres
-              </button>
+            <Link className="secondary-button" to={baseUrl}>
+              ← Chapitres
             </Link>
           )}
         </div>
@@ -208,18 +199,15 @@ function Chapitre() {
         <div className="navigation-right">
           {chapitreSuivant ? (
             <Link
+              className="chapter-next-link"
               to={`${baseUrl}/chapitre/${chapitreSuivant.id}`}
             >
-              <button type="button">
-                Suivant
-                <span>→</span>
-              </button>
+              Suivant
+              <span>→</span>
             </Link>
           ) : (
-            <Link to={baseUrl}>
-              <button type="button">
-                ✓ Terminer
-              </button>
+            <Link className="chapter-next-link" to={baseUrl}>
+              ✓ Terminer
             </Link>
           )}
         </div>

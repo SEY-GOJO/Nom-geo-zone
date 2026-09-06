@@ -85,7 +85,7 @@ function Drilling() {
 
         <div className="card">
           <div className="module-icon">
-            🪨
+            ⛰️
           </div>
 
           <h2>

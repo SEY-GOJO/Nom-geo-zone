@@ -163,10 +163,8 @@ function CoursDetail() {
                 to={`/bibliotheque/${categorieId}/cours/${coursActuel.id}/chapitre/${chapitre.id}`}
                 className="chapter-link"
               >
-                <button type="button">
-                  Commencer
-                  <span>→</span>
-                </button>
+                Commencer
+                <span>→</span>
               </Link>
             </article>
           ))}

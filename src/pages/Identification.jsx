@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import roches from "../data/roches";
+import { getRocheIcon } from "../data/rocheIcons";
 
 function Identification() {
   const [couleur, setCouleur] = useState("");
@@ -203,7 +204,7 @@ function Identification() {
               >
                 <div className="identification-card-top">
                   <div className="identification-rock-icon">
-                    🪨
+                    {getRocheIcon(roche)}
                   </div>
 
                   <span className="identification-family">

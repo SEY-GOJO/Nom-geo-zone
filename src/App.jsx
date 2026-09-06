@@ -57,7 +57,7 @@ function Accueil() {
       className: "mining",
     },
     {
-      icon: "🪨",
+      icon: "⛰️",
       title: "Roches",
       description: "Découvre les familles et caractéristiques des roches.",
       link: "/roches",
@@ -116,7 +116,7 @@ function Accueil() {
               to="/roches"
               className="hero-button secondary"
             >
-              🪨 Explorer les roches
+              ⛰️ Explorer les roches
             </Link>
           </div>
         </div>
@@ -199,7 +199,7 @@ function Accueil() {
 
           <div className="home-quick-actions">
             <Link to="/bibliotheque">📚 Cours</Link>
-            <Link to="/roches">🪨 Roches</Link>
+            <Link to="/roches">⛰️ Roches</Link>
             <Link to="/outils">🛠️ Outils</Link>
           </div>
         </section>
@@ -374,7 +374,7 @@ function App() {
         to="/roches"
         onClick={() => setMenuOuvert(false)}
       >
-        <span className="mobile-menu-icon">🪨</span>
+        <span className="mobile-menu-icon">⛰️</span>
         <span className="mobile-menu-text">
           <strong>Roches</strong>
           <small>Base de données</small>

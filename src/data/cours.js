@@ -1097,6 +1097,76 @@ L'anthracite possède un degré de carbonification plus élevé et un éclat gé
 Le graphite correspond à un matériau carboné fortement transformé par métamorphisme et n'est plus combustible comme les charbons précédents.
         `,
       },
+
+      {
+        id: 12,
+        titre: "Minéraux allothigènes et authigènes",
+        contenu: `
+Les minéraux allothigènes sont des minéraux formés dans une autre roche ou un autre environnement, puis transportés avant d'être incorporés au sédiment. Ils correspondent souvent aux éléments détritiques.
+
+La présence de feldspaths ou de micas détritiques peut indiquer une érosion active, une sédimentation rapide et l'existence de roches cristallines mises à l'affleurement dans la région source.
+
+Les minéraux authigènes se forment directement dans le sédiment ou dans la roche sédimentaire, notamment pendant la diagenèse. Ils peuvent présenter des formes cristallines bien développées.
+
+Le quartz et la calcite peuvent précipiter dans les pores et jouer le rôle de ciment. La dolomite est également un minéral authigène fréquent dans certaines roches carbonatées. La glauconie se forme généralement dans des environnements marins peu profonds et constitue un indicateur de conditions particulières de sédimentation.
+        `,
+      },
+
+      {
+        id: 13,
+        titre: "Matière organique et apports volcaniques",
+        contenu: `
+La matière organique est une composante fréquente des roches sédimentaires. Elle peut être détritique, absorbée par les particules ou liée chimiquement aux minéraux.
+
+Elle peut être syngénétique lorsqu'elle s'accumule en même temps que le sédiment, ou épigénétique lorsqu'elle est introduite après la formation de la roche. Elle peut aussi être autochtone, produite dans le milieu de dépôt, ou allochtone, transportée depuis un autre environnement.
+
+Les tufs, les lapillis et les cendres volcaniques peuvent être incorporés aux dépôts sédimentaires. Les lapillis sont des fragments projetés dont la taille est supérieure à celle des cendres, tandis que les cendres sont constituées de particules volcaniques très fines.
+
+Les apports volcaniques permettent parfois de dater ou de corréler des niveaux sédimentaires et renseignent sur l'activité volcanique contemporaine du dépôt.
+        `,
+      },
+
+      {
+        id: 14,
+        titre: "Stratification et architecture des dépôts",
+        contenu: `
+La stratification correspond à la disposition des couches sédimentaires. L'épaisseur des lits et leur géométrie permettent de décrire l'architecture d'un dépôt et d'interpréter son environnement de formation.
+
+La stratification entrecroisée est fréquente dans les sables et les grès. Les lits obliques peuvent être disposés en lentilles, en biseaux ou en structures plus continues. Leur orientation peut indiquer le sens du courant ou la direction des apports.
+
+La sédimentation gradée présente un classement progressif des grains, généralement des éléments les plus grossiers à la base vers les plus fins au sommet. Elle est souvent associée aux courants de turbidité et à certains dépôts marins.
+
+Les varves sont des alternances régulières de lits fins et plus grossiers, souvent liées à des variations saisonnières dans les environnements lacustres glaciaires.
+        `,
+      },
+
+      {
+        id: 15,
+        titre: "Rides et marques de l'activité biologique",
+        contenu: `
+Les rides, ou ripple-marks, se forment principalement sur des fonds sableux soumis à l'eau ou au vent. Les rides de courant sont généralement dissymétriques et peuvent indiquer le sens d'écoulement.
+
+Les rides de vagues sont plutôt symétriques et résultent d'un mouvement oscillatoire. Leur conservation dépend de l'enfouissement rapide et de la préservation de la surface du dépôt.
+
+Les traces laissées par les organismes sont appelées ichnofossiles ou marques de vie. Elles peuvent correspondre à des pistes, des terriers, des empreintes ou des structures de déplacement.
+
+Ces structures permettent d'identifier certaines conditions de profondeur, d'oxygénation, d'énergie du milieu et de position du sommet ou de la base d'une couche.
+        `,
+      },
+
+      {
+        id: 16,
+        titre: "Ciments et importance économique",
+        contenu: `
+Le ciment relie les grains d'une roche sédimentaire et participe à sa cohésion. Il peut être siliceux, carbonaté, ferrugineux, argileux ou composé de plusieurs phases.
+
+On distingue notamment le ciment basal, lorsque les débris sont séparés par une grande quantité de ciment, le ciment des pores, le ciment pelliculaire autour des grains et le ciment de contact entre des éléments voisins.
+
+La cimentation et la compaction réduisent généralement la porosité et transforment un sédiment meuble en roche. La nature du ciment influence la résistance, la perméabilité, la couleur et le comportement mécanique.
+
+Les roches sédimentaires ont une grande importance économique. Les argiles, les calcaires, les grès, les évaporites, les charbons, les phosphates et certaines roches riches en matière organique sont utilisés comme matériaux, minerais ou roches réservoirs.
+        `,
+      },
     ],
   },
 
@@ -1679,6 +1749,242 @@ Ces surpressions et dépressions peuvent endommager les conduites, les raccords,
 À retenir : le débit dépend de la section et de la vitesse ; la continuité exprime la conservation du débit ; Bernoulli relie les charges de position, de pression et de vitesse ; les pertes de charge traduisent les résistances ; Reynolds aide à identifier le régime d'écoulement.
 
 Les formules doivent être utilisées avec des unités cohérentes et vérifiées par rapport aux hypothèses du modèle, aux caractéristiques du liquide et aux conditions réelles du réseau.
+        `,
+      },
+    ],
+  },
+
+  {
+    id: 7,
+    titre: "Explosifs industriels et sécurité du tir",
+    categorieId: 9,
+    matiere: "Drilling & Blasting",
+    description:
+      "Présentation théorique des explosifs industriels, de leurs propriétés, des systèmes d'amorçage et des exigences de sécurité en mine et carrière.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Rôle et contexte des explosifs industriels",
+        contenu: `
+Les explosifs industriels sont utilisés dans les mines, les carrières et certains chantiers de travaux publics pour fragmenter un massif rocheux selon un plan conçu par des professionnels habilités.
+
+Leur utilisation s'inscrit dans une chaîne complète : reconnaissance du massif, forage, conception du tir, chargement, mise à feu, contrôle des résultats et traitement des éventuels risques résiduels.
+
+L'histoire des explosifs industriels est liée au développement de la chimie, des travaux miniers et de la réglementation. Les progrès ont progressivement conduit à des produits mieux contrôlés, à des systèmes de mise à feu plus fiables et à des procédures de sécurité plus strictes.
+
+La fabrication, le transport, le stockage et l'emploi des explosifs sont soumis à des autorisations, à des normes et à des compétences spécifiques. Ce cours présente des notions générales et ne remplace jamais une formation réglementaire.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Combustion, déflagration et détonation",
+        contenu: `
+Un explosif industriel associe généralement un comburant, un combustible et des composants destinés à régler ses propriétés physiques et son comportement.
+
+On distingue plusieurs régimes de réaction :
+
+- La combustion, phénomène relativement lent qui se propage principalement par échauffement.
+- La déflagration, réaction rapide dont la propagation est subsonique dans le milieu considéré.
+- La détonation, réaction accompagnée d'une onde de choc et d'une propagation très rapide.
+
+La détonation libère une énergie importante sous forme de gaz chauds, de pression et d'onde de choc. L'effet obtenu dépend du produit, de son confinement, de la géométrie du chargement, de la roche et de la conception globale du tir.
+
+Les explosifs primaires sont très sensibles et servent principalement à initier une chaîne pyrotechnique. Les explosifs secondaires sont moins sensibles et nécessitent un système d'initiation adapté. Cette distinction est essentielle pour la sécurité.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Principales familles de produits",
+        contenu: `
+Les produits explosifs industriels ont évolué au fil des besoins des mines et carrières. Les familles historiques comprennent notamment les dynamites, les explosifs nitratés, les nitrate-fiouls, les gels, les émulsions et certains produits composites.
+
+Les dynamites sont des produits encartouchés dont la sensibilité et les performances dépendent de leur formulation. Leur emploi et leur stockage nécessitent des précautions strictes.
+
+Les nitrate-fiouls sont des produits en vrac dont le comportement dépend notamment de la qualité des composants et de la présence d'eau. Ils ne sont pas adaptés à toutes les conditions de terrain.
+
+Les gels et les émulsions sont conçus pour offrir une meilleure résistance à l'eau et une sensibilité réduite par rapport à certaines formulations plus anciennes. Leur emploi doit toujours suivre la fiche technique du fabricant.
+
+Le choix d'un produit ne se fait jamais uniquement selon sa puissance. Il dépend de la roche, de l'eau, du diamètre du trou, des contraintes environnementales, du résultat recherché et de la réglementation applicable.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Propriétés et lecture d'une fiche technique",
+        contenu: `
+Les performances et les risques d'un produit sont décrits par des caractéristiques mesurées ou calculées.
+
+On peut notamment rencontrer :
+
+- La densité et la densité de chargement.
+- La vitesse de détonation.
+- L'énergie et la pression de détonation.
+- La sensibilité à l'onde de choc, au choc et au frottement.
+- Le diamètre critique de détonation.
+- La résistance à l'eau, à la chaleur, au froid et à la compression.
+- La nature et la quantité des fumées produites.
+
+La fiche technique indique les conditions normales d'utilisation et les compatibilités du produit. La fiche de données de sécurité précise les dangers, les mesures de prévention, les premiers secours, le transport, le stockage et la conduite à tenir en cas d'incident.
+
+Les valeurs d'une fiche ne doivent pas être transposées à un autre produit ou à une autre situation sans validation du fabricant et du responsable habilité.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Systèmes d'amorçage : vue d'ensemble",
+        contenu: `
+Un système d'amorçage fournit l'impulsion nécessaire pour initier un explosif dans les conditions prévues. Il peut comprendre un dispositif d'initiation, un élément de transmission et un dispositif retardateur.
+
+Les grandes familles étudiées dans la documentation technique sont :
+
+- Les systèmes pyrotechniques.
+- Les systèmes non électriques à tube conducteur d'onde de choc.
+- Les systèmes électriques.
+- Les systèmes électroniques programmables.
+- Les systèmes utilisant un cordeau détonant.
+
+Chaque famille présente des avantages, des limites et des risques particuliers liés à l'électricité, à la foudre, à l'humidité, aux chocs, aux erreurs de raccordement ou aux retards de fonctionnement.
+
+Le choix et la mise en œuvre relèvent exclusivement de personnes qualifiées. Le raccordement réel d'un système de tir ne doit pas être improvisé ni reproduit à partir d'un support pédagogique.
+        `,
+      },
+      {
+        id: 6,
+        titre: "Sécurité, réglementation et retour d'expérience",
+        contenu: `
+La sécurité d'un tir repose sur la préparation, la compétence des intervenants, l'identification des dangers, la maîtrise des accès et le respect des procédures réglementaires.
+
+Les points essentiels comprennent :
+
+- Le contrôle des autorisations, des produits et des quantités.
+- La séparation et la surveillance des zones de stockage et de travail.
+- Le contrôle des personnes, des équipements et des voies d'accès.
+- La prise en compte de l'eau, des projections, des vibrations, du bruit et des fumées.
+- L'évacuation et le contrôle de la zone avant toute mise à feu.
+- Le respect du temps d'attente et des procédures après tir.
+- La déclaration et l'analyse de tout incident, raté ou anomalie.
+
+Les explosifs et leurs accessoires ne doivent jamais être manipulés, transportés ou testés par une personne non habilitée. En cas de produit trouvé ou de raté supposé, il faut s'éloigner, sécuriser la zone et prévenir immédiatement le responsable compétent.
+
+À retenir : la performance d'un tir ne peut jamais être séparée de la sécurité, de la réglementation, de la protection de l'environnement et de la qualification des équipes.
+        `,
+      },
+    ],
+  },
+
+  {
+    id: 8,
+    titre: "Exploitation minière à ciel ouvert",
+    categorieId: 8,
+    matiere: "Exploitation minière et équipements",
+    description:
+      "Étude des principes de l'exploitation à ciel ouvert, du choix de méthode, des équipements de chargement et de transport, et de la réhabilitation des sites.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Introduction et définitions minières",
+        contenu: `
+L'exploitation minière est le processus d'extraction de matériaux ou de minerais afin de produire une matière utile. Elle concerne notamment le charbon, le fer, les métaux précieux, les métaux de base, les phosphates, le manganèse, le talc, le calcaire et le marbre.
+
+Un minerai est un matériau ou un agrégat qui peut être extrait, traité et vendu avec un profit. Cette définition dépend de la teneur, des coûts, du marché, de la technologie disponible et des contraintes du projet.
+
+Le BCM, ou mètre cube en place, décrit le volume du matériau avant extraction. Après abattage et déplacement, le matériau occupe généralement un volume plus important appelé volume foisonné ou LCM.
+
+Le foisonnement modifie la densité apparente. Il doit être pris en compte pour estimer les volumes, choisir les capacités de transport et comparer les quantités en place aux quantités déplacées.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Choix de la méthode d'exploitation",
+        contenu: `
+Le choix initial consiste à déterminer si le gisement sera exploité à ciel ouvert, en souterrain ou par une combinaison des deux méthodes.
+
+Les principaux facteurs sont :
+
+- La profondeur, la forme et les dimensions du gisement.
+- La teneur et sa distribution.
+- La stabilité et les caractéristiques géotechniques du massif.
+- La valeur du produit et les coûts d'investissement et d'exploitation.
+- Les équipements, les compétences et les infrastructures disponibles.
+- Le délai de mise en production.
+- Les autorisations environnementales et les exigences de sécurité.
+
+La mine à ciel ouvert peut offrir une forte capacité de production, une bonne récupération et une organisation plus accessible. Elle peut cependant perturber une surface importante et nécessiter une réhabilitation coûteuse.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Mine en fosse et exploitation par gradins",
+        contenu: `
+Une exploitation en fosse crée une excavation à ciel ouvert dans laquelle l'extraction progresse généralement de haut en bas par niveaux successifs.
+
+Les gradins organisent le front de travail et contribuent à la stabilité des parois. Leur hauteur, leur largeur, leur pente et les voies de transport dépendent de la géologie, de la géotechnique, des équipements et des règles de sécurité.
+
+Le cycle courant comprend la préparation du front, le forage éventuel, la fragmentation, le chargement, le transport du minerai ou du stérile, puis la mise en stock, le traitement ou le remblayage.
+
+La conception d'une fosse doit équilibrer la récupération du minerai, la dilution, la stabilité des talus, les distances de transport, les coûts et la protection de l'environnement.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Découverte et réhabilitation progressive",
+        contenu: `
+La découverte, ou strip mining, convient particulièrement aux gisements tabulaires, proches de la surface et faiblement inclinés, comme certaines couches de charbon ou de sables minéralisés.
+
+Le recouvrement est retiré dans le secteur actif et peut être déposé dans la zone déjà exploitée. Le minerai est extrait, puis le vide est remblayé et réhabilité au fur et à mesure de l'avancement.
+
+Cette organisation permet de rapprocher l'extraction et la remise en état, de limiter certains coûts de fin de projet et de réduire la durée pendant laquelle les terrains restent perturbés.
+
+Elle exige toutefois une bonne continuité du gisement, une planification rigoureuse du déplacement du stérile et une gestion attentive de l'eau, des sols et des paysages.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Système pelle, excavatrice et camion",
+        contenu: `
+Le système pelle-camion est une méthode flexible dans laquelle une pelle en butte ou une excavatrice charge des camions qui transportent le matériau vers une destination.
+
+La pelle en butte creuse principalement au-dessus de son niveau de travail. L'excavatrice rétro creuse sous le niveau où elle est installée et peut être utile pour des extractions plus sélectives.
+
+Le choix de l'équipement dépend de la hauteur du front, de la résistance et de la fragmentation du matériau, de la sélectivité recherchée, de la capacité des camions et du nombre de passes nécessaires au chargement.
+
+La productivité dépend du temps de cycle, de la disponibilité mécanique, des temps d'attente, de la distance de transport et de l'organisation de la flotte.
+        `,
+      },
+      {
+        id: 6,
+        titre: "Chargeurs, draglines et équipements spécialisés",
+        contenu: `
+Les chargeurs sur pneus sont mobiles et flexibles. Ils conviennent aux matériaux suffisamment faciles à excaver et aux plateformes en bon état. Leur utilisation peut être limitée par la traction, l'usure des pneus, la hauteur de déversement et leur faible sélectivité dans certains fronts.
+
+Les draglines sont de très grandes machines à câbles principalement utilisées pour déplacer des terrains de recouvrement dans des gisements adaptés. Elles offrent une grande capacité mais nécessitent un investissement important, une géométrie favorable et des opérateurs expérimentés.
+
+Les excavateurs à roue-pelle travaillent en continu dans des matériaux tendres et homogènes. Les scrapers déplacent rapidement des matériaux meubles sur des distances adaptées. Les dragues peuvent être employées dans des exploitations alluviales, notamment lorsque la séparation gravimétrique est possible.
+
+Chaque équipement doit être comparé selon sa capacité, sa mobilité, sa sélectivité, son coût, sa disponibilité et son adéquation au massif.
+        `,
+      },
+      {
+        id: 7,
+        titre: "Transport, pneus et concassage sur site",
+        contenu: `
+Les camions miniers sont choisis selon leur charge utile, la distance, la pente, l'état des pistes, le temps de cycle et la capacité de l'unité de chargement.
+
+Les grands camions peuvent utiliser une transmission diesel-électrique. Les pneus, les moteurs, les routes et l'infrastructure électrique deviennent alors des facteurs importants de disponibilité et de coût.
+
+Le concassage dans la fosse, associé à des convoyeurs, peut réduire le nombre de camions et les distances de transport. Cette solution demande toutefois une installation adaptée, une alimentation régulière et une planification de la mobilité du concasseur.
+
+L'objectif est de construire un système équilibré : une unité de chargement ne doit pas attendre les camions, et les camions ne doivent pas rester immobilisés devant la zone d'extraction.
+        `,
+      },
+      {
+        id: 8,
+        titre: "Environnement, sécurité et notions à retenir",
+        contenu: `
+Une exploitation à ciel ouvert doit maîtriser la stabilité des talus, la circulation des engins, les fronts de travail, les poussières, le bruit, les vibrations, les eaux et les dépôts de stérile.
+
+La réhabilitation peut comprendre le remodelage des terrains, la remise en place des sols, la gestion des eaux, la revégétalisation et le suivi de la stabilité et de la qualité de l'environnement.
+
+À retenir : une méthode minière est choisie à partir du gisement, de la géotechnique, de l'économie, des équipements, de la sécurité et de l'environnement. La performance ne se résume pas au tonnage extrait ; elle inclut la disponibilité, la sélectivité, la récupération, les coûts et la capacité à remettre le site en état.
         `,
       },
     ],

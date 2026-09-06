@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import roches from "../data/roches";
+import { getRocheIcon } from "../data/rocheIcons";
 
 function RocheDetail() {
   const { id } = useParams();
@@ -32,7 +33,7 @@ function RocheDetail() {
       <div className="course-header card">
 
         <div className="module-icon">
-          🪨
+          {getRocheIcon(roche)}
         </div>
 
         <h1>{roche.nom}</h1>

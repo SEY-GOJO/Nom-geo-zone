@@ -149,6 +149,28 @@ function MinePlanning() {
           de l'exploitation.
         </p>
       </div>
+
+      <section className="card">
+        <h2>🧭 Données nécessaires à la décision</h2>
+
+        <p>
+          Un plan fiable s'appuie sur la géométrie du gisement, les teneurs,
+          la géotechnique, les réserves, les équipements disponibles et les
+          contraintes de traitement. Les données de forage et de contrôle de
+          production doivent être mises à jour au fil de l'exploitation.
+        </p>
+      </section>
+
+      <section className="card">
+        <h2>🦺 Planifier avec la sécurité</h2>
+
+        <p>
+          La planification doit intégrer les zones de tir, les accès, les
+          distances de sécurité, les vibrations, les fumées, la circulation
+          des engins et les mesures de protection de l'environnement. Un plan
+          performant reste toujours compatible avec les procédures validées.
+        </p>
+      </section>
     </div>
   );
 }
