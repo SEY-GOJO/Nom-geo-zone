@@ -57,9 +57,13 @@ function Blasting() {
             pour caractériser une configuration de tir.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Paramètres clés</strong>
+            <p>
+              La maille de forage, la banquette, le bourrage et la
+              charge influencent la qualité du tir.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -76,9 +80,13 @@ function Blasting() {
             la fragmentation du massif rocheux.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Objectif</strong>
+            <p>
+              Une fragmentation régulière facilite le chargement,
+              réduit les blocs hors gabarit et limite les vibrations.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -95,9 +103,13 @@ function Blasting() {
             d'une opération de fragmentation.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Indicateurs</strong>
+            <p>
+              On observe la granulométrie, les blocs trop gros, les
+              projections, les vibrations et le profil obtenu.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -114,9 +126,13 @@ function Blasting() {
             aux opérations de tir de mines.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Règle essentielle</strong>
+            <p>
+              La zone de tir doit être balisée, contrôlée et évacuée
+              selon une procédure validée par des personnes habilitées.
+            </p>
+          </div>
         </div>
 
       </div>

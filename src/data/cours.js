@@ -1406,6 +1406,283 @@ La distinction entre métagenèse et métamorphisme peut parfois être difficile
       },
     ],
   },
+
+  {
+    id: 5,
+    titre: "Puits, forages et carottage",
+    categorieId: 7,
+    matiere: "Hydrogéologie et forage",
+    description:
+      "Cours consacré aux puits, aux méthodes de forage, aux fluides de circulation, au carottage et aux applications en hydrogéologie et en exploration minière.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Puits, forages et ressources en eau",
+        contenu: `
+Un puits ou un forage est un ouvrage vertical permettant d'atteindre une nappe d'eau souterraine contenue dans les pores ou les fissures d'un aquifère.
+
+L'eau peut être remontée à l'aide d'un seau, d'une pompe manuelle ou d'une pompe motorisée. La qualité de l'eau doit être contrôlée à la mise en service puis régulièrement.
+
+On distingue principalement :
+
+- Les puits creusés, adaptés aux nappes peu profondes et aux terrains relativement meubles.
+- Les puits foncés, réalisés par enfoncement d'un tube muni d'une pointe filtrante.
+- Les puits forés, réalisés avec une tarière, un outil rotatif ou un système à percussion.
+
+Le choix dépend de la profondeur de la nappe, de la géologie, du débit recherché, des moyens disponibles et du coût de réalisation.
+
+Un ouvrage peu profond est généralement plus exposé à la contamination et à l'assèchement. Le cuvelage, le tubage, la protection de la tête du puits et l'entretien sont donc essentiels.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Méthodes de forage",
+        contenu: `
+Les principales méthodes de forage sont la percussion, la rotation et les méthodes mixtes.
+
+Le forage par percussion utilise un outil lourd qui frappe le fond du trou. Les déblais sont ensuite retirés et un tubage peut être descendu pour maintenir les parois. Cette méthode est robuste et utile dans certains terrains durs ou fissurés, mais son avancement peut être lent.
+
+Le forage rotary utilise un outil animé d'un mouvement de rotation et d'une poussée verticale. Un fluide de circulation évacue les déblais vers la surface et contribue parfois à stabiliser les parois.
+
+Le marteau fond de trou combine percussion et rotation. L'air comprimé permet de transmettre l'énergie au marteau et d'évacuer les déblais dans certaines formations rocheuses.
+
+La méthode est choisie selon la nature du terrain, la profondeur, le diamètre, la qualité d'échantillon recherchée et les contraintes du chantier.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Forage rotary et équipements",
+        contenu: `
+Dans un atelier rotary, la rotation est transmise à l'outil par la tête de rotation ou la table de rotation. Le train de tiges conduit le mouvement et permet la circulation du fluide jusqu'au fond du trou.
+
+Les principaux éléments sont :
+
+- Le mât ou derrick, qui permet les manœuvres.
+- Le treuil et le système de levage.
+- Le moteur et les organes de transmission.
+- La tête d'injection ou de circulation.
+- Les tiges et les masses-tiges.
+- L'outil de forage, le tricône ou la couronne de carottage.
+- La pompe, les bacs et les équipements de traitement du fluide.
+
+Les paramètres de forage sont principalement le poids sur l'outil, la vitesse de rotation, le débit et la pression de circulation. Ils doivent être ajustés à la roche et surveillés pendant l'avancement.
+
+Les déblais remontés, appelés cuttings, sont observés et conditionnés pour fournir des informations sur les formations traversées.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Fluides de circulation et boues",
+        contenu: `
+Un fluide de circulation sert à remonter les déblais, refroidir et lubrifier l'outil, maintenir les particules en suspension et contribuer à la stabilité des parois.
+
+La boue à base de bentonite est couramment utilisée. Elle peut former un dépôt filtrant appelé cake sur la paroi du forage et limiter les échanges incontrôlés entre le trou et la formation.
+
+Les propriétés suivies comprennent notamment :
+
+- La densité, liée à la pression exercée dans le forage.
+- La viscosité, qui influence la circulation et le transport des déblais.
+- La filtration et l'épaisseur du cake.
+- Le pH et la teneur en sable.
+
+Une augmentation du volume dans les bacs peut signaler une venue de fluide. Une diminution peut indiquer une perte de circulation dans une zone fissurée ou très perméable. Ces variations doivent être interprétées avec prudence par une équipe compétente.
+
+Le choix et le traitement du fluide doivent respecter les exigences de protection des nappes et de gestion des rejets.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Carottage et récupération des échantillons",
+        contenu: `
+Le carottage consiste à découper un cylindre de roche et à le remonter à la surface afin d'observer la succession des terrains, les fractures, les minéralisations et les propriétés de la formation.
+
+Le taux de récupération est le rapport entre la longueur de carotte récupérée et la longueur forée, exprimé en pourcentage.
+
+Un carottier simple peut être utilisé dans des roches dures et homogènes. Le carottier double protège mieux l'échantillon en séparant le tube extérieur, qui tourne, du tube intérieur qui reçoit la carotte.
+
+Le carottier à câble permet de récupérer le tube intérieur sans remonter toute la ligne de sonde. Cette technique réduit les temps de manœuvre, surtout lorsque le forage est profond.
+
+À la surface, les carottes sont orientées si nécessaire, nettoyées, décrites, photographiées, étiquetées et rangées dans des caisses. La traçabilité des échantillons est indispensable pour éviter toute confusion lors des analyses.
+        `,
+      },
+      {
+        id: 6,
+        titre: "Forage d'exploration et forage minier",
+        contenu: `
+En exploration, le forage sert à vérifier les hypothèses issues de la cartographie, de la géochimie et de la géophysique. Il réduit l'incertitude sur la géométrie, la profondeur et la composition d'une anomalie ou d'un corps minéralisé.
+
+On distingue généralement :
+
+- Le forage d'exploration, destiné à rechercher et caractériser une minéralisation.
+- Le forage de développement, destiné à préciser la géométrie, les teneurs et les propriétés du gisement.
+- Le forage de production, destiné à préparer l'extraction ou à contrôler le massif pendant l'exploitation.
+
+Le programme doit préciser les objectifs, l'espacement des sondages, l'inclinaison, la profondeur, le type d'échantillonnage et les contrôles qualité.
+
+Les données du forage sont reportées dans des logs et des coupes. Elles peuvent ensuite contribuer à l'interprétation géologique et à l'estimation des ressources, selon des procédures professionnelles et réglementaires.
+        `,
+      },
+      {
+        id: 7,
+        titre: "Sécurité, environnement et notions à retenir",
+        contenu: `
+Un chantier de forage présente des risques liés aux pièces en mouvement, aux charges suspendues, à la pression, au bruit, aux poussières, aux fluides et à l'instabilité du terrain.
+
+La sécurité repose sur la préparation du site, le balisage, les équipements de protection, la vérification des machines, la communication entre les opérateurs et le respect des procédures locales.
+
+Les fluides, déblais, eaux de retour et échantillons doivent être gérés pour éviter la contamination des sols et des nappes. Un forage doit être abandonné ou équipé selon les règles applicables afin de ne pas créer de voie de pollution.
+
+À retenir : la méthode de forage dépend toujours du terrain et de l'objectif. La qualité d'un forage se mesure autant par son avancement que par la fiabilité des observations, des échantillons, de la sécurité et de la protection de l'environnement.
+        `,
+      },
+    ],
+  },
+
+  {
+    id: 6,
+    titre: "Hydrodynamique : écoulement en charge",
+    categorieId: 7,
+    matiere: "Hydraulique et hydrodynamique",
+    description:
+      "Introduction aux lois du mouvement des liquides, aux débits, aux pertes de charge et au dimensionnement des conduites en charge.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Définitions et types d'écoulement",
+        contenu: `
+L'hydrodynamique étudie le mouvement mécanique des liquides et les méthodes utilisées pour résoudre les problèmes d'aménagement et de transport de l'eau.
+
+Une ligne de courant est une courbe tangente, en chacun de ses points, au vecteur vitesse du fluide. Un tube de courant est formé par un ensemble de lignes de courant s'appuyant sur une courbe fermée. Un filet de courant correspond à un tube de courant de très petite section.
+
+On distingue plusieurs régimes :
+
+- L'écoulement permanent, dans lequel la vitesse et la pression ne varient pas avec le temps en un point donné.
+- L'écoulement non permanent, dans lequel ces grandeurs varient avec le temps.
+- L'écoulement uniforme, dont les caractéristiques restent constantes le long du courant.
+- L'écoulement non uniforme, dans lequel la vitesse, la profondeur ou la section varient.
+
+En écoulement en charge, la conduite est remplie et la pression peut être différente de la pression atmosphérique. En écoulement à surface libre, une surface du liquide est soumise à la pression atmosphérique.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Section, débit et vitesse moyenne",
+        contenu: `
+Les principales caractéristiques géométriques d'un courant sont l'aire de la section liquide, le périmètre mouillé et le rayon hydraulique.
+
+Le rayon hydraulique est défini par :
+
+R = S / P
+
+où S est l'aire de la section et P le périmètre mouillé. Pour une conduite circulaire entièrement remplie, R = d / 4.
+
+Le débit Q est le volume de liquide qui traverse une section par unité de temps. En pratique, il est calculé avec la relation :
+
+Q = V × S
+
+où V est la vitesse moyenne et S l'aire de la section. On peut donc écrire V = Q / S et S = Q / V.
+
+Ces relations sont fondamentales pour relier la quantité d'eau transportée, la vitesse du courant et la dimension d'une conduite.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Équation de continuité",
+        contenu: `
+Pour un liquide incompressible en mouvement permanent, la conservation de la masse impose que le débit reste constant le long d'un même courant.
+
+L'équation de continuité s'écrit :
+
+Q = V₁S₁ = V₂S₂ = constante
+
+Si la section diminue, la vitesse moyenne augmente. Si la section augmente, la vitesse diminue.
+
+Cette relation permet d'analyser les changements de vitesse dans les rétrécissements, les élargissements, les buses et les réseaux de conduites.
+
+Dans un réseau, le débit entrant dans un nœud est égal à la somme des débits sortants, en respectant la convention de signe choisie.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Équation de Bernoulli",
+        contenu: `
+L'équation de Bernoulli traduit la conservation de l'énergie mécanique d'un liquide idéal en écoulement permanent.
+
+Pour un filet sans pertes, elle s'écrit sous la forme :
+
+Z + P / (ρg) + V² / (2g) = constante
+
+Les trois termes représentent respectivement la charge de position, la charge de pression et la charge cinétique.
+
+Dans un liquide réel, la viscosité produit des résistances et une perte de charge J₁₂ :
+
+Z₁ + P₁ / (ρg) + V₁² / (2g) = Z₂ + P₂ / (ρg) + V₂² / (2g) + J₁₂
+
+Une pompe peut fournir de l'énergie au liquide. Une turbine ou une perte singulière peut au contraire en retirer. L'équation doit toujours être appliquée entre deux sections clairement définies.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Pertes de charge et formule de Darcy-Weisbach",
+        contenu: `
+Les résistances hydrauliques sont de deux types : les pertes régulières, liées au frottement sur la longueur de la conduite, et les pertes singulières, produites par les coudes, vannes, changements de section, dérivations ou obstacles.
+
+La perte singulière peut être représentée par :
+
+Jloc = Kloc × V² / (2g)
+
+Pour une conduite circulaire, la perte de charge régulière est donnée par la relation de Darcy-Weisbach :
+
+Jlong = λ × (L / d) × V² / (2g)
+
+où λ est le coefficient de frottement, L la longueur de la conduite et d son diamètre intérieur.
+
+La perte totale est la somme des pertes régulières et singulières. Une conduite longue, rugueuse, étroite ou parcourue par une vitesse élevée produit généralement davantage de pertes.
+        `,
+      },
+      {
+        id: 6,
+        titre: "Régimes laminaire et turbulent",
+        contenu: `
+Le régime d'écoulement dépend notamment de la vitesse, de la viscosité, de la masse volumique du liquide et de la dimension de la conduite.
+
+Le nombre de Reynolds est un nombre sans dimension qui permet de comparer les effets d'inertie et de viscosité :
+
+Re = ρVd / μ = Vd / ν
+
+Dans une conduite circulaire, un faible nombre de Reynolds correspond à un régime laminaire, dans lequel les particules se déplacent de manière relativement ordonnée. Un nombre élevé correspond à un régime turbulent, caractérisé par des fluctuations et un mélange plus important.
+
+La limite de transition dépend de la géométrie et des conditions de l'écoulement. Le régime doit être identifié avant de choisir une relation de frottement ou d'interpréter une perte de charge.
+        `,
+      },
+      {
+        id: 7,
+        titre: "Applications : Venturi, réservoirs et conduites",
+        contenu: `
+Dans un tube de Venturi, la section se réduit, la vitesse augmente et la pression statique diminue. La continuité et Bernoulli permettent de relier la différence de pression au débit.
+
+L'écoulement par un orifice ou une tuyauterie dépend de la charge disponible, de la section de passage et des coefficients de contraction, de vitesse et de débit.
+
+Pour un réservoir, on distingue la charge constante et la charge variable. Lorsque le niveau varie, le débit et la vitesse évoluent avec le temps. Le calcul du temps de vidange ou de remplissage nécessite alors de relier le volume, la section du réservoir et le débit instantané.
+
+Dans des conduites en série, le débit est identique dans chaque tronçon et les pertes de charge s'additionnent. Dans des conduites en parallèle, la perte de charge entre les deux nœuds est la même pour chaque branche et le débit total se répartit entre elles.
+        `,
+      },
+      {
+        id: 8,
+        titre: "Coup de bélier et notions à retenir",
+        contenu: `
+Le coup de bélier est un écoulement transitoire accompagné de variations rapides de pression. Il peut apparaître lors de la fermeture brutale d'une vanne, de l'arrêt d'une pompe ou d'une variation soudaine du débit.
+
+Ces surpressions et dépressions peuvent endommager les conduites, les raccords, les pompes et les équipements associés. La prévention passe notamment par une manœuvre progressive des vannes, une gestion adaptée des pompes, des dispositifs de protection et une étude des transitoires pour les réseaux importants.
+
+À retenir : le débit dépend de la section et de la vitesse ; la continuité exprime la conservation du débit ; Bernoulli relie les charges de position, de pression et de vitesse ; les pertes de charge traduisent les résistances ; Reynolds aide à identifier le régime d'écoulement.
+
+Les formules doivent être utilisées avec des unités cohérentes et vérifiées par rapport aux hypothèses du modèle, aux caractéristiques du liquide et aux conditions réelles du réseau.
+        `,
+      },
+    ],
+  },
 ];
 
 export default cours;

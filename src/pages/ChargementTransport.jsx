@@ -56,9 +56,13 @@ function ChargementTransport() {
             charger les matériaux extraits.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Exemples</strong>
+            <p>
+              Les chargeuses, pelles hydrauliques et pelles à câble
+              sont choisies selon le matériau et le volume à déplacer.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -75,9 +79,13 @@ function ChargementTransport() {
             les matériaux dans une exploitation minière.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Choix du transport</strong>
+            <p>
+              Les tombereaux, convoyeurs ou systèmes sur rails sont
+              comparés selon la distance, la pente et la capacité.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -94,9 +102,13 @@ function ChargementTransport() {
             transport, déchargement et retour.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Cycle type</strong>
+            <p>
+              Le cycle comprend le chargement, le trajet chargé, le
+              déchargement et le retour à vide.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -113,9 +125,13 @@ function ChargementTransport() {
             des opérations de chargement et de transport.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Mesure</strong>
+            <p>
+              Le temps de cycle, la disponibilité et le taux de charge
+              permettent d'estimer la capacité de production.
+            </p>
+          </div>
         </div>
 
       </div>

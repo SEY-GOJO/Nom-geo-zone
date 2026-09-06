@@ -57,9 +57,13 @@ function MinePlanning() {
             utilisés dans une exploitation minière.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Trois horizons</strong>
+            <p>
+              La planification peut être stratégique, tactique ou
+              opérationnelle selon l'horizon étudié.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -76,9 +80,13 @@ function MinePlanning() {
             sur une période de courte durée.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Au quotidien</strong>
+            <p>
+              Le court terme répartit les zones de travail, les équipes
+              et les équipements pour atteindre la production prévue.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -95,9 +103,13 @@ function MinePlanning() {
             l'évolution d'une exploitation sur plusieurs années.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Vision globale</strong>
+            <p>
+              Les plans à long terme intègrent les réserves, les phases
+              d'extraction, les coûts et la durée de vie de la mine.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -114,9 +126,13 @@ function MinePlanning() {
             pour améliorer les performances d'une exploitation.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Arbitrage</strong>
+            <p>
+              Une optimisation cherche un équilibre entre sécurité,
+              récupération, capacité, coûts et contraintes géologiques.
+            </p>
+          </div>
         </div>
 
       </div>

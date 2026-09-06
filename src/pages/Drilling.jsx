@@ -51,9 +51,13 @@ function Drilling() {
             utilisés dans les différents travaux de forage.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>À retenir</strong>
+            <p>
+              Une foreuse, un mât, une tête de forage et un système
+              d'évacuation des déblais forment l'ensemble de base.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -70,9 +74,13 @@ function Drilling() {
             caractérisent un forage.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Paramètres clés</strong>
+            <p>
+              Le diamètre, la profondeur, l'inclinaison, la vitesse
+              de rotation et la pression influencent le résultat.
+            </p>
+          </div>
         </div>
 
         <div className="card">
@@ -89,9 +97,13 @@ function Drilling() {
             influencent les opérations de forage.
           </p>
 
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
+          <div className="lesson-takeaway">
+            <strong>Point important</strong>
+            <p>
+              La résistance, la fracturation et l'abrasivité de la
+              roche conditionnent le choix des outils et du procédé.
+            </p>
+          </div>
         </div>
 
       </div>
