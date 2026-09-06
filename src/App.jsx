@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 import BibliothequeTemp from "./pages/bibliothequetemp";
@@ -227,6 +227,27 @@ function Accueil() {
 function App() {
   const [menuOuvert, setMenuOuvert] = useState(false);
 
+  useEffect(() => {
+    if (!menuOuvert) {
+      document.body.style.overflow = "";
+      return undefined;
+    }
+
+    const fermerAvecEchap = (event) => {
+      if (event.key === "Escape") {
+        setMenuOuvert(false);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", fermerAvecEchap);
+
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", fermerAvecEchap);
+    };
+  }, [menuOuvert]);
+
   return (
     <BrowserRouter>
       <nav className="navbar">
@@ -242,8 +263,9 @@ function App() {
     className="mobile-menu-button"
     type="button"
     onClick={() => setMenuOuvert((ancienEtat) => !ancienEtat)}
-    aria-label="Menu"
+    aria-label={menuOuvert ? "Fermer le menu" : "Ouvrir le menu"}
     aria-expanded={menuOuvert}
+    aria-controls="navigation-principale"
   >
     {menuOuvert ? "✕" : "☰"}
   </button>
@@ -256,6 +278,7 @@ function App() {
   )}
 
   <div
+    id="navigation-principale"
     className={`nav-links ${
       menuOuvert ? "mobile-menu-open" : ""
     }`}

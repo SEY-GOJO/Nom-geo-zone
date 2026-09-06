@@ -8,17 +8,27 @@ function MasseVolumique() {
   const [uniteVolume, setUniteVolume] = useState("m3");
 
   const calculer = () => {
-    if (masse === "" || volume === "" || Number(volume) === 0) {
+    const masseSaisie = Number(masse);
+    const volumeSaisi = Number(volume);
+
+    if (
+      masse === "" ||
+      volume === "" ||
+      !Number.isFinite(masseSaisie) ||
+      !Number.isFinite(volumeSaisi) ||
+      masseSaisie < 0 ||
+      volumeSaisi <= 0
+    ) {
       return null;
     }
 
-    let masseEnKg = Number(masse);
+    let masseEnKg = masseSaisie;
 
     if (uniteMasse === "g") {
       masseEnKg = masseEnKg / 1000;
     }
 
-    let volumeEnM3 = Number(volume);
+    let volumeEnM3 = volumeSaisi;
 
     if (uniteVolume === "cm3") {
       volumeEnM3 = volumeEnM3 / 1000000;
@@ -62,13 +72,14 @@ function MasseVolumique() {
           🧮 Calculateur
         </h2>
 
-        <label>
+        <label htmlFor="masse-valeur">
           Masse
         </label>
 
         <div style={{ display: "flex", gap: "10px" }}>
           <input
             className="search"
+            id="masse-valeur"
             type="number"
             placeholder="Exemple : 2500"
             value={masse}
@@ -84,13 +95,14 @@ function MasseVolumique() {
           </select>
         </div>
 
-        <label>
+        <label htmlFor="volume-valeur">
           Volume
         </label>
 
         <div style={{ display: "flex", gap: "10px" }}>
           <input
             className="search"
+            id="volume-valeur"
             type="number"
             placeholder="Exemple : 1"
             value={volume}

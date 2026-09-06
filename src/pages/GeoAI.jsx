@@ -1,6 +1,26 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function GeoAI() {
+  const [question, setQuestion] = useState("");
+  const [reponse, setReponse] = useState("");
+
+  const poserQuestion = (event) => {
+    event.preventDefault();
+
+    const questionNettoyee = question.trim();
+
+    if (!questionNettoyee) {
+      setReponse("Écris une question pour commencer.");
+      return;
+    }
+
+    setReponse(
+      `Ta question a bien été enregistrée : « ${questionNettoyee} ». ` +
+        "Le service de réponse GEO AI sera bientôt connecté à la plateforme."
+    );
+  };
+
   const domaines = [
     {
       icon: "🪨",
@@ -73,18 +93,34 @@ function GeoAI() {
           </div>
         </div>
 
-        <textarea
-          placeholder="Exemple : Qu'est-ce qu'une roche métamorphique ?"
-          rows="5"
-        />
+        <form onSubmit={poserQuestion}>
+          <label htmlFor="geoai-question" className="sr-only">
+            Ta question
+          </label>
 
-        <div className="geoai-action">
-          <span>🌍 Géologie • ⛏️ Mines • 📚 Formation</span>
+          <textarea
+            id="geoai-question"
+            placeholder="Exemple : Qu'est-ce qu'une roche métamorphique ?"
+            rows="5"
+            value={question}
+            onChange={(event) => setQuestion(event.target.value)}
+          />
 
-          <button type="button">
-            🤖 Poser la question
-          </button>
-        </div>
+          <div className="geoai-action">
+            <span>🌍 Géologie • ⛏️ Mines • 📚 Formation</span>
+
+            <button type="submit" disabled={!question.trim()}>
+              🤖 Poser la question
+            </button>
+          </div>
+        </form>
+
+        {reponse && (
+          <div className="card" role="status" aria-live="polite">
+            <h3>Réponse GEO AI</h3>
+            <p>{reponse}</p>
+          </div>
+        )}
       </section>
 
       <section className="geoai-section">

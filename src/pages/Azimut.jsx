@@ -11,15 +11,11 @@ function Azimut() {
 
     const valeur = Number(azimut);
 
-    if (valeur < 0 || valeur > 360) {
+    if (!Number.isFinite(valeur) || valeur < 0 || valeur > 360) {
       return "Valeur invalide";
     }
 
-    if (valeur < 180) {
-      return valeur + 180;
-    }
-
-    return valeur - 180;
+    return (valeur + 180) % 360;
   };
 
   const resultat = calculerInverse();
@@ -58,12 +54,13 @@ function Azimut() {
           Entre un azimut compris entre 0° et 360°.
         </p>
 
-        <label>
+        <label htmlFor="azimut-valeur">
           Azimut
         </label>
 
         <input
           className="search"
+          id="azimut-valeur"
           type="number"
           min="0"
           max="360"

@@ -13,6 +13,10 @@ function Convertisseur() {
 
     const nombre = Number(valeur);
 
+    if (!Number.isFinite(nombre)) {
+      return null;
+    }
+
     const enMetres = {
       mm: nombre / 1000,
       cm: nombre / 100,
@@ -60,12 +64,13 @@ function Convertisseur() {
           📏 Convertisseur de longueur
         </h2>
 
-        <label>
+        <label htmlFor="conversion-valeur">
           Valeur
         </label>
 
         <input
           className="search"
+          id="conversion-valeur"
           type="number"
           placeholder="Exemple : 1500"
           value={valeur}
@@ -100,7 +105,7 @@ function Convertisseur() {
           <option value="km">Kilomètre (km)</option>
         </select>
 
-        {valeur !== "" && (
+        {valeur !== "" && resultat !== null && (
           <div className="card">
             <h2>
               Résultat

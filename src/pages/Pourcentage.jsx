@@ -1,14 +1,20 @@
-import { Link } from "react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function Pourcentage() {
   const [valeur, setValeur] = useState("");
   const [pourcentage, setPourcentage] = useState("");
 
-  const resultat =
-    valeur !== "" && pourcentage !== ""
-      ? (Number(valeur) * Number(pourcentage)) / 100
-      : null;
+  const nombreValeur = Number(valeur);
+  const nombrePourcentage = Number(pourcentage);
+  const valeursValides =
+    valeur !== "" &&
+    pourcentage !== "" &&
+    Number.isFinite(nombreValeur) &&
+    Number.isFinite(nombrePourcentage);
+  const resultat = valeursValides
+    ? (nombreValeur * nombrePourcentage) / 100
+    : null;
 
   const reinitialiser = () => {
     setValeur("");
@@ -40,24 +46,26 @@ function Pourcentage() {
           🧮 Calcul
         </h2>
 
-        <label>
+        <label htmlFor="pourcentage-valeur">
           Valeur
         </label>
 
         <input
           className="search"
+          id="pourcentage-valeur"
           type="number"
           placeholder="Exemple : 500"
           value={valeur}
           onChange={(e) => setValeur(e.target.value)}
         />
 
-        <label>
+        <label htmlFor="pourcentage-taux">
           Pourcentage
         </label>
 
         <input
           className="search"
+          id="pourcentage-taux"
           type="number"
           placeholder="Exemple : 15"
           value={pourcentage}

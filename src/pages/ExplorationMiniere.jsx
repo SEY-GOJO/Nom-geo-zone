@@ -1,8 +1,35 @@
 import { Link } from "react-router-dom";
 
+const methodesExploration = [
+  {
+    icon: "🗺️",
+    title: "Cartographie géologique",
+    description:
+      "Observe, décris et cartographie les formations géologiques pour comprendre le contexte d'un secteur.",
+  },
+  {
+    icon: "🧪",
+    title: "Exploration géochimique",
+    description:
+      "Utilise les analyses géochimiques pour rechercher des anomalies associées à certains gisements.",
+  },
+  {
+    icon: "📡",
+    title: "Exploration géophysique",
+    description:
+      "Découvre les méthodes géophysiques utilisées pour étudier les propriétés du sous-sol.",
+  },
+  {
+    icon: "🕳️",
+    title: "Sondage et forage d'exploration",
+    description:
+      "Comprends le rôle des sondages et des forages dans la reconnaissance directe du sous-sol.",
+  },
+];
+
 function ExplorationMiniere() {
   return (
-    <div className="container">
+    <main className="container">
       <Link to="/mining" className="back-link">
         ← Retour au Mining
       </Link>
@@ -23,9 +50,11 @@ function ExplorationMiniere() {
         </p>
       </div>
 
-      <div className="card">
+      <section className="card" aria-labelledby="introduction-exploration">
         <h2>
+          <span id="introduction-exploration">
           🌍 Introduction à l'exploration minière
+          </span>
         </h2>
 
         <p>
@@ -39,94 +68,30 @@ function ExplorationMiniere() {
           géochimie, la géophysique, la télédétection et les
           travaux de terrain.
         </p>
-      </div>
+      </section>
 
-      <div className="modules">
+      <section className="modules" aria-label="Méthodes d'exploration minière">
+        {methodesExploration.map((methode) => (
+          <article className="card" key={methode.title}>
+            <div className="module-icon" aria-hidden="true">
+              {methode.icon}
+            </div>
 
-        <div className="card">
-          <div className="module-icon">
-            🗺️
-          </div>
+            <h2>{methode.title}</h2>
+            <p>{methode.description}</p>
 
-          <h2>
-            Cartographie géologique
-          </h2>
+            <button className="disabled-button" type="button" disabled>
+              Bientôt disponible
+            </button>
+          </article>
+        ))}
+      </section>
 
-          <p>
-            Découvre comment observer, décrire et cartographier
-            les formations géologiques afin de mieux comprendre
-            le contexte d'un secteur.
-          </p>
-
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
-        </div>
-
-        <div className="card">
-          <div className="module-icon">
-            🧪
-          </div>
-
-          <h2>
-            Exploration géochimique
-          </h2>
-
-          <p>
-            Découvre l'utilisation des analyses géochimiques
-            pour rechercher des anomalies associées à certains
-            gisements.
-          </p>
-
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
-        </div>
-
-        <div className="card">
-          <div className="module-icon">
-            📡
-          </div>
-
-          <h2>
-            Exploration géophysique
-          </h2>
-
-          <p>
-            Découvre les méthodes géophysiques utilisées pour
-            étudier les propriétés du sous-sol.
-          </p>
-
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
-        </div>
-
-        <div className="card">
-          <div className="module-icon">
-            🕳️
-          </div>
-
-          <h2>
-            Sondage et forage d'exploration
-          </h2>
-
-          <p>
-            Comprends le rôle des sondages et des forages dans
-            la reconnaissance directe du sous-sol et l'évaluation
-            d'un gisement.
-          </p>
-
-          <button className="disabled-button">
-            Bientôt disponible
-          </button>
-        </div>
-
-      </div>
-
-      <div className="card">
+      <section className="card" aria-labelledby="notions-exploration">
         <h2>
+          <span id="notions-exploration">
           📚 Notions à retenir
+          </span>
         </h2>
 
         <p>
@@ -136,8 +101,8 @@ function ExplorationMiniere() {
           pour réduire progressivement l'incertitude sur le
           potentiel du secteur étudié.
         </p>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
