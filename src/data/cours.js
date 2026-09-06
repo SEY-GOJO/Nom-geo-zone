@@ -2427,6 +2427,137 @@ La dacite est une roche volcanique riche en silice, intermédiaire à acide. Le 
       },
     ],
   },
+
+  {
+    id: 13,
+    titre: "Exploitation minière souterraine",
+    categorieId: 8,
+    matiere: "Exploitation minière",
+    description:
+      "Introduction aux gisements, aux réserves, aux travaux d'ouverture, de préparation et de dépilage, ainsi qu'aux principaux paramètres de production souterraine.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Gisements et terminologie minière",
+        contenu: `
+Les minéraux utiles sont des substances naturelles qui peuvent être extraites et utilisées après une technologie adaptée. Un gisement correspond à une accumulation dont la quantité, la qualité et les conditions permettent une exploitation industrielle.
+
+Les gisements peuvent être gazeux, liquides ou solides. Selon leur utilisation, on distingue notamment les gisements métallifères, non métallifères, combustibles et hydrominéraux.
+
+Un minerai contient un ou plusieurs composants de valeur en proportion suffisante pour être traité avec intérêt économique. Les réserves correspondent à la quantité de matière minérale identifiée dans un gisement.
+
+Les principaux éléments descriptifs d'un gisement sont la direction, le pendage, la puissance, la profondeur, la forme, les roches encaissantes et la présence éventuelle de stérile.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Forme, puissance et pendage du gisement",
+        contenu: `
+La morphologie d'un corps minéralisé influence directement la méthode d'exploitation et l'organisation des travaux.
+
+On distingue notamment :
+
+- Les formes isométriques, développées de manière comparable dans les trois dimensions.
+- Les formes en poutre ou en filon, développées surtout suivant une direction.
+- Les formes en couche, développées suivant deux dimensions principales.
+
+La puissance est la distance mesurée perpendiculairement entre le toit et le mur du gisement. Elle peut être faible, moyenne ou importante selon les besoins de la classification utilisée.
+
+Le pendage est l'angle entre le plan du gisement et l'horizontale. Un gisement peut être faiblement incliné, incliné ou dressant. La puissance et le pendage influencent la disposition des étages, des panneaux, des galeries et des blocs.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Propriétés du massif rocheux",
+        contenu: `
+Le massif rocheux est un milieu discontinu dont le comportement dépend de la roche, de la stratification, de la porosité, de la fissuration, des fluides et des contraintes.
+
+Les propriétés importantes pour l'exploitation comprennent :
+
+- La dureté et la résistance à la destruction.
+- La densité et l'abrasivité.
+- La stabilité des excavations.
+- La fissuration et la perméabilité.
+- La granulométrie après abattage.
+- Le foisonnement et l'angle du talus naturel.
+
+La stabilité détermine les besoins en soutènement et les dimensions admissibles des excavations. La fissuration peut faciliter le forage et l'abattage, mais réduire la stabilité et modifier les circulations d'eau.
+
+La dureté, l'abrasivité et la granulométrie influencent le choix des outils, des engins et du système de transport.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Réserves, pertes et dilution",
+        contenu: `
+Les réserves géologiques peuvent être distinguées des réserves exploitables. Une réserve exploitable peut être extraite et valorisée dans les conditions techniques et économiques du projet.
+
+Une partie du minerai peut être abandonnée sous forme de piliers de protection, dans des zones difficiles ou lors des opérations d'abattage et de chargement. Ces quantités constituent des pertes.
+
+La dilution correspond au mélange du minerai avec des roches stériles ou avec des matériaux de teneur insuffisante. Elle réduit la teneur du tout-venant et peut augmenter les coûts de transport et de traitement.
+
+Les indicateurs courants comprennent le coefficient de perte, le coefficient de dilution et le coefficient d'extraction. Leur analyse permet de comparer les méthodes d'exploitation et d'améliorer la récupération du minerai.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Ouverture d'une mine souterraine",
+        contenu: `
+L'ouverture consiste à creuser depuis la surface les excavations qui donnent accès au gisement.
+
+Les principales excavations d'ouverture sont :
+
+- Le puits vertical ou incliné.
+- La galerie au jour.
+- Les travers-bancs reliant les ouvrages au gisement.
+- Les puits ou montages aveugles pour atteindre les niveaux inférieurs.
+
+Un puits capital peut assurer l'évacuation du minerai, la circulation des personnes et du matériel. Un ou plusieurs puits auxiliaires peuvent assurer l'aérage, l'évacuation de secours et certains transports.
+
+Le choix du mode d'ouverture dépend de la topographie, de la profondeur, de la forme du gisement, du pendage, de la production attendue, des coûts, de la ventilation et de la sécurité.
+        `,
+      },
+      {
+        id: 6,
+        titre: "Préparation des horizons et des blocs",
+        contenu: `
+Après l'ouverture, le gisement est divisé en niveaux, panneaux et blocs d'exploitation par des galeries, travers-bancs, montages et recoupes.
+
+Les gisements inclinés ou dressants sont généralement divisés en étages. Les gisements faiblement inclinés ou tabulaires peuvent être divisés en panneaux et en blocs.
+
+Les schémas préparatoires peuvent être réalisés dans le minerai, dans les roches encaissantes ou de manière combinée. Le transport peut suivre un tracé en cul-de-sac ou un circuit plus continu.
+
+La préparation doit permettre le début du dépilage, l'aérage, le transport, le drainage, l'accès des équipes et la sécurité des travaux. Son importance est évaluée par le volume et la longueur des excavations nécessaires avant la production.
+        `,
+      },
+      {
+        id: 7,
+        titre: "Dépilage et organisation de la production",
+        contenu: `
+Le dépilage est l'extraction de la matière minéralisée dans les blocs préparés. Il comprend généralement l'abattage, le déblocage, le chargement, le transport et la gestion de l'espace créé.
+
+Les travaux peuvent progresser du bas vers le haut, du haut vers le bas, suivant la direction du gisement ou selon une combinaison de ces schémas.
+
+Le choix dépend du pendage, de la puissance, de la stabilité du minerai et des encaissants, du soutènement, du mode de transport et de la méthode d'exploitation.
+
+La production de la mine influence les dimensions des excavations, la puissance des engins, le transport, l'installation de traitement et les effectifs. Elle doit rester compatible avec les réserves, le taux de dilution, la récupération et la durée de vie du projet.
+        `,
+      },
+      {
+        id: 8,
+        titre: "Aérage, exhaure et exigences d'exploitation",
+        contenu: `
+Les travaux souterrains doivent être ventilés pour apporter de l'air frais et évacuer les poussières, les gaz, la chaleur et les fumées produites par les engins ou les opérations d'abattage.
+
+L'exhaure consiste à collecter et évacuer les eaux qui s'infiltrent dans la mine. Les puisards et les stations de pompage sont généralement placés à des niveaux adaptés pour protéger les chantiers et les voies de circulation.
+
+Une exploitation responsable doit limiter les pertes, contrôler la dilution, préserver les réserves futures, protéger les eaux et l'atmosphère, gérer les déchets et garantir la sécurité des travailleurs et des populations voisines.
+
+À retenir : une mine souterraine repose sur trois stades liés : ouverture, préparation et dépilage. Leur conception doit être cohérente avec la géologie, la géotechnique, la production, la ventilation, le drainage, l'environnement et la sécurité.
+        `,
+      },
+    ],
+  },
 ];
 
 export default cours;
