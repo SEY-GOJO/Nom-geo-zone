@@ -1989,6 +1989,147 @@ La réhabilitation peut comprendre le remodelage des terrains, la remise en plac
       },
     ],
   },
+
+  {
+    id: 9,
+    titre: "Géologie structurale et tectonique",
+    categorieId: 5,
+    matiere: "Géologie structurale",
+    description:
+      "Introduction à la déformation des roches, aux contraintes, à la rhéologie et aux principales structures tectoniques, des plis aux failles.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Introduction à la géologie structurale",
+        contenu: `
+La géologie structurale étudie les déformations subies par les roches. La tectonique s'intéresse plus particulièrement à l'histoire des mouvements qui ont formé une région.
+
+L'étude d'une structure repose sur plusieurs questions : quelle est sa nature, quelle est sa géométrie, dans quel ordre les événements se sont-ils produits, quels mouvements l'ont créée et quelles forces peuvent expliquer son origine ?
+
+Sur le terrain, on observe une roche déformée et non la déformation passée ni les forces directement. L'interprétation tectonique est donc un modèle construit à partir des observations, des mesures et des relations entre les structures.
+
+Les structures peuvent être étudiées à l'échelle du cristal, de l'échantillon, de l'affleurement, de la carte ou de la plaque lithosphérique.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Déformation et ellipsoïde de déformation",
+        contenu: `
+La déformation décrit les changements de forme, de position ou d'orientation d'un corps soumis à des contraintes.
+
+Elle peut combiner :
+
+- Une translation, qui change la position.
+- Une rotation, qui change l'orientation.
+- Une distorsion, qui change la forme.
+- Une variation de volume, par compaction, dissolution, fracturation ou réaction minérale.
+
+Une déformation peut être homogène ou hétérogène, continue ou discontinue, incrémentale ou finie.
+
+Un marqueur initialement circulaire devient une ellipse en deux dimensions. En trois dimensions, une sphère devient un ellipsoïde défini par trois axes principaux X, Y et Z. Cette représentation permet de discuter l'allongement, l'aplatissement et la forme générale de la déformation.
+
+Le taux de déformation correspond à la quantité de déformation par unité de temps et s'exprime en s-1.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Forces, contraintes et cercle de Mohr",
+        contenu: `
+Une force peut modifier le mouvement d'un corps. Une contrainte correspond à une force rapportée à une surface et s'exprime en pascals.
+
+Sur un plan donné, la contrainte se décompose en :
+
+- Une composante normale, perpendiculaire au plan.
+- Une composante tangentielle ou cisaillante, parallèle au plan.
+
+Dans un système tridimensionnel, les directions où la contrainte cisaillante s'annule sont les directions principales. Les contraintes peuvent être représentées par un ellipsoïde ou par un tenseur.
+
+La contrainte moyenne est liée à la pression lithostatique. La contrainte différentielle ou déviatorique est responsable d'une grande partie de la distorsion des roches.
+
+Le cercle de Mohr permet de représenter graphiquement les contraintes normale et cisaillante selon l'orientation d'un plan. Il est utilisé pour étudier les conditions de rupture.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Rhéologie et comportement des roches",
+        contenu: `
+La rhéologie étudie les relations entre contraintes et déformations.
+
+Une déformation élastique est instantanée et réversible. Une déformation plastique est progressive et non réversible. Une roche est dite cassante lorsqu'elle se rompt après peu de déformation plastique, et ductile lorsqu'elle peut subir une déformation plastique importante.
+
+La loi de Hooke décrit simplement la relation entre contrainte et déformation élastique. Les comportements plastiques et visqueux dépendent plutôt du seuil d'écoulement, de la viscosité et du taux de déformation.
+
+Le comportement d'une roche varie avec :
+
+- Sa composition minéralogique et sa compétence.
+- La pression lithostatique.
+- La température.
+- La vitesse de déformation.
+- La pression des fluides dans les pores.
+- La présence de fluides dans les structures cristallines.
+
+La croûte supérieure est généralement plus cassante, tandis que la profondeur et la température favorisent progressivement des comportements ductiles.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Déformation ductile et fabriques tectoniques",
+        contenu: `
+La déformation ductile s'exprime dans la masse de la roche et peut affecter les grains et les cristaux. Les mécanismes comprennent la microfracturation, les macles de déformation, la pression-dissolution, le fluage par diffusion, le fluage par dislocation et la recristallisation.
+
+Une fabrique planaire est appelée foliation ou schistosité selon sa nature. Une fabrique linéaire est appelée linéation. Les foliations peuvent être produites par la réorientation de minéraux, la croissance orientée de nouveaux cristaux, la pression-dissolution ou la transposition d'une structure plus ancienne.
+
+Les linéations d'étirement et certaines linéations de croissance minérale peuvent indiquer la direction de l'allongement. Les zones de cisaillement concentrent une forte déformation ductile et peuvent montrer des fabriques S/C, des objets sigmoïdes ou des indicateurs de sens de cisaillement.
+
+Le boudinage résulte de l'extension d'un niveau plus compétent inclus dans une matrice plus déformable.
+        `,
+      },
+      {
+        id: 6,
+        titre: "Plis et tectonique ductile",
+        contenu: `
+Un pli est une structure courbée autour d'une charnière ou d'un axe. Le plan axial contient les axes des surfaces courbées et les flancs relient les charnières.
+
+Un antiforme possède des flancs qui divergent vers le haut, tandis qu'un synforme possède des flancs qui convergent vers le haut. Lorsque l'ordre stratigraphique est connu, on peut parler d'anticlinal ou de synclinal.
+
+Les plis peuvent être ouverts, serrés, isoclinaux, droits, inclinés, déversés, couchés ou plongeants. Ils peuvent être isopaques, lorsque l'épaisseur des couches reste constante, ou anisopaques, lorsque l'épaisseur varie entre la charnière et les flancs.
+
+Les plis peuvent se former par flambage et flexion d'une couche compétente, par cisaillement hétérogène ou par aplatissement. Plusieurs phases de plissement produisent des structures d'interférence.
+        `,
+      },
+      {
+        id: 7,
+        titre: "Rupture, fractures et failles",
+        contenu: `
+La rupture des roches est favorisée par la concentration des contraintes autour des microfractures, des pores et des limites de grains.
+
+Les joints et diaclases sont des fractures avec peu ou pas de déplacement. Lorsqu'elles sont remplies de minéraux, elles forment des veines. Elles influencent la perméabilité, la stabilité des massifs, la géomorphologie et parfois la concentration de minéralisations.
+
+Une faille est une fracture sur laquelle un déplacement a eu lieu. On distingue notamment :
+
+- Les failles normales, associées à l'extension.
+- Les failles inverses et les chevauchements, associés à la compression.
+- Les failles décrochantes, caractérisées par un mouvement principalement horizontal.
+- Les failles à mouvement composite, combinant plusieurs composantes.
+
+Les stries, les marches, les fibres minérales, les crochons et les relations entre les couches peuvent aider à déterminer le sens du déplacement.
+        `,
+      },
+      {
+        id: 8,
+        titre: "Tectonique régionale et synthèse",
+        contenu: `
+Les systèmes de failles normales forment des rifts, des grabens et des demi-grabens dans les domaines extensifs. Les failles inverses et les chevauchements participent à l'épaississement crustal et à la construction des chaînes de montagnes.
+
+Les chevauchements peuvent s'organiser en rampes, plats, duplex et nappes. Une nappe est une unité déplacée sur une grande distance au-dessus d'un décollement.
+
+Les décrochements peuvent présenter des relais, des bassins en pull-apart, des rides compressives, des rotations de blocs, des structures en fleur, de la transpression ou de la transtension.
+
+À retenir : une interprétation structurale doit relier la géométrie observée, la cinématique, les mécanismes de déformation, la chronologie et le contexte tectonique régional. Les mesures d'orientation, les cartes, les coupes et les stéréogrammes sont des outils essentiels de cette analyse.
+        `,
+      },
+    ],
+  },
 ];
 
 export default cours;
