@@ -2228,6 +2228,81 @@ La lecture d'un paysage géologique consiste à relier les reliefs, les couches,
       },
     ],
   },
+
+  {
+    id: 11,
+    titre: "Les feldspaths : identification et variétés",
+    categorieId: 2,
+    matiere: "Minéralogie",
+    description:
+      "Étude des feldspaths alcalins et plagioclases, de leurs propriétés, de leur identification et de leur importance dans les roches et l'industrie.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Généralités sur les feldspaths",
+        contenu: `
+Les feldspaths sont des tectosilicates constitués principalement d'aluminium, de silicium et d'oxygène, associés à des éléments comme le potassium, le sodium, le calcium ou le baryum.
+
+Ils constituent l'un des groupes de minéraux les plus abondants de la croûte terrestre. On les rencontre dans les roches magmatiques, métamorphiques et certaines roches sédimentaires.
+
+Les principaux groupes sont :
+
+- Les feldspaths alcalins, principalement riches en potassium et en sodium.
+- Les plagioclases, qui forment une série entre un pôle sodique et un pôle calcique.
+
+Les feldspaths présentent souvent deux directions de clivage et peuvent développer des macles caractéristiques.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Propriétés et identification",
+        contenu: `
+La couleur des feldspaths est variable : incolore, blanche, rose, verte, bleue ou brune selon la variété et les inclusions.
+
+Leur éclat est généralement vitreux, leur trait est blanc et leur densité se situe approximativement entre 2,5 et 2,8. Leur dureté est proche de 6 à 6,5 sur l'échelle de Mohs, ce qui leur permet de rayer certains verres et minéraux plus tendres.
+
+À l'œil nu, l'identification repose sur la couleur, le clivage, l'éclat, la dureté, les macles et le contexte de la roche. La couleur seule ne suffit pas pour distinguer un feldspath alcalin d'un plagioclase.
+
+Les feldspaths ne sont généralement ni magnétiques ni radioactifs. Des analyses optiques ou chimiques sont nécessaires pour une détermination précise.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Feldspaths alcalins",
+        contenu: `
+Le feldspath potassique correspond principalement à la composition KAlSi3O8. Il existe sous plusieurs polymorphes selon l'ordre aluminium-silicium et la température de cristallisation.
+
+La sanidine est le polymorphe de haute température et se rencontre notamment dans certaines roches volcaniques. L'orthose est fréquente dans les roches plutoniques et métamorphiques. Le microcline est le polymorphe de basse température et présente souvent des macles quadrillées observables au microscope.
+
+Les feldspaths alcalins sont fréquents dans les granites, les syénites, les rhyolites et les trachytes. Ils sont souvent blancs, gris ou roses, mais leur couleur peut varier selon les impuretés et les altérations.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Plagioclases et série albite-anorthite",
+        contenu: `
+Les plagioclases sont des feldspaths calcosodiques formant une série continue entre l'albite, riche en sodium, et l'anorthite, riche en calcium.
+
+Les variétés intermédiaires sont généralement nommées selon leur proportion relative d'albite et d'anorthite : oligoclase, andésine, labradorite et bytownite.
+
+Les plagioclases se rencontrent notamment dans les diorites, gabbros, basaltes, andésites et certaines tonalites. Ils montrent souvent des macles polysynthétiques, qui constituent un critère important au microscope polarisant.
+
+La méthode de Michel-Lévy utilise l'angle d'extinction optique pour estimer la composition d'un plagioclase. Cette détermination demande une lame mince bien orientée et des mesures répétées.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Altération, roches hôtes et usages",
+        contenu: `
+Les feldspaths peuvent s'altérer en minéraux argileux, notamment en kaolinite, sous l'action de l'eau et des réactions chimiques. Cette altération participe à la formation des sols et modifie la porosité et la résistance des roches.
+
+Dans les roches, les feldspaths sont des indicateurs importants de la composition du magma ou de la roche d'origine. Les feldspaths potassiques caractérisent souvent des roches riches en silice, tandis que les plagioclases sont fréquents dans les roches intermédiaires et basiques.
+
+Les feldspaths sont utilisés dans la fabrication du verre, des céramiques, des carreaux et de certains matériaux industriels. Leur identification doit distinguer la valeur scientifique du minéral, son contexte géologique et sa qualité industrielle.
+        `,
+      },
+    ],
+  },
 ];
 
 export default cours;
