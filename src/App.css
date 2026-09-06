@@ -14304,3 +14304,26 @@ textarea:focus-visible {
     line-height: 1.5;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .formation-grid,
+  .tools-grid,
+  .mining-grid,
+  .identification-grid,
+  .container > .modules {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .formation-grid > *,
+  .tools-grid > *,
+  .mining-grid > *,
+  .identification-grid > *,
+  .container > .modules > .card {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
