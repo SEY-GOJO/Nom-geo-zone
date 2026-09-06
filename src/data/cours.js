@@ -2303,6 +2303,130 @@ Les feldspaths sont utilisés dans la fabrication du verre, des céramiques, des
       },
     ],
   },
+
+  {
+    id: 12,
+    titre: "Pétrographie des roches magmatiques",
+    categorieId: 3,
+    matiere: "Pétrographie",
+    description:
+      "Reconnaissance, textures, classification et origine des roches plutoniques, hypovolcaniques et volcaniques.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Origine et types de roches magmatiques",
+        contenu: `
+Les roches magmatiques se forment par refroidissement et cristallisation d'un magma. Celui-ci peut provenir de la fusion partielle du manteau supérieur, de roches crustales ou de sources plus profondes associées à certains points chauds.
+
+On distingue trois situations principales :
+
+- Les roches plutoniques, cristallisées lentement en profondeur.
+- Les roches volcaniques, refroidies rapidement à la surface.
+- Les roches hypovolcaniques ou filoniennes, cristallisées à faible profondeur.
+
+La vitesse de refroidissement influence directement la taille des cristaux. Un refroidissement lent permet une cristallisation complète et des cristaux visibles, tandis qu'un refroidissement rapide produit des microlithes, une pâte vitreuse ou une mésostase.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Reconnaître une roche magmatique sur le terrain",
+        contenu: `
+Un affleurement volcanique peut montrer des coulées, des structures en coussins, des projections, une structure bulleuse ou des prismes liés au refroidissement de la lave.
+
+Un massif plutonique est généralement massif et non stratifié. Il peut présenter des diaclases, des blocs de chaos, des filons, des bordures figées ou des pegmatites.
+
+Les structures volcaniques comprennent notamment :
+
+- Les cônes de scories et les cratères.
+- Les caldeiras, formées par l'effondrement d'une partie d'un édifice volcanique.
+- Les necks, qui correspondent à des conduits volcaniques dégagés par l'érosion.
+- Les dykes, formés par le remplissage et la cristallisation d'une fissure.
+
+L'observation de l'affleurement doit être complétée par l'étude de la texture, des minéraux et des relations avec les roches voisines.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Textures et microstructures",
+        contenu: `
+La texture décrit la taille, la forme, l'orientation et l'agencement des cristaux.
+
+Dans les roches plutoniques, une structure grenue ou holocristalline indique une cristallisation complète. Une structure porphyroïde associe des cristaux de grande taille à une matrice plus fine et peut traduire plusieurs étapes de cristallisation.
+
+Dans les roches hypovolcaniques, les cristaux sont souvent très fins et peuvent former une structure microgrenue.
+
+Dans les roches volcaniques, on peut observer :
+
+- Une structure vitreuse ou hyaline.
+- Une structure aphyrique, sans phénocristaux visibles.
+- Une structure microlithique, avec de très petits cristaux.
+- Une structure porphyrique, avec des phénocristaux dans une pâte.
+- Une structure microlithique porphyrique.
+
+Lorsque les microlithes sont orientés par l'écoulement de la lave, on parle de structure trachytique.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Couleur, silice et indice de coloration",
+        contenu: `
+La couleur aide à orienter l'identification, mais elle ne suffit pas à nommer une roche. Elle dépend notamment de la proportion de silice et de minéraux ferromagnésiens.
+
+On distingue généralement :
+
+- Les roches ultrabasiques, très pauvres en silice.
+- Les roches basiques, comme le gabbro et le basalte.
+- Les roches intermédiaires, comme la diorite et l'andésite.
+- Les roches acides, comme le granite et la rhyolite.
+
+Les roches claires sont dites leucocrates et les roches sombres mélanocrates. L'indice de coloration repose sur la proportion de minéraux sombres, notamment les pyroxènes, amphiboles, biotites et olivines.
+
+Une même composition globale peut produire une roche plutonique, hypovolcanique ou volcanique selon la profondeur et la vitesse de refroidissement.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Classification minéralogique",
+        contenu: `
+La classification des roches magmatiques s'appuie principalement sur les minéraux cardinaux : quartz, feldspaths alcalins, plagioclases et feldspathoïdes.
+
+Les minéraux ferromagnésiens, comme l'olivine, les pyroxènes, les amphiboles et la biotite, complètent la description et renseignent sur le caractère plus ou moins sombre de la roche.
+
+Dans les roches riches en quartz, on peut distinguer notamment le granite et la rhyolite. Les associations dominées par les feldspaths alcalins donnent des syénites et des trachytes. Les plagioclases accompagnés de minéraux ferromagnésiens caractérisent notamment les diorites, gabbros, andésites et basaltes.
+
+Les limites entre les familles sont progressives. L'analyse précise demande l'observation en lame mince, le microscope polarisant, la diffraction ou des analyses chimiques selon l'objectif.
+        `,
+      },
+      {
+        id: 6,
+        titre: "Roches plutoniques principales",
+        contenu: `
+Le granite est une roche plutonique claire, généralement composée de quartz, de feldspaths alcalins, de plagioclases et de micas.
+
+La diorite contient surtout des plagioclases et des minéraux ferromagnésiens comme les amphiboles, la biotite ou les pyroxènes.
+
+Le gabbro est une roche plutonique sombre composée principalement de plagioclases, de pyroxènes et parfois d'olivine.
+
+La péridotite est une roche ultrabasique riche en olivine et pyroxènes, typique de certaines parties du manteau supérieur.
+
+La syénite est riche en feldspaths alcalins et pauvre en quartz. La monzonite présente une proportion importante de feldspaths alcalins et de plagioclases.
+        `,
+      },
+      {
+        id: 7,
+        titre: "Roches volcaniques et synthèse",
+        contenu: `
+Le basalte est une roche volcanique basique, souvent sombre, à texture microlithique ou microlithique porphyrique. Il contient généralement des plagioclases, des pyroxènes et parfois de l'olivine.
+
+L'andésite est une roche volcanique intermédiaire contenant fréquemment des plagioclases et des amphiboles. La rhyolite est l'équivalent volcanique riche en silice du granite et peut contenir du quartz et des feldspaths dans une pâte claire ou vitreuse.
+
+La dacite est une roche volcanique riche en silice, intermédiaire à acide. Le trachyte est dominé par les feldspaths alcalins. La phonolite contient des feldspaths et des feldspathoïdes.
+
+À retenir : pour identifier une roche magmatique, il faut combiner le contexte de mise en place, la texture, la couleur, les minéraux visibles et, si nécessaire, l'étude microscopique et chimique.
+        `,
+      },
+    ],
+  },
 ];
 
 export default cours;
