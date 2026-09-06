@@ -21,6 +21,18 @@ const iconesParRoche = {
   Dolomie: "⬜",
   Diatomite: "🔬",
   Kieselguhr: "🔬",
+  Rhyolite: "🌋",
+  Diorite: "⚪",
+  Péridotite: "🟢",
+  Syénite: "🟠",
+  Andésite: "🌋",
+  Dacite: "🌋",
+  Trachyte: "🔸",
+  Phonolite: "🔔",
+  Dolérite: "⚫",
+  Picrite: "🟢",
+  Néphélinite: "🟣",
+  Téphrite: "🟤",
 };
 
 const iconesParFamille = {
