@@ -2130,6 +2130,104 @@ Les décrochements peuvent présenter des relais, des bassins en pull-apart, des
       },
     ],
   },
+
+  {
+    id: 10,
+    titre: "Synthèse de géologie générale",
+    categorieId: 1,
+    matiere: "Géologie générale",
+    description:
+      "Une synthèse des grands types de roches, du volcanisme, du métamorphisme, de la sédimentation, de la dureté des minéraux et des paysages géologiques.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Volcanisme et origine des magmas",
+        contenu: `
+Le volcanisme est lié aux mouvements des plaques et à la remontée de magmas vers la surface. Il se rencontre notamment dans les zones de subduction, les dorsales océaniques, les rifts et certains points chauds.
+
+La composition du magma influence fortement son comportement. Un magma basaltique, relativement pauvre en silice, est généralement plus fluide et peut produire des coulées. Un magma plus riche en silice est plus visqueux et peut retenir davantage de gaz, ce qui favorise des éruptions explosives.
+
+Pendant une éruption, le dynamisme peut être effusif ou explosif. Les produits volcaniques comprennent les laves, les cendres, les lapillis, les bombes et les projections soudées.
+
+Les formes volcaniques comprennent les cônes, les cratères, les caldeiras, les dykes et les necks. La solidification lente en profondeur forme des roches plutoniques, tandis que le refroidissement rapide en surface forme des roches volcaniques.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Roches magmatiques et cycle des roches",
+        contenu: `
+Les roches magmatiques se forment par refroidissement et cristallisation d'un magma.
+
+Les roches plutoniques cristallisent lentement en profondeur et présentent généralement une texture grenue, comme le granite ou le gabbro. Les roches volcaniques refroidissent rapidement à la surface et peuvent présenter une texture microlitique ou vitreuse, comme le basalte, la rhyolite ou la pierre ponce.
+
+Les trois grands groupes de roches sont les roches magmatiques, métamorphiques et sédimentaires. Ils sont reliés par le cycle des roches : fusion, cristallisation, altération, érosion, transport, dépôt, diagenèse, métamorphisme et soulèvement.
+
+La structure interne de la Terre comprend une croûte, un manteau et un noyau. Les mouvements de la lithosphère et la chaleur interne participent à la formation et à la transformation des roches.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Minéraux et échelle de Mohs",
+        contenu: `
+Les roches sont des assemblages de minéraux. La composition minéralogique influence leur couleur, leur texture, leur densité, leur dureté et leur résistance à l'altération.
+
+L'échelle de Mohs classe la dureté relative des minéraux de 1 à 10 :
+
+- Talc : 1.
+- Gypse : 2.
+- Calcite : 3.
+- Fluorite : 4.
+- Apatite : 5.
+- Orthose : 6.
+- Quartz : 7.
+- Topaze : 8.
+- Corindon : 9.
+- Diamant : 10.
+
+Un minéral peut rayer les minéraux de dureté inférieure. La dureté d'une roche dépend de ses minéraux, de leur taille, de leur cohésion et de la présence de fractures ou de pores.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Métamorphisme et roches métamorphiques",
+        contenu: `
+Le métamorphisme est la transformation d'une roche préexistante à l'état solide, sous l'effet de variations de température, de pression, de contraintes et de fluides. Il n'y a pas de fusion complète de la roche.
+
+Un granite peut se transformer en gneiss lors de l'enfouissement et de la déformation associés à la formation d'une chaîne de montagnes. Des argiles peuvent évoluer vers des schistes, puis vers des roches plus fortement métamorphisées selon les conditions.
+
+Les roches métamorphiques peuvent présenter une schistosité, une foliation, une texture granoblastique ou des bandes minéralogiques. Le marbre dérive généralement d'un calcaire et la quartzite d'un grès riche en quartz.
+
+Le type de roche formé dépend de la composition initiale et du trajet pression-température suivi pendant l'évolution géologique.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Sédimentation et roches sédimentaires",
+        contenu: `
+Les roches sédimentaires se forment à la surface ou à faible profondeur par accumulation, transport, dépôt et transformation de matériaux.
+
+Les sédiments peuvent provenir de l'érosion de roches préexistantes, de précipitations chimiques, de l'activité biologique ou de projections volcaniques. L'enfouissement, la compaction et la cimentation conduisent à la diagenèse.
+
+Les conglomérats contiennent des éléments arrondis, tandis que les brèches contiennent des fragments anguleux. Les grès proviennent de la consolidation de sables. Les roches argileuses résultent de dépôts fins et les calcaires sont principalement constitués de carbonates.
+
+Les strates, les fossiles, les rides, les structures entrecroisées et les variations de granulométrie permettent d'interpréter le milieu de dépôt et l'histoire du paysage.
+        `,
+      },
+      {
+        id: 6,
+        titre: "Paysages karstiques et lecture du terrain",
+        contenu: `
+Les terrains karstiques se développent principalement dans les roches solubles, notamment les calcaires. L'eau chargée en dioxyde de carbone peut dissoudre progressivement la roche et élargir les fissures.
+
+Cette évolution peut former des dolines, des cavités, des avens, des grottes, des pertes de rivières et des résurgences. Les réseaux karstiques constituent parfois d'importantes réserves d'eau souterraine, mais ils sont aussi vulnérables à la pollution rapide.
+
+La lecture d'un paysage géologique consiste à relier les reliefs, les couches, les fractures, les roches et les processus d'érosion. Une même région peut montrer des formes volcaniques, des plis, des strates inclinées, des roches métamorphiques et des dépôts récents.
+
+À retenir : observer une roche et un paysage permet de reconstituer une partie de leur histoire, mais toute interprétation doit être confrontée aux structures, aux minéraux, aux relations de terrain et au contexte régional.
+        `,
+      },
+    ],
+  },
 ];
 
 export default cours;
