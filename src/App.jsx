@@ -86,9 +86,7 @@ function Accueil() {
         <div className="hero-background-circle circle-two"></div>
 
         <div className="hero-content">
-          <div className="hero-badge">
-            🌍 PLATEFORME D'APPRENTISSAGE
-          </div>
+          <div className="hero-badge">🌍 PLATEFORME D'APPRENTISSAGE</div>
 
           <h1>
             GEO <span>ZONE</span>
@@ -99,9 +97,9 @@ function Accueil() {
           </p>
 
           <p className="hero-description">
-            Apprends, explore et développe tes connaissances grâce à
-            une plateforme pensée pour les étudiants et passionnés
-            des sciences de la Terre.
+            Apprends, explore et développe tes connaissances grâce à une
+            plateforme pensée pour les étudiants et passionnés des sciences
+            de la Terre.
           </p>
 
           <div className="hero-buttons">
@@ -133,10 +131,9 @@ function Accueil() {
           </h2>
 
           <p>
-            Cours, roches, formation, outils, identification,
-            mining et intelligence artificielle : GEO ZONE rassemble
-            progressivement les ressources essentielles pour apprendre
-            et progresser.
+            Cours, roches, formation, outils, identification, mining et
+            intelligence artificielle : GEO ZONE rassemble progressivement
+            les ressources essentielles pour apprendre et progresser.
           </p>
         </section>
 
@@ -188,9 +185,7 @@ function Accueil() {
           <div className="home-quick-content">
             <span>ACCÈS RAPIDE</span>
 
-            <h2>
-              Commence ton exploration
-            </h2>
+            <h2>Commence ton exploration</h2>
 
             <p>
               Accède directement aux ressources les plus utiles.
@@ -210,12 +205,13 @@ function Accueil() {
           <div>
             <h2>
               Comprendre la Terre,
+              <br />
               c'est mieux comprendre notre monde.
             </h2>
 
             <p>
-              GEO ZONE — Apprendre aujourd'hui pour construire
-              les compétences de demain.
+              GEO ZONE — Apprendre aujourd'hui pour construire les compétences
+              de demain.
             </p>
           </div>
         </section>
@@ -251,169 +247,181 @@ function App() {
   return (
     <BrowserRouter>
       <nav className="navbar">
-  <Link
-    to="/"
-    className="nav-logo"
-    onClick={() => setMenuOuvert(false)}
-  >
-    🌍 GEO ZONE
-  </Link>
+        <Link
+          to="/"
+          className="nav-logo"
+          onClick={() => setMenuOuvert(false)}
+        >
+          🌍 GEO ZONE
+        </Link>
 
-  <button
-    className="mobile-menu-button"
-    type="button"
-    onClick={() => setMenuOuvert((ancienEtat) => !ancienEtat)}
-    aria-label={menuOuvert ? "Fermer le menu" : "Ouvrir le menu"}
-    aria-expanded={menuOuvert}
-    aria-controls="navigation-principale"
-  >
-    {menuOuvert ? "✕" : "☰"}
-  </button>
+        <button
+          className="mobile-menu-button"
+          type="button"
+          onClick={() =>
+            setMenuOuvert((ancienEtat) => !ancienEtat)
+          }
+          aria-label={
+            menuOuvert ? "Fermer le menu" : "Ouvrir le menu"
+          }
+          aria-expanded={menuOuvert}
+          aria-controls="navigation-principale"
+        >
+          {menuOuvert ? "✕" : "☰"}
+        </button>
 
-  {menuOuvert && (
-    <div
-      className="mobile-menu-overlay"
-      onClick={() => setMenuOuvert(false)}
-    ></div>
-  )}
+        {menuOuvert && (
+          <div
+            className="mobile-menu-overlay"
+            onClick={() => setMenuOuvert(false)}
+          ></div>
+        )}
 
-  <div
-    id="navigation-principale"
-    className={`nav-links ${
-      menuOuvert ? "mobile-menu-open" : ""
-    }`}
-  >
-    <div className="mobile-menu-header">
-      <div>
-        <span className="mobile-menu-eyebrow">
-          NAVIGATION
-        </span>
+        <div
+          id="navigation-principale"
+          className={`nav-links ${
+            menuOuvert ? "mobile-menu-open" : ""
+          }`}
+        >
+          <div className="mobile-menu-header">
+            <div>
+              <span className="mobile-menu-eyebrow">
+                NAVIGATION
+              </span>
 
-        <strong>🌍 GEO ZONE</strong>
-      </div>
+              <strong>🌍 GEO ZONE</strong>
+            </div>
 
-      <button
-        type="button"
-        className="mobile-menu-close"
-        onClick={() => setMenuOuvert(false)}
-        aria-label="Fermer le menu"
-      >
-        ✕
-      </button>
-    </div>
+            <button
+              type="button"
+              className="mobile-menu-close"
+              onClick={() => setMenuOuvert(false)}
+              aria-label="Fermer le menu"
+            >
+              ✕
+            </button>
+          </div>
 
-    <div className="mobile-menu-section">
-      <span className="mobile-menu-section-title">
-        PRINCIPAL
-      </span>
+          <div className="mobile-menu-section">
+            <span className="mobile-menu-section-title">
+              PRINCIPAL
+            </span>
 
-      <Link
-        to="/"
-        onClick={() => setMenuOuvert(false)}
-      >
-        <span className="mobile-menu-icon">🏠</span>
-        <span className="mobile-menu-text">
-          <strong>Accueil</strong>
-          <small>Page principale</small>
-        </span>
-      </Link>
+            <Link
+              to="/"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">🏠</span>
 
-      <Link
-        to="/bibliotheque"
-        onClick={() => setMenuOuvert(false)}
-      >
-        <span className="mobile-menu-icon">📚</span>
-        <span className="mobile-menu-text">
-          <strong>Bibliothèque</strong>
-          <small>Cours et ressources</small>
-        </span>
-      </Link>
+              <span className="mobile-menu-text">
+                <strong>Accueil</strong>
+                <small>Page principale</small>
+              </span>
+            </Link>
 
-      <Link
-        to="/formation"
-        onClick={() => setMenuOuvert(false)}
-      >
-        <span className="mobile-menu-icon">🎓</span>
-        <span className="mobile-menu-text">
-          <strong>Formation</strong>
-          <small>Apprendre et progresser</small>
-        </span>
-      </Link>
+            <Link
+              to="/bibliotheque"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">📚</span>
 
-      <Link
-        to="/geo-ai"
-        onClick={() => setMenuOuvert(false)}
-      >
-        <span className="mobile-menu-icon">🤖</span>
-        <span className="mobile-menu-text">
-          <strong>GEO AI</strong>
-          <small>Assistant géologique</small>
-        </span>
-      </Link>
-    </div>
+              <span className="mobile-menu-text">
+                <strong>Bibliothèque</strong>
+                <small>Cours et ressources</small>
+              </span>
+            </Link>
 
-    <div className="mobile-menu-divider"></div>
+            <Link
+              to="/formation"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">🎓</span>
 
-    <div className="mobile-menu-section">
-      <span className="mobile-menu-section-title">
-        EXPLORER
-      </span>
+              <span className="mobile-menu-text">
+                <strong>Formation</strong>
+                <small>Apprendre et progresser</small>
+              </span>
+            </Link>
 
-      <Link
-        to="/mining"
-        onClick={() => setMenuOuvert(false)}
-      >
-        <span className="mobile-menu-icon">⛏️</span>
-        <span className="mobile-menu-text">
-          <strong>Mining</strong>
-          <small>Univers minier</small>
-        </span>
-      </Link>
+            <Link
+              to="/geo-ai"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">🤖</span>
 
-      <Link
-        to="/roches"
-        onClick={() => setMenuOuvert(false)}
-      >
-        <span className="mobile-menu-icon">⛰️</span>
-        <span className="mobile-menu-text">
-          <strong>Roches</strong>
-          <small>Base de données</small>
-        </span>
-      </Link>
+              <span className="mobile-menu-text">
+                <strong>GEO AI</strong>
+                <small>Assistant géologique</small>
+              </span>
+            </Link>
+          </div>
 
-      <Link
-        to="/identification"
-        onClick={() => setMenuOuvert(false)}
-      >
-        <span className="mobile-menu-icon">🔬</span>
-        <span className="mobile-menu-text">
-          <strong>Identification</strong>
-          <small>Identifier les roches</small>
-        </span>
-      </Link>
+          <div className="mobile-menu-divider"></div>
 
-      <Link
-        to="/outils"
-        onClick={() => setMenuOuvert(false)}
-      >
-        <span className="mobile-menu-icon">🛠️</span>
-        <span className="mobile-menu-text">
-          <strong>Outils</strong>
-          <small>Outils du géologue</small>
-        </span>
-      </Link>
-    </div>
+          <div className="mobile-menu-section">
+            <span className="mobile-menu-section-title">
+              EXPLORER
+            </span>
 
-    <div className="mobile-menu-footer">
-      <span>🌍</span>
+            <Link
+              to="/mining"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">⛏️</span>
 
-      <div>
-        <strong>GEO ZONE</strong>
-        <small>Apprendre • Explorer • Comprendre</small>
-      </div>
-    </div>
-  </div>
-</nav>
+              <span className="mobile-menu-text">
+                <strong>Mining</strong>
+                <small>Univers minier</small>
+              </span>
+            </Link>
+
+            <Link
+              to="/roches"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">⛰️</span>
+
+              <span className="mobile-menu-text">
+                <strong>Roches</strong>
+                <small>Base de données</small>
+              </span>
+            </Link>
+
+            <Link
+              to="/identification"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">🔬</span>
+
+              <span className="mobile-menu-text">
+                <strong>Identification</strong>
+                <small>Identifier les roches</small>
+              </span>
+            </Link>
+
+            <Link
+              to="/outils"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">🛠️</span>
+
+              <span className="mobile-menu-text">
+                <strong>Outils</strong>
+                <small>Outils du géologue</small>
+              </span>
+            </Link>
+          </div>
+
+          <div className="mobile-menu-footer">
+            <span>🌍</span>
+
+            <div>
+              <strong>GEO ZONE</strong>
+              <small>Apprendre • Explorer • Comprendre</small>
+            </div>
+          </div>
+        </div>
+      </nav>
 
       <Routes>
         <Route
@@ -559,8 +567,8 @@ function App() {
             </div>
 
             <p>
-              La plateforme dédiée à la géologie,
-              aux mines et aux sciences de la Terre.
+              La plateforme dédiée à la géologie, aux mines et aux sciences
+              de la Terre.
             </p>
           </div>
 
@@ -578,17 +586,17 @@ function App() {
 
             <Link to="/geo-ai">GEO AI</Link>
             <Link to="/mining">Mining</Link>
+
             <Link to="/identification">
               Identification
             </Link>
+
             <Link to="/outils">Outils</Link>
           </div>
         </div>
 
         <div className="geo-footer-bottom">
-          <p>
-            © 2026 GEO ZONE. Tous droits réservés.
-          </p>
+          <p>© 2026 GEO ZONE. Tous droits réservés.</p>
 
           <p>
             Apprendre • Explorer • Comprendre
