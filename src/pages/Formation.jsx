@@ -7,36 +7,54 @@ function Formation() {
       titre: "Cours interactifs",
       description:
         "Apprends les notions essentielles de géologie à travers des cours structurés.",
+      link: "/bibliotheque",
+      disponible: true,
+      action: "Accéder",
     },
     {
-      icon: "📝",
-      titre: "Quiz",
-      description:
-        "Teste tes connaissances avec des questions adaptées aux différentes matières.",
-    },
+  icon: "📝",
+  titre: "Quiz",
+  description:
+    "Teste tes connaissances avec des questions adaptées aux différentes matières.",
+  link: "/quiz",
+  disponible: true,
+  action: "Commencer",
+},
     {
       icon: "🧠",
       titre: "Révision",
       description:
         "Révise les notions importantes avant tes examens et évaluations.",
+      link: null,
+      disponible: false,
+      action: "Bientôt disponible",
     },
     {
       icon: "🎯",
       titre: "Évaluation",
       description:
         "Évalue ton niveau et identifie les notions à approfondir.",
+      link: null,
+      disponible: false,
+      action: "Bientôt disponible",
     },
     {
       icon: "📈",
       titre: "Progression",
       description:
         "Suis ton évolution et ton avancement dans ton apprentissage.",
+      link: "/progression",
+      disponible: true,
+      action: "Voir ma progression",
     },
     {
       icon: "🏆",
       titre: "Défis géologiques",
       description:
         "Relève des défis pour mettre tes connaissances à l'épreuve.",
+      link: null,
+      disponible: false,
+      action: "Bientôt disponible",
     },
   ];
 
@@ -81,43 +99,71 @@ function Formation() {
         <div className="formation-section-heading">
           <div>
             <span>EXPLORE LA FORMATION</span>
+
             <h2>Choisis une activité</h2>
           </div>
 
           <p>
-            De nouveaux contenus seront ajoutés progressivement.
+            Commence par les activités actuellement disponibles.
           </p>
         </div>
 
         <div className="formation-grid">
-          {formations.map((formation, index) => (
-            <div
-              className="formation-card"
-              key={formation.titre}
-            >
-              <div className="formation-card-top">
-                <div className="formation-card-icon">
-                  {formation.icon}
+          {formations.map((formation, index) => {
+            const contenu = (
+              <>
+                <div className="formation-card-top">
+                  <div className="formation-card-icon">
+                    {formation.icon}
+                  </div>
+
+                  <span className="formation-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
-                <span className="formation-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </div>
+                <div className="formation-card-content">
+                  <h3>{formation.titre}</h3>
 
-              <div className="formation-card-content">
-                <h3>{formation.titre}</h3>
+                  <p>{formation.description}</p>
+                </div>
 
-                <p>{formation.description}</p>
-              </div>
+                <div className="formation-card-footer">
+                  {formation.disponible ? (
+                    <span className="formation-action">
+                      {formation.action}
+                      <span>→</span>
+                    </span>
+                  ) : (
+                    <span className="formation-coming">
+                      {formation.action}
+                    </span>
+                  )}
+                </div>
+              </>
+            );
 
-              <div className="formation-card-footer">
-                <span className="formation-coming">
-                  Bientôt disponible
-                </span>
+            if (formation.disponible) {
+              return (
+                <Link
+                  key={formation.titre}
+                  to={formation.link}
+                  className="formation-card"
+                >
+                  {contenu}
+                </Link>
+              );
+            }
+
+            return (
+              <div
+                key={formation.titre}
+                className="formation-card formation-card-disabled"
+              >
+                {contenu}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
     </div>

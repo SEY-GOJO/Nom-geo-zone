@@ -41,6 +41,9 @@ import ConductiviteHydraulique from "./pages/ConductiviteHydraulique";
 import Transmissivite from "./pages/Transmissivite";
 import CoefficientEmmagasinement from "./pages/CoefficientEmmagasinement";
 import OutilsCategorie from "./pages/OutilsCategorie";
+import Progression from "./pages/Progression";
+import Recherche from "./pages/Recherche";
+import Quiz from "./pages/Quiz";
 import "./App.css";
 
 function Accueil() {
@@ -492,6 +495,14 @@ function App() {
   path="/outils/groupe/:categorie"
   element={<OutilsCategorie />}
 />
+<Route
+  path="/progression"
+  element={<Progression />}
+/>
+<Route
+  path="/recherche"
+  element={<Recherche />}
+/>
 
         <Route
           path="/mining"
@@ -614,6 +625,10 @@ function App() {
 <Route
   path="/outils/debit-darcy"
   element={<DebitDarcy />}
+/>
+<Route
+  path="/quiz"
+  element={<Quiz />}
 />
 <Route
   path="/outils/conductivite-hydraulique"
