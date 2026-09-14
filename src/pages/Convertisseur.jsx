@@ -1,12 +1,53 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import {
+  convertir,
+  unitesConversion,
+} from "../utils/conversions";
+
+const familles = [
+  {
+    value: "longueur",
+    label: "📏 Longueur",
+  },
+  {
+    value: "masse",
+    label: "⚖️ Masse",
+  },
+  {
+    value: "volume",
+    label: "🧊 Volume",
+  },
+  {
+    value: "masseVolumique",
+    label: "🧱 Masse volumique",
+  },
+  {
+    value: "concentration",
+    label: "🧪 Concentration",
+  },
+];
 
 function Convertisseur() {
+  const [famille, setFamille] = useState("longueur");
   const [valeur, setValeur] = useState("");
   const [uniteDepart, setUniteDepart] = useState("m");
   const [uniteArrivee, setUniteArrivee] = useState("km");
 
-  const convertir = () => {
+  const unitesActuelles = unitesConversion[famille];
+
+  const changerFamille = (nouvelleFamille) => {
+    const nouvellesUnites = unitesConversion[nouvelleFamille];
+
+    setFamille(nouvelleFamille);
+    setValeur("");
+    setUniteDepart(nouvellesUnites[0].value);
+    setUniteArrivee(
+      nouvellesUnites[1]?.value ?? nouvellesUnites[0].value
+    );
+  };
+
+  const calculerConversion = () => {
     if (valeur === "") {
       return "";
     }
@@ -17,26 +58,19 @@ function Convertisseur() {
       return null;
     }
 
-    const enMetres = {
-      mm: nombre / 1000,
-      cm: nombre / 100,
-      m: nombre,
-      km: nombre * 1000,
-    };
-
-    const metres = enMetres[uniteDepart];
-
-    const depuisMetres = {
-      mm: metres * 1000,
-      cm: metres * 100,
-      m: metres,
-      km: metres / 1000,
-    };
-
-    return depuisMetres[uniteArrivee];
+    try {
+      return convertir(
+        nombre,
+        famille,
+        uniteDepart,
+        uniteArrivee
+      );
+    } catch {
+      return null;
+    }
   };
 
-  const resultat = convertir();
+  const resultat = calculerConversion();
 
   return (
     <div className="container">
@@ -54,15 +88,34 @@ function Convertisseur() {
         </h1>
 
         <p>
-          Convertis rapidement les principales unités de
-          longueur utilisées en géologie et en mining.
+          Convertis les principales unités utilisées en
+          géologie, hydrogéologie, laboratoire et mining.
         </p>
       </div>
 
       <div className="card">
         <h2>
-          📏 Convertisseur de longueur
+          🔄 Convertisseur GEO ZONE
         </h2>
+
+        <label htmlFor="conversion-famille">
+          Type de conversion
+        </label>
+
+        <select
+          id="conversion-famille"
+          value={famille}
+          onChange={(e) => changerFamille(e.target.value)}
+        >
+          {familles.map((element) => (
+            <option
+              key={element.value}
+              value={element.value}
+            >
+              {element.label}
+            </option>
+          ))}
+        </select>
 
         <label htmlFor="conversion-valeur">
           Valeur
@@ -77,32 +130,42 @@ function Convertisseur() {
           onChange={(e) => setValeur(e.target.value)}
         />
 
-        <label>
+        <label htmlFor="conversion-depart">
           Unité de départ
         </label>
 
         <select
+          id="conversion-depart"
           value={uniteDepart}
           onChange={(e) => setUniteDepart(e.target.value)}
         >
-          <option value="mm">Millimètre (mm)</option>
-          <option value="cm">Centimètre (cm)</option>
-          <option value="m">Mètre (m)</option>
-          <option value="km">Kilomètre (km)</option>
+          {unitesActuelles.map((unite) => (
+            <option
+              key={unite.value}
+              value={unite.value}
+            >
+              {unite.label}
+            </option>
+          ))}
         </select>
 
-        <label>
+        <label htmlFor="conversion-arrivee">
           Unité d'arrivée
         </label>
 
         <select
+          id="conversion-arrivee"
           value={uniteArrivee}
           onChange={(e) => setUniteArrivee(e.target.value)}
         >
-          <option value="mm">Millimètre (mm)</option>
-          <option value="cm">Centimètre (cm)</option>
-          <option value="m">Mètre (m)</option>
-          <option value="km">Kilomètre (km)</option>
+          {unitesActuelles.map((unite) => (
+            <option
+              key={unite.value}
+              value={unite.value}
+            >
+              {unite.label}
+            </option>
+          ))}
         </select>
 
         {valeur !== "" && resultat !== null && (
