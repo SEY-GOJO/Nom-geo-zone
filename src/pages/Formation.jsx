@@ -21,23 +21,23 @@ function Formation() {
   action: "Commencer",
 },
     {
-      icon: "🧠",
-      titre: "Révision",
-      description:
-        "Révise les notions importantes avant tes examens et évaluations.",
-      link: null,
-      disponible: false,
-      action: "Bientôt disponible",
-    },
+  icon: "🧠",
+  titre: "Révision",
+  description:
+    "Révise les notions importantes avant tes examens et évaluations.",
+  link: "/revision",
+  disponible: true,
+  action: "Réviser",
+},
     {
-      icon: "🎯",
-      titre: "Évaluation",
-      description:
-        "Évalue ton niveau et identifie les notions à approfondir.",
-      link: null,
-      disponible: false,
-      action: "Bientôt disponible",
-    },
+  icon: "🎯",
+  titre: "Évaluation",
+  description:
+    "Évalue ton niveau et identifie les notions à approfondir.",
+  link: "/evaluation",
+  disponible: true,
+  action: "Commencer",
+},
     {
       icon: "📈",
       titre: "Progression",

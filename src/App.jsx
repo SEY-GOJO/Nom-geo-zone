@@ -44,6 +44,8 @@ import OutilsCategorie from "./pages/OutilsCategorie";
 import Progression from "./pages/Progression";
 import Recherche from "./pages/Recherche";
 import Quiz from "./pages/Quiz";
+import Revision from "./pages/Revision";
+import Evaluation from "./pages/Evaluation";
 import "./App.css";
 
 function Accueil() {
@@ -466,6 +468,14 @@ function App() {
           path="/bibliotheque/:categorieId"
           element={<Categorie />}
         />
+        <Route
+  path="/revision"
+  element={<Revision />}
+/>
+<Route
+  path="/evaluation"
+  element={<Evaluation />}
+/>
 
         <Route
           path="/bibliotheque/:categorieId/cours/:id"
