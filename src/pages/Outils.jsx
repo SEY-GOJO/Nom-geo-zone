@@ -1,48 +1,46 @@
 import { Link } from "react-router-dom";
 
 function Outils() {
-  const outils = [
+  const categories = [
     {
-      icon: "📐",
-      title: "Conversion des unités",
-      description: "Convertis rapidement les unités utilisées en géologie.",
-      link: "/outils/convertisseur",
-      disponible: true,
+      icon: "⛏️",
+      title: "Outils miniers",
+      description:
+        "Tonnage, teneur, métal contenu, récupération, dilution et autres calculs miniers.",
+      count: 7,
+      link: "/outils/groupe/miniers",
     },
     {
-      icon: "⚖️",
-      title: "Masse volumique",
-      description: "Calcule la masse volumique d'un matériau.",
-      link: "/outils/masse-volumique",
-      disponible: true,
-    },
-    {
-      icon: "📊",
-      title: "Pourcentage",
-      description: "Effectue rapidement tes calculs de pourcentage.",
-      link: "/outils/pourcentage",
-      disponible: true,
+      icon: "💧",
+      title: "Outils hydrogéologiques",
+      description:
+        "Porosité, gradient hydraulique, débit de Darcy, conductivité et transmissivité.",
+      count: 6,
+      link: "/outils/groupe/hydrogeologie",
     },
     {
       icon: "🧭",
-      title: "Azimut",
-      description: "Effectue des calculs liés aux directions et orientations.",
-      link: "/outils/azimut",
-      disponible: true,
+      title: "Géologie structurale & terrain",
+      description:
+        "Azimut, pendage, Strike & Dip, pente et calculs de terrain.",
+      count: 5,
+      link: "/outils/groupe/structure",
     },
     {
-      icon: "📏",
-      title: "Pendage",
-      description: "Travaille sur la direction et le pendage des structures.",
-      link: "/outils/pendage",
-      disponible: true,
+      icon: "🗺️",
+      title: "Cartographie",
+      description:
+        "Échelle cartographique et outils liés aux distances sur carte.",
+      count: 2,
+      link: "/outils/groupe/cartographie",
     },
     {
-      icon: "⛏️",
-      title: "Mining",
-      description: "Outils spécialisés pour les activités minières.",
-      link: null,
-      disponible: false,
+      icon: "⚖️",
+      title: "Calculs généraux",
+      description:
+        "Masse volumique, pourcentage et conversions d'unités.",
+      count: 3,
+      link: "/outils/groupe/general",
     },
   ];
 
@@ -58,11 +56,12 @@ function Outils() {
         <div className="tools-hero-content">
           <span>BOÎTE À OUTILS</span>
 
-          <h1>Outils géologiques</h1>
+          <h1>GEO Tools</h1>
 
           <p>
-            Des outils pratiques pour effectuer rapidement
-            tes calculs et travaux en géologie.
+            Des outils pratiques regroupés par domaine pour
+            faciliter tes calculs en géologie, mines et
+            hydrogéologie.
           </p>
         </div>
       </section>
@@ -70,73 +69,49 @@ function Outils() {
       <section className="tools-section">
         <div className="tools-section-heading">
           <div>
-            <span>OUTILS DISPONIBLES</span>
-            <h2>Choisis un outil</h2>
+            <span>CATÉGORIES</span>
+
+            <h2>Choisis un domaine</h2>
           </div>
 
           <p>
-            Accède directement au calculateur dont tu as besoin.
+            Sélectionne une catégorie pour accéder à ses outils.
           </p>
         </div>
 
         <div className="tools-grid">
-          {outils.map((outil, index) => {
-            const contenu = (
-              <>
-                <div className="tool-card-top">
-                  <div className="tool-icon">{outil.icon}</div>
-
-                  <span className="tool-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+          {categories.map((categorie, index) => (
+            <Link
+              key={categorie.title}
+              to={categorie.link}
+              className={`tool-card ${
+                index === 0 ? "tool-card-wide" : ""
+              }`}
+            >
+              <div className="tool-card-top">
+                <div className="tool-icon">
+                  {categorie.icon}
                 </div>
 
-                <div className="tool-card-content">
-                  <h3>{outil.title}</h3>
-
-                  <p>{outil.description}</p>
-                </div>
-
-                <div className="tool-card-footer">
-                  {outil.disponible ? (
-                    <span className="tool-action">
-                      Ouvrir
-                      <span>→</span>
-                    </span>
-                  ) : (
-                    <span className="tool-coming">
-                      Bientôt disponible
-                    </span>
-                  )}
-                </div>
-              </>
-            );
-
-            if (outil.disponible) {
-              return (
-                <Link
-                  key={outil.title}
-                  to={outil.link}
-                  className={`tool-card ${
-                    index === 5 ? "tool-card-wide" : ""
-                  }`}
-                >
-                  {contenu}
-                </Link>
-              );
-            }
-
-            return (
-              <div
-                key={outil.title}
-                className={`tool-card tool-card-disabled ${
-                  index === 5 ? "tool-card-wide" : ""
-                }`}
-              >
-                {contenu}
+                <span className="tool-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
-            );
-          })}
+
+              <div className="tool-card-content">
+                <h3>{categorie.title}</h3>
+
+                <p>{categorie.description}</p>
+              </div>
+
+              <div className="tool-card-footer">
+                <span className="tool-action">
+                  {categorie.count} outils
+                  <span>→</span>
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
     </div>

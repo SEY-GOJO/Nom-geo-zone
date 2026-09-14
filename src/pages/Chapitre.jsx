@@ -1,9 +1,14 @@
 import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 import cours from "../data/cours";
 
 function Chapitre() {
-  const { categorieId, id, chapitreId } = useParams();
+  const {
+    categorieId,
+    id,
+    chapitreId,
+  } = useParams();
 
   const coursActuel = cours.find(
     (element) => element.id === Number(id)
@@ -18,7 +23,8 @@ function Chapitre() {
           <h1>Cours introuvable</h1>
 
           <p>
-            Le cours demandé n'existe pas ou n'est plus disponible.
+            Le cours demandé n'existe pas ou n'est plus
+            disponible.
           </p>
 
           <Link to="/bibliotheque">
@@ -31,9 +37,11 @@ function Chapitre() {
     );
   }
 
-  const chapitreIndex = coursActuel.chapitres.findIndex(
-    (chapitre) => chapitre.id === Number(chapitreId)
-  );
+  const chapitreIndex =
+    coursActuel.chapitres.findIndex(
+      (chapitre) =>
+        chapitre.id === Number(chapitreId)
+    );
 
   if (chapitreIndex === -1) {
     return (
@@ -59,9 +67,11 @@ function Chapitre() {
     );
   }
 
-  const chapitre = coursActuel.chapitres[chapitreIndex];
+  const chapitre =
+    coursActuel.chapitres[chapitreIndex];
 
-  const totalChapitres = coursActuel.chapitres.length;
+  const totalChapitres =
+    coursActuel.chapitres.length;
 
   const progression = Math.round(
     ((chapitreIndex + 1) / totalChapitres) * 100
@@ -69,20 +79,76 @@ function Chapitre() {
 
   const chapitrePrecedent =
     chapitreIndex > 0
-      ? coursActuel.chapitres[chapitreIndex - 1]
+      ? coursActuel.chapitres[
+          chapitreIndex - 1
+        ]
       : null;
 
   const chapitreSuivant =
     chapitreIndex < totalChapitres - 1
-      ? coursActuel.chapitres[chapitreIndex + 1]
+      ? coursActuel.chapitres[
+          chapitreIndex + 1
+        ]
       : null;
 
   const baseUrl =
     `/bibliotheque/${categorieId}/cours/${id}`;
 
+  const progressKey =
+    `geo-zone:course-progress:${id}`;
+
+  useEffect(() => {
+    const enregistrerProgression = () => {
+      try {
+        const progressionExistante =
+          localStorage.getItem(progressKey);
+
+        let chapitresTermines = [];
+
+        if (progressionExistante) {
+          const progressionParsee =
+            JSON.parse(progressionExistante);
+
+          if (Array.isArray(progressionParsee)) {
+            chapitresTermines =
+              progressionParsee;
+          }
+        }
+
+        const chapitreIdNumerique =
+          Number(chapitreId);
+
+        if (
+          !chapitresTermines.includes(
+            chapitreIdNumerique
+          )
+        ) {
+          chapitresTermines.push(
+            chapitreIdNumerique
+          );
+        }
+
+        localStorage.setItem(
+          progressKey,
+          JSON.stringify(chapitresTermines)
+        );
+      } catch (error) {
+        console.error(
+          "Impossible d'enregistrer la progression :",
+          error
+        );
+      }
+    };
+
+    enregistrerProgression();
+  }, [chapitreId, progressKey]);
+
   return (
     <div className="container chapter-page">
-      <Link to={baseUrl} className="back-link">
+      <Link
+        to={baseUrl}
+        className="back-link"
+      >
         ← Retour au cours
       </Link>
 
@@ -93,7 +159,11 @@ function Chapitre() {
           </div>
 
           <span className="chapter-label">
-            CHAPITRE {chapterIndexSafe(chapitreIndex)}
+            CHAPITRE{" "}
+            {String(chapitreIndex + 1).padStart(
+              2,
+              "0"
+            )}
           </span>
         </div>
 
@@ -105,17 +175,24 @@ function Chapitre() {
 
         <div className="chapter-info">
           <span>
-            📖 {chapitreIndex + 1} / {totalChapitres}
+            📖 {chapitreIndex + 1} /{" "}
+            {totalChapitres}
           </span>
 
           <span>
             🎓 GEO ZONE
           </span>
+
+          <span>
+            ✅ Progression enregistrée
+          </span>
         </div>
 
         <div className="progress-section">
           <div className="progress-top">
-            <span>Progression du cours</span>
+            <span>
+              Progression dans le cours
+            </span>
 
             <strong>{progression}%</strong>
           </div>
@@ -151,18 +228,20 @@ function Chapitre() {
 
         <div className="content-body">
           {chapitre.contenu ? (
-            chapitre.contenu.split("\n").map((ligne, index) =>
-              ligne.trim() ? (
-                <p key={index}>
-                  {ligne}
-                </p>
-              ) : (
-                <div
-                  key={index}
-                  className="content-space"
-                />
+            chapitre.contenu
+              .split("\n")
+              .map((ligne, index) =>
+                ligne.trim() ? (
+                  <p key={index}>
+                    {ligne}
+                  </p>
+                ) : (
+                  <div
+                    key={index}
+                    className="content-space"
+                  />
+                )
               )
-            )
           ) : (
             <div className="empty-content">
               <div>📚</div>
@@ -172,8 +251,8 @@ function Chapitre() {
               </h3>
 
               <p>
-                Le contenu de ce chapitre sera bientôt ajouté
-                à GEO ZONE.
+                Le contenu de ce chapitre sera
+                bientôt ajouté à GEO ZONE.
               </p>
             </div>
           )}
@@ -190,7 +269,10 @@ function Chapitre() {
               ← Précédent
             </Link>
           ) : (
-            <Link className="secondary-button" to={baseUrl}>
+            <Link
+              className="secondary-button"
+              to={baseUrl}
+            >
               ← Chapitres
             </Link>
           )}
@@ -206,7 +288,10 @@ function Chapitre() {
               <span>→</span>
             </Link>
           ) : (
-            <Link className="chapter-next-link" to={baseUrl}>
+            <Link
+              className="chapter-next-link"
+              to={baseUrl}
+            >
               ✓ Terminer
             </Link>
           )}
@@ -214,10 +299,6 @@ function Chapitre() {
       </div>
     </div>
   );
-}
-
-function chapterIndexSafe(index) {
-  return String(index + 1).padStart(2, "0");
 }
 
 export default Chapitre;

@@ -23,7 +23,24 @@ import ChargementTransport from "./pages/ChargementTransport";
 import MinePlanning from "./pages/MinePlanning";
 import ExplorationMiniere from "./pages/ExplorationMiniere";
 import ExploitationMiniere from "./pages/ExploitationMiniere";
-
+import Tonnage from "./pages/Tonnage";
+import Teneur from "./pages/Teneur";
+import MetalContenu from "./pages/MetalContenu";
+import Recuperation from "./pages/Recuperation";
+import Dilution from "./pages/Dilution";
+import MiningCalculator from "./pages/MiningCalculator";
+import StrippingRatio from "./pages/StrippingRatio";
+import StrikeDip from "./pages/StrikeDip";
+import Pente from "./pages/Pente";
+import DistanceTerrain from "./pages/DistanceTerrain";
+import EchelleCarte from "./pages/EchelleCarte";
+import Porosite from "./pages/Porosite";
+import GradientHydraulique from "./pages/GradientHydraulique";
+import DebitDarcy from "./pages/DebitDarcy";
+import ConductiviteHydraulique from "./pages/ConductiviteHydraulique";
+import Transmissivite from "./pages/Transmissivite";
+import CoefficientEmmagasinement from "./pages/CoefficientEmmagasinement";
+import OutilsCategorie from "./pages/OutilsCategorie";
 import "./App.css";
 
 function Accueil() {
@@ -433,6 +450,14 @@ function App() {
           path="/bibliotheque"
           element={<BibliothequeTemp />}
         />
+        <Route
+  path="/outils/teneur"
+  element={<Teneur />}
+/>
+<Route
+  path="/outils/metal-contenu"
+  element={<MetalContenu />}
+/>
 
         <Route
           path="/bibliotheque/:categorieId"
@@ -463,6 +488,10 @@ function App() {
           path="/identification"
           element={<Identification />}
         />
+        <Route
+  path="/outils/groupe/:categorie"
+  element={<OutilsCategorie />}
+/>
 
         <Route
           path="/mining"
@@ -538,7 +567,66 @@ function App() {
           path="/mining/exploitation"
           element={<ExploitationMiniere />}
         />
-
+        <Route
+  path="/outils/tonnage"
+  element={<Tonnage />}
+/>
+<Route
+  path="/outils/recuperation"
+  element={<Recuperation />}
+/>
+<Route
+  path="/outils/dilution"
+  element={<Dilution />}
+/>
+<Route
+  path="/outils/mining-calculator"
+  element={<MiningCalculator />}
+/>
+<Route
+  path="/outils/stripping-ratio"
+  element={<StrippingRatio />}
+/>
+<Route
+  path="/outils/strike-dip"
+  element={<StrikeDip />}
+/>
+<Route
+  path="/outils/pente"
+  element={<Pente />}
+/>
+<Route
+  path="/outils/distance-terrain"
+  element={<DistanceTerrain />}
+/>
+<Route
+  path="/outils/echelle-carte"
+  element={<EchelleCarte />}
+/>
+      <Route
+  path="/outils/porosite"
+  element={<Porosite />}
+/>
+<Route
+  path="/outils/gradient-hydraulique"
+  element={<GradientHydraulique />}
+/>
+<Route
+  path="/outils/debit-darcy"
+  element={<DebitDarcy />}
+/>
+<Route
+  path="/outils/conductivite-hydraulique"
+  element={<ConductiviteHydraulique />}
+/>
+<Route
+  path="/outils/transmissivite"
+  element={<Transmissivite />}
+/>
+<Route
+  path="/outils/coefficient-emmagasinement"
+  element={<CoefficientEmmagasinement />}
+/>
         <Route
           path="*"
           element={
@@ -557,6 +645,7 @@ function App() {
             </div>
           }
         />
+  
       </Routes>
 
       <footer className="geo-footer">

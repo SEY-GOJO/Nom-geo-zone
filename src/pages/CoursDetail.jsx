@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import categories from "../data/categories";
 import cours from "../data/cours";
@@ -14,6 +15,41 @@ function CoursDetail() {
     (element) => element.id === Number(categorieId)
   );
 
+  const [chapitresTermines, setChapitresTermines] = useState([]);
+
+  const progressKey = `geo-zone:course-progress:${id}`;
+
+  useEffect(() => {
+    if (!coursActuel) {
+      return;
+    }
+
+    try {
+      const progressionEnregistree =
+        localStorage.getItem(progressKey);
+
+      if (progressionEnregistree) {
+        const progressionParsee =
+          JSON.parse(progressionEnregistree);
+
+        if (Array.isArray(progressionParsee)) {
+          const idsValides = progressionParsee.filter((chapitreId) =>
+            coursActuel.chapitres.some(
+              (chapitre) => chapitre.id === chapitreId
+            )
+          );
+
+          setChapitresTermines(idsValides);
+        }
+      }
+    } catch (error) {
+      console.error(
+        "Impossible de récupérer la progression du cours :",
+        error
+      );
+    }
+  }, [id, progressKey, coursActuel]);
+
   if (!coursActuel) {
     return (
       <div className="container">
@@ -23,8 +59,8 @@ function CoursDetail() {
           <h1>❌ Cours introuvable</h1>
 
           <p>
-            Le cours que tu recherches n'existe pas ou n'est
-            plus disponible.
+            Le cours que tu recherches n'existe pas ou
+            n'est plus disponible.
           </p>
 
           <Link to="/bibliotheque">
@@ -38,6 +74,16 @@ function CoursDetail() {
   }
 
   const totalChapitres = coursActuel.chapitres.length;
+
+  const nombreChapitresTermines =
+    chapitresTermines.length;
+
+  const progression =
+    totalChapitres > 0
+      ? Math.round(
+          (nombreChapitresTermines / totalChapitres) * 100
+        )
+      : 0;
 
   return (
     <div className="container course-detail-page">
@@ -74,25 +120,56 @@ function CoursDetail() {
             <strong>{totalChapitres}</strong>
 
             <span>
-              Chapitre{totalChapitres > 1 ? "s" : ""}
+              Chapitre
+              {totalChapitres > 1 ? "s" : ""}
             </span>
           </div>
 
           <div className="course-stat">
-            <span className="stat-icon">🎓</span>
+            <span className="stat-icon">✅</span>
 
-            <strong>GEO ZONE</strong>
+            <strong>{nombreChapitresTermines}</strong>
 
-            <span>Formation</span>
+            <span>
+              Terminé
+              {nombreChapitresTermines > 1 ? "s" : ""}
+            </span>
           </div>
 
           <div className="course-stat">
-            <span className="stat-icon">🌍</span>
+            <span className="stat-icon">📊</span>
 
-            <strong>Géologie</strong>
+            <strong>{progression}%</strong>
 
-            <span>Sciences de la Terre</span>
+            <span>Progression</span>
           </div>
+        </div>
+
+        <div className="progress-section">
+          <div className="progress-top">
+            <span>Progression du cours</span>
+
+            <strong>{progression}%</strong>
+          </div>
+
+          <div
+            className="progress-bar"
+            aria-label={`Progression ${progression}%`}
+          >
+            <div
+              className="progress-fill"
+              style={{
+                width: `${progression}%`,
+              }}
+            />
+          </div>
+
+          <p>
+            {nombreChapitresTermines} chapitre
+            {nombreChapitresTermines > 1 ? "s" : ""} terminé
+            {nombreChapitresTermines > 1 ? "s" : ""} sur{" "}
+            {totalChapitres}.
+          </p>
         </div>
       </section>
 
@@ -112,10 +189,12 @@ function CoursDetail() {
         </div>
 
         <div className="course-progress-info">
-          <strong>{totalChapitres}</strong>
+          <strong>
+            {progression}%
+          </strong>
 
           <span>
-            chapitre{totalChapitres > 1 ? "s" : ""} à découvrir
+            du cours terminé
           </span>
         </div>
       </section>
@@ -135,39 +214,55 @@ function CoursDetail() {
         </div>
 
         <div className="course-chapters-grid">
-          {coursActuel.chapitres.map((chapitre, index) => (
-            <article
-              className="chapter-card"
-              key={chapitre.id}
-            >
-              <div className="chapter-top">
-                <div className="chapter-number">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
+          {coursActuel.chapitres.map(
+            (chapitre, index) => {
+              const chapitreTermine =
+                chapitresTermines.includes(chapitre.id);
 
-                <span className="chapter-label">
-                  CHAPITRE {index + 1}
-                </span>
-              </div>
+              return (
+                <article
+                  className="chapter-card"
+                  key={chapitre.id}
+                >
+                  <div className="chapter-top">
+                    <div className="chapter-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
 
-              <div className="chapter-content">
-                <h3>{chapitre.titre}</h3>
+                    <span className="chapter-label">
+                      CHAPITRE {index + 1}
+                    </span>
+                  </div>
 
-                <p>
-                  📖 Chapitre {index + 1} sur{" "}
-                  {totalChapitres}
-                </p>
-              </div>
+                  <div className="chapter-content">
+                    <h3>{chapitre.titre}</h3>
 
-              <Link
-                to={`/bibliotheque/${categorieId}/cours/${coursActuel.id}/chapitre/${chapitre.id}`}
-                className="chapter-link"
-              >
-                Commencer
-                <span>→</span>
-              </Link>
-            </article>
-          ))}
+                    <p>
+                      📖 Chapitre {index + 1} sur{" "}
+                      {totalChapitres}
+                    </p>
+
+                    {chapitreTermine && (
+                      <p>
+                        ✅ Chapitre terminé
+                      </p>
+                    )}
+                  </div>
+
+                  <Link
+                    to={`/bibliotheque/${categorieId}/cours/${coursActuel.id}/chapitre/${chapitre.id}`}
+                    className="chapter-link"
+                  >
+                    {chapitreTermine
+                      ? "Revoir"
+                      : "Commencer"}
+
+                    <span>→</span>
+                  </Link>
+                </article>
+              );
+            }
+          )}
         </div>
       </section>
     </div>
