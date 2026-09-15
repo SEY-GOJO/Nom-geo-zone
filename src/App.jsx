@@ -49,6 +49,20 @@ import Evaluation from "./pages/Evaluation";
 import Dashboard from "./pages/Dashboard";
 import "./App.css";
 
+function BrandLogo() {
+  return (
+    <span className="brand-logo">
+      <svg className="brand-logo-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="23" />
+        <path d="M8 34 19.5 17 26 26l4.5-6L40 34" />
+        <path className="brand-logo-line" d="M10 35h28" />
+        <circle className="brand-logo-star" cx="35" cy="13" r="2.5" />
+      </svg>
+      <span className="brand-logo-wordmark">GEO <b>ZONE</b></span>
+    </span>
+  );
+}
+
 function Accueil() {
   const modules = [
     {
@@ -283,7 +297,7 @@ function App() {
           className="nav-logo"
           onClick={() => setMenuOuvert(false)}
         >
-          🌍 GEO ZONE
+          <BrandLogo />
         </Link>
 
         <button
@@ -320,7 +334,7 @@ function App() {
                 NAVIGATION
               </span>
 
-              <strong>🌍 GEO ZONE</strong>
+              <strong><BrandLogo /></strong>
             </div>
 
             <button
@@ -701,7 +715,7 @@ function App() {
         <div className="geo-footer-content">
           <div className="geo-footer-brand">
             <div className="geo-footer-logo">
-              🌍 GEO ZONE
+              <BrandLogo />
             </div>
 
             <p>

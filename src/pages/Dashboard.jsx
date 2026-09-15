@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import cours from "../data/cours";
+import {
+  importerSauvegarde,
+  telechargerSauvegarde,
+} from "../utils/backup.js";
 
 const QUIZ_RESULT_KEY = "geo-zone:quiz-result:v1";
 const QUIZ_HISTORY_KEY = "geo-zone:quiz-history:v1";
@@ -86,6 +91,7 @@ function formaterDate(date) {
 }
 
 function Dashboard() {
+  const [messageSauvegarde, setMessageSauvegarde] = useState("");
   const quizResultat = lireJSON(
     QUIZ_RESULT_KEY,
     null
@@ -229,6 +235,58 @@ function Dashboard() {
       ?.length > 0
       ? evaluationResultat.domainesARevoir[0]
       : null;
+
+  const badges = [
+    {
+      icon: "🌱",
+      titre: "Premier pas",
+      obtenu: coursCommences.length > 0,
+      condition: "Commencer un cours",
+    },
+    {
+      icon: "📚",
+      titre: "Explorateur",
+      obtenu: coursTermines.length >= 1,
+      condition: "Terminer un cours",
+    },
+    {
+      icon: "🏆",
+      titre: "Quiz réussi",
+      obtenu: quizHistorique.some((resultat) => resultat.pourcentage >= 70),
+      condition: "Obtenir 70 % à un quiz",
+    },
+    {
+      icon: "🎯",
+      titre: "Objectif atteint",
+      obtenu: progressionGlobale >= 50,
+      condition: "Atteindre 50 % de progression",
+    },
+  ];
+
+  const exporterDonnees = () => {
+    try {
+      telechargerSauvegarde();
+      setMessageSauvegarde("Sauvegarde téléchargée sur cet appareil.");
+    } catch {
+      setMessageSauvegarde("Impossible de créer la sauvegarde.");
+    }
+  };
+
+  const importerDonnees = async (event) => {
+    const [fichier] = event.target.files;
+    if (!fichier) return;
+
+    try {
+      const nombreImporte = await importerSauvegarde(fichier);
+      setMessageSauvegarde(
+        `${nombreImporte} donnée${nombreImporte > 1 ? "s" : ""} importée${nombreImporte > 1 ? "s" : ""}. Actualise la page pour voir la progression.`
+      );
+    } catch (error) {
+      setMessageSauvegarde(error.message);
+    } finally {
+      event.target.value = "";
+    }
+  };
 
   return (
     <div className="container">
@@ -682,6 +740,59 @@ function Dashboard() {
             Mesurer ton niveau.
           </p>
         </Link>
+      </section>
+
+      <section className="card">
+        <div className="course-chapters-heading">
+          <div>
+            <span>MOTIVATION</span>
+            <h2>🏅 Mes badges</h2>
+          </div>
+        </div>
+
+        <div className="dashboard-badges">
+          {badges.map((badge) => (
+            <div
+              className={`dashboard-badge ${badge.obtenu ? "dashboard-badge-unlocked" : ""}`}
+              key={badge.titre}
+            >
+              <span>{badge.icon}</span>
+              <strong>{badge.titre}</strong>
+              <small>{badge.obtenu ? "Débloqué" : badge.condition}</small>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card">
+        <div className="course-chapters-heading">
+          <div>
+            <span>SAUVEGARDE LOCALE</span>
+            <h2>💾 Garder mes données</h2>
+          </div>
+        </div>
+
+        <p>
+          Tes résultats et tes projets sont enregistrés sur cet appareil. Télécharge une sauvegarde avant de changer de navigateur ou d’ordinateur.
+        </p>
+
+        <div className="hero-buttons">
+          <button type="button" className="hero-button primary" onClick={exporterDonnees}>
+            Télécharger ma sauvegarde
+          </button>
+
+          <label className="hero-button secondary" htmlFor="importer-sauvegarde">
+            Importer une sauvegarde
+          </label>
+          <input
+            id="importer-sauvegarde"
+            type="file"
+            accept="application/json,.json"
+            onChange={importerDonnees}
+          />
+        </div>
+
+        {messageSauvegarde && <p aria-live="polite">{messageSauvegarde}</p>}
       </section>
     </div>
   );

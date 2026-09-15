@@ -6,6 +6,8 @@ import cours from "../data/cours";
 
 function Revision() {
   const [recherche, setRecherche] = useState("");
+  const [carteActuelle, setCarteActuelle] = useState(0);
+  const [versoVisible, setVersoVisible] = useState(false);
   const [categorieSelectionnee, setCategorieSelectionnee] =
     useState("Toutes");
 
@@ -37,6 +39,26 @@ function Revision() {
   const reinitialiser = () => {
     setRecherche("");
     setCategorieSelectionnee("Toutes");
+  };
+
+  const cartesMemoire = cours.flatMap((coursActuel) =>
+    (coursActuel.chapitres || []).map((chapitre) => ({
+      id: `${coursActuel.id}-${chapitre.id}`,
+      cours: coursActuel.titre,
+      titre: chapitre.titre,
+      contenu: String(chapitre.contenu || "")
+        .split("\n")
+        .filter((ligne) => ligne.trim())
+        .slice(0, 2)
+        .join(" "),
+    }))
+  );
+
+  const carte = cartesMemoire[carteActuelle];
+
+  const carteSuivante = () => {
+    setCarteActuelle((index) => (index + 1) % cartesMemoire.length);
+    setVersoVisible(false);
   };
 
   return (
@@ -78,6 +100,31 @@ function Revision() {
           </p>
         </div>
       </section>
+
+      {carte && (
+        <section className="card revision-flashcard">
+          <span className="section-badge">CARTES MÉMOIRE</span>
+          <h2>🧠 Révision express</h2>
+          <p className="revision-flashcard-meta">
+            {carte.cours} · carte {carteActuelle + 1} / {cartesMemoire.length}
+          </p>
+
+          <button
+            type="button"
+            className="revision-flashcard-face"
+            onClick={() => setVersoVisible((visible) => !visible)}
+            aria-pressed={versoVisible}
+          >
+            <span>{versoVisible ? "RÉPONSE" : "NOTION À RETENIR"}</span>
+            <strong>{versoVisible ? carte.contenu || "Contenu bientôt disponible." : carte.titre}</strong>
+            <small>Cliquer pour {versoVisible ? "revoir la notion" : "voir le rappel"}</small>
+          </button>
+
+          <button type="button" onClick={carteSuivante}>
+            Carte suivante →
+          </button>
+        </section>
+      )}
 
       <section className="identification-panel">
         <div className="identification-panel-header">

@@ -8,6 +8,12 @@ export default defineConfig({
 
     VitePWA({
       registerType: "autoUpdate",
+      workbox: {
+        cleanupOutdatedCaches: true,
+        globPatterns: ["**/*.{js,css,html,ico,png,svg,jpg,jpeg,webp}"],
+        navigateFallback: "/index.html",
+        navigateFallbackDenylist: [/^\/api\//],
+      },
 
       manifest: {
         name: "GEO ZONE",

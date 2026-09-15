@@ -4104,6 +4104,116 @@ textarea:focus-visible {
   letter-spacing: 0.8px;
 }
 
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: inherit;
+  line-height: 1;
+}
+
+.brand-logo-mark {
+  width: 31px;
+  height: 31px;
+  flex: none;
+}
+
+.brand-logo-mark > circle:first-child {
+  fill: #0b2d20;
+  stroke: rgba(242, 201, 76, 0.85);
+  stroke-width: 1.4;
+}
+
+.brand-logo-mark path:not(.brand-logo-line) {
+  fill: none;
+  stroke: #f2c94c;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.brand-logo-line {
+  fill: none;
+  stroke: #ffffff;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.brand-logo-star {
+  fill: #f2c94c;
+}
+
+.brand-logo-wordmark {
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.brand-logo-wordmark b {
+  color: #f2c94c;
+}
+
+.revision-flashcard {
+  display: grid;
+  gap: 14px;
+}
+
+.revision-flashcard-meta {
+  color: #64748b;
+}
+
+.revision-flashcard-face {
+  display: grid;
+  min-height: 180px;
+  padding: 24px;
+  gap: 14px;
+  text-align: left;
+  color: #f8fafc;
+  background: linear-gradient(135deg, #12372a, #1e5a42);
+  border: 1px solid rgba(242, 201, 76, 0.45);
+  border-radius: 18px;
+}
+
+.revision-flashcard-face span,
+.revision-flashcard-face small {
+  color: #f2c94c;
+  letter-spacing: 0.08em;
+}
+
+.revision-flashcard-face strong {
+  font-size: 1.2rem;
+  line-height: 1.55;
+}
+
+.dashboard-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 12px;
+}
+
+.dashboard-badge {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  text-align: center;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  filter: grayscale(1);
+}
+
+.dashboard-badge-unlocked {
+  color: #12372a;
+  background: #fffbeb;
+  border-color: #f2c94c;
+  filter: none;
+}
+
+.dashboard-badge > span {
+  font-size: 1.7rem;
+}
+
 .nav-links {
   gap: 8px;
 }
