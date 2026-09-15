@@ -1,21 +1,35 @@
 import { Link } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import questions from "../data/questions";
+
+const QUIZ_RESULT_KEY = "geo-zone:quiz-result:v1";
+const QUIZ_HISTORY_KEY = "geo-zone:quiz-history:v1";
+
+function melangerQuestions(liste) {
+  const resultat = [...liste];
+
+  for (let i = resultat.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [resultat[i], resultat[j]] = [
+      resultat[j],
+      resultat[i],
+    ];
+  }
+
+  return resultat;
+}
 
 function Quiz() {
   const nombreQuestions = 10;
 
-  const questionsQuiz = useMemo(() => {
-    const melange = [...questions].sort(
-      () => Math.random() - 0.5
-    );
-
-    return melange.slice(
+  const [questionsQuiz] = useState(() =>
+    melangerQuestions(questions).slice(
       0,
       Math.min(nombreQuestions, questions.length)
-    );
-  }, []);
+    )
+  );
 
   const [questionActuelle, setQuestionActuelle] =
     useState(0);
@@ -55,8 +69,76 @@ function Quiz() {
   };
 
   const suivante = () => {
-    if (questionActuelle === questionsQuiz.length - 1) {
+    if (
+      questionActuelle ===
+      questionsQuiz.length - 1
+    ) {
+      const derniereReponseCorrecte =
+        reponseChoisie === question.reponse;
+
+      const scoreFinal =
+        score +
+        (derniereReponseCorrecte ? 1 : 0);
+
+      const reponsesFinales = [
+        ...reponses,
+        {
+          questionId: question.id,
+          correcte: derniereReponseCorrecte,
+        },
+      ];
+
+      const pourcentageFinal =
+        questionsQuiz.length > 0
+          ? Math.round(
+              (scoreFinal /
+                questionsQuiz.length) *
+                100
+            )
+          : 0;
+
+      try {
+  const resultat = {
+    score: scoreFinal,
+    total: questionsQuiz.length,
+    pourcentage: pourcentageFinal,
+    reponses: reponsesFinales,
+    date: new Date().toISOString(),
+  };
+
+  localStorage.setItem(
+    QUIZ_RESULT_KEY,
+    JSON.stringify(resultat)
+  );
+
+  const historiqueExistant = JSON.parse(
+    localStorage.getItem(QUIZ_HISTORY_KEY) || "[]"
+  );
+
+  const historiqueValide = Array.isArray(historiqueExistant)
+    ? historiqueExistant
+    : [];
+
+  const nouvelHistorique = [
+    resultat,
+    ...historiqueValide,
+  ].slice(0, 20);
+
+  localStorage.setItem(
+    QUIZ_HISTORY_KEY,
+    JSON.stringify(nouvelHistorique)
+  );
+} catch (error) {
+  console.error(
+    "Impossible d'enregistrer le résultat du quiz :",
+    error
+  );
+}
+
+      setScore(scoreFinal);
+      setReponses(reponsesFinales);
       setTermine(true);
+
       return;
     }
 
@@ -81,7 +163,10 @@ function Quiz() {
   if (questionsQuiz.length === 0) {
     return (
       <div className="container">
-        <Link to="/formation" className="back-link">
+        <Link
+          to="/formation"
+          className="back-link"
+        >
           ← Formation
         </Link>
 
@@ -89,7 +174,8 @@ function Quiz() {
           <h1>Quiz indisponible</h1>
 
           <p>
-            Aucune question n'est actuellement disponible.
+            Aucune question n'est actuellement
+            disponible.
           </p>
         </section>
       </div>
@@ -99,7 +185,10 @@ function Quiz() {
   if (termine) {
     return (
       <div className="container">
-        <Link to="/formation" className="back-link">
+        <Link
+          to="/formation"
+          className="back-link"
+        >
           ← Formation
         </Link>
 
@@ -175,7 +264,10 @@ function Quiz() {
 
   return (
     <div className="container">
-      <Link to="/formation" className="back-link">
+      <Link
+        to="/formation"
+        className="back-link"
+      >
         ← Formation
       </Link>
 
@@ -187,8 +279,9 @@ function Quiz() {
         <h1>Quiz GEO ZONE</h1>
 
         <p>
-          Teste tes connaissances en géologie, minéralogie,
-          hydrogéologie et géologie minière.
+          Teste tes connaissances en géologie,
+          minéralogie, hydrogéologie et géologie
+          minière.
         </p>
       </section>
 
@@ -309,7 +402,8 @@ function Quiz() {
         {reponseChoisie !== null && (
           <div className="card">
             <h3>
-              {reponseChoisie === question.reponse
+              {reponseChoisie ===
+              question.reponse
                 ? "✅ Bonne réponse !"
                 : "❌ Mauvaise réponse"}
             </h3>

@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 import categories from "../data/categories";
 import cours from "../data/cours";
@@ -15,15 +14,12 @@ function CoursDetail() {
     (element) => element.id === Number(categorieId)
   );
 
-  const [chapitresTermines, setChapitresTermines] = useState([]);
+  const progressKey =
+    `geo-zone:course-progress:${id}`;
 
-  const progressKey = `geo-zone:course-progress:${id}`;
+  let chapitresTermines = [];
 
-  useEffect(() => {
-    if (!coursActuel) {
-      return;
-    }
-
+  if (coursActuel) {
     try {
       const progressionEnregistree =
         localStorage.getItem(progressKey);
@@ -33,13 +29,12 @@ function CoursDetail() {
           JSON.parse(progressionEnregistree);
 
         if (Array.isArray(progressionParsee)) {
-          const idsValides = progressionParsee.filter((chapitreId) =>
-            coursActuel.chapitres.some(
-              (chapitre) => chapitre.id === chapitreId
-            )
-          );
-
-          setChapitresTermines(idsValides);
+          chapitresTermines =
+            progressionParsee.filter((chapitreId) =>
+              coursActuel.chapitres.some(
+                (chapitre) => chapitre.id === chapitreId
+              )
+            );
         }
       }
     } catch (error) {
@@ -48,7 +43,7 @@ function CoursDetail() {
         error
       );
     }
-  }, [id, progressKey, coursActuel]);
+  }
 
   if (!coursActuel) {
     return (
@@ -73,7 +68,8 @@ function CoursDetail() {
     );
   }
 
-  const totalChapitres = coursActuel.chapitres.length;
+  const totalChapitres =
+    coursActuel.chapitres.length;
 
   const nombreChapitresTermines =
     chapitresTermines.length;
@@ -128,7 +124,9 @@ function CoursDetail() {
           <div className="course-stat">
             <span className="stat-icon">✅</span>
 
-            <strong>{nombreChapitresTermines}</strong>
+            <strong>
+              {nombreChapitresTermines}
+            </strong>
 
             <span>
               Terminé
@@ -147,7 +145,9 @@ function CoursDetail() {
 
         <div className="progress-section">
           <div className="progress-top">
-            <span>Progression du cours</span>
+            <span>
+              Progression du cours
+            </span>
 
             <strong>{progression}%</strong>
           </div>
@@ -202,7 +202,9 @@ function CoursDetail() {
       <section className="course-chapters">
         <div className="course-chapters-heading">
           <div>
-            <span>PROGRAMME DU COURS</span>
+            <span>
+              PROGRAMME DU COURS
+            </span>
 
             <h2>Les chapitres</h2>
           </div>
@@ -217,7 +219,9 @@ function CoursDetail() {
           {coursActuel.chapitres.map(
             (chapitre, index) => {
               const chapitreTermine =
-                chapitresTermines.includes(chapitre.id);
+                chapitresTermines.includes(
+                  chapitre.id
+                );
 
               return (
                 <article
@@ -226,7 +230,10 @@ function CoursDetail() {
                 >
                   <div className="chapter-top">
                     <div className="chapter-number">
-                      {String(index + 1).padStart(2, "0")}
+                      {String(index + 1).padStart(
+                        2,
+                        "0"
+                      )}
                     </div>
 
                     <span className="chapter-label">

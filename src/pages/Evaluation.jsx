@@ -1,55 +1,221 @@
 import { Link } from "react-router-dom";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 
 import questions from "../data/questions";
 
+const EVALUATION_RESULT_KEY =
+  "geo-zone:evaluation-result:v1";
+  const EVALUATION_HISTORY_KEY =
+  "geo-zone:evaluation-history:v1";
+
+function melangerQuestions(liste) {
+  const resultat = [...liste];
+
+  for (let i = resultat.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [resultat[i], resultat[j]] = [
+      resultat[j],
+      resultat[i],
+    ];
+  }
+
+  return resultat;
+}
+
 function Evaluation() {
-  const nombreQuestions = Math.min(10, questions.length);
+  const nombreQuestions = Math.min(
+    10,
+    questions.length
+  );
 
-  const questionsEvaluation = useMemo(() => {
-    return [...questions]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, nombreQuestions);
-  }, [nombreQuestions]);
+  const [questionsEvaluation] = useState(() =>
+    melangerQuestions(questions).slice(
+      0,
+      nombreQuestions
+    )
+  );
 
-  const [questionActuelle, setQuestionActuelle] = useState(0);
-  const [reponseChoisie, setReponseChoisie] = useState(null);
+  const [questionActuelle, setQuestionActuelle] =
+    useState(0);
+
+  const [reponseChoisie, setReponseChoisie] =
+    useState(null);
+
   const [score, setScore] = useState(0);
+
   const [resultats, setResultats] = useState([]);
+
   const [terminee, setTerminee] = useState(false);
 
-  const question = questionsEvaluation[questionActuelle];
+  const question =
+    questionsEvaluation[questionActuelle];
 
   const choisirReponse = (index) => {
     if (reponseChoisie !== null) {
       return;
     }
 
-    const correcte = index === question.reponse;
+    const correcte =
+      index === question.reponse;
 
     setReponseChoisie(index);
 
     if (correcte) {
-      setScore((valeur) => valeur + 1);
+      setScore(
+        (valeur) => valeur + 1
+      );
     }
 
-    setResultats((anciensResultats) => [
-      ...anciensResultats,
-      {
-        questionId: question.id,
-        categorie: question.categorie,
-        correcte,
-      },
-    ]);
+    setResultats(
+      (anciensResultats) => [
+        ...anciensResultats,
+        {
+          questionId: question.id,
+          categorie: question.categorie,
+          correcte,
+        },
+      ]
+    );
   };
 
   const suivante = () => {
-    if (questionActuelle === questionsEvaluation.length - 1) {
+    if (
+      questionActuelle ===
+      questionsEvaluation.length - 1
+    ) {
+      const derniereReponseCorrecte =
+        reponseChoisie === question.reponse;
+
+      const scoreFinal =
+        score +
+        (derniereReponseCorrecte ? 1 : 0);
+
+      const resultatsFinaux = [
+        ...resultats,
+        {
+          questionId: question.id,
+          categorie: question.categorie,
+          correcte:
+            derniereReponseCorrecte,
+        },
+      ];
+
+      const pourcentageFinal =
+        questionsEvaluation.length > 0
+          ? Math.round(
+              (scoreFinal /
+                questionsEvaluation.length) *
+                100
+            )
+          : 0;
+
+      const bilanCategoriesFinal = {};
+
+      resultatsFinaux.forEach(
+        (resultat) => {
+          if (
+            !bilanCategoriesFinal[
+              resultat.categorie
+            ]
+          ) {
+            bilanCategoriesFinal[
+              resultat.categorie
+            ] = {
+              total: 0,
+              bonnes: 0,
+            };
+          }
+
+          bilanCategoriesFinal[
+            resultat.categorie
+          ].total += 1;
+
+          if (resultat.correcte) {
+            bilanCategoriesFinal[
+              resultat.categorie
+            ].bonnes += 1;
+          }
+        }
+      );
+
+      const categoriesTrieesFinal =
+        Object.entries(
+          bilanCategoriesFinal
+        ).sort((a, b) => {
+          const scoreA =
+            a[1].bonnes /
+            a[1].total;
+
+          const scoreB =
+            b[1].bonnes /
+            b[1].total;
+
+          return scoreA - scoreB;
+        });
+
+      const domainesARevoirFinal =
+        categoriesTrieesFinal
+          .filter(
+            ([, valeurs]) =>
+              valeurs.bonnes /
+                valeurs.total <
+              0.6
+          )
+          .map(([nom]) => nom);
+
+      try {
+  const resultat = {
+    score: scoreFinal,
+    total: questionsEvaluation.length,
+    pourcentage: pourcentageFinal,
+    resultats: resultatsFinaux,
+    bilanCategories: bilanCategoriesFinal,
+    categoriesTriees: categoriesTrieesFinal,
+    domainesARevoir: domainesARevoirFinal,
+    date: new Date().toISOString(),
+  };
+
+  localStorage.setItem(
+    EVALUATION_RESULT_KEY,
+    JSON.stringify(resultat)
+  );
+
+  const historiqueExistant = JSON.parse(
+    localStorage.getItem(EVALUATION_HISTORY_KEY) || "[]"
+  );
+
+  const historiqueValide = Array.isArray(historiqueExistant)
+    ? historiqueExistant
+    : [];
+
+  const nouvelHistorique = [
+    resultat,
+    ...historiqueValide,
+  ].slice(0, 20);
+
+  localStorage.setItem(
+    EVALUATION_HISTORY_KEY,
+    JSON.stringify(nouvelHistorique)
+  );
+} catch (error) {
+  console.error(
+    "Impossible d'enregistrer le résultat de l'évaluation :",
+    error
+  );
+}
+
+      setScore(scoreFinal);
+      setResultats(resultatsFinaux);
       setTerminee(true);
+
       return;
     }
 
-    setQuestionActuelle((valeur) => valeur + 1);
+    setQuestionActuelle(
+      (valeur) => valeur + 1
+    );
+
     setReponseChoisie(null);
   };
 
@@ -60,42 +226,59 @@ function Evaluation() {
   const pourcentage =
     questionsEvaluation.length > 0
       ? Math.round(
-          (score / questionsEvaluation.length) * 100
+          (score /
+            questionsEvaluation.length) *
+            100
         )
       : 0;
 
   const bilanCategories = {};
 
   resultats.forEach((resultat) => {
-    if (!bilanCategories[resultat.categorie]) {
+    if (
+      !bilanCategories[resultat.categorie]
+    ) {
       bilanCategories[resultat.categorie] = {
         total: 0,
         bonnes: 0,
       };
     }
 
-    bilanCategories[resultat.categorie].total += 1;
+    bilanCategories[
+      resultat.categorie
+    ].total += 1;
 
     if (resultat.correcte) {
-      bilanCategories[resultat.categorie].bonnes += 1;
+      bilanCategories[
+        resultat.categorie
+      ].bonnes += 1;
     }
   });
 
-  const categoriesTriees = Object.entries(
-    bilanCategories
-  ).sort((a, b) => {
-    const scoreA = a[1].bonnes / a[1].total;
-    const scoreB = b[1].bonnes / b[1].total;
+  const categoriesTriees =
+    Object.entries(
+      bilanCategories
+    ).sort((a, b) => {
+      const scoreA =
+        a[1].bonnes /
+        a[1].total;
 
-    return scoreA - scoreB;
-  });
+      const scoreB =
+        b[1].bonnes /
+        b[1].total;
 
-  const domainesARevoir = categoriesTriees
-    .filter(
-      ([, valeurs]) =>
-        valeurs.bonnes / valeurs.total < 0.6
-    )
-    .map(([nom]) => nom);
+      return scoreA - scoreB;
+    });
+
+  const domainesARevoir =
+    categoriesTriees
+      .filter(
+        ([, valeurs]) =>
+          valeurs.bonnes /
+            valeurs.total <
+          0.6
+      )
+      .map(([nom]) => nom);
 
   const niveau =
     pourcentage >= 80
@@ -109,15 +292,21 @@ function Evaluation() {
   if (questionsEvaluation.length === 0) {
     return (
       <div className="container">
-        <Link to="/formation" className="back-link">
+        <Link
+          to="/formation"
+          className="back-link"
+        >
           ← Formation
         </Link>
 
         <section className="card">
-          <h1>Évaluation indisponible</h1>
+          <h1>
+            Évaluation indisponible
+          </h1>
 
           <p>
-            Aucune question n'est actuellement disponible.
+            Aucune question n'est actuellement
+            disponible.
           </p>
         </section>
       </div>
@@ -127,7 +316,10 @@ function Evaluation() {
   if (terminee) {
     return (
       <div className="container">
-        <Link to="/formation" className="back-link">
+        <Link
+          to="/formation"
+          className="back-link"
+        >
           ← Formation
         </Link>
 
@@ -136,7 +328,9 @@ function Evaluation() {
             🎯
           </div>
 
-          <h1>Évaluation terminée</h1>
+          <h1>
+            Évaluation terminée
+          </h1>
 
           <p>
             Voici ton diagnostic.
@@ -150,10 +344,13 @@ function Evaluation() {
             <h2>{niveau}</h2>
 
             <h1>
-              {score} / {questionsEvaluation.length}
+              {score} /{" "}
+              {questionsEvaluation.length}
             </h1>
 
-            <h1>{pourcentage}%</h1>
+            <h1>
+              {pourcentage}%
+            </h1>
 
             <p>
               {pourcentage >= 80
@@ -168,14 +365,17 @@ function Evaluation() {
         </section>
 
         <section className="card">
-          <h2>📚 Domaines évalués</h2>
+          <h2>
+            📚 Domaines évalués
+          </h2>
 
           {categoriesTriees.length > 0 ? (
             categoriesTriees.map(
               ([nom, valeurs]) => {
                 const pourcentageCategorie =
                   Math.round(
-                    (valeurs.bonnes / valeurs.total) *
+                    (valeurs.bonnes /
+                      valeurs.total) *
                       100
                   );
 
@@ -203,8 +403,14 @@ function Evaluation() {
 
                     <p>
                       {valeurs.bonnes} bonne
-                      {valeurs.bonnes > 1 ? "s" : ""} réponse
-                      {valeurs.bonnes > 1 ? "s" : ""} sur{" "}
+                      {valeurs.bonnes > 1
+                        ? "s"
+                        : ""}{" "}
+                      réponse
+                      {valeurs.bonnes > 1
+                        ? "s"
+                        : ""}{" "}
+                      sur{" "}
                       {valeurs.total}
                     </p>
                   </div>
@@ -219,25 +425,33 @@ function Evaluation() {
         </section>
 
         <section className="card">
-          <h2>🧠 À renforcer</h2>
+          <h2>
+            🧠 À renforcer
+          </h2>
 
           {domainesARevoir.length > 0 ? (
             <>
               <p>
-                Les domaines suivants méritent une attention
-                particulière :
+                Les domaines suivants méritent
+                une attention particulière :
               </p>
 
-              {domainesARevoir.map((domaine) => (
-                <p key={domaine}>
-                  • <strong>{domaine}</strong>
-                </p>
-              ))}
+              {domainesARevoir.map(
+                (domaine) => (
+                  <p key={domaine}>
+                    •{" "}
+                    <strong>
+                      {domaine}
+                    </strong>
+                  </p>
+                )
+              )}
             </>
           ) : (
             <p>
-              Aucun domaine faible détecté dans cette évaluation.
-              Continue à entretenir tes connaissances.
+              Aucun domaine faible détecté dans
+              cette évaluation. Continue à entretenir
+              tes connaissances.
             </p>
           )}
         </section>
@@ -271,7 +485,10 @@ function Evaluation() {
 
   return (
     <div className="container">
-      <Link to="/formation" className="back-link">
+      <Link
+        to="/formation"
+        className="back-link"
+      >
         ← Formation
       </Link>
 
@@ -283,8 +500,9 @@ function Evaluation() {
         <h1>Évaluation</h1>
 
         <p>
-          Mesure ton niveau dans plusieurs domaines de la
-          géologie et identifie les notions à renforcer.
+          Mesure ton niveau dans plusieurs domaines
+          de la géologie et identifie les notions
+          à renforcer.
         </p>
       </section>
 
@@ -294,7 +512,8 @@ function Evaluation() {
             <span>DIAGNOSTIC</span>
 
             <h2>
-              Question {questionActuelle + 1} /{" "}
+              Question{" "}
+              {questionActuelle + 1} /{" "}
               {questionsEvaluation.length}
             </h2>
           </div>
@@ -308,7 +527,9 @@ function Evaluation() {
           <div className="progress-top">
             <span>Progression</span>
 
-            <strong>{progression}%</strong>
+            <strong>
+              {progression}%
+            </strong>
           </div>
 
           <div
@@ -341,7 +562,8 @@ function Evaluation() {
               const correcte =
                 index === question.reponse;
 
-              let classe = "formation-card";
+              let classe =
+                "formation-card";
 
               if (
                 reponseChoisie !== null &&
@@ -391,7 +613,8 @@ function Evaluation() {
         {reponseChoisie !== null && (
           <div className="card">
             <h3>
-              {reponseChoisie === question.reponse
+              {reponseChoisie ===
+              question.reponse
                 ? "✅ Bonne réponse"
                 : "❌ Mauvaise réponse"}
             </h3>

@@ -1,6 +1,5 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
-
 import cours from "../data/cours";
 
 function Chapitre() {
@@ -13,6 +12,67 @@ function Chapitre() {
   const coursActuel = cours.find(
     (element) => element.id === Number(id)
   );
+
+  const chapitreIndex = coursActuel
+    ? coursActuel.chapitres.findIndex(
+        (chapitre) => chapitre.id === Number(chapitreId)
+      )
+    : -1;
+
+  const progressKey = `geo-zone:course-progress:${id}`;
+
+  useEffect(() => {
+    if (!coursActuel || chapitreIndex === -1) {
+      return;
+    }
+
+    const enregistrerProgression = () => {
+      try {
+        const progressionExistante =
+          localStorage.getItem(progressKey);
+
+        let chapitresTermines = [];
+
+        if (progressionExistante) {
+          const progressionParsee =
+            JSON.parse(progressionExistante);
+
+          if (Array.isArray(progressionParsee)) {
+            chapitresTermines = progressionParsee;
+          }
+        }
+
+        const chapitreIdNumerique = Number(chapitreId);
+
+        if (
+          !chapitresTermines.includes(
+            chapitreIdNumerique
+          )
+        ) {
+          chapitresTermines.push(
+            chapitreIdNumerique
+          );
+        }
+
+        localStorage.setItem(
+          progressKey,
+          JSON.stringify(chapitresTermines)
+        );
+      } catch (error) {
+        console.error(
+          "Impossible d'enregistrer la progression :",
+          error
+        );
+      }
+    };
+
+    enregistrerProgression();
+  }, [
+    chapitreId,
+    progressKey,
+    coursActuel,
+    chapitreIndex,
+  ]);
 
   if (!coursActuel) {
     return (
@@ -36,12 +96,6 @@ function Chapitre() {
       </div>
     );
   }
-
-  const chapitreIndex =
-    coursActuel.chapitres.findIndex(
-      (chapitre) =>
-        chapitre.id === Number(chapitreId)
-    );
 
   if (chapitreIndex === -1) {
     return (
@@ -93,55 +147,6 @@ function Chapitre() {
 
   const baseUrl =
     `/bibliotheque/${categorieId}/cours/${id}`;
-
-  const progressKey =
-    `geo-zone:course-progress:${id}`;
-
-  useEffect(() => {
-    const enregistrerProgression = () => {
-      try {
-        const progressionExistante =
-          localStorage.getItem(progressKey);
-
-        let chapitresTermines = [];
-
-        if (progressionExistante) {
-          const progressionParsee =
-            JSON.parse(progressionExistante);
-
-          if (Array.isArray(progressionParsee)) {
-            chapitresTermines =
-              progressionParsee;
-          }
-        }
-
-        const chapitreIdNumerique =
-          Number(chapitreId);
-
-        if (
-          !chapitresTermines.includes(
-            chapitreIdNumerique
-          )
-        ) {
-          chapitresTermines.push(
-            chapitreIdNumerique
-          );
-        }
-
-        localStorage.setItem(
-          progressKey,
-          JSON.stringify(chapitresTermines)
-        );
-      } catch (error) {
-        console.error(
-          "Impossible d'enregistrer la progression :",
-          error
-        );
-      }
-    };
-
-    enregistrerProgression();
-  }, [chapitreId, progressKey]);
 
   return (
     <div className="container chapter-page">

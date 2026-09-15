@@ -46,6 +46,7 @@ import Recherche from "./pages/Recherche";
 import Quiz from "./pages/Quiz";
 import Revision from "./pages/Revision";
 import Evaluation from "./pages/Evaluation";
+import Dashboard from "./pages/Dashboard";
 import "./App.css";
 
 function Accueil() {
@@ -92,6 +93,13 @@ function Accueil() {
       link: "/identification",
       className: "identification",
     },
+    {
+  icon: "📊",
+  title: "Dashboard",
+  description: "Suis ta progression, tes résultats et tes objectifs.",
+  link: "/dashboard",
+  className: "dashboard",
+},
     {
       icon: "🛠️",
       title: "Outils",
@@ -201,25 +209,26 @@ function Accueil() {
           </div>
         </section>
 
-        <section className="home-quick-access">
-          <div className="home-quick-icon">⚡</div>
+       <section className="home-quick-access">
+  <div className="home-quick-icon">⚡</div>
 
-          <div className="home-quick-content">
-            <span>ACCÈS RAPIDE</span>
+  <div className="home-quick-content">
+    <span>ACCÈS RAPIDE</span>
 
-            <h2>Commence ton exploration</h2>
+    <h2>Commence ton exploration</h2>
 
-            <p>
-              Accède directement aux ressources les plus utiles.
-            </p>
-          </div>
+    <p>
+      Accède directement aux ressources les plus utiles.
+    </p>
+  </div>
 
-          <div className="home-quick-actions">
-            <Link to="/bibliotheque">📚 Cours</Link>
-            <Link to="/roches">⛰️ Roches</Link>
-            <Link to="/outils">🛠️ Outils</Link>
-          </div>
-        </section>
+  <div className="home-quick-actions">
+    <Link to="/bibliotheque">📚 Cours</Link>
+    <Link to="/roches">⛰️ Roches</Link>
+    <Link to="/outils">🛠️ Outils</Link>
+    <Link to="/dashboard">📊 Dashboard</Link>
+  </div>
+</section>
 
         <section className="home-quote">
           <div className="quote-icon">🌍</div>
@@ -364,6 +373,17 @@ function App() {
                 <small>Apprendre et progresser</small>
               </span>
             </Link>
+            <Link
+  to="/dashboard"
+  onClick={() => setMenuOuvert(false)}
+>
+  <span className="mobile-menu-icon">📊</span>
+
+  <span className="mobile-menu-text">
+    <strong>Dashboard</strong>
+    <small>Ma progression et mes résultats</small>
+  </span>
+</Link>
 
             <Link
               to="/geo-ai"
@@ -475,6 +495,10 @@ function App() {
 <Route
   path="/evaluation"
   element={<Evaluation />}
+/>
+<Route
+  path="/dashboard"
+  element={<Dashboard />}
 />
 
         <Route
@@ -693,6 +717,7 @@ function App() {
             <Link to="/bibliotheque">Bibliothèque</Link>
             <Link to="/formation">Formation</Link>
             <Link to="/roches">Roches</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </div>
 
           <div className="geo-footer-links">

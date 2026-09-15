@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import { useState } from "react";
 
 import categories from "../data/categories";
@@ -37,17 +38,28 @@ function Recherche() {
       (_, index) => index
     );
 
-    for (let i = 1; i <= longueurA; i += 1) {
+    for (
+      let i = 1;
+      i <= longueurA;
+      i += 1
+    ) {
       const ligneActuelle = [i];
 
-      for (let j = 1; j <= longueurB; j += 1) {
+      for (
+        let j = 1;
+        j <= longueurB;
+        j += 1
+      ) {
         const coutSubstitution =
-          a[i - 1] === b[j - 1] ? 0 : 1;
+          a[i - 1] === b[j - 1]
+            ? 0
+            : 1;
 
         ligneActuelle[j] = Math.min(
           ligneActuelle[j - 1] + 1,
           lignePrecedente[j] + 1,
-          lignePrecedente[j - 1] + coutSubstitution
+          lignePrecedente[j - 1] +
+            coutSubstitution
         );
       }
 
@@ -57,9 +69,15 @@ function Recherche() {
     return lignePrecedente[longueurB];
   };
 
-  const correspondanceTerme = (termeRecherche, texte) => {
-    const terme = texteNormalise(termeRecherche);
-    const contenu = texteNormalise(texte);
+  const correspondanceTerme = (
+    termeRecherche,
+    texte
+  ) => {
+    const terme =
+      texteNormalise(termeRecherche);
+
+    const contenu =
+      texteNormalise(texte);
 
     if (!terme || !contenu) {
       return false;
@@ -69,29 +87,41 @@ function Recherche() {
       return true;
     }
 
-    const mots = contenu.split(/[\s,;:/()\-]+/).filter(Boolean);
+    const mots = contenu
+      .split(/[\s,;:/()-]+/)
+      .filter(Boolean);
 
     return mots.some((mot) => {
-      if (mot.includes(terme) || terme.includes(mot)) {
+      if (
+        mot.includes(terme) ||
+        terme.includes(mot)
+      ) {
         return true;
       }
 
       if (
         terme.length >= 6 &&
         mot.length >= 6 &&
-        terme.slice(0, 6) === mot.slice(0, 6)
+        terme.slice(0, 6) ===
+          mot.slice(0, 6)
       ) {
         return true;
       }
 
-      if (terme.length >= 5 && mot.length >= 5) {
-        const distance = distanceLevenshtein(
-          terme,
-          mot
-        );
+      if (
+        terme.length >= 5 &&
+        mot.length >= 5
+      ) {
+        const distance =
+          distanceLevenshtein(
+            terme,
+            mot
+          );
 
-        const seuil =
-          Math.max(2, Math.floor(terme.length / 5));
+        const seuil = Math.max(
+          2,
+          Math.floor(terme.length / 5)
+        );
 
         if (distance <= seuil) {
           return true;
@@ -102,22 +132,34 @@ function Recherche() {
     });
   };
 
-  const correspondanceRecherche = (texte, recherche) => {
-    const motsRecherche = texteNormalise(recherche)
-      .split(/\s+/)
-      .filter(Boolean);
+  const correspondanceRecherche = (
+    texte,
+    recherche
+  ) => {
+    const motsRecherche =
+      texteNormalise(recherche)
+        .split(/\s+/)
+        .filter(Boolean);
 
     if (motsRecherche.length === 0) {
       return false;
     }
 
-    return motsRecherche.every((mot) =>
-      correspondanceTerme(mot, texte)
+    return motsRecherche.every(
+      (mot) =>
+        correspondanceTerme(
+          mot,
+          texte
+        )
     );
   };
 
-  const construireTexteRoche = (roche) => {
-    const mineraux = Array.isArray(roche?.mineraux)
+  const construireTexteRoche = (
+    roche
+  ) => {
+    const mineraux = Array.isArray(
+      roche?.mineraux
+    )
       ? roche.mineraux.join(" ")
       : "";
 
@@ -134,7 +176,9 @@ function Recherche() {
       .join(" ");
   };
 
-  const construireTexteCours = (coursActuel) => {
+  const construireTexteCours = (
+    coursActuel
+  ) => {
     const chapitres = Array.isArray(
       coursActuel?.chapitres
     )
@@ -159,35 +203,41 @@ function Recherche() {
       .join(" ");
   };
 
-  const recherche = texteNormalise(requete);
+  const recherche =
+    texteNormalise(requete);
 
   const resultatsCategories =
     recherche.length > 0
-      ? categories.filter((categorie) =>
-          correspondanceRecherche(
-            categorie?.nom,
-            recherche
-          )
+      ? categories.filter(
+          (categorie) =>
+            correspondanceRecherche(
+              categorie?.nom,
+              recherche
+            )
         )
       : [];
 
   const resultatsCours =
     recherche.length > 0
-      ? cours.filter((coursActuel) =>
-          correspondanceRecherche(
-            construireTexteCours(coursActuel),
-            recherche
-          )
+      ? cours.filter(
+          (coursActuel) =>
+            correspondanceRecherche(
+              construireTexteCours(
+                coursActuel
+              ),
+              recherche
+            )
         )
       : [];
 
   const resultatsRoches =
     recherche.length > 0
-      ? roches.filter((roche) =>
-          correspondanceRecherche(
-            construireTexteRoche(roche),
-            recherche
-          )
+      ? roches.filter(
+          (roche) =>
+            correspondanceRecherche(
+              construireTexteRoche(roche),
+              recherche
+            )
         )
       : [];
 
@@ -202,7 +252,10 @@ function Recherche() {
 
   return (
     <div className="container">
-      <Link to="/" className="back-link">
+      <Link
+        to="/"
+        className="back-link"
+      >
         ← Accueil
       </Link>
 
@@ -228,23 +281,33 @@ function Recherche() {
           value={requete}
           placeholder="Exemple : quartz, métamorphique, sédimentaire..."
           onChange={(event) =>
-            setRequete(event.target.value)
+            setRequete(
+              event.target.value
+            )
           }
         />
 
         {recherche && (
           <p>
-            <strong>{totalResultats}</strong>{" "}
+            <strong>
+              {totalResultats}
+            </strong>{" "}
             résultat
-            {totalResultats > 1 ? "s" : ""} pour{" "}
-            <strong>« {requete} »</strong>
+            {totalResultats > 1
+              ? "s"
+              : ""}{" "}
+            pour{" "}
+            <strong>
+              « {requete} »
+            </strong>
           </p>
         )}
 
         {recherche && (
           <p>
-            La recherche accepte les accents, les variantes
-            proches et certaines fautes de frappe.
+            La recherche accepte les accents,
+            les variantes proches et certaines
+            fautes de frappe.
           </p>
         )}
       </section>
@@ -254,7 +317,9 @@ function Recherche() {
           <div className="empty-content">
             <div>🔎</div>
 
-            <h2>Commence ta recherche</h2>
+            <h2>
+              Commence ta recherche
+            </h2>
 
             <p>
               Tape le nom d'une roche, d'un cours,
@@ -272,7 +337,8 @@ function Recherche() {
             <h2>Aucun résultat</h2>
 
             <p>
-              Aucun contenu ne correspond à ta recherche.
+              Aucun contenu ne correspond à ta
+              recherche.
             </p>
 
             <button
@@ -289,7 +355,9 @@ function Recherche() {
             <section className="course-chapters">
               <div className="course-chapters-heading">
                 <div>
-                  <span>BASE GÉOLOGIQUE</span>
+                  <span>
+                    BASE GÉOLOGIQUE
+                  </span>
 
                   <h2>🪨 Roches</h2>
                 </div>
@@ -300,53 +368,61 @@ function Recherche() {
               </div>
 
               <div className="course-chapters-grid">
-                {resultatsRoches.map((roche) => (
-                  <article
-                    className="chapter-card"
-                    key={roche.id}
-                  >
-                    <div className="chapter-top">
-                      <div className="chapter-number">
-                        🪨
+                {resultatsRoches.map(
+                  (roche) => (
+                    <article
+                      className="chapter-card"
+                      key={roche.id}
+                    >
+                      <div className="chapter-top">
+                        <div className="chapter-number">
+                          🪨
+                        </div>
+
+                        <span className="chapter-label">
+                          {roche.famille ||
+                            "Roche"}
+                        </span>
                       </div>
 
-                      <span className="chapter-label">
-                        {roche.famille || "Roche"}
-                      </span>
-                    </div>
+                      <div className="chapter-content">
+                        <h3>
+                          {roche.nom}
+                        </h3>
 
-                    <div className="chapter-content">
-                      <h3>{roche.nom}</h3>
+                        <p>
+                          {roche.sousFamille ||
+                            "Sous-famille non renseignée"}
+                        </p>
 
-                      <p>
-                        {roche.sousFamille ||
-                          "Sous-famille non renseignée"}
-                      </p>
+                        <p>
+                          {roche.texture ||
+                            "Texture non renseignée"}
+                        </p>
 
-                      <p>
-                        {roche.texture ||
-                          "Texture non renseignée"}
-                      </p>
+                        <p>
+                          {Array.isArray(
+                            roche.mineraux
+                          ) &&
+                          roche.mineraux.length >
+                            0
+                            ? `Minéraux : ${roche.mineraux.join(
+                                ", "
+                              )}`
+                            : ""}
+                        </p>
+                      </div>
 
-                      <p>
-                        {Array.isArray(roche.mineraux) &&
-                        roche.mineraux.length > 0
-                          ? `Minéraux : ${roche.mineraux.join(
-                              ", "
-                            )}`
-                          : ""}
-                      </p>
-                    </div>
-
-                    <Link
-                      to={`/roches/${roche.id}`}
-                      className="chapter-link"
-                    >
-                      Voir la fiche
-                      <span>→</span>
-                    </Link>
-                  </article>
-                ))}
+                      <Link
+                        to={`/roches/${roche.id}`}
+                        className="chapter-link"
+                      >
+                        Voir la fiche
+                        <span>→</span>
+                      </Link>
+                    </article>
+                  )
+                )}
               </div>
             </section>
           )}
@@ -355,7 +431,9 @@ function Recherche() {
             <section className="course-chapters">
               <div className="course-chapters-heading">
                 <div>
-                  <span>BIBLIOTHÈQUE</span>
+                  <span>
+                    BIBLIOTHÈQUE
+                  </span>
 
                   <h2>📚 Cours</h2>
                 </div>
@@ -366,57 +444,62 @@ function Recherche() {
               </div>
 
               <div className="course-chapters-grid">
-                {resultatsCours.map((coursActuel) => (
-                  <article
-                    className="chapter-card"
-                    key={coursActuel.id}
-                  >
-                    <div className="chapter-top">
-                      <div className="chapter-number">
-                        📚
+                {resultatsCours.map(
+                  (coursActuel) => (
+                    <article
+                      className="chapter-card"
+                      key={coursActuel.id}
+                    >
+                      <div className="chapter-top">
+                        <div className="chapter-number">
+                          📚
+                        </div>
+
+                        <span className="chapter-label">
+                          COURS
+                        </span>
                       </div>
 
-                      <span className="chapter-label">
-                        COURS
-                      </span>
-                    </div>
+                      <div className="chapter-content">
+                        <h3>
+                          {coursActuel.titre}
+                        </h3>
 
-                    <div className="chapter-content">
-                      <h3>
-                        {coursActuel.titre}
-                      </h3>
+                        <p>
+                          {coursActuel.description ||
+                            "Cours de géologie"}
+                        </p>
 
-                      <p>
-                        {coursActuel.description ||
-                          "Cours de géologie"}
-                      </p>
-
-                      <p>
-                        📖{" "}
-                        {Array.isArray(
+                        <p>
+                          📖{" "}
+                          {Array.isArray(
+                            coursActuel.chapitres
+                          )
+                            ? coursActuel
+                                .chapitres
+                                .length
+                            : 0}{" "}
+                          chapitre
+                          {Array.isArray(
+                            coursActuel.chapitres
+                          ) &&
                           coursActuel.chapitres
-                        )
-                          ? coursActuel.chapitres.length
-                          : 0}{" "}
-                        chapitre
-                        {Array.isArray(
-                          coursActuel.chapitres
-                        ) &&
-                        coursActuel.chapitres.length > 1
-                          ? "s"
-                          : ""}
-                      </p>
-                    </div>
+                            .length > 1
+                            ? "s"
+                            : ""}
+                        </p>
+                      </div>
 
-                    <Link
-                      to={`/bibliotheque/${coursActuel.categorieId}/cours/${coursActuel.id}`}
-                      className="chapter-link"
-                    >
-                      Voir le cours
-                      <span>→</span>
-                    </Link>
-                  </article>
-                ))}
+                      <Link
+                        to={`/bibliotheque/${coursActuel.categorieId}/cours/${coursActuel.id}`}
+                        className="chapter-link"
+                      >
+                        Voir le cours
+                        <span>→</span>
+                      </Link>
+                    </article>
+                  )
+                )}
               </div>
             </section>
           )}
@@ -425,9 +508,13 @@ function Recherche() {
             <section className="course-chapters">
               <div className="course-chapters-heading">
                 <div>
-                  <span>DOMAINES</span>
+                  <span>
+                    DOMAINES
+                  </span>
 
-                  <h2>📂 Catégories</h2>
+                  <h2>
+                    📂 Catégories
+                  </h2>
                 </div>
 
                 <span className="course-chapter-count">
@@ -444,7 +531,8 @@ function Recherche() {
                     >
                       <div className="chapter-top">
                         <div className="chapter-number">
-                          {categorie.icon || "📂"}
+                          {categorie.icon ||
+                            "📂"}
                         </div>
 
                         <span className="chapter-label">
