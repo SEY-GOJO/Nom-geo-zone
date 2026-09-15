@@ -2,6 +2,45 @@ import { GoogleGenAI } from "@google/genai";
 import roches from "../src/data/roches.js";
 import cours from "../src/data/cours.js";
 
+const MAX_QUESTION_LENGTH = 2_000;
+const MAX_HISTORY_MESSAGE_LENGTH = 2_000;
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const MAX_REQUESTS_PER_WINDOW = 10;
+const requetesParClient = new Map();
+
+function obtenirAdresseClient(req) {
+  const forwardedFor = req.headers?.["x-forwarded-for"];
+  const adresse = Array.isArray(forwardedFor)
+    ? forwardedFor[0]
+    : forwardedFor?.split(",")[0];
+
+  return adresse?.trim() || req.socket?.remoteAddress || "inconnu";
+}
+
+function depasseLimiteRequetes(req) {
+  const maintenant = Date.now();
+  const adresse = obtenirAdresseClient(req);
+
+  for (const [client, entree] of requetesParClient) {
+    if (maintenant - entree.debut >= RATE_LIMIT_WINDOW_MS) {
+      requetesParClient.delete(client);
+    }
+  }
+
+  const entree = requetesParClient.get(adresse);
+  if (!entree || maintenant - entree.debut >= RATE_LIMIT_WINDOW_MS) {
+    requetesParClient.set(adresse, { debut: maintenant, nombre: 1 });
+    return false;
+  }
+
+  if (entree.nombre >= MAX_REQUESTS_PER_WINDOW) {
+    return true;
+  }
+
+  entree.nombre += 1;
+  return false;
+}
+
 function normaliserTexte(texte) {
   return String(texte || "")
     .toLowerCase()
@@ -300,7 +339,7 @@ function nettoyerHistorique(history) {
           : "user",
       parts: [
         {
-          text: message.content.trim(),
+          text: message.content.trim().slice(0, MAX_HISTORY_MESSAGE_LENGTH),
         },
       ],
     }));
@@ -314,7 +353,16 @@ export default async function handler(req, res) {
   }
 
   try {
-    const question = req.body?.question?.trim();
+    if (depasseLimiteRequetes(req)) {
+      res.setHeader("Retry-After", "60");
+      return res.status(429).json({
+        error: "Trop de demandes. Réessaie dans une minute.",
+      });
+    }
+
+    const questionBrute = req.body?.question;
+    const question =
+      typeof questionBrute === "string" ? questionBrute.trim() : "";
     const history = nettoyerHistorique(
       req.body?.history
     );
@@ -322,6 +370,12 @@ export default async function handler(req, res) {
     if (!question) {
       return res.status(400).json({
         error: "La question est vide.",
+      });
+    }
+
+    if (question.length > MAX_QUESTION_LENGTH) {
+      return res.status(400).json({
+        error: `La question ne doit pas dépasser ${MAX_QUESTION_LENGTH} caractères.`,
       });
     }
 
@@ -412,9 +466,8 @@ Consignes pour cette réponse :
   } catch (error) {
     console.error("Erreur GEO AI :", error);
 
-    return res.status(500).json({
-      error: error?.message || "Erreur inconnue",
-      status: error?.status || null,
+    return res.status(502).json({
+      error: "GEO AI est indisponible pour le moment. Réessaie dans quelques instants.",
     });
   }
 }

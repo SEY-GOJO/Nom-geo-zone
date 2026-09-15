@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useState } from "react";
+import { calculerMetalDepuisTeneur } from "../utils/miningCalculations.js";
 
 function MetalContenu() {
   const [searchParams] = useSearchParams();
@@ -20,53 +21,7 @@ function MetalContenu() {
     uniteTransmise || "g/t"
   );
 
-  const calculerMetalContenu = () => {
-    if (tonnage === "" || teneur === "") {
-      return null;
-    }
-
-    const tonnageNombre = Number(tonnage);
-    const teneurNombre = Number(teneur);
-
-    if (
-      !Number.isFinite(tonnageNombre) ||
-      !Number.isFinite(teneurNombre) ||
-      tonnageNombre < 0 ||
-      teneurNombre < 0
-    ) {
-      return null;
-    }
-
-    let metalEnTonnes;
-
-    switch (uniteTeneur) {
-      case "%":
-        metalEnTonnes =
-          tonnageNombre * (teneurNombre / 100);
-        break;
-
-      case "ppm":
-        metalEnTonnes =
-          tonnageNombre * (teneurNombre / 1_000_000);
-        break;
-
-      case "g/t":
-        metalEnTonnes =
-          (tonnageNombre * teneurNombre) / 1_000_000;
-        break;
-
-      default:
-        return null;
-    }
-
-    return {
-      tonnes: metalEnTonnes,
-      kilogrammes: metalEnTonnes * 1000,
-      grammes: metalEnTonnes * 1_000_000,
-    };
-  };
-
-  const resultat = calculerMetalContenu();
+  const resultat = calculerMetalDepuisTeneur(tonnage, teneur, uniteTeneur);
 
   return (
     <div className="container">

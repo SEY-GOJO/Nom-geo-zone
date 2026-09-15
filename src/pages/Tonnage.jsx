@@ -1,31 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { calculerTonnage } from "../utils/miningCalculations.js";
 
 function Tonnage() {
   const [volume, setVolume] = useState("");
   const [densite, setDensite] = useState("");
 
-  const calculerTonnage = () => {
-    if (volume === "" || densite === "") {
-      return null;
-    }
-
-    const volumeNombre = Number(volume);
-    const densiteNombre = Number(densite);
-
-    if (
-      !Number.isFinite(volumeNombre) ||
-      !Number.isFinite(densiteNombre) ||
-      volumeNombre < 0 ||
-      densiteNombre <= 0
-    ) {
-      return null;
-    }
-
-    return volumeNombre * densiteNombre;
-  };
-
-  const tonnage = calculerTonnage();
+  const tonnage = calculerTonnage(volume, densite);
 
   return (
     <div className="container">

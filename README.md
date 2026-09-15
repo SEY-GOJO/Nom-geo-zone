@@ -1,16 +1,54 @@
-# React + Vite
+# GEO ZONE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Application pédagogique de géologie et de mines. Les calculateurs miniers s’appuient sur un pipeline d’analyse unique, testable, plutôt que sur des formules recopiées dans chaque écran.
 
-Currently, two official plugins are available:
+## Pipeline d’analyse minière
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Module : `src/utils/miningCalculations.js`.
 
-## React Compiler
+Entrée principale : `analyserProjetMinier(entrees)`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Champ | Unité | Contrainte |
+| --- | --- | --- |
+| `volume` | m³ | ≥ 0 |
+| `densite` | t/m³ | > 0 |
+| `teneurMinerai` / `teneurSterile` | `uniteTeneur` | ≥ 0 |
+| `uniteTeneur` | `g/t`, `ppm`, `%`, `ppb` | obligatoire si une teneur est saisie |
+| `tauxDilution` | % | ≥ 0 (défaut 0) |
+| `tonnageSterile` | t | ≥ 0, optionnel (sinon stérile de dilution) |
+| `recuperation` | % | 0–100 |
 
-## Expanding the ESLint configuration
+Sortie : tonnage, teneurs en g/t, dilution, stripping ratio, métal contenu, métal récupéré, plus `issues` (`INCOMPLET`, `NON_NUMERIQUE`, `HORS_DOMAINE`, `UNITE_INCONNUE`).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Formules (modèle pédagogique) :
+
+- Tonnage : \(T = V \times \rho\)
+- Dilution : \(S = T \times d/100\), teneur diluée = métal total / tonnage total
+- Stripping ratio : stérile / minerai
+- Métal contenu (g) : tonnage (t) × teneur (g/t)
+- Récupération : métal × taux / 100
+
+Les champs vides produisent `null` sur les étapes concernées (saisie progressive). Les valeurs invalides sont aussi `null` et apparaissent dans `issues`.
+
+```js
+import { analyserProjetMinier } from "./src/utils/miningCalculations.js";
+
+const analyse = analyserProjetMinier({
+  volume: 2400,
+  densite: 2.65,
+  teneurMinerai: 3.2,
+  uniteTeneur: "g/t",
+  tauxDilution: 10,
+  recuperation: 85,
+});
+```
+
+Les pages Tonnage, Dilution, Stripping Ratio, Métal contenu, Récupération et Mining Calculator utilisent ce module.
+
+## Tests
+
+```bash
+npm test
+```
+
+Les tests du pipeline sont dans `test/mining-project.test.js`.

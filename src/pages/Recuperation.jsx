@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useState } from "react";
+import { calculerMetalRecupere } from "../utils/miningCalculations.js";
 
 function Recuperation() {
   const [searchParams] = useSearchParams();
@@ -12,34 +13,7 @@ function Recuperation() {
 
   const [recuperation, setRecuperation] = useState("");
 
-  const calculerRecuperation = () => {
-    if (metalContenu === "" || recuperation === "") {
-      return null;
-    }
-
-    const metal = Number(metalContenu);
-    const taux = Number(recuperation);
-
-    if (
-      !Number.isFinite(metal) ||
-      !Number.isFinite(taux) ||
-      metal < 0 ||
-      taux < 0 ||
-      taux > 100
-    ) {
-      return null;
-    }
-
-    const metalRecupere = metal * (taux / 100);
-    const metalNonRecupere = metal - metalRecupere;
-
-    return {
-      recupere: metalRecupere,
-      nonRecupere: metalNonRecupere,
-    };
-  };
-
-  const resultat = calculerRecuperation();
+  const resultat = calculerMetalRecupere(metalContenu, recuperation);
 
   return (
     <div className="container">

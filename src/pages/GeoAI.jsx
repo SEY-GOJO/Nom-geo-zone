@@ -31,6 +31,9 @@ function GeoAI() {
     setQuestion("");
     setChargement(true);
 
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 30_000);
+
     try {
       const response = await fetch("/api/geoai", {
         method: "POST",
@@ -41,9 +44,10 @@ function GeoAI() {
           question: questionNettoyee,
           history: historiquePourApi,
         }),
+        signal: controller.signal,
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
         throw new Error(
@@ -69,11 +73,14 @@ function GeoAI() {
         {
           role: "assistant",
           content:
-            "Impossible de contacter GEO AI pour le moment. Vérifie que le serveur est bien lancé.",
+            error?.name === "AbortError"
+              ? "GEO AI met trop de temps à répondre. Réessaie dans quelques instants."
+              : "Impossible de contacter GEO AI pour le moment. Réessaie plus tard.",
           tokens: null,
         },
       ]);
     } finally {
+      window.clearTimeout(timeout);
       setChargement(false);
     }
   };

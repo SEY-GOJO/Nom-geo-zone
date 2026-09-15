@@ -1,34 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { calculerStrippingRatio } from "../utils/miningCalculations.js";
 
 function StrippingRatio() {
   const [tonnageSterile, setTonnageSterile] = useState("");
   const [tonnageMinerai, setTonnageMinerai] = useState("");
 
-  const calculerStrippingRatio = () => {
-    if (
-      tonnageSterile === "" ||
-      tonnageMinerai === ""
-    ) {
-      return null;
-    }
-
-    const sterile = Number(tonnageSterile);
-    const minerai = Number(tonnageMinerai);
-
-    if (
-      !Number.isFinite(sterile) ||
-      !Number.isFinite(minerai) ||
-      sterile < 0 ||
-      minerai <= 0
-    ) {
-      return null;
-    }
-
-    return sterile / minerai;
-  };
-
-  const ratio = calculerStrippingRatio();
+  const ratio = calculerStrippingRatio(tonnageMinerai, tonnageSterile);
 
   return (
     <div className="container">

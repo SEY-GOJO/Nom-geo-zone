@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { convertir } from "../utils/conversions";
+import { analyserProjetMinier } from "../utils/miningCalculations.js";
 
 const STORAGE_KEY = "geo-zone:mining-project:v1";
 
@@ -22,205 +22,24 @@ function MiningCalculator() {
   const [messageSauvegarde, setMessageSauvegarde] =
     useState("");
 
-  /* =========================
-     TONNAGE
-  ========================= */
+  const analyse = analyserProjetMinier({
+    nomProjet,
+    volume,
+    densite,
+    teneurMinerai,
+    teneurSterile,
+    uniteTeneur,
+    tauxDilution,
+    tonnageSterile,
+    recuperation,
+  });
 
-  const calculerTonnageMinerai = () => {
-    if (volume === "" || densite === "") {
-      return null;
-    }
-
-    const volumeNombre = Number(volume);
-    const densiteNombre = Number(densite);
-
-    if (
-      !Number.isFinite(volumeNombre) ||
-      !Number.isFinite(densiteNombre) ||
-      volumeNombre < 0 ||
-      densiteNombre <= 0
-    ) {
-      return null;
-    }
-
-    return volumeNombre * densiteNombre;
-  };
-
-  const tonnageMinerai = calculerTonnageMinerai();
-
-  /* =========================
-     TENEUR
-  ========================= */
-
-  const convertirTeneur = (valeur) => {
-    const nombre = Number(valeur);
-
-    if (!Number.isFinite(nombre) || nombre < 0) {
-      return null;
-    }
-
-    try {
-      return convertir(
-        nombre,
-        "concentration",
-        uniteTeneur,
-        "g/t"
-      );
-    } catch {
-      return null;
-    }
-  };
-
-  const teneurMineraiGParTonne =
-    teneurMinerai === ""
-      ? null
-      : convertirTeneur(teneurMinerai);
-
-  const teneurSterileGParTonne =
-    teneurSterile === ""
-      ? 0
-      : convertirTeneur(teneurSterile);
-
-  /* =========================
-     DILUTION
-  ========================= */
-
-  const calculerDilution = () => {
-    if (
-      tonnageMinerai === null ||
-      teneurMineraiGParTonne === null ||
-      teneurSterileGParTonne === null
-    ) {
-      return null;
-    }
-
-    const taux = Number(tauxDilution);
-
-    if (!Number.isFinite(taux) || taux < 0) {
-      return null;
-    }
-
-    const sterileAjoute =
-      tonnageMinerai * (taux / 100);
-
-    const tonnageTotal =
-      tonnageMinerai + sterileAjoute;
-
-    const metalMinerai =
-      tonnageMinerai * teneurMineraiGParTonne;
-
-    const metalSterile =
-      sterileAjoute * teneurSterileGParTonne;
-
-    const metalTotalGrammes =
-      metalMinerai + metalSterile;
-
-    const teneurDiluee =
-      tonnageTotal > 0
-        ? metalTotalGrammes / tonnageTotal
-        : 0;
-
-    return {
-      sterileAjoute,
-      tonnageTotal,
-      metalTotalGrammes,
-      teneurDiluee,
-    };
-  };
-
-  const dilution = calculerDilution();
-
-  /* =========================
-     STRIPPING RATIO
-  ========================= */
-
-  const calculerStrippingRatio = () => {
-    if (
-      tonnageMinerai === null ||
-      tonnageMinerai <= 0
-    ) {
-      return null;
-    }
-
-    let sterile = tonnageSterile;
-
-    if (sterile === "") {
-      if (dilution === null) {
-        return null;
-      }
-
-      sterile = dilution.sterileAjoute;
-    }
-
-    const sterileNombre = Number(sterile);
-
-    if (
-      !Number.isFinite(sterileNombre) ||
-      sterileNombre < 0
-    ) {
-      return null;
-    }
-
-    return sterileNombre / tonnageMinerai;
-  };
-
-  const strippingRatio =
-    calculerStrippingRatio();
-
-  /* =========================
-     MÉTAL CONTENU
-  ========================= */
-
-  const calculerMetalContenu = () => {
-    if (dilution === null) {
-      return null;
-    }
-
-    const grammes = dilution.metalTotalGrammes;
-
-    return {
-      grammes,
-      kilogrammes: grammes / 1000,
-      tonnes: grammes / 1_000_000,
-    };
-  };
-
-  const metalContenu = calculerMetalContenu();
-
-  /* =========================
-     RÉCUPÉRATION
-  ========================= */
-
-  const calculerMetalRecupere = () => {
-    if (
-      metalContenu === null ||
-      recuperation === ""
-    ) {
-      return null;
-    }
-
-    const taux = Number(recuperation);
-
-    if (
-      !Number.isFinite(taux) ||
-      taux < 0 ||
-      taux > 100
-    ) {
-      return null;
-    }
-
-    const recupere =
-      metalContenu.tonnes * (taux / 100);
-
-    return {
-      recupere,
-      nonRecupere:
-        metalContenu.tonnes - recupere,
-    };
-  };
-
-  const metalRecupere =
-    calculerMetalRecupere();
+  const tonnageMinerai = analyse.tonnageMinerai;
+  const teneurMineraiGParTonne = analyse.teneurMineraiGParTonne;
+  const dilution = analyse.dilution;
+  const strippingRatio = analyse.strippingRatio;
+  const metalContenu = analyse.metalContenu;
+  const metalRecupere = analyse.metalRecupere;
 
   /* =========================
      SAUVEGARDE

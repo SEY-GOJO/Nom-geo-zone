@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { calculerDilution } from "../utils/miningCalculations.js";
 
 function Dilution() {
   const [tonnageMinerai, setTonnageMinerai] = useState("");
@@ -7,61 +8,12 @@ function Dilution() {
   const [teneurMinerai, setTeneurMinerai] = useState("");
   const [teneurSterile, setTeneurSterile] = useState("0");
 
-  const calculerDilution = () => {
-    if (
-      tonnageMinerai === "" ||
-      tauxDilution === "" ||
-      teneurMinerai === ""
-    ) {
-      return null;
-    }
-
-    const minerai = Number(tonnageMinerai);
-    const dilution = Number(tauxDilution);
-    const gradeMinerai = Number(teneurMinerai);
-    const gradeSterile = Number(teneurSterile);
-
-    if (
-      !Number.isFinite(minerai) ||
-      !Number.isFinite(dilution) ||
-      !Number.isFinite(gradeMinerai) ||
-      !Number.isFinite(gradeSterile) ||
-      minerai < 0 ||
-      dilution < 0 ||
-      gradeMinerai < 0 ||
-      gradeSterile < 0
-    ) {
-      return null;
-    }
-
-    const tonnageSterile = minerai * (dilution / 100);
-    const tonnageTotal = minerai + tonnageSterile;
-
-    const metalMinerai =
-      minerai * gradeMinerai;
-
-    const metalSterile =
-      tonnageSterile * gradeSterile;
-
-    const metalTotal =
-      metalMinerai + metalSterile;
-
-    const teneurDiluee =
-      tonnageTotal > 0
-        ? metalTotal / tonnageTotal
-        : 0;
-
-    return {
-      tonnageSterile,
-      tonnageTotal,
-      metalMinerai,
-      metalSterile,
-      metalTotal,
-      teneurDiluee,
-    };
-  };
-
-  const resultat = calculerDilution();
+  const resultat = calculerDilution({
+    tonnageMinerai,
+    teneurMinerai,
+    teneurSterile,
+    tauxDilution,
+  });
 
   return (
     <div className="container">
