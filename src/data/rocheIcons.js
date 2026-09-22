@@ -33,6 +33,14 @@ const iconesParRoche = {
   Picrite: "🟢",
   Néphélinite: "🟣",
   Téphrite: "🟤",
+  Obsidienne: "🖤",
+  "Pierre ponce": "🫧",
+  "Tuf volcanique": "🌫️",
+  "Agglomérat volcanique": "💥",
+  Travertin: "🏛️",
+  "Calcaire fossilifère": "🐚",
+  Kimberlite: "💎",
+  Septaria: "🟤",
 };
 
 const iconesParFamille = {

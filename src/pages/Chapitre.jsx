@@ -148,6 +148,10 @@ function Chapitre() {
   const baseUrl =
     `/bibliotheque/${categorieId}/cours/${id}`;
 
+  const lignesContenu = chapitre.contenu
+    ? chapitre.contenu.split("\n")
+    : [];
+
   return (
     <div className="container chapter-page">
       <Link
@@ -233,20 +237,43 @@ function Chapitre() {
 
         <div className="content-body">
           {chapitre.contenu ? (
-            chapitre.contenu
-              .split("\n")
-              .map((ligne, index) =>
-                ligne.trim() ? (
-                  <p key={index}>
-                    {ligne}
-                  </p>
-                ) : (
-                  <div
-                    key={index}
-                    className="content-space"
-                  />
-                )
-              )
+            lignesContenu.map((ligne, index) => {
+              const texte = ligne.trim();
+              const estListe = texte.startsWith("- ");
+              const estEncadre = texte.startsWith("À retenir :");
+              const estIntertitre =
+                texte.length > 0 &&
+                texte.length < 105 &&
+                texte.endsWith(":") &&
+                !estListe &&
+                !estEncadre;
+
+              if (!texte) {
+                return <div key={index} className="content-space" />;
+              }
+
+              if (estEncadre) {
+                return (
+                  <aside key={index} className="lesson-takeaway">
+                    <strong>À retenir</strong>
+                    <p>{texte.replace("À retenir :", "").trim()}</p>
+                  </aside>
+                );
+              }
+
+              if (estIntertitre) {
+                return <h3 key={index}>{texte.slice(0, -1)}</h3>;
+              }
+
+              return (
+                <p
+                  key={index}
+                  className={estListe ? "lesson-list-item" : ""}
+                >
+                  {estListe ? texte.slice(2) : texte}
+                </p>
+              );
+            })
           ) : (
             <div className="empty-content">
               <div>📚</div>

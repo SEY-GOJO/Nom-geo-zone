@@ -1,15 +1,28 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import roches from "../data/roches";
 import cours from "../data/cours";
+import mineraux from "../data/mineraux";
+import { basculerFavori, enregistrerConsultation, estFavori } from "../utils/favoris";
 import { getRocheIcon } from "../data/rocheIcons";
 
 function RocheDetail() {
   const { id } = useParams();
 
+  const [favori, setFavori] = useState(() =>
+    estFavori("roche", Number(id))
+  );
+
   const roche = roches.find(
     (element) => element.id === Number(id)
   );
+
+  useEffect(() => {
+    if (roche) {
+      enregistrerConsultation({ type: "roche", id: roche.id, nom: roche.nom, icon: getRocheIcon(roche), detail: roche.famille });
+    }
+  }, [roche]);
 
   if (!roche) {
     return (
@@ -101,6 +114,15 @@ function RocheDetail() {
     );
   });
 
+  const minerauxAssocies = mineraux.filter(
+    (mineral) =>
+      Array.isArray(roche.mineraux) &&
+      roche.mineraux.some(
+        (nomMineral) =>
+          String(nomMineral).toLowerCase() ===
+          mineral.nom.toLowerCase()
+      )
+  );
   return (
     <div className="container">
       <Link to="/roches" className="back-link">
@@ -108,6 +130,17 @@ function RocheDetail() {
       </Link>
 
       <div className="course-header card">
+        <button
+          type="button"
+          className={`favorite-button ${favori ? "is-favorite" : ""}`}
+          onClick={() => {
+            basculerFavori({ type: "roche", id: roche.id, nom: roche.nom, icon: getRocheIcon(roche), detail: roche.famille });
+            setFavori((etat) => !etat);
+          }}
+          aria-pressed={favori}
+        >
+          {favori ? "★ Favori" : "☆ Ajouter aux favoris"}
+        </button>
         <div className="module-icon">
           {getRocheIcon(roche)}
         </div>
@@ -126,7 +159,8 @@ function RocheDetail() {
         </p>
       </div>
 
-      <div className="card">
+      <section className="roche-detail-grid">
+      <div className="card roche-detail-card roche-characteristics-card">
         <h2>🔬 Caractéristiques</h2>
 
         <p>
@@ -150,9 +184,27 @@ function RocheDetail() {
             ? roche.mineraux.join(", ")
             : "Non renseigné"}
         </p>
+
+        {minerauxAssocies.length > 0 && (
+          <div className="roche-mineral-links">
+            <strong>Fiches minérales liées :</strong>
+
+            <div>
+              {minerauxAssocies.map((mineral) => (
+                <Link
+                  key={mineral.id}
+                  to={`/mineraux/${mineral.id}`}
+                  className="roche-mineral-chip"
+                >
+                  {mineral.icon} {mineral.nom}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
-      <div className="card">
+      <div className="card roche-detail-card">
         <h2>🌋 Formation</h2>
 
         <p>
@@ -160,13 +212,19 @@ function RocheDetail() {
         </p>
       </div>
 
-      <div className="card">
+      <div className="card roche-detail-card">
         <h2>🏗️ Utilisations</h2>
 
         <p>
           {roche.utilisation}
         </p>
       </div>
+      </section>
+
+      <Link to="/quiz" className="quiz-review-link roche-quiz-link">
+        📝 Tester mes connaissances sur les roches
+        <span>→</span>
+      </Link>
 
       {coursAssocies.length > 0 && (
         <section className="course-chapters">

@@ -46,6 +46,10 @@ function Roches() {
           roches étudiées en géologie.
         </p>
 
+        <Link to="/mineraux" className="minerals-discovery-link">
+          💎 Découvrir les minéraux →
+        </Link>
+
         <div className="rocks-stats">
 
           <div>

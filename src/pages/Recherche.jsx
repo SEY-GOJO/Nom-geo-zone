@@ -5,6 +5,7 @@ import { useState } from "react";
 import categories from "../data/categories";
 import cours from "../data/cours";
 import roches from "../data/roches";
+import mineraux from "../data/mineraux";
 
 function Recherche() {
   const [requete, setRequete] = useState("");
@@ -203,6 +204,25 @@ function Recherche() {
       .join(" ");
   };
 
+  const construireTexteMineral = (
+    mineral
+  ) =>
+    [
+      mineral?.nom,
+      mineral?.formule,
+      mineral?.classe,
+      mineral?.couleur,
+      mineral?.eclat,
+      mineral?.durete,
+      mineral?.trait,
+      mineral?.clivage,
+      mineral?.systeme,
+      mineral?.description,
+      mineral?.usage,
+    ]
+      .filter(Boolean)
+      .join(" ");
+
   const recherche =
     texteNormalise(requete);
 
@@ -241,10 +261,21 @@ function Recherche() {
         )
       : [];
 
+  const resultatsMineraux =
+    recherche.length > 0
+      ? mineraux.filter((mineral) =>
+          correspondanceRecherche(
+            construireTexteMineral(mineral),
+            recherche
+          )
+        )
+      : [];
+
   const totalResultats =
     resultatsCategories.length +
     resultatsCours.length +
-    resultatsRoches.length;
+    resultatsRoches.length +
+    resultatsMineraux.length;
 
   const effacerRecherche = () => {
     setRequete("");
@@ -423,6 +454,67 @@ function Recherche() {
                     </article>
                   )
                 )}
+              </div>
+            </section>
+          )}
+
+          {resultatsMineraux.length > 0 && (
+            <section className="course-chapters search-minerals-section">
+              <div className="course-chapters-heading">
+                <div>
+                  <span>
+                    BASE GÉOLOGIQUE
+                  </span>
+
+                  <h2>💎 Minéraux</h2>
+                </div>
+
+                <span className="course-chapter-count">
+                  {resultatsMineraux.length}
+                </span>
+              </div>
+
+              <div className="course-chapters-grid">
+                {resultatsMineraux.map((mineral) => (
+                  <article
+                    className="chapter-card search-mineral-card"
+                    key={mineral.id}
+                  >
+                    <div className="chapter-top">
+                      <div className="chapter-number">
+                        {mineral.icon}
+                      </div>
+
+                      <span className="chapter-label">
+                        {mineral.classe}
+                      </span>
+                    </div>
+
+                    <div className="chapter-content">
+                      <h3>{mineral.nom}</h3>
+
+                      <p className="search-mineral-formula">
+                        {mineral.formule}
+                      </p>
+
+                      <p>
+                        Dureté Mohs : {mineral.durete}
+                      </p>
+
+                      <p>
+                        Éclat : {mineral.eclat}
+                      </p>
+                    </div>
+
+                    <Link
+                      to={`/mineraux/${mineral.id}`}
+                      className="chapter-link"
+                    >
+                      Voir la fiche
+                      <span>→</span>
+                    </Link>
+                  </article>
+                ))}
               </div>
             </section>
           )}

@@ -903,6 +903,63 @@ select:focus {
   }
 }
 
+/* Minéraux */
+.minerals-page,
+.mineral-detail-page {
+  padding-top: 42px;
+  padding-bottom: 72px;
+}
+
+.minerals-hero {
+  position: relative;
+  overflow: hidden;
+  margin: 24px 0;
+  padding: 42px;
+  border-radius: 24px;
+  color: #fff;
+  background: linear-gradient(135deg, #142c51, #225d79);
+}
+
+.minerals-hero::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -80px;
+  top: -100px;
+  border-radius: 50%;
+  background: rgba(98, 216, 219, 0.14);
+}
+
+.minerals-hero > * { position: relative; z-index: 1; }
+.minerals-hero-icon { font-size: 48px; margin-bottom: 8px; }
+.minerals-hero > span,
+.mineral-detail-hero > span { color: #9ce8e8; font-weight: 800; font-size: 12px; letter-spacing: .11em; }
+.minerals-hero h1 { margin: 10px 0; font-size: clamp(34px, 5vw, 52px); color: #fff; }
+.minerals-hero > p { max-width: 640px; margin: 0; color: #e1f5f5; font-size: 17px; }
+.minerals-stats { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.minerals-stats > div { min-width: 100px; padding: 12px 18px; border: 1px solid rgba(255,255,255,.2); border-radius: 14px; background: rgba(255,255,255,.1); }
+.minerals-stats strong, .minerals-stats span { display: block; }
+.minerals-stats strong { font-size: 20px; }.minerals-stats span { font-size: 12px; color: #d3eeee; }
+.minerals-search { display: grid; grid-template-columns: 1fr minmax(230px, .8fr); gap: 20px; align-items: center; margin: 28px 0; }
+.minerals-search h2, .minerals-result-header h2 { margin: 0 0 6px; }.minerals-search p, .minerals-result-header p { margin: 0; color: #667085; }
+.minerals-search .filters { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; }
+.minerals-search .filters button { padding: 8px 12px; border: 1px solid #d7e3e7; border-radius: 999px; background: #fff; color: #285163; cursor: pointer; }
+.minerals-search .filters .active-filter { border-color: #1f7a8c; background: #1f7a8c; color: #fff; }
+.minerals-result-header { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin: 34px 0 18px; }
+.minerals-identify-link, .minerals-discovery-link { display: inline-flex; align-items: center; gap: 8px; color: #116276; font-weight: 700; text-decoration: none; }
+.minerals-discovery-link { margin-top: 22px; padding: 10px 14px; border-radius: 10px; color: #fff; background: rgba(255,255,255,.14); }
+.minerals-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+.mineral-card { display: flex; flex-direction: column; padding: 22px; border: 1px solid #dce8e9; border-radius: 18px; background: #fff; box-shadow: 0 6px 20px rgba(29, 65, 74, .06); }
+.mineral-card-top { display: flex; justify-content: space-between; align-items: center; color: #337080; font-size: 13px; font-weight: 700; }.mineral-icon { font-size: 31px; }
+.mineral-card h2 { margin: 16px 0 2px; }.mineral-card > p { color: #586b73; line-height: 1.6; }.mineral-formula { margin-top: 0; color: #17687a !important; font-weight: 700; }
+.mineral-properties { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 12px 0; }.mineral-properties div { padding: 9px 7px; border-radius: 9px; background: #f1f8f8; }.mineral-properties span, .mineral-properties strong { display: block; }.mineral-properties span { font-size: 10px; color: #67808a; }.mineral-properties strong { margin-top: 3px; font-size: 12px; color: #244b5a; }
+.mineral-card-link { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 14px; color: #116276; font-weight: 800; text-decoration: none; }.mineral-card-link span { font-size: 19px; }
+.mineral-detail-hero { text-align: center; padding: 38px; background: linear-gradient(135deg, #eaf7f5, #f7fbf7); }.mineral-detail-hero h1 { margin: 8px 0; }.mineral-detail-hero p { max-width: 680px; margin: 0 auto; color: #53666e; }.mineral-detail-icon { font-size: 54px; }
+.mineral-detail-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 22px; margin-top: 24px; }.mineral-detail-grid .card { padding: 26px; }.mineral-detail-grid h2 { margin-top: 0; }
+.mineral-definition-list { margin: 0; }.mineral-definition-list > div { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid #e8eeee; }.mineral-definition-list dt { color: #63747c; }.mineral-definition-list dd { margin: 0; font-weight: 700; text-align: right; color: #1e4652; }
+@media (max-width: 700px) { .minerals-hero { padding: 28px 22px; }.minerals-search, .mineral-detail-grid { grid-template-columns: 1fr; }.minerals-result-header { align-items: flex-start; flex-direction: column; }.mineral-properties { grid-template-columns: 1fr; }.mineral-definition-list > div { display: block; }.mineral-definition-list dd { margin-top: 3px; text-align: left; } }
+
 /* =========================================================
    TRÈS PETITS ÉCRANS
 ========================================================= */
@@ -4118,29 +4175,13 @@ textarea:focus-visible {
   flex: none;
 }
 
-.brand-logo-mark > circle:first-child {
-  fill: #0b2d20;
-  stroke: rgba(242, 201, 76, 0.85);
-  stroke-width: 1.4;
-}
-
-.brand-logo-mark path:not(.brand-logo-line) {
-  fill: none;
-  stroke: #f2c94c;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 4;
-}
-
-.brand-logo-line {
-  fill: none;
-  stroke: #ffffff;
-  stroke-linecap: round;
-  stroke-width: 2;
-}
+.brand-logo-mark rect { fill: #09271d; }
+.brand-logo-ring { fill: none; stroke: #d6b44c; stroke-width: 16; }
+.brand-logo-mountain { fill: none; stroke: #f4f8f3; stroke-linecap: round; stroke-linejoin: round; stroke-width: 26; }
+.brand-logo-crystal { fill: #23908c; stroke: #a7f2e8; stroke-linejoin: round; stroke-width: 13; }
 
 .brand-logo-star {
-  fill: #f2c94c;
+  fill: #f4cf58;
 }
 
 .brand-logo-wordmark {
@@ -7500,6 +7541,301 @@ textarea:focus-visible {
 
   .home-page .home-quick-actions a {
     font-size: 9px;
+  }
+}
+
+.identification-mode-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  max-width: 440px;
+  margin: 22px 0;
+  padding: 6px;
+  border-radius: 14px;
+  background: #edf5f0;
+}
+
+.identification-mode-tabs button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #527066;
+  font-weight: 800;
+  transition: .2s ease;
+}
+
+.identification-mode-tabs button.active {
+  background: #176044;
+  color: #fff;
+  box-shadow: 0 5px 13px rgba(23, 96, 68, .18);
+}
+
+.identification-score {
+  display: block;
+  margin: 12px 0 5px;
+  color: #176044;
+  font-size: 12px;
+}
+
+.identification-formula {
+  margin: -5px 0 12px;
+  color: #277184;
+  font-weight: 800;
+}
+
+.identification-mineral-card .identification-family {
+  background: #e7f4f7;
+  color: #246b7d;
+}
+
+.quiz-review-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f3f0ff;
+  color: #6641a2;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.quiz-review-link:hover {
+  background: #e9e0fb;
+}
+
+.roche-quiz-link {
+  width: auto;
+  margin: 0 0 22px;
+}
+
+.search-mineral-card .chapter-number {
+  background: #e4f7f5;
+}
+
+.search-mineral-formula {
+  color: #1c7581 !important;
+  font-weight: 800;
+}
+
+.page-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 42vh;
+  padding: 30px;
+  color: #176044;
+  font-weight: 800;
+}
+
+.page-loading span {
+  display: inline-block;
+  font-size: 28px;
+  animation: geoLoadingSpin 1s linear infinite;
+}
+
+@keyframes geoLoadingSpin {
+  to { transform: rotate(360deg); }
+}
+
+.favorite-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  min-height: 38px;
+  padding: 8px 11px;
+  border: 1px solid #dce9e2;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .9);
+  color: #356457;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.favorite-button.is-favorite { border-color: #e3b443; background: #fff6d9; color: #9a6500; }
+.dashboard-favorites-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }.dashboard-favorite-item { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #e0e9e4; border-radius: 12px; background: #f9fcfa; text-decoration: none; }.dashboard-favorite-item > span { font-size: 24px; }.dashboard-favorite-item > div { display: flex; flex: 1; min-width: 0; flex-direction: column; }.dashboard-favorite-item strong { color: #173d2c; }.dashboard-favorite-item small { color: #718078; font-size: 11px; }.dashboard-favorite-item b { color: #176044; font-size: 18px; }
+.dashboard-recent-item { background: #f7fafb; border-color: #dce8ed; }.dashboard-recent-item b { color: #347184; }
+
+@media screen and (max-width: 600px) { .favorite-button { top: 10px; right: 10px; min-height: 34px; padding: 6px 8px; font-size: 10px; }.dashboard-favorites-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }.dashboard-favorite-item { min-width: 0; padding: 10px; }.dashboard-favorite-item > span { font-size: 20px; }.dashboard-favorite-item strong { font-size: 12px; overflow-wrap: anywhere; }.dashboard-favorite-item small { overflow-wrap: anywhere; }.dashboard-favorite-item b { display: none; } }
+
+.home-module-card.glossary { --module-accent: #6f4b9e; --module-soft: #f2ebfb; }
+
+.glossary-page {
+  padding-top: 38px;
+  padding-bottom: 70px;
+}
+
+.glossary-hero {
+  margin: 22px 0;
+  padding: 38px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #443064, #73539c);
+  color: white;
+}
+
+.glossary-hero > div { font-size: 42px; }
+.glossary-hero > span,
+.glossary-heading > div > span { font-size: 11px; font-weight: 900; letter-spacing: .12em; }
+.glossary-hero > span { color: #e4d7fb; }
+.glossary-hero h1 { margin: 9px 0; color: white; font-size: clamp(32px, 5vw, 48px); }
+.glossary-hero p { max-width: 640px; margin: 0; color: #f0eaff; line-height: 1.65; }
+.glossary-controls { display: grid; gap: 16px; margin: 24px 0 34px; }.glossary-controls .filters { display: flex; flex-wrap: wrap; gap: 8px; }.glossary-controls .filters button { border: 1px solid #e0d7ef; background: #fff; color: #654a86; }.glossary-controls .filters .active-filter { border-color: #6f4b9e; background: #6f4b9e; color: #fff; }
+.glossary-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }.glossary-heading > div > span { color: #6f4b9e; }.glossary-heading h2 { margin: 5px 0 0; }.glossary-heading a { color: #654a86; font-weight: 800; text-decoration: none; }
+.glossary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }.glossary-card { padding: 20px; border: 1px solid #e5dff0; border-radius: 16px; border-top: 4px solid #8c68bc; background: #fff; }.glossary-card > span { display: inline-block; padding: 4px 8px; border-radius: 999px; background: #f2ebfb; color: #674a88; font-size: 10px; font-weight: 800; }.glossary-card h2 { margin: 13px 0 8px; color: #332343; font-size: 20px; }.glossary-card p { margin: 0; color: #5d5665; line-height: 1.65; }
+
+@media screen and (max-width: 600px) { .glossary-page { padding-top: 20px; }.glossary-hero { padding: 28px 20px; border-radius: 18px; }.glossary-hero > div { font-size: 35px; }.glossary-hero p { font-size: 14px; }.glossary-heading { align-items: flex-start; flex-direction: column; }.glossary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }.glossary-card { min-width: 0; padding: 14px 12px; }.glossary-card h2 { font-size: 16px; overflow-wrap: anywhere; }.glossary-card p { font-size: 12px; overflow-wrap: anywhere; }.glossary-card > span { font-size: 8px; } }
+
+/* Menu mobile compact : un panneau d'accès rapide plutôt qu'un écran complet. */
+@media screen and (max-width: 600px) {
+  .mobile-menu-overlay {
+    inset: 58px 0 0 !important;
+    background: rgba(2, 20, 13, .24) !important;
+    backdrop-filter: blur(1px) !important;
+  }
+
+  .navbar .nav-links {
+    top: 66px !important;
+    right: 10px !important;
+    left: auto !important;
+    width: min(80vw, 318px) !important;
+    height: auto !important;
+    max-height: min(76dvh, 620px) !important;
+    padding: 6px !important;
+    border: 1px solid #dce9e2 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 16px 38px rgba(4, 35, 23, .22) !important;
+  }
+
+  .mobile-menu-header {
+    padding: 12px 12px !important;
+    border-radius: 11px !important;
+  }
+
+  .mobile-menu-header > div {
+    gap: 2px;
+  }
+
+  .mobile-menu-eyebrow {
+    font-size: 8px;
+  }
+
+  .mobile-menu-header strong,
+  .mobile-menu-close {
+    font-size: 15px !important;
+  }
+
+  .mobile-menu-close {
+    width: 34px !important;
+    height: 34px !important;
+    min-height: 34px !important;
+  }
+
+  .mobile-menu-section {
+    padding: 10px 4px 2px !important;
+  }
+
+  .mobile-menu-section-title {
+    margin: 0 7px 4px !important;
+    font-size: 8px !important;
+  }
+
+  .navbar .nav-links .mobile-menu-section a {
+    min-height: 46px !important;
+    margin: 1px 0 !important;
+    padding: 6px 8px !important;
+    border-radius: 10px !important;
+    gap: 9px !important;
+  }
+
+  .mobile-menu-icon {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+    font-size: 17px !important;
+  }
+
+  .mobile-menu-text {
+    gap: 0 !important;
+  }
+
+  .mobile-menu-text strong {
+    font-size: 13px !important;
+  }
+
+  .mobile-menu-text small {
+    display: none;
+  }
+
+  .mobile-menu-divider {
+    margin: 5px 12px !important;
+  }
+
+  .mobile-menu-footer {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .navbar .nav-links {
+    width: min(84vw, 300px) !important;
+    max-height: 78dvh !important;
+  }
+}
+
+/* Règle commune aux pages ouvertes depuis une carte : deux blocs d'information. */
+@media screen and (max-width: 600px) {
+  .container:not(.chapter-page):not(.course-detail-page):not(.rocks-page):not(.minerals-page):not(.identification-page):not(.library-page):not(.formation-page):not(.geoai-page):not(.mining-page):not(.outils-page):not(.glossary-page):not(.mineral-detail-page) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: start;
+  }
+
+  .container:not(.chapter-page):not(.course-detail-page):not(.rocks-page):not(.minerals-page):not(.identification-page):not(.library-page):not(.formation-page):not(.geoai-page):not(.mining-page):not(.outils-page):not(.glossary-page):not(.mineral-detail-page) > * {
+    min-width: 0;
+    grid-column: 1 / -1;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .container:not(.chapter-page):not(.course-detail-page):not(.rocks-page):not(.minerals-page):not(.identification-page):not(.library-page):not(.formation-page):not(.geoai-page):not(.mining-page):not(.outils-page):not(.glossary-page):not(.mineral-detail-page) > .card {
+    grid-column: span 1;
+    padding: 16px 13px;
+  }
+
+  .container:not(.chapter-page):not(.course-detail-page):not(.rocks-page):not(.minerals-page):not(.identification-page):not(.library-page):not(.formation-page):not(.geoai-page):not(.mining-page):not(.outils-page):not(.glossary-page):not(.mineral-detail-page) > .card h1,
+  .container:not(.chapter-page):not(.course-detail-page):not(.rocks-page):not(.minerals-page):not(.identification-page):not(.library-page):not(.formation-page):not(.geoai-page):not(.mining-page):not(.outils-page):not(.glossary-page):not(.mineral-detail-page) > .card h2 {
+    font-size: 18px;
+    overflow-wrap: anywhere;
+  }
+
+  .container:not(.chapter-page):not(.course-detail-page):not(.rocks-page):not(.minerals-page):not(.identification-page):not(.library-page):not(.formation-page):not(.geoai-page):not(.mining-page):not(.outils-page):not(.glossary-page):not(.mineral-detail-page) > .card p {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .identification-mode-tabs {
+    max-width: none;
+    margin: 16px 0;
+  }
+
+  .identification-mode-tabs button {
+    min-height: 44px;
+    font-size: 14px;
+  }
+
+  .identification-score {
+    font-size: 10px;
   }
 }
 /* =========================================================
@@ -14428,14 +14764,169 @@ textarea:focus-visible {
     width: 100%;
   }
 
-  .formation-grid > *,
+.formation-grid > *,
   .tools-grid > *,
   .mining-grid > *,
   .identification-grid > *,
   .container > .modules > .card {
     min-width: 0;
-    overflow-wrap: anywhere;
+  overflow-wrap: anywhere;
+}
+
+/* Couche de confort mobile : priorité à la lecture et aux zones tactiles. */
+@media screen and (max-width: 600px) {
+  :root {
+    -webkit-tap-highlight-color: transparent;
   }
+
+  body {
+    background: #f7faf8;
+  }
+
+  .container {
+    padding: 20px 16px 44px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  h1 { font-size: clamp(28px, 8vw, 36px); line-height: 1.15; }
+  h2 { line-height: 1.25; }
+  p { line-height: 1.65; }
+
+  button,
+  a[role="button"],
+  .rock-button,
+  .mineral-card-link,
+  .identification-card-button {
+    min-height: 44px;
+  }
+
+  .home-page .home-module-card,
+  .library-grid,
+  .category-courses,
+  .course-detail-page .course-chapters-grid,
+  .rocks-grid,
+  .minerals-grid,
+  .identification-grid,
+  .formation-grid,
+  .tools-grid,
+  .mining-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-page .home-module-card,
+  .course-detail-page .chapter-card,
+  .rock-card,
+  .mineral-card,
+  .identification-card {
+    min-height: 0;
+  }
+
+  .course-detail-page .course-stats,
+  .rocks-stats,
+  .minerals-stats,
+  .library-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .chapter-page .chapter-hero {
+    padding: 24px 18px;
+  }
+
+  .chapter-page .chapter-info span {
+    font-size: 12px;
+  }
+
+  .chapter-reading-card {
+    margin-top: 18px;
+    border-radius: 18px;
+    box-shadow: 0 10px 26px rgba(14, 47, 32, 0.07);
+  }
+
+  .chapter-reading-header {
+    padding: 18px;
+  }
+
+  .chapter-reading-card .content-body {
+    padding: 26px 20px 30px;
+  }
+
+  .chapter-reading-card .content-body p {
+    max-width: 42rem;
+    margin-bottom: 20px;
+    color: #243b30;
+    font-size: 16px;
+    line-height: 1.82;
+  }
+
+  .chapter-reading-card .content-body h3 {
+    margin: 30px 0 12px;
+    color: #125339;
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .chapter-reading-card .lesson-list-item {
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .chapter-reading-card .lesson-list-item::before {
+    content: "";
+    position: absolute;
+    top: .76em;
+    left: 2px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #2b9a68;
+  }
+
+  .chapter-reading-card .lesson-takeaway {
+    margin: 26px 0 8px;
+    padding: 16px;
+    border-left-width: 4px;
+    border-radius: 12px;
+  }
+
+  .chapter-reading-card .lesson-takeaway strong {
+    font-size: 14px;
+  }
+
+  .chapter-reading-card .lesson-takeaway p {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  .chapter-page .chapter-navigation {
+    position: sticky;
+    bottom: 8px;
+    z-index: 10;
+    padding: 10px;
+    border: 1px solid #dcebe2;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 8px 24px rgba(11, 46, 32, 0.12);
+    backdrop-filter: blur(10px);
+  }
+
+  .chapter-page .chapter-navigation .secondary-button,
+  .chapter-page .chapter-navigation .chapter-next-link {
+    min-height: 50px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .container { padding-left: 12px; padding-right: 12px; }
+  .chapter-reading-card .content-body { padding-left: 16px; padding-right: 16px; }
+  .chapter-reading-card .content-body p { font-size: 15px; }
 }
 /* =========================================================
    GEO ZONE — DASHBOARD : HISTORIQUE
@@ -14524,7 +15015,386 @@ textarea:focus-visible {
     font-size: 10px;
   }
 
-  .dashboard-history-score {
+.dashboard-history-score {
     font-size: 14px;
+  }
+}
+
+/* Identité couleur : chaque univers conserve son repère visuel. */
+.home-module-card.library { --module-accent: #315cbd; --module-soft: #eaf0ff; }
+.home-module-card.formation { --module-accent: #7b4bb7; --module-soft: #f3ecff; }
+.home-module-card.geo-ai { --module-accent: #157a88; --module-soft: #e4f7f8; }
+.home-module-card.mining { --module-accent: #b36216; --module-soft: #fff1df; }
+.home-module-card.rocks { --module-accent: #9a5637; --module-soft: #faeee7; }
+.home-module-card.minerals { --module-accent: #236b8e; --module-soft: #e6f4fa; }
+.home-module-card.identification { --module-accent: #256c57; --module-soft: #e6f5ed; }
+.home-module-card.tools { --module-accent: #5e6572; --module-soft: #f0f2f5; }
+.home-module-card.dashboard { --module-accent: #c04c70; --module-soft: #ffedf3; }
+
+.home-module-card:not(.featured-module) {
+  border-top: 4px solid var(--module-accent, #176044);
+}
+
+.home-module-card:not(.featured-module) .home-module-icon {
+  background: var(--module-soft, #edf5f0);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--module-accent, #176044) 15%, transparent);
+}
+
+.home-module-card:not(.featured-module) .module-arrow,
+.home-module-card:not(.featured-module) .module-link {
+  color: var(--module-accent, #176044);
+}
+
+.home-module-card:not(.featured-module):hover {
+  border-color: var(--module-accent, #176044);
+  box-shadow: 0 16px 32px color-mix(in srgb, var(--module-accent, #176044) 15%, transparent);
+}
+
+.rock-icon,
+.identification-rock-icon,
+.mineral-icon,
+.mineral-detail-icon {
+  position: relative;
+  isolation: isolate;
+}
+
+.rock-icon::after,
+.identification-rock-icon::after,
+.mineral-icon::after,
+.mineral-detail-icon::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -7px;
+  border-radius: 14px;
+  background: radial-gradient(circle at 35% 25%, rgba(255,255,255,.95), rgba(44, 132, 131, .13));
+}
+
+.mineral-card {
+  border-top: 4px solid var(--mineral-accent, #1f7a8c);
+}
+
+.mineral-card .mineral-card-top > span:last-child {
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: var(--mineral-soft, #e7f6f7);
+  color: var(--mineral-accent, #1f7a8c);
+}
+
+.tone-teal { --mineral-accent: #167f82; --mineral-soft: #e3f7f5; }
+.tone-gold { --mineral-accent: #a46b06; --mineral-soft: #fff4d9; }
+.tone-mint { --mineral-accent: #28755b; --mineral-soft: #e7f5ec; }
+.tone-violet { --mineral-accent: #7355a8; --mineral-soft: #f0ebfa; }
+.tone-rust { --mineral-accent: #a34735; --mineral-soft: #fae9e5; }
+.tone-slate { --mineral-accent: #4f6471; --mineral-soft: #ebf0f2; }
+.tone-rose { --mineral-accent: #ae5470; --mineral-soft: #fbeaf0; }
+.tone-blue { --mineral-accent: #3266a3; --mineral-soft: #e9f0fc; }
+
+.mineral-card .mineral-icon,
+.mineral-detail-hero .mineral-detail-icon {
+  color: var(--mineral-accent, #1f7a8c);
+  text-shadow: 0 5px 16px color-mix(in srgb, var(--mineral-accent, #1f7a8c) 25%, transparent);
+}
+
+.mineral-detail-hero {
+  border-top: 5px solid var(--mineral-accent, #1f7a8c);
+  background: linear-gradient(135deg, var(--mineral-soft, #eaf7f5), #fff) !important;
+}
+
+.mineral-card-image {
+  display: block;
+  width: 100%;
+  height: 132px;
+  margin: -1px -1px 14px;
+  border-radius: 13px;
+  object-fit: cover;
+  background: var(--mineral-soft, #eaf7f5);
+}
+
+.mineral-photo {
+  max-width: 680px;
+  margin: 22px auto;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.mineral-photo img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #f4f7f6;
+}
+
+.mineral-photo figcaption {
+  padding: 10px 5px 3px;
+  color: #587076;
+  font-size: 13px;
+}
+
+.mineral-photo a {
+  color: #126375;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 600px) {
+  .home-module-card:not(.featured-module) {
+    border-top-width: 4px;
+  }
+
+  .home-module-card .home-module-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    font-size: 27px;
+  }
+
+  .rock-icon::after,
+  .identification-rock-icon::after,
+  .mineral-icon::after,
+  .mineral-detail-icon::after {
+    inset: -5px;
+  }
+}
+
+.roche-mineral-links {
+  margin-top: 18px;
+}
+
+.roche-mineral-links > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.roche-mineral-chip {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #e9f6f4;
+  color: #126375;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mohs-scale {
+  display: grid;
+  grid-template-columns: minmax(190px, .55fr) 1.45fr;
+  gap: 24px;
+  align-items: center;
+  margin: 26px 0;
+  padding: 24px;
+  border: 1px solid #d8e9e8;
+  border-radius: 18px;
+  background: #f7fcfb;
+}
+
+.mohs-scale h2 { margin: 5px 0; color: #164a57; }
+.mohs-scale p { margin: 0; color: #5d7378; }
+.mohs-scale > div > span { color: #1a7181; font-size: 11px; font-weight: 800; letter-spacing: .08em; }
+.mohs-scale ol { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 0; padding: 0; list-style: none; }
+.mohs-scale li { min-width: 0; padding: 9px; border-radius: 10px; background: #fff; text-align: center; box-shadow: 0 2px 8px rgba(24, 83, 88, .06); }
+.mohs-scale li span { display: block; margin-bottom: 4px; color: #1b7887; font-size: 12px; font-weight: 800; }.mohs-scale li a { color: #2d4e57; font-size: 12px; font-weight: 700; text-decoration: none; }
+@media (max-width: 800px) { .mohs-scale { grid-template-columns: 1fr; }.mohs-scale ol { grid-template-columns: repeat(2, 1fr); } }
+
+/* Les fiches restent compactes sur grand écran, mais lisibles sur téléphone. */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .rocks-grid,
+  .minerals-grid,
+  .identification-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .rocks-grid,
+  .minerals-grid,
+  .identification-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .rock-card,
+  .mineral-card,
+  .identification-card {
+    padding: 13px !important;
+  }
+
+  .rock-card h2,
+  .mineral-card h2,
+  .identification-card h3 {
+    font-size: 16px !important;
+    overflow-wrap: anywhere;
+  }
+
+  .rock-card p,
+  .mineral-card p,
+  .identification-card p,
+  .rock-card strong,
+  .mineral-card strong,
+  .identification-card strong {
+    overflow-wrap: anywhere;
+  }
+
+  .roche-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin: 18px 0;
+  }
+
+  .roche-detail-grid .roche-detail-card {
+    min-width: 0;
+    margin: 0;
+    padding: 15px 13px;
+  }
+
+  .roche-detail-grid .roche-characteristics-card {
+    grid-column: 1 / -1;
+  }
+
+  .roche-detail-grid h2 {
+    font-size: 17px;
+  }
+
+  .roche-detail-grid p {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+  }
+
+  .mineral-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .mineral-card-image {
+    height: 94px;
+    margin-bottom: 11px;
+    border-radius: 10px;
+  }
+
+  .mineral-photo {
+    grid-column: 1 / -1;
+    margin: 16px 0;
+    padding: 8px;
+  }
+
+  .mineral-detail-grid .card {
+    min-width: 0;
+    padding: 15px 13px;
+  }
+
+  .mineral-detail-grid h2 {
+    font-size: 17px;
+  }
+
+  .mineral-definition-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .mineral-definition-list > div {
+    padding: 9px 0;
+  }
+
+  .mineral-definition-list dt,
+  .mineral-definition-list dd {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .brand-logo-mark {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* Toutes les pages de choix et de catalogue : deux cartes par ligne. */
+@media screen and (max-width: 600px) {
+  .home-modules,
+  .library-grid,
+  .category-courses,
+  .course-chapters-grid,
+  .formation-grid,
+  .tools-grid,
+  .mining-grid,
+  .geoai-grid,
+  .modules {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100%;
+  }
+
+  .home-modules > *,
+  .library-grid > *,
+  .category-courses > *,
+  .course-chapters-grid > *,
+  .formation-grid > *,
+  .tools-grid > *,
+  .mining-grid > *,
+  .geoai-grid > *,
+  .modules > * {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .home-module-card,
+  .library-card,
+  .course-detail-page .chapter-card,
+  .formation-card,
+  .tools-grid .card,
+  .mining-card,
+  .modules > .card {
+    padding: 14px 12px !important;
+  }
+
+  .home-module-card h3,
+  .library-card h2,
+  .course-detail-page .chapter-content h3,
+  .formation-card h3,
+  .tools-grid .card h2,
+  .mining-card h2,
+  .modules > .card h2 {
+    font-size: 16px !important;
+    line-height: 1.28;
+  }
+
+  .home-module-card p,
+  .library-card p,
+  .course-detail-page .chapter-content p,
+  .formation-card p,
+  .tools-grid .card p,
+  .mining-card p,
+  .modules > .card p {
+    font-size: 12px !important;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .home-modules,
+  .library-grid,
+  .category-courses,
+  .course-chapters-grid,
+  .formation-grid,
+  .tools-grid,
+  .mining-grid,
+  .geoai-grid,
+  .modules {
+    gap: 8px !important;
+  }
+
+  .home-module-card,
+  .library-card,
+  .course-detail-page .chapter-card,
+  .formation-card,
+  .tools-grid .card,
+  .mining-card,
+  .modules > .card {
+    padding: 12px 10px !important;
   }
 }

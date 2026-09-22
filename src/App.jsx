@@ -1,65 +1,78 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
-import BibliothequeTemp from "./pages/bibliothequetemp";
-import Categorie from "./pages/Categorie";
-import CoursDetail from "./pages/CoursDetail";
-import Chapitre from "./pages/Chapitre";
-import Formation from "./pages/Formation";
-import GeoAI from "./pages/GeoAI";
-import Identification from "./pages/Identification";
-import Mining from "./pages/Mining";
-import Outils from "./pages/Outils";
-import Roches from "./pages/Roches";
-import RocheDetail from "./pages/RocheDetail";
-import Convertisseur from "./pages/Convertisseur";
-import MasseVolumique from "./pages/MasseVolumique";
-import Pourcentage from "./pages/Pourcentage";
-import Azimut from "./pages/Azimut";
-import Pendage from "./pages/Pendage";
-import Drilling from "./pages/Drilling";
-import Blasting from "./pages/Blasting";
-import ChargementTransport from "./pages/ChargementTransport";
-import MinePlanning from "./pages/MinePlanning";
-import ExplorationMiniere from "./pages/ExplorationMiniere";
-import ExploitationMiniere from "./pages/ExploitationMiniere";
-import Tonnage from "./pages/Tonnage";
-import Teneur from "./pages/Teneur";
-import MetalContenu from "./pages/MetalContenu";
-import Recuperation from "./pages/Recuperation";
-import Dilution from "./pages/Dilution";
-import MiningCalculator from "./pages/MiningCalculator";
-import StrippingRatio from "./pages/StrippingRatio";
-import StrikeDip from "./pages/StrikeDip";
-import Pente from "./pages/Pente";
-import DistanceTerrain from "./pages/DistanceTerrain";
-import EchelleCarte from "./pages/EchelleCarte";
-import Porosite from "./pages/Porosite";
-import GradientHydraulique from "./pages/GradientHydraulique";
-import DebitDarcy from "./pages/DebitDarcy";
-import ConductiviteHydraulique from "./pages/ConductiviteHydraulique";
-import Transmissivite from "./pages/Transmissivite";
-import CoefficientEmmagasinement from "./pages/CoefficientEmmagasinement";
-import OutilsCategorie from "./pages/OutilsCategorie";
-import Progression from "./pages/Progression";
-import Recherche from "./pages/Recherche";
-import Quiz from "./pages/Quiz";
-import Revision from "./pages/Revision";
-import Evaluation from "./pages/Evaluation";
-import Dashboard from "./pages/Dashboard";
+const BibliothequeTemp = lazy(() => import("./pages/bibliothequetemp"));
+const Categorie = lazy(() => import("./pages/Categorie"));
+const CoursDetail = lazy(() => import("./pages/CoursDetail"));
+const Chapitre = lazy(() => import("./pages/Chapitre"));
+const Formation = lazy(() => import("./pages/Formation"));
+const GeoAI = lazy(() => import("./pages/GeoAI"));
+const Identification = lazy(() => import("./pages/Identification"));
+const Mining = lazy(() => import("./pages/Mining"));
+const Outils = lazy(() => import("./pages/Outils"));
+const Roches = lazy(() => import("./pages/Roches"));
+const RocheDetail = lazy(() => import("./pages/RocheDetail"));
+const Mineraux = lazy(() => import("./pages/Mineraux"));
+const MineralDetail = lazy(() => import("./pages/MineralDetail"));
+const Convertisseur = lazy(() => import("./pages/Convertisseur"));
+const MasseVolumique = lazy(() => import("./pages/MasseVolumique"));
+const Pourcentage = lazy(() => import("./pages/Pourcentage"));
+const Azimut = lazy(() => import("./pages/Azimut"));
+const Pendage = lazy(() => import("./pages/Pendage"));
+const Drilling = lazy(() => import("./pages/Drilling"));
+const Blasting = lazy(() => import("./pages/Blasting"));
+const ChargementTransport = lazy(() => import("./pages/ChargementTransport"));
+const MinePlanning = lazy(() => import("./pages/MinePlanning"));
+const ExplorationMiniere = lazy(() => import("./pages/ExplorationMiniere"));
+const ExploitationMiniere = lazy(() => import("./pages/ExploitationMiniere"));
+const Tonnage = lazy(() => import("./pages/Tonnage"));
+const Teneur = lazy(() => import("./pages/Teneur"));
+const MetalContenu = lazy(() => import("./pages/MetalContenu"));
+const Recuperation = lazy(() => import("./pages/Recuperation"));
+const Dilution = lazy(() => import("./pages/Dilution"));
+const MiningCalculator = lazy(() => import("./pages/MiningCalculator"));
+const StrippingRatio = lazy(() => import("./pages/StrippingRatio"));
+const StrikeDip = lazy(() => import("./pages/StrikeDip"));
+const Pente = lazy(() => import("./pages/Pente"));
+const DistanceTerrain = lazy(() => import("./pages/DistanceTerrain"));
+const EchelleCarte = lazy(() => import("./pages/EchelleCarte"));
+const Porosite = lazy(() => import("./pages/Porosite"));
+const GradientHydraulique = lazy(() => import("./pages/GradientHydraulique"));
+const DebitDarcy = lazy(() => import("./pages/DebitDarcy"));
+const ConductiviteHydraulique = lazy(() => import("./pages/ConductiviteHydraulique"));
+const Transmissivite = lazy(() => import("./pages/Transmissivite"));
+const CoefficientEmmagasinement = lazy(() => import("./pages/CoefficientEmmagasinement"));
+const OutilsCategorie = lazy(() => import("./pages/OutilsCategorie"));
+const Progression = lazy(() => import("./pages/Progression"));
+const Recherche = lazy(() => import("./pages/Recherche"));
+const Quiz = lazy(() => import("./pages/Quiz"));
+const Revision = lazy(() => import("./pages/Revision"));
+const Evaluation = lazy(() => import("./pages/Evaluation"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Glossaire = lazy(() => import("./pages/Glossaire"));
 import "./App.css";
 
 function BrandLogo() {
   return (
     <span className="brand-logo">
-      <svg className="brand-logo-mark" viewBox="0 0 48 48" aria-hidden="true">
-        <circle cx="24" cy="24" r="23" />
-        <path d="M8 34 19.5 17 26 26l4.5-6L40 34" />
-        <path className="brand-logo-line" d="M10 35h28" />
-        <circle className="brand-logo-star" cx="35" cy="13" r="2.5" />
+      <svg className="brand-logo-mark" viewBox="0 0 512 512" aria-hidden="true">
+        <rect width="512" height="512" rx="120" />
+        <circle className="brand-logo-ring" cx="256" cy="256" r="182" />
+        <path className="brand-logo-mountain" d="m114 350 108-166 55 81 53-57 68 142" />
+        <path className="brand-logo-crystal" d="m257 127 66 72-43 119-82-36z" />
+        <circle className="brand-logo-star" cx="389" cy="120" r="19" />
       </svg>
       <span className="brand-logo-wordmark">GEO <b>ZONE</b></span>
     </span>
+  );
+}
+
+function PageLoading() {
+  return (
+    <div className="page-loading" role="status" aria-live="polite">
+      <span>◌</span>
+      Chargement de la ressource…
+    </div>
   );
 }
 
@@ -101,11 +114,25 @@ function Accueil() {
       className: "rocks",
     },
     {
+      icon: "💎",
+      title: "Minéraux",
+      description: "Explore leurs propriétés et leurs usages.",
+      link: "/mineraux",
+      className: "minerals",
+    },
+    {
       icon: "🔬",
       title: "Identification",
       description: "Apprends à identifier les roches et minéraux.",
       link: "/identification",
       className: "identification",
+    },
+    {
+      icon: "📖",
+      title: "Glossaire",
+      description: "Les définitions essentielles de la géologie.",
+      link: "/glossaire",
+      className: "glossary",
     },
     {
   icon: "📊",
@@ -239,6 +266,8 @@ function Accueil() {
   <div className="home-quick-actions">
     <Link to="/bibliotheque">📚 Cours</Link>
     <Link to="/roches">⛰️ Roches</Link>
+    <Link to="/mineraux">💎 Minéraux</Link>
+    <Link to="/glossaire">📖 Glossaire</Link>
     <Link to="/outils">🛠️ Outils</Link>
     <Link to="/dashboard">📊 Dashboard</Link>
   </div>
@@ -444,6 +473,18 @@ function App() {
             </Link>
 
             <Link
+              to="/mineraux"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">💎</span>
+
+              <span className="mobile-menu-text">
+                <strong>Minéraux</strong>
+                <small>Fiches et propriétés</small>
+              </span>
+            </Link>
+
+            <Link
               to="/identification"
               onClick={() => setMenuOuvert(false)}
             >
@@ -452,6 +493,18 @@ function App() {
               <span className="mobile-menu-text">
                 <strong>Identification</strong>
                 <small>Identifier les roches</small>
+              </span>
+            </Link>
+
+            <Link
+              to="/glossaire"
+              onClick={() => setMenuOuvert(false)}
+            >
+              <span className="mobile-menu-icon">📖</span>
+
+              <span className="mobile-menu-text">
+                <strong>Glossaire</strong>
+                <small>Définitions géologiques</small>
               </span>
             </Link>
 
@@ -479,6 +532,7 @@ function App() {
         </div>
       </nav>
 
+      <Suspense fallback={<PageLoading />}>
       <Routes>
         <Route
           path="/"
@@ -540,6 +594,10 @@ function App() {
           element={<Identification />}
         />
         <Route
+          path="/glossaire"
+          element={<Glossaire />}
+        />
+        <Route
   path="/outils/groupe/:categorie"
   element={<OutilsCategorie />}
 />
@@ -595,6 +653,16 @@ function App() {
         <Route
           path="/roches/:id"
           element={<RocheDetail />}
+        />
+
+        <Route
+          path="/mineraux"
+          element={<Mineraux />}
+        />
+
+        <Route
+          path="/mineraux/:id"
+          element={<MineralDetail />}
         />
 
         <Route
@@ -710,6 +778,7 @@ function App() {
         />
   
       </Routes>
+      </Suspense>
 
       <footer className="geo-footer">
         <div className="geo-footer-content">
@@ -731,6 +800,8 @@ function App() {
             <Link to="/bibliotheque">Bibliothèque</Link>
             <Link to="/formation">Formation</Link>
             <Link to="/roches">Roches</Link>
+            <Link to="/mineraux">Minéraux</Link>
+            <Link to="/glossaire">Glossaire</Link>
             <Link to="/dashboard">Dashboard</Link>
           </div>
 

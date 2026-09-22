@@ -1,0 +1,26 @@
+const glossaire = [
+  { terme: "Altération", categorie: "Processus", definition: "Transformation des roches à la surface de la Terre sous l'action de l'eau, de l'air, des organismes et des variations de température." },
+  { terme: "Clivage", categorie: "Minéralogie", definition: "Tendance d'un minéral à se casser suivant des plans réguliers liés à sa structure cristalline." },
+  { terme: "Cristal", categorie: "Minéralogie", definition: "Solide dont les atomes sont organisés selon une structure interne régulière et ordonnée." },
+  { terme: "Densité relative", categorie: "Minéralogie", definition: "Rapport entre la masse d'un volume de minéral et celle d'un même volume d'eau." },
+  { terme: "Dureté", categorie: "Minéralogie", definition: "Résistance d'un minéral à la rayure, souvent comparée grâce à l'échelle de Mohs." },
+  { terme: "Éclat", categorie: "Minéralogie", definition: "Manière dont la surface d'un minéral réfléchit la lumière : métallique, vitreux, nacré ou mat, par exemple." },
+  { terme: "Érosion", categorie: "Processus", definition: "Enlèvement et transport de matériaux par l'eau, le vent, la glace ou la gravité." },
+  { terme: "Évaporite", categorie: "Roches", definition: "Roche ou minéral formé par évaporation d'une eau salée, comme le gypse ou le sel gemme." },
+  { terme: "Faille", categorie: "Géologie structurale", definition: "Fracture de la croûte terrestre accompagnée d'un déplacement relatif des blocs rocheux." },
+  { terme: "Foliation", categorie: "Roches", definition: "Organisation plane des minéraux dans une roche métamorphique, souvent liée aux contraintes tectoniques." },
+  { terme: "Fracture", categorie: "Minéralogie", definition: "Cassure d'un minéral qui ne suit pas des plans de clivage réguliers." },
+  { terme: "Magma", categorie: "Roches", definition: "Matière rocheuse fondue présente en profondeur ; elle devient lave lorsqu'elle atteint la surface." },
+  { terme: "Métamorphisme", categorie: "Roches", definition: "Transformation d'une roche à l'état solide sous l'effet de la température, de la pression ou des fluides." },
+  { terme: "Minéral", categorie: "Minéralogie", definition: "Solide naturel possédant une composition chimique et une structure interne caractéristiques." },
+  { terme: "Minerai", categorie: "Mining", definition: "Roche ou dépôt contenant une substance utile dont l'extraction peut être économiquement justifiée." },
+  { terme: "Mohs (échelle de)", categorie: "Minéralogie", definition: "Échelle comparative de dureté allant de 1 pour le talc à 10 pour le diamant." },
+  { terme: "Porosité", categorie: "Hydrogéologie", definition: "Proportion du volume total d'une roche ou d'un sol qui est occupée par des vides." },
+  { terme: "Roche magmatique", categorie: "Roches", definition: "Roche formée par refroidissement et solidification d'un magma ou d'une lave." },
+  { terme: "Roche métamorphique", categorie: "Roches", definition: "Roche issue de la transformation d'une roche préexistante sans fusion complète." },
+  { terme: "Roche sédimentaire", categorie: "Roches", definition: "Roche formée par accumulation, compaction et cimentation de sédiments, ou par précipitation chimique." },
+  { terme: "Schistosité", categorie: "Roches", definition: "Structure planaire qui permet à certaines roches métamorphiques de se débiter en feuillets." },
+  { terme: "Trait", categorie: "Minéralogie", definition: "Couleur de la poudre laissée par un minéral frotté sur une plaque non émaillée." },
+];
+
+export default glossaire;

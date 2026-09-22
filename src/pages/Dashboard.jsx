@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import cours from "../data/cours";
+import { lireConsultations, lireFavoris } from "../utils/favoris";
 import {
   importerSauvegarde,
   telechargerSauvegarde,
@@ -92,6 +93,8 @@ function formaterDate(date) {
 
 function Dashboard() {
   const [messageSauvegarde, setMessageSauvegarde] = useState("");
+  const [favoris] = useState(() => lireFavoris());
+  const [consultations] = useState(() => lireConsultations());
   const quizResultat = lireJSON(
     QUIZ_RESULT_KEY,
     null
@@ -740,6 +743,62 @@ function Dashboard() {
             Mesurer ton niveau.
           </p>
         </Link>
+      </section>
+
+      <section className="card dashboard-favorites">
+        <div className="course-chapters-heading">
+          <div>
+            <span>MA COLLECTION</span>
+            <h2>⭐ Mes favoris</h2>
+          </div>
+          <span className="course-chapter-count">{favoris.length}</span>
+        </div>
+
+        {favoris.length > 0 ? (
+          <div className="dashboard-favorites-list">
+            {favoris.map((favori) => (
+              <Link
+                key={`${favori.type}-${favori.id}`}
+                to={favori.type === "roche" ? `/roches/${favori.id}` : `/mineraux/${favori.id}`}
+                className="dashboard-favorite-item"
+              >
+                <span>{favori.icon}</span>
+                <div><strong>{favori.nom}</strong><small>{favori.detail}</small></div>
+                <b>→</b>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p>Ajoute des roches ou minéraux à tes favoris pour les retrouver ici.</p>
+        )}
+      </section>
+
+      <section className="card dashboard-recent">
+        <div className="course-chapters-heading">
+          <div>
+            <span>EXPLORATION</span>
+            <h2>🕘 Consultés récemment</h2>
+          </div>
+          <span className="course-chapter-count">{consultations.length}</span>
+        </div>
+
+        {consultations.length > 0 ? (
+          <div className="dashboard-favorites-list">
+            {consultations.map((consultation) => (
+              <Link
+                key={`${consultation.type}-${consultation.id}`}
+                to={consultation.type === "roche" ? `/roches/${consultation.id}` : `/mineraux/${consultation.id}`}
+                className="dashboard-favorite-item dashboard-recent-item"
+              >
+                <span>{consultation.icon}</span>
+                <div><strong>{consultation.nom}</strong><small>{consultation.detail}</small></div>
+                <b>→</b>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p>Ouvre une fiche roche ou minéral : elle apparaîtra ici automatiquement.</p>
+        )}
       </section>
 
       <section className="card">

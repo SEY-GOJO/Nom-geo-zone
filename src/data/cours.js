@@ -2558,6 +2558,60 @@ Une exploitation responsable doit limiter les pertes, contrôler la dilution, pr
       },
     ],
   },
+  {
+    id: 14,
+    titre: "Reconnaître les minéraux",
+    categorieId: 2,
+    matiere: "Minéralogie",
+    description:
+      "Méthode pratique pour décrire, comparer et identifier les minéraux à partir de leurs propriétés physiques.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Roche, minéral et cristal",
+        contenu: `
+Une roche est un assemblage naturel d'un ou plusieurs minéraux. Le granite, par exemple, contient habituellement du quartz, des feldspaths et des micas.
+
+Un minéral est un solide naturel, généralement inorganique, dont la composition chimique et l'organisation interne sont définies. Un cristal est un minéral dont l'organisation atomique se traduit parfois par des faces géométriques visibles.
+
+Pour identifier un échantillon, il est important de ne pas se baser sur la couleur seule. Plusieurs minéraux peuvent avoir une apparence proche, tandis qu'un même minéral peut présenter plusieurs couleurs.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Les propriétés d'identification",
+        contenu: `
+L'éclat décrit la manière dont une surface réfléchit la lumière : il peut être métallique, vitreux, nacré, soyeux ou mat. Le trait correspond à la couleur de la poudre laissée par un minéral sur une plaque non émaillée ; il est souvent plus fiable que la couleur de l'échantillon.
+
+Le clivage est la tendance d'un minéral à se séparer selon des plans réguliers. La fracture désigne au contraire une cassure irrégulière, comme la fracture conchoïdale du quartz.
+
+La densité relative, le magnétisme, la réaction à l'acide et certaines propriétés optiques apportent des indices supplémentaires. Une identification sérieuse combine plusieurs observations.
+        `,
+      },
+      {
+        id: 3,
+        titre: "La dureté et l'échelle de Mohs",
+        contenu: `
+La dureté mesure la résistance d'un minéral à la rayure. L'échelle de Mohs est une échelle comparative allant de 1 pour le talc à 10 pour le diamant.
+
+Quelques repères utiles : l'ongle a une dureté proche de 2,5 ; une pièce de cuivre est proche de 3 ; une lame d'acier est proche de 5 à 5,5 ; le quartz, de dureté 7, raye le verre.
+
+L'échelle de Mohs n'est pas proportionnelle : le diamant n'est pas seulement un peu plus dur que le corindon. Elle reste néanmoins très pratique sur le terrain pour trier les hypothèses.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Croissance et formes cristallines",
+        contenu: `
+La forme extérieure d'un cristal est appelée son habitus. Elle dépend de la structure interne du minéral mais aussi des conditions de croissance : espace disponible, vitesse de cristallisation, température et composition du fluide.
+
+La pyrite peut former des cubes striés ou des dodécaèdres pentagonaux. L'halite cristallise souvent en cubes, notamment lorsque l'évaporation concentre une eau salée. Dans un espace réduit, certains minéraux peuvent développer des formes ramifiées dites dendritiques.
+
+Les formes observées renseignent donc sur l'histoire de formation, mais doivent toujours être interprétées avec les autres propriétés physiques.
+        `,
+      },
+    ],
+  },
 ];
 
 export default cours;

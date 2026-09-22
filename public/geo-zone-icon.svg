@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title>GEO ZONE</title>
+  <defs>
+    <linearGradient id="ground" x1="88" y1="70" x2="430" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#123c30"/>
+      <stop offset="1" stop-color="#071d16"/>
+    </linearGradient>
+    <linearGradient id="crystal" x1="175" y1="126" x2="350" y2="355" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#63d1c3"/>
+      <stop offset="1" stop-color="#1c8b8b"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#ground)"/>
+  <circle cx="256" cy="256" r="182" fill="none" stroke="#d6b44c" stroke-width="16" opacity=".92"/>
+  <path d="m114 350 108-166 55 81 53-57 68 142" fill="none" stroke="#f4f8f3" stroke-linecap="round" stroke-linejoin="round" stroke-width="26"/>
+  <path d="m257 127 66 72-43 119-82-36z" fill="url(#crystal)" stroke="#a7f2e8" stroke-linejoin="round" stroke-width="13"/>
+  <path d="m257 127 23 191" fill="none" stroke="#e9fffb" stroke-width="10" opacity=".74"/>
+  <circle cx="389" cy="120" r="19" fill="#f4cf58"/>
+</svg>

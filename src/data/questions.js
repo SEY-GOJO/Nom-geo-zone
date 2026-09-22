@@ -502,6 +502,110 @@ const questions = [
     explication:
       "Dans une mine à ciel ouvert, un bench correspond à une banquette ou un gradin de l'exploitation.",
   },
+
+  // =========================================================
+  // ROCHES ET MINÉRAUX — RÉVISION DES FICHES
+  // =========================================================
+  {
+    id: 31,
+    categorie: "Minéralogie",
+    difficulte: "Facile",
+    question: "Quel minéral occupe le niveau 10 de l'échelle de Mohs ?",
+    options: ["Le quartz", "Le diamant", "Le corindon", "La topaze"],
+    reponse: 1,
+    explication:
+      "Le diamant est le minéral de référence du niveau 10, le plus élevé de l'échelle de Mohs.",
+  },
+  {
+    id: 32,
+    categorie: "Minéralogie",
+    difficulte: "Moyenne",
+    question: "Quel minéral possède une dureté de 7 sur l'échelle de Mohs ?",
+    options: ["La calcite", "L'apatite", "Le quartz", "Le corindon"],
+    reponse: 2,
+    explication:
+      "Le quartz, de dureté 7, peut notamment rayer le verre et sert de repère pratique sur le terrain.",
+  },
+  {
+    id: 33,
+    categorie: "Minéralogie",
+    difficulte: "Moyenne",
+    question: "Quel critère aide particulièrement à reconnaître la magnétite ?",
+    options: ["Son goût salé", "Son fort magnétisme", "Sa fluorescence systématique", "Sa très faible densité"],
+    reponse: 1,
+    explication:
+      "La magnétite est fortement attirée par un aimant : cette propriété est très utile pour l'identifier.",
+  },
+  {
+    id: 34,
+    categorie: "Minéralogie",
+    difficulte: "Moyenne",
+    question: "Quelle couleur de trait est typiquement associée à l'hématite ?",
+    options: ["Blanc", "Bleu", "Rouge brun", "Vert vif"],
+    reponse: 2,
+    explication:
+      "Même lorsqu'elle a un éclat gris acier, l'hématite laisse le plus souvent une trace rouge brun.",
+  },
+  {
+    id: 35,
+    categorie: "Minéralogie",
+    difficulte: "Facile",
+    question: "Quelle forme cristalline est fréquente chez la pyrite ?",
+    options: ["Un cube strié", "Un prisme hexagonal", "Une sphère parfaite", "Un feuillet basal"],
+    reponse: 0,
+    explication:
+      "La pyrite forme souvent des cubes dont les faces portent de fines stries parallèles.",
+  },
+  {
+    id: 36,
+    categorie: "Pétrographie",
+    difficulte: "Facile",
+    question: "Quelle roche vitreuse résulte du refroidissement très rapide d'une lave riche en silice ?",
+    options: ["L'obsidienne", "Le marbre", "Le calcaire", "Le gneiss"],
+    reponse: 0,
+    explication:
+      "L'obsidienne est un verre volcanique : le refroidissement est si rapide que les minéraux ne cristallisent pas complètement.",
+  },
+  {
+    id: 37,
+    categorie: "Pétrographie",
+    difficulte: "Moyenne",
+    question: "Quelle roche est formée par précipitation de calcite à partir d'eaux riches en carbonate de calcium ?",
+    options: ["Le travertin", "La dolérite", "La rhyolite", "Le schiste vert"],
+    reponse: 0,
+    explication:
+      "Le travertin est une roche carbonatée chimique, souvent déposée près de sources et de cascades.",
+  },
+  {
+    id: 38,
+    categorie: "Pétrographie",
+    difficulte: "Moyenne",
+    question: "Quelle roche peut transporter des diamants depuis une grande profondeur vers la surface ?",
+    options: ["La kimberlite", "Le grès", "La marne", "L'ardoise"],
+    reponse: 0,
+    explication:
+      "La kimberlite est une roche magmatique ultrabasique remontée rapidement depuis les profondeurs ; elle peut contenir des diamants.",
+  },
+  {
+    id: 39,
+    categorie: "Pétrographie",
+    difficulte: "Moyenne",
+    question: "Quel minéral est le constituant principal du travertin et de nombreux calcaires ?",
+    options: ["La calcite", "La halite", "La pyrite", "Le graphite"],
+    reponse: 0,
+    explication:
+      "La calcite est un carbonate de calcium qui constitue de nombreux calcaires et le travertin.",
+  },
+  {
+    id: 40,
+    categorie: "Minéralogie",
+    difficulte: "Facile",
+    question: "Quelle propriété décrit la couleur de la poudre laissée par un minéral ?",
+    options: ["Le trait", "La densité", "Le clivage", "La porosité"],
+    reponse: 0,
+    explication:
+      "Le trait est la couleur de la poudre produite par le minéral sur une plaque non émaillée.",
+  },
 ];
 
 export default questions;
