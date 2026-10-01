@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useMemo, useState } from "react";
 import cours from "../data/cours";
+import { analyserContenuChapitre } from "../utils/courseReading";
 
 function Chapitre() {
   const {
@@ -21,58 +22,71 @@ function Chapitre() {
 
   const progressKey = `geo-zone:course-progress:${id}`;
 
-  useEffect(() => {
+  const [chapitreValide, setChapitreValide] = useState(() => {
     if (!coursActuel || chapitreIndex === -1) {
-      return;
+      return false;
     }
 
-    const enregistrerProgression = () => {
-      try {
-        const progressionExistante =
-          localStorage.getItem(progressKey);
+    try {
+      const progressionExistante =
+        localStorage.getItem(progressKey);
 
-        let chapitresTermines = [];
-
-        if (progressionExistante) {
-          const progressionParsee =
-            JSON.parse(progressionExistante);
-
-          if (Array.isArray(progressionParsee)) {
-            chapitresTermines = progressionParsee;
-          }
-        }
-
-        const chapitreIdNumerique = Number(chapitreId);
-
-        if (
-          !chapitresTermines.includes(
-            chapitreIdNumerique
-          )
-        ) {
-          chapitresTermines.push(
-            chapitreIdNumerique
-          );
-        }
-
-        localStorage.setItem(
-          progressKey,
-          JSON.stringify(chapitresTermines)
-        );
-      } catch (error) {
-        console.error(
-          "Impossible d'enregistrer la progression :",
-          error
-        );
+      if (!progressionExistante) {
+        return false;
       }
-    };
 
-    enregistrerProgression();
-  }, [
-    chapitreId,
-    progressKey,
-    coursActuel,
-    chapitreIndex,
-  ]);
+      const progressionParsee = JSON.parse(
+        progressionExistante
+      );
+
+      return (
+        Array.isArray(progressionParsee) &&
+        progressionParsee.includes(Number(chapitreId))
+      );
+    } catch (error) {
+      console.error(
+        "Impossible de restaurer la validation du chapitre :",
+        error
+      );
+      return false;
+    }
+  });
+
+  const chapitre =
+    coursActuel && chapitreIndex !== -1
+      ? coursActuel.chapitres[chapitreIndex]
+      : null;
+
+  const analyseContenu = useMemo(
+    () => analyserContenuChapitre(chapitre?.contenu || ""),
+    [chapitre?.contenu]
+  );
+
+  const cartesVisuelles = [
+    {
+      icon: "🔍",
+      titre: "Observation",
+      texte: `Repère les éléments essentiels dans ${chapitre.titre.toLowerCase()}.`,
+    },
+    {
+      icon: "🧭",
+      titre: "Méthode",
+      texte: "Relie le concept aux définitions et aux exemples pour mieux mémoriser.",
+    },
+    {
+      icon: "✅",
+      titre: "À retenir",
+      texte:
+        analyseContenu.pointsCle[0] ||
+        "Le point clé de ce chapitre est à mémoriser pour la suite.",
+    },
+  ];
+
+  const schemaExplicatif = [
+    { label: "Concept", icon: "💡" },
+    { label: "Exemple", icon: "🧪" },
+    { label: "Application", icon: "📌" },
+  ];
 
   if (!coursActuel) {
     return (
@@ -121,9 +135,6 @@ function Chapitre() {
     );
   }
 
-  const chapitre =
-    coursActuel.chapitres[chapitreIndex];
-
   const totalChapitres =
     coursActuel.chapitres.length;
 
@@ -151,6 +162,47 @@ function Chapitre() {
   const lignesContenu = chapitre.contenu
     ? chapitre.contenu.split("\n")
     : [];
+
+  const validerChapitre = () => {
+    try {
+      const progressionExistante =
+        localStorage.getItem(progressKey);
+
+      let chapitresTermines = [];
+
+      if (progressionExistante) {
+        const progressionParsee = JSON.parse(
+          progressionExistante
+        );
+
+        if (Array.isArray(progressionParsee)) {
+          chapitresTermines = progressionParsee;
+        }
+      }
+
+      const chapitreIdNumerique = Number(chapitreId);
+
+      if (
+        !chapitresTermines.includes(
+          chapitreIdNumerique
+        )
+      ) {
+        chapitresTermines.push(chapitreIdNumerique);
+      }
+
+      localStorage.setItem(
+        progressKey,
+        JSON.stringify(chapitresTermines)
+      );
+
+      setChapitreValide(true);
+    } catch (error) {
+      console.error(
+        "Impossible d'enregistrer la validation du chapitre :",
+        error
+      );
+    }
+  };
 
   return (
     <div className="container chapter-page">
@@ -235,6 +287,76 @@ function Chapitre() {
           </div>
         </header>
 
+        <div className="chapter-reader-summary">
+          <div className="summary-pill">Résumé</div>
+          <p>{analyseContenu.resume}</p>
+
+          <div className="summary-objective">
+            <strong>Objectif</strong>
+            <p>{analyseContenu.objectif}</p>
+          </div>
+
+          {analyseContenu.pointsCle.length > 0 && (
+            <div className="summary-points">
+              <strong>Points clés</strong>
+              <ul>
+                {analyseContenu.pointsCle.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <div className="chapter-visual-panel" aria-label="Illustration pédagogique du chapitre">
+          <div className="visual-scene">
+            <div className="visual-core">
+              <span className="visual-badge">Leçon</span>
+              <div className="visual-icon">📘</div>
+              <h3>{chapitre.titre}</h3>
+            </div>
+
+            <div className="visual-flow">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+          </div>
+
+          <div className="visual-cards">
+            {cartesVisuelles.map((carte) => (
+              <div className="visual-card" key={carte.titre}>
+                <div className="visual-card-icon">{carte.icon}</div>
+                <div>
+                  <strong>{carte.titre}</strong>
+                  <p>{carte.texte}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="chapter-diagram" aria-label="Schéma explicatif du chapitre">
+          <div className="diagram-header">
+            <span>Schéma</span>
+            <strong>Comprendre le chapitre</strong>
+          </div>
+
+          <div className="diagram-track">
+            {schemaExplicatif.map((step, index) => (
+              <div className="diagram-step" key={step.label}>
+                <div className="diagram-node">
+                  <span>{step.icon}</span>
+                  <strong>{step.label}</strong>
+                </div>
+                {index < schemaExplicatif.length - 1 && (
+                  <div className="diagram-arrow" aria-hidden="true">→</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="content-body">
           {chapitre.contenu ? (
             lignesContenu.map((ligne, index) => {
@@ -290,6 +412,24 @@ function Chapitre() {
           )}
         </div>
       </article>
+
+      <div className="chapter-validation">
+        <div>
+          <strong>Lecture terminée ?</strong>
+          <p>
+            Valide ce chapitre pour enregistrer ta progression et passer à la suite.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          className="chapter-validate-button"
+          onClick={validerChapitre}
+          disabled={chapitreValide}
+        >
+          {chapitreValide ? "✓ Chapitre validé" : "Valider le chapitre"}
+        </button>
+      </div>
 
       <div className="chapter-navigation">
         <div className="navigation-left">
