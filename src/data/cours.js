@@ -2612,6 +2612,114 @@ Les formes observées renseignent donc sur l'histoire de formation, mais doivent
       },
     ],
   },
+  {
+    id: 15,
+    titre: "Introduction à la géomorphologie",
+    categorieId: 4,
+    matiere: "Géomorphologie",
+    description:
+      "Découverte des formes du relief, des processus qui les façonnent et des méthodes d'observation géomorphologique.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Objet et méthodes de la géomorphologie",
+        contenu: `
+La géomorphologie étudie les formes du relief terrestre, leur origine, leur évolution et leur répartition. Elle s'intéresse aux paysages continentaux, littoraux et sous-marins.
+
+Elle associe l'observation de terrain à l'analyse de cartes topographiques, d'images aériennes, de données satellitaires et de mesures. Les formes observées sont interprétées en tenant compte de la géologie, du climat, du temps et des activités humaines.
+
+À retenir : décrire une forme de relief et expliquer le processus qui l'a produite sont deux étapes distinctes de l'analyse.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Altération et versants",
+        contenu: `
+L'altération transforme les roches en place sous l'action de processus physiques, chimiques et biologiques. La fragmentation mécanique augmente la surface exposée, tandis que l'altération chimique modifie ou dissout certains minéraux.
+
+Sur les versants, les matériaux peuvent être déplacés par le ruissellement, les chutes de blocs, les glissements ou le fluage lent des sols. La pente, la nature des matériaux, l'eau et la végétation influencent la stabilité et la vitesse de ces transferts.
+
+À retenir : l'altération produit des matériaux, tandis que l'érosion et les mouvements de terrain les enlèvent ou les déplacent.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Réseaux hydrographiques et formes fluviales",
+        contenu: `
+Les cours d'eau recueillent le ruissellement et transportent des sédiments vers l'aval. Leur action combine l'érosion, le transport et le dépôt, avec une intensité qui varie selon le débit, la pente et la résistance des roches.
+
+Les vallées, les méandres, les terrasses et les plaines alluviales sont des formes associées à l'évolution des systèmes fluviaux. Les alluvions se déposent lorsque la capacité de transport du cours d'eau diminue.
+
+À retenir : les formes fluviales enregistrent les changements du débit, de la charge sédimentaire et du niveau de base.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Processus littoraux et facteurs d'évolution",
+        contenu: `
+Les côtes évoluent sous l'action des vagues, des marées, des courants, du vent et des apports sédimentaires. Ces processus peuvent éroder les falaises, déplacer les plages ou construire des cordons littoraux.
+
+Le climat, les variations du niveau marin, la tectonique, la lithologie et les aménagements humains contrôlent l'évolution des paysages. Une même forme peut résulter de plusieurs processus successifs et doit être replacée dans son contexte.
+
+À retenir : un paysage est dynamique ; son interprétation tient compte des processus actuels et de son histoire.
+        `,
+      },
+    ],
+  },
+  {
+    id: 16,
+    titre: "Bases de géochimie",
+    categorieId: 6,
+    matiere: "Géochimie",
+    description:
+      "Notions fondamentales sur la composition chimique de la Terre, la répartition des éléments et les cycles géochimiques.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Composition chimique de la Terre",
+        contenu: `
+La géochimie étudie la répartition et le comportement des éléments chimiques dans la Terre et dans les matériaux naturels. Elle relie les compositions observées aux processus géologiques qui les ont produites.
+
+Les éléments majeurs sont généralement exprimés en pourcentage massique d'oxydes dans les roches. Les éléments en traces sont présents à plus faible teneur et peuvent être exprimés en parties par million (ppm) ou en parties par milliard (ppb).
+
+À retenir : une teneur doit toujours être associée à une unité et à un matériau échantillonné clairement identifié.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Éléments majeurs, traces et affinité géochimique",
+        contenu: `
+Les éléments majeurs contribuent de façon importante à la composition des minéraux et des roches. Les éléments en traces peuvent fournir des informations sensibles sur les conditions de formation, même lorsque leur abondance est faible.
+
+Le comportement d'un élément dépend notamment de sa charge, de son rayon ionique, de la température, de la pression et de la composition des phases présentes. Certains éléments se concentrent préférentiellement dans des minéraux particuliers ; d'autres restent davantage dans les liquides ou les fluides.
+
+À retenir : les éléments traces complètent l'étude des éléments majeurs, mais leur interprétation doit tenir compte des minéraux hôtes et des processus géologiques.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Cycles géochimiques et altération",
+        contenu: `
+Les éléments circulent entre les roches, les sols, l'eau, l'atmosphère et les êtres vivants. Ces transferts constituent des cycles géochimiques, dont les durées varient de processus rapides à des transformations qui s'étendent sur des temps géologiques.
+
+Lors de l'altération, les minéraux ne réagissent pas tous de la même manière. Certains éléments sont mobilisés et transportés en solution, tandis que d'autres restent dans les résidus ou précipitent sous forme de nouveaux minéraux.
+
+À retenir : la composition d'un sol ou d'une eau dépend à la fois de la roche source, des conditions du milieu et de la circulation des fluides.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Échantillonnage et interprétation géochimique",
+        contenu: `
+Un résultat géochimique n'est représentatif que si l'échantillon a été prélevé, préparé et analysé selon une méthode adaptée à l'objectif. La localisation, la description, l'étiquetage et la traçabilité des échantillons sont essentiels.
+
+Les résultats sont comparés à un fond géochimique approprié. Une valeur inhabituelle peut signaler une anomalie, mais elle ne prouve pas à elle seule la présence d'un gisement : la géologie locale, la qualité des données et les autres méthodes de reconnaissance doivent être examinées.
+
+À retenir : contrôler la qualité des données et le contexte géologique avant de tirer une conclusion à partir d'une anomalie.
+        `,
+      },
+    ],
+  },
 ];
 
 export default cours;

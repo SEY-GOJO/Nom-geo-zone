@@ -606,6 +606,91 @@ const questions = [
     explication:
       "Le trait est la couleur de la poudre produite par le minéral sur une plaque non émaillée.",
   },
+  {
+    id: 41,
+    categorie: "Géomorphologie",
+    difficulte: "Facile",
+    question: "Que décrit principalement la géomorphologie ?",
+    options: [
+      "La composition des étoiles",
+      "Les formes du relief et leur évolution",
+      "La classification des organismes",
+      "La météo quotidienne",
+    ],
+    reponse: 1,
+    explication:
+      "La géomorphologie étudie les formes du relief, leur origine et leur évolution.",
+  },
+  {
+    id: 42,
+    categorie: "Géomorphologie",
+    difficulte: "Moyenne",
+    question: "Quel ensemble résume les principales actions d'un cours d'eau sur les sédiments ?",
+    options: [
+      "Fusion, cristallisation et métamorphisme",
+      "Érosion, transport et dépôt",
+      "Compaction, cimentation et fusion",
+      "Évaporation, condensation et sublimation",
+    ],
+    reponse: 1,
+    explication:
+      "Un cours d'eau peut arracher des matériaux, les transporter puis les déposer lorsque sa capacité de transport diminue.",
+  },
+  {
+    id: 43,
+    categorie: "Géomorphologie",
+    difficulte: "Moyenne",
+    question: "Quelle distinction est correcte entre altération et érosion ?",
+    options: [
+      "L'altération transforme la roche en place ; l'érosion enlève ou transporte des matériaux.",
+      "L'altération ne concerne que les rivières ; l'érosion ne concerne que les glaciers.",
+      "L'érosion forme toujours de nouveaux minéraux ; l'altération ne modifie jamais la roche.",
+      "Les deux termes désignent uniquement le dépôt des sédiments.",
+    ],
+    reponse: 0,
+    explication:
+      "L'altération modifie les roches en place, alors que l'érosion implique leur enlèvement et souvent le transport des produits.",
+  },
+  {
+    id: 44,
+    categorie: "Géochimie",
+    difficulte: "Facile",
+    question: "Que cherche principalement à comprendre la géochimie ?",
+    options: [
+      "La répartition et le comportement des éléments chimiques dans la Terre",
+      "La vitesse du vent dans l'atmosphère",
+      "La forme des organismes fossiles uniquement",
+      "La géométrie des instruments de mesure",
+    ],
+    reponse: 0,
+    explication:
+      "La géochimie étudie la distribution des éléments chimiques dans les matériaux terrestres et les processus qui la contrôlent.",
+  },
+  {
+    id: 45,
+    categorie: "Géochimie",
+    difficulte: "Moyenne",
+    question: "Quelle unité convient couramment à l'expression d'une faible teneur en élément trace ?",
+    options: ["Kilomètre", "Degré Celsius", "Partie par million (ppm)", "Mètre par seconde"],
+    reponse: 2,
+    explication:
+      "Les teneurs en éléments traces sont fréquemment exprimées en ppm, ou parfois en ppb selon leur niveau.",
+  },
+  {
+    id: 46,
+    categorie: "Géochimie",
+    difficulte: "Moyenne",
+    question: "Que peut indiquer une anomalie géochimique isolée ?",
+    options: [
+      "La preuve certaine d'un gisement exploitable",
+      "Un résultat à vérifier dans son contexte géologique et avec des contrôles qualité",
+      "L'absence de tout processus géologique",
+      "Une erreur systématique dans tous les échantillons",
+    ],
+    reponse: 1,
+    explication:
+      "Une anomalie est un indice à vérifier : elle doit être interprétée avec le fond géochimique, la géologie et la qualité des données.",
+  },
 ];
 
 export default questions;

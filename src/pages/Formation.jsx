@@ -52,9 +52,9 @@ function Formation() {
       titre: "Défis géologiques",
       description:
         "Relève des défis pour mettre tes connaissances à l'épreuve.",
-      link: null,
-      disponible: false,
-      action: "Bientôt disponible",
+      link: "/defis-geologiques",
+      disponible: true,
+      action: "Jouer",
     },
   ];
 
@@ -104,7 +104,7 @@ function Formation() {
           </div>
 
           <p>
-            Commence par les activités actuellement disponibles.
+            Choisis une activité pour apprendre, réviser et relever des défis.
           </p>
         </div>
 

@@ -46,6 +46,7 @@ const OutilsCategorie = lazy(() => import("./pages/OutilsCategorie"));
 const Progression = lazy(() => import("./pages/Progression"));
 const Recherche = lazy(() => import("./pages/Recherche"));
 const Quiz = lazy(() => import("./pages/Quiz"));
+const DefisGeologiques = lazy(() => import("./pages/DefisGeologiques"));
 const Revision = lazy(() => import("./pages/Revision"));
 const Evaluation = lazy(() => import("./pages/Evaluation"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -745,6 +746,10 @@ function App() {
 <Route
   path="/quiz"
   element={<Quiz />}
+/>
+<Route
+  path="/defis-geologiques"
+  element={<DefisGeologiques />}
 />
 <Route
   path="/outils/conductivite-hydraulique"
