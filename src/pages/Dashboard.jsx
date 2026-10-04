@@ -7,6 +7,10 @@ import {
   importerSauvegarde,
   telechargerSauvegarde,
 } from "../utils/backup.js";
+import {
+  calculerProgressionCours,
+  lireChapitresTermines,
+} from "../utils/courseProgress";
 
 const QUIZ_RESULT_KEY = "geo-zone:quiz-result:v1";
 const QUIZ_HISTORY_KEY = "geo-zone:quiz-history:v1";
@@ -15,9 +19,6 @@ const EVALUATION_RESULT_KEY =
   "geo-zone:evaluation-result:v1";
 const EVALUATION_HISTORY_KEY =
   "geo-zone:evaluation-history:v1";
-
-const COURSE_PROGRESS_PREFIX =
-  "geo-zone:course-progress:";
 
 function lireJSON(cle, valeurParDefaut) {
   try {
@@ -41,39 +42,32 @@ function lireJSON(cle, valeurParDefaut) {
 }
 
 function obtenirProgressionCours(coursActuel) {
-  if (!coursActuel) {
-    return 0;
-  }
-
   const chapitres =
     Array.isArray(coursActuel.chapitres)
       ? coursActuel.chapitres
       : [];
 
-  if (chapitres.length === 0) {
-    return 0;
+  try {
+    const chapitresTermines = lireChapitresTermines(
+      coursActuel.id,
+      chapitres
+    );
+
+    return {
+      ...calculerProgressionCours(chapitres, chapitresTermines),
+      chapitresTermines,
+    };
+  } catch (error) {
+    console.error(
+      `Impossible de lire la progression du cours ${coursActuel.id} :`,
+      error
+    );
+
+    return {
+      ...calculerProgressionCours(chapitres, []),
+      chapitresTermines: [],
+    };
   }
-
-  const progression = lireJSON(
-    `${COURSE_PROGRESS_PREFIX}${coursActuel.id}`,
-    []
-  );
-
-  if (!Array.isArray(progression)) {
-    return 0;
-  }
-
-  const idsValides = progression.filter(
-    (chapitreId) =>
-      chapitres.some(
-        (chapitre) =>
-          chapitre.id === chapitreId
-      )
-  );
-
-  return Math.round(
-    (idsValides.length / chapitres.length) * 100
-  );
 }
 
 function formaterDate(date) {
@@ -141,15 +135,16 @@ function Dashboard() {
     )
     .slice(0, 10);
 
-  const progressionsCours = cours.map(
-    (coursActuel) => ({
+  const progressionsCours = cours.map((coursActuel) => {
+    const progression = obtenirProgressionCours(coursActuel);
+
+    return {
       ...coursActuel,
-      progression:
-        obtenirProgressionCours(
-          coursActuel
-        ),
-    })
-  );
+      progression: progression.pourcentage,
+      nombreChapitresTermines: progression.nombreTermines,
+      totalChapitres: progression.totalChapitres,
+    };
+  });
 
   const coursCommences =
     progressionsCours.filter(
@@ -166,49 +161,14 @@ function Dashboard() {
   const totalChapitres =
     progressionsCours.reduce(
       (total, coursActuel) =>
-        total +
-        (Array.isArray(
-          coursActuel.chapitres
-        )
-          ? coursActuel.chapitres.length
-          : 0),
+        total + coursActuel.totalChapitres,
       0
     );
 
   const chapitresTermines =
     progressionsCours.reduce(
-      (total, coursActuel) => {
-        const chapitres =
-          Array.isArray(
-            coursActuel.chapitres
-          )
-            ? coursActuel.chapitres
-            : [];
-
-        if (chapitres.length === 0) {
-          return total;
-        }
-
-        const progression = lireJSON(
-          `${COURSE_PROGRESS_PREFIX}${coursActuel.id}`,
-          []
-        );
-
-        if (!Array.isArray(progression)) {
-          return total;
-        }
-
-        const idsValides =
-          progression.filter(
-            (chapitreId) =>
-              chapitres.some(
-                (chapitre) =>
-                  chapitre.id === chapitreId
-              )
-          );
-
-        return total + idsValides.length;
-      },
+      (total, coursActuel) =>
+        total + coursActuel.nombreChapitresTermines,
       0
     );
 

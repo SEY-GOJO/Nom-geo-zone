@@ -1,17 +1,38 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+import mineraux from "../data/mineraux";
 import roches from "../data/roches";
 import { getRocheIcon } from "../data/rocheIcons";
+
+const normaliserRecherche = (valeur) =>
+  String(valeur)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("fr");
 
 function Roches() {
   const [recherche, setRecherche] = useState("");
   const [famille, setFamille] = useState("Toutes");
+  const familles = new Set(roches.map((roche) => roche.famille));
 
   const rochesFiltrees = roches.filter((roche) => {
-    const correspondRecherche = roche.nom
-      .toLowerCase()
-      .includes(recherche.toLowerCase());
+    const contenuRecherche = [
+      roche.nom,
+      roche.sousFamille,
+      roche.couleur,
+      roche.texture,
+      roche.structure,
+      ...(roche.mineraux || []),
+      roche.origine,
+      roche.utilisation,
+      roche.indices,
+    ]
+      .filter(Boolean)
+      .join(" ");
+    const correspondRecherche = normaliserRecherche(contenuRecherche).includes(
+      normaliserRecherche(recherche)
+    );
 
     const correspondFamille =
       famille === "Toutes" || roche.famille === famille;
@@ -58,13 +79,13 @@ function Roches() {
           </div>
 
           <div>
-            <strong>3</strong>
+            <strong>{familles.size}</strong>
             <span>Familles</span>
           </div>
 
           <div>
-            <strong>GEO</strong>
-            <span>Base</span>
+            <strong>{mineraux.length}</strong>
+            <span>Minéraux</span>
           </div>
 
         </div>
@@ -87,7 +108,7 @@ function Roches() {
         <input
           className="search"
           type="text"
-          placeholder="🔎 Rechercher par nom..."
+          placeholder="🔎 Nom, minéral, texture, couleur..."
           value={recherche}
           onChange={(e) => setRecherche(e.target.value)}
         />

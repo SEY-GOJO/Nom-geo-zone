@@ -41,6 +41,9 @@ const iconesParRoche = {
   "Calcaire fossilifère": "🐚",
   Kimberlite: "💎",
   Septaria: "🟤",
+  Microgranite: "⛰️",
+  Pegmatite: "💎",
+  Phyllite: "📄",
 };
 
 const iconesParFamille = {

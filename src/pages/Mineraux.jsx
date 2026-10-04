@@ -22,9 +22,24 @@ function Mineraux() {
     "Talc", "Gypse", "Calcite", "Fluorite", "Apatite",
     "Orthoclase", "Quartz", "Topaze", "Corindon", "Diamant",
   ].map((nom) => mineraux.find((mineral) => mineral.nom === nom));
+  const normaliserRecherche = (valeur) =>
+    String(valeur)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLocaleLowerCase("fr");
   const resultats = mineraux.filter((mineral) =>
     (classe === "Toutes" || mineral.classe === classe) &&
-    `${mineral.nom} ${mineral.formule} ${mineral.classe}`.toLowerCase().includes(recherche.toLowerCase())
+    normaliserRecherche([
+      mineral.nom,
+      mineral.formule,
+      mineral.classe,
+      mineral.couleur,
+      mineral.eclat,
+      mineral.durete,
+      mineral.trait,
+      mineral.usage,
+      mineral.description,
+    ].join(" ")).includes(normaliserRecherche(recherche))
   );
 
   return (
@@ -45,7 +60,7 @@ function Mineraux() {
         <div>
           <span>REPÈRE D'IDENTIFICATION</span>
           <h2>Échelle de Mohs</h2>
-          <p>Du plus tendre au plus dur : un minéral raye ceux qui se situent avant lui.</p>
+          <p>Du plus tendre au plus dur : un minéral raye ceux qui le précèdent. Fais défiler pour comparer les dix repères.</p>
         </div>
         <ol>
           {echelleMohs.map((mineral, index) => (
@@ -59,9 +74,9 @@ function Mineraux() {
       <section className="minerals-search card">
         <div>
           <h2>🔎 Rechercher un minéral</h2>
-          <p>Filtre par nom, formule chimique ou grande classe minérale.</p>
+          <p>Filtre par nom, formule, propriété physique ou usage.</p>
         </div>
-        <input className="search" value={recherche} onChange={(event) => setRecherche(event.target.value)} placeholder="Ex. quartz, Fe₂O₃, oxyde…" />
+        <input className="search" value={recherche} onChange={(event) => setRecherche(event.target.value)} placeholder="Ex. malachite, vert, sulfure, cuivre…" />
         <div className="filters">
           {classes.map((item) => <button key={item} type="button" className={classe === item ? "active-filter" : ""} onClick={() => setClasse(item)}>{item}</button>)}
         </div>

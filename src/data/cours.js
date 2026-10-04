@@ -2720,6 +2720,445 @@ Les résultats sont comparés à un fond géochimique approprié. Une valeur inh
       },
     ],
   },
+  {
+    id: 17,
+    titre: "Métallogénie des gisements",
+    categorieId: 8,
+    matiere: "Métallogénie",
+    description:
+      "Synthèse des systèmes porphyriques et skarns, des gisements aurifères orogéniques et des principales sources géologiques du lithium. Synthèse reformulée à partir de « Gisements porphyriques 190422 _1.pdf », « LES GISEMENTS MESOTHERMAUX.pdf » et « CISSE Lithium.pdf ».",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Intrusions, fluides et systèmes porphyriques",
+        contenu: `
+Les systèmes porphyriques se forment autour d'intrusions magmatiques peu profondes, souvent dans des contextes d'arc liés à la convergence des plaques. Les magmas et les fluides chauds circulent dans les fractures de la roche et peuvent déposer des minéraux métalliques.
+
+La minéralisation est souvent disséminée dans la roche ou concentrée dans un réseau de veinules appelé stockwerk. La chalcopyrite et la bornite sont des minerais de cuivre fréquents ; la molybdénite peut accompagner le cuivre ou former une zone distincte.
+
+Les fluides hydrothermaux modifient aussi les roches encaissantes. Une altération potassique peut se développer près de l'intrusion, tandis que des assemblages propylitiques sont souvent présents plus loin. Une altération phyllique à quartz, séricite et pyrite peut recouper ou transformer ces zones.
+
+À retenir : l'association de l'intrusion, des veinules, des sulfures et des zonations d'altération constitue un modèle à tester sur le terrain ; aucun indice isolé ne suffit à définir un gisement.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Skarns et rôle des roches carbonatées",
+        contenu: `
+Un skarn se développe lorsque des fluides chauds liés à une intrusion réagissent avec une roche encaissante réactive, notamment un calcaire ou une dolomie. Ces échanges chimiques remplacent une partie des minéraux initiaux par des minéraux silicatés calciques.
+
+Le contact entre l'intrusion et la roche carbonatée est donc une cible importante pour l'observation. Les zones de remplacement, les veines, les minéraux de métasomatisme et les sulfures éventuels peuvent varier selon la composition des roches et l'évolution des fluides.
+
+Les systèmes porphyriques et les skarns peuvent être associés spatialement, mais ils correspondent à des environnements et à des assemblages minéralogiques distincts. Leur interprétation demande de cartographier les contacts et les changements d'altération.
+
+À retenir : la nature de l'encaissant contrôle une partie des réactions entre fluides et roches ; le calcaire peut favoriser la formation d'assemblages de type skarn.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Gisements aurifères orogéniques",
+        contenu: `
+Les gisements aurifères orogéniques sont associés à la déformation et à la circulation de fluides dans des ceintures de roches déformées. Ils se concentrent fréquemment le long de failles et de zones de cisaillement, notamment dans des structures secondaires reliées à des accidents régionaux.
+
+Le quartz et les carbonates forment souvent des veines dans ces structures. L'or peut être accompagné de pyrite et d'autres sulfures ; des altérations carbonatées, chloritiques ou séricitiques peuvent aider à repérer le système dans son encaissant.
+
+Ces minéralisations sont observées dans des contextes lithologiques variés. Il faut donc combiner la cartographie structurale, l'étude des veines, les observations minéralogiques et les résultats géochimiques plutôt que de s'appuyer sur une seule roche hôte.
+
+À retenir : dans un système orogénique, la géométrie des structures et leur histoire de réactivation sont des éléments essentiels pour rechercher les zones minéralisées.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Lithium : pegmatites, minéraux et saumures",
+        contenu: `
+Le lithium est présent dans plusieurs types de ressources. Certaines concentrations sont associées à des roches magmatiques différenciées, en particulier des pegmatites granitiques ; d'autres se trouvent dans des argiles ou dans des saumures continentales, géothermiques ou associées à des bassins sédimentaires.
+
+Les pegmatites peuvent contenir des minéraux porteurs de lithium comme le spodumène, la pétalite et la lépidolite. Leur texture très grossière et leur association avec des intrusions granitiques évoluées fournissent des indices de terrain, à vérifier par l'identification minéralogique et l'analyse chimique.
+
+Les ressources en saumure ne se reconnaissent pas comme un corps de minerai solide : leur étude nécessite de caractériser les fluides, la géologie du bassin, les teneurs dissoutes et les conditions de prélèvement.
+
+À retenir : le type de ressource détermine la méthode d'exploration et d'évaluation. Une espèce minérale observée ou une teneur ponctuelle ne suffit pas à établir la viabilité d'un projet.
+        `,
+      },
+    ],
+  },
+  {
+    id: 18,
+    titre: "Géotechnique des massifs rocheux en mine",
+    categorieId: 8,
+    matiere: "Géotechnique minière",
+    description:
+      "Observation des massifs rocheux, notions de RQD et de classifications géomécaniques, stabilité des excavations et principes de soutènement. Synthèse reformulée à partir de « cours_mdr_chapitre_vi.pdf », « AnnexeD-methodes_de_classification.pdf » et « chapitre1_soutenement.pdf ».",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Roche intacte et massif rocheux",
+        contenu: `
+La roche intacte désigne le matériau entre les fractures ; le massif rocheux comprend aussi les discontinuités, les zones altérées, l'eau et les contraintes auxquelles l'ensemble est soumis. Son comportement ne peut donc pas être déduit de la seule résistance d'un échantillon intact.
+
+Une description géotechnique relève notamment les lithologies, les familles de joints, leur orientation et leur espacement, la continuité des fractures, leur rugosité, leur altération, leur remplissage ainsi que les venues d'eau. La qualité de ces observations dépend de la localisation, de l'échelle et de la méthode de relevé.
+
+En forage, la description des carottes complète l'observation des fronts et des affleurements. Conserver la profondeur, l'orientation disponible et la traçabilité des échantillons permet de replacer chaque observation dans le modèle du massif.
+
+À retenir : la stabilité d'une excavation dépend à la fois des propriétés de la roche et de l'organisation des discontinuités à l'échelle du massif.
+        `,
+      },
+      {
+        id: 2,
+        titre: "RQD : principe et limites",
+        contenu: `
+Le RQD (Rock Quality Designation) est un indicateur obtenu à partir d'une passe de carottage. On additionne les longueurs des morceaux de carotte d'au moins 100 mm, puis on rapporte cette somme à la longueur totale de la passe et on exprime le résultat en pourcentage.
+
+RQD (%) = somme des longueurs de carotte retenues / longueur de la passe × 100.
+
+Un RQD élevé indique en général une carotte plus continue ; une valeur faible peut signaler un massif très fracturé. Il ne décrit toutefois qu'une partie de la qualité du massif et ne renseigne pas à lui seul sur l'orientation des fractures, leurs propriétés de surface, leur remplissage ou l'effet de l'eau.
+
+La récupération et la fragmentation provoquée pendant le forage peuvent influencer la mesure. Le RQD doit donc être interprété avec la description géologique, les relevés de discontinuités et les conditions de l'ouvrage.
+
+À retenir : le RQD est un indicateur descriptif, pas une mesure complète de stabilité ni une consigne autonome de soutènement.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Classifications géomécaniques",
+        contenu: `
+Le RMR, le système Q et le GSI sont des cadres de description qui combinent plusieurs caractéristiques du massif rocheux. Selon le système, l'évaluation peut intégrer la résistance de la roche, la fracturation, l'état des discontinuités, l'eau et l'orientation des structures.
+
+Ces classifications facilitent les échanges entre équipes et peuvent servir aux premières comparaisons entre zones ou à l'élaboration d'hypothèses de conception. Elles ne sont pas interchangeables : leurs paramètres, leurs domaines d'application et leurs conventions doivent être vérifiés avant toute utilisation.
+
+Les indices proviennent d'observations et de modèles empiriques. Ils doivent être confrontés aux conditions locales, aux mesures de terrain et, pour une conception, à l'analyse d'ingénieurs qualifiés.
+
+À retenir : une classe de massif synthétise des observations ; elle ne remplace ni le modèle géologique, ni l'analyse de stabilité spécifique au site.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Talus miniers et mécanismes d'instabilité",
+        contenu: `
+Dans une fosse, la stabilité d'un talus dépend de la géométrie de la pente, de la résistance des matériaux, des discontinuités et de l'eau souterraine. Une famille de fractures peut favoriser le détachement de blocs si son orientation et son inclinaison permettent un mouvement vers la face libre.
+
+La cartographie des structures, l'observation des fissures et des venues d'eau, ainsi que le suivi des déplacements contribuent à repérer une évolution. Les résultats doivent être replacés dans un modèle géologique et géotechnique mis à jour au cours de l'avancement des travaux.
+
+Les classifications et les observations de terrain peuvent aider à cibler les secteurs à étudier, mais elles ne fournissent pas seules un angle de pente sûr ou une décision de mise en production.
+
+À retenir : toute décision concernant une pente minière doit s'appuyer sur l'étude spécifique du site et sur les procédures de sécurité en vigueur.
+        `,
+      },
+      {
+        id: 5,
+        titre: "Soutènement et suivi des ouvrages souterrains",
+        contenu: `
+Le soutènement vise à contrôler la déformation et la chute de blocs autour d'une excavation. Selon le contexte, il peut utiliser des boulons d'ancrage, des treillis, du béton projeté, des cadres ou des éléments préfabriqués ; plusieurs solutions peuvent être combinées.
+
+Les boulons peuvent renforcer ou solidariser des parties du massif. Le treillis et le béton projeté retiennent les petits blocs entre les appuis ; les cadres apportent un support adapté à certaines géométries et conditions. Le choix dépend de la structure, de l'état de la roche, de l'eau, de l'ouverture et de sa durée d'utilisation.
+
+Les classifications empiriques peuvent orienter une première discussion, mais le dimensionnement relève d'une étude de site et de personnes qualifiées. L'inspection après excavation et le suivi des convergences ou des déplacements servent à vérifier le comportement réel et à réévaluer les mesures.
+
+À retenir : le soutènement se conçoit avec l'observation et le suivi du massif ; ces notions pédagogiques ne remplacent pas les plans et consignes de sécurité du chantier.
+        `,
+      },
+    ],
+  },
+  {
+    id: 19,
+    titre: "Aérage et ventilation des mines souterraines",
+    categorieId: 8,
+    matiere: "Ventilation minière",
+    description:
+      "Rôle de l'aérage, organisation des circuits principaux et secondaires et principes de contrôle de l'atmosphère souterraine. Synthèse reformulée à partir de « Cours de Ventilation et Aerage 02 M2 2021.pdf ».",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Rôle de l'aérage minier",
+        contenu: `
+L'aérage organise le renouvellement de l'air dans les galeries et les chantiers souterrains. Il apporte de l'air respirable aux zones occupées et contribue à évacuer la chaleur, les poussières et les contaminants produits par les équipements et les activités minières.
+
+La ventilation fait partie de la conception de la mine : les puits, les galeries, les zones de travail et les issues doivent être considérés ensemble. Le circuit doit rester adapté aux changements de l'exploitation et à l'avancement des travaux.
+
+À retenir : l'aérage concerne la santé et la sécurité des personnes avant d'être une simple question de confort ou de productivité.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Réseau de ventilation primaire",
+        contenu: `
+La ventilation primaire correspond au réseau principal qui conduit l'air frais vers les différentes parties de la mine et ramène l'air vicié vers l'extérieur. Les puits et les galeries forment des branches interconnectées ; les portes, cloisons et régulateurs contribuent à diriger les flux dans le circuit prévu.
+
+Les ventilateurs principaux contribuent à mettre l'air en mouvement dans le réseau. Leur choix dépend de la configuration du réseau, des débits visés et des pertes de charge, et doit être réalisé à partir d'une étude adaptée au site.
+
+Une modification de galerie, l'ouverture d'un chantier ou la fermeture d'un accès peut modifier la distribution de l'air. Le plan de ventilation doit donc être tenu à jour.
+
+À retenir : un bon circuit de ventilation dépend autant de la conception du réseau et de son entretien que du ventilateur installé.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Ventilation secondaire des fronts",
+        contenu: `
+Les fronts en développement peuvent être éloignés ou non raccordés efficacement au réseau principal. La ventilation secondaire utilise des conduits et des ventilateurs auxiliaires pour acheminer ou aspirer l'air à proximité du front.
+
+Le positionnement du conduit, son état, ses raccords et son éloignement par rapport à la zone de travail influencent le renouvellement de l'air. Un conduit endommagé, mal raccordé ou trop éloigné peut réduire l'efficacité du dispositif.
+
+Les opérations susceptibles de produire des fumées et des poussières imposent de suivre les procédures du site et de vérifier les conditions atmosphériques avant la reprise des travaux.
+
+À retenir : la ventilation d'un front doit être évaluée dans les conditions réelles de l'avancement et des activités réalisées.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Surveillance et sécurité de l'atmosphère",
+        contenu: `
+La qualité de l'air peut varier avec la profondeur, l'activité des engins, les tirs, les venues de gaz et la configuration du réseau. La surveillance porte notamment sur les débits, les températures et les contaminants pertinents pour la mine concernée.
+
+Les mesures doivent être effectuées avec des instruments adaptés, entretenus et utilisés par du personnel formé. Les alarmes, les seuils d'évacuation et les conditions de reprise des travaux sont définis par les procédures du site et les règles en vigueur.
+
+À retenir : un résumé pédagogique ne donne pas de seuil de sécurité applicable à tous les sites. Les décisions opérationnelles s'appuient sur le plan de ventilation, les mesures vérifiées et les consignes locales.
+        `,
+      },
+    ],
+  },
+  {
+    id: 20,
+    titre: "Méthodes d'exploitation souterraine",
+    categorieId: 8,
+    matiere: "Exploitation minière souterraine",
+    description:
+      "Panorama comparatif des chambres vides, du foudroyage et des méthodes avec remblayage. Synthèse reformulée à partir de « Methode d`exploitation mine souterraine.pdf » et des cours d'exploitation souterraine.",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Stabilité du massif et choix d'une méthode",
+        contenu: `
+Les méthodes d'exploitation souterraine sont choisies en fonction de la géométrie du gisement, de la puissance et du pendage, de la résistance du minerai et des roches encaissantes, ainsi que des objectifs de production et de récupération.
+
+La stabilité des excavations et le comportement attendu des terrains influencent le recours aux piliers, au remblayage, au soutènement ou au foudroyage contrôlé. Une méthode ne peut pas être sélectionnée à partir de la seule teneur ou de la profondeur.
+
+Les classifications générales constituent un point de départ pour organiser la comparaison, mais la conception doit être vérifiée par une étude géotechnique du site et par les spécialistes responsables.
+
+À retenir : chaque méthode combine une géométrie d'extraction, une stratégie de maintien des vides et une séquence de production.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Chambres et piliers",
+        contenu: `
+La méthode des chambres et piliers consiste à extraire le minerai dans des chambres en laissant des piliers destinés à soutenir les terrains sus-jacents. La disposition des chambres et des piliers dépend de la géométrie du gisement et de la stabilité du massif.
+
+Les piliers représentent une part de minerai qui peut ne pas être récupérée pendant la phase initiale. Toute récupération ultérieure éventuelle modifie l'équilibre mécanique et doit être planifiée dans le cadre d'un projet conçu par des personnes compétentes.
+
+Cette méthode est associée à des gisements où la tenue du minerai et des encaissants permet de conserver des ouvertures, sous réserve de contrôles et de dimensions déterminées par l'étude du site.
+
+À retenir : le pilier est un élément de conception et de sécurité ; sa taille et son éventuelle récupération ne se décident pas par une règle universelle.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Méthodes avec foudroyage",
+        contenu: `
+Le foudroyage consiste à laisser s'effondrer de façon contrôlée une partie du minerai ou des terrains dans une zone exploitée, selon une séquence et un dispositif définis. L'affaissement peut contribuer au déplacement du matériau et au comblement de vides.
+
+La prévision de l'effondrement, le contrôle de la dilution, les déplacements en surface et l'interaction avec les chantiers voisins doivent être étudiés avant l'exploitation. Le foudroyage peut avoir des conséquences importantes au-delà de la zone souterraine immédiate.
+
+À retenir : le foudroyage n'est pas un effondrement improvisé ; c'est une méthode d'exploitation planifiée et surveillée selon les règles de sécurité du site.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Chambres remblayées et soutenues",
+        contenu: `
+Dans une méthode avec remblayage, des matériaux sont placés dans les volumes déjà exploités. Le remblai peut contribuer au maintien des terrains, limiter certains mouvements et fournir une plateforme pour des étapes ultérieures, selon la conception retenue.
+
+Les matériaux peuvent provenir des stériles miniers ou être préparés spécifiquement. Leur aptitude dépend de leurs propriétés, de leur mise en place, du drainage et de la fonction mécanique recherchée.
+
+Les méthodes avec soutènement artificiel peuvent aussi utiliser des boulons, des cadres, du treillis ou du béton projeté. Le dispositif est choisi en fonction de l'état du massif et suivi au cours des travaux.
+
+À retenir : remblayage et soutènement s'intègrent au cycle minier et à la gestion des résidus ; leur conception exige une analyse technique propre au chantier.
+        `,
+      },
+    ],
+  },
+  {
+    id: 21,
+    titre: "Principes de minéralurgie",
+    categorieId: 8,
+    matiere: "Minéralurgie",
+    description:
+      "Étapes de préparation et de concentration du minerai, de la libération des minéraux utiles à la gestion des rejets. Synthèse reformulée à partir de « Introduction à la minéralurgie.pdf ».",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Minerai, minéraux utiles et gangue",
+        contenu: `
+Un minerai est un matériau naturel composé d'une ou de plusieurs espèces minérales d'intérêt, associées à des minéraux sans valeur pour l'objectif considéré. Ces constituants non valorisés forment la gangue ; la définition économique du minerai dépend du projet et de ses conditions.
+
+La minéralurgie regroupe des opérations de préparation et de séparation visant à produire un concentré répondant à des spécifications. Elle se distingue de la métallurgie, qui traite les matières pour produire ou transformer des métaux.
+
+La teneur, la minéralogie, la texture, la taille des grains, les propriétés physiques et chimiques et les contraintes environnementales guident le choix du procédé.
+
+À retenir : un minerai n'est pas un matériau universellement rentable ; sa valorisation dépend de la composition et des besoins du projet.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Fragmentation et libération",
+        contenu: `
+Le minerai est souvent concassé puis broyé afin de séparer les minéraux utiles de la gangue. La fragmentation doit produire une taille adaptée aux opérations de séparation sans consommer inutilement de l'énergie.
+
+La maille de libération est une notion décrivant la taille à laquelle les grains utiles deviennent suffisamment séparés des minéraux associés pour permettre leur concentration. Elle dépend de la texture et des associations minérales du minerai.
+
+Des opérations de classification peuvent séparer les particules par taille et éviter de retraiter inutilement des fractions déjà assez fines. Un schéma de traitement est établi à partir d'essais et de données minéralogiques.
+
+À retenir : broyer plus fin n'améliore pas toujours la récupération ; il faut équilibrer libération, consommation d'énergie et comportement des particules.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Méthodes de concentration",
+        contenu: `
+Les opérations de séparation exploitent des différences entre les minéraux : densité, propriétés de surface, comportement magnétique, solubilité ou réactivité chimique.
+
+La séparation gravimétrique utilise des contrastes de densité dans un fluide. La flottation sépare des particules selon leur comportement de surface dans un milieu aéré et préparé par des réactifs adaptés. La lixiviation met en solution certains éléments à l'aide d'un réactif ; la biolixiviation fait intervenir des micro-organismes dans des conditions définies.
+
+Le choix de la méthode dépend des caractéristiques du minerai et doit être confirmé par des essais. Une méthode appropriée à un gisement ne l'est pas nécessairement à un autre, même si le métal recherché est le même.
+
+À retenir : la minéralurgie choisit un procédé à partir des propriétés mesurées du minerai, et non seulement du nom du métal à récupérer.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Concentrés, résidus et environnement",
+        contenu: `
+Le concentré est un produit enrichi dont les caractéristiques, comme la teneur, l'humidité ou la présence d'éléments pénalisants, doivent répondre aux besoins de l'étape de traitement suivante.
+
+La séparation produit aussi des rejets et des résidus. Leur caractérisation, leur stockage, la gestion de l'eau, la prévention des poussières et la maîtrise des substances potentiellement nocives font partie de la conception globale du procédé.
+
+La récupération, la qualité du concentré, les coûts, la consommation d'énergie et d'eau et les impacts environnementaux doivent être évalués ensemble avant de retenir un flowsheet.
+
+À retenir : la performance d'une usine ne se mesure pas uniquement à la teneur du concentré ; elle inclut aussi la récupération, la stabilité du procédé et la gestion responsable des résidus.
+        `,
+      },
+    ],
+  },
+  {
+    id: 22,
+    titre: "Équipements miniers et chaîne de production",
+    categorieId: 8,
+    matiere: "Équipements miniers",
+    description:
+      "Rôle des engins de chargement et de transport, choix d'une flotte et facteurs de productivité. Synthèse reformulée à partir de « Cours de Machines de Chargement et de Transport.pdf » et « COURS EQUIPEMENTS MINIERS COMPLET.pdf ».",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Familles d'engins et fonctions",
+        contenu: `
+Les opérations minières mobilisent des engins de creusement ou d'excavation, des équipements de chargement et des moyens de transport. Selon le chantier, on peut rencontrer des pelles hydrauliques, des chargeuses, des draglines, des tombereaux, des scrapers ou des systèmes de transport continu.
+
+Chaque équipement possède un domaine d'emploi et des contraintes propres : type de matériau, hauteur de travail, mobilité, portée, sélectivité, capacité, état du terrain et organisation du chantier.
+
+À retenir : une machine performante sur un matériau ou une géométrie donnée ne l'est pas automatiquement dans toutes les conditions.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Adapter l'équipement au massif",
+        contenu: `
+Le choix d'un équipement tient compte de la résistance et de l'abrasivité de la roche, de la fracturation, de l'humidité, de la granulométrie attendue et des contraintes d'accès. Ces propriétés influencent l'excavation, l'usure des outils et les besoins de fragmentation.
+
+Les classifications d'excavabilité aident à organiser la comparaison entre terrains et familles d'engins. Elles s'appuient sur des paramètres géologiques ou mécaniques et doivent être appliquées dans le domaine pour lequel elles ont été conçues.
+
+Les observations du front et l'expérience opérationnelle complètent les essais et les classifications. Les conditions réelles peuvent varier à l'intérieur d'une même zone géologique.
+
+À retenir : le dimensionnement d'une flotte repose sur les données du terrain et les capacités vérifiées des machines, pas sur une classe de roche utilisée seule.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Cycle de chargement et de transport",
+        contenu: `
+Un cycle de transport peut comprendre le positionnement de l'engin de chargement, le remplissage, le trajet chargé, le déversement puis le retour à vide. Les attentes, les manœuvres, l'état des pistes et les interruptions influencent la durée totale.
+
+La capacité nominale d'une machine ne correspond pas à sa production effective. Pour estimer un rendement, il faut considérer le matériau, le volume réellement chargé, la durée des cycles, la disponibilité mécanique et l'organisation de la flotte.
+
+Une chaîne équilibrée limite à la fois l'attente des engins de chargement et les files de véhicules. Les temps de cycle observés servent à repérer les goulots d'étranglement et à ajuster l'organisation.
+
+À retenir : la productivité du système dépend de la coordination entre chargement, transport, pistes et destination.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Disponibilité, coûts et sécurité",
+        contenu: `
+La disponibilité mécanique, la maintenance, l'approvisionnement en pièces, la consommation d'énergie et l'usure déterminent une partie du coût d'utilisation des équipements. La capacité et la productivité doivent donc être comparées au coût global du système.
+
+La circulation des engins exige des pistes adaptées, une visibilité suffisante, une signalisation claire, des procédures de priorité et une séparation des zones de travail lorsque nécessaire. Les plans et règles de circulation du site s'appliquent à toutes les opérations.
+
+À retenir : le meilleur choix d'équipement associe performance, fiabilité, coût de cycle de vie, compatibilité avec le massif et sécurité du personnel.
+        `,
+      },
+    ],
+  },
+  {
+    id: 23,
+    titre: "Levés topographiques pour les mines",
+    categorieId: 8,
+    matiere: "Topographie minière",
+    description:
+      "Principes des levés de terrain, des réseaux de référence, du nivellement et de la représentation des travaux. Synthèse reformulée à partir de « Cours Leves d'etudes topographiques_ENI-ABT_2022.pdf ».",
+    chapitres: [
+      {
+        id: 1,
+        titre: "Objectifs et référentiels topographiques",
+        contenu: `
+Un levé topographique transforme des observations de terrain en coordonnées, altitudes et plans utilisables pour décrire un site. Le plan conserve une échelle et des positions mesurables ; une carte peut couvrir une zone plus large et servir à une représentation générale.
+
+Les levés s'appuient sur des points de référence et des réseaux de contrôle. Le choix du système de coordonnées, des repères altimétriques et des méthodes de rattachement doit rester cohérent entre les campagnes de mesures.
+
+En mine, les levés servent notamment à représenter le terrain, les fronts, les pistes et les ouvrages. Leur précision et leur fréquence dépendent de l'usage prévu et des procédures du site.
+
+À retenir : une mesure topographique n'est exploitable que si son référentiel, sa date et sa méthode sont documentés.
+        `,
+      },
+      {
+        id: 2,
+        titre: "Planimétrie et levé des détails",
+        contenu: `
+Le levé planimétrique détermine la position horizontale des points. Les détails du terrain peuvent être mesurés par des cheminements, des rayonnements ou des polygonales rattachées à des points de contrôle.
+
+La reconnaissance du terrain permet de choisir des stations qui offrent visibilité, stabilité et couverture suffisante. Une station totale, un théodolite ou un système satellitaire peuvent être utilisés selon l'environnement, la précision requise et la disponibilité des équipements.
+
+Les observations et les contrôles doivent être consignés pour détecter les erreurs et retracer la construction du plan.
+
+À retenir : choisir une méthode de levé, c'est équilibrer couverture, précision, visibilité et contrôles disponibles.
+        `,
+      },
+      {
+        id: 3,
+        titre: "Nivellement et altitudes",
+        contenu: `
+Le nivellement détermine les différences d'altitude entre des points. Le nivellement géométrique mesure ces différences à l'aide d'un niveau et de lectures sur mire ; le nivellement trigonométrique les calcule à partir de mesures angulaires et de distances.
+
+D'autres moyens de détermination d'altitude existent, mais leur précision et leurs limites dépendent des instruments et des conditions de mesure. Les contrôles et les rattachements aux repères de référence sont essentiels lorsqu'une erreur d'altitude peut affecter les travaux.
+
+En mine, l'altimétrie contribue au suivi des banquettes, des pentes, des fonds et des ouvrages. Les mesures servent aussi à analyser les écoulements d'eau.
+
+À retenir : le nivellement fournit des différences d'altitude ; leur interprétation doit toujours préciser le repère de référence utilisé.
+        `,
+      },
+      {
+        id: 4,
+        titre: "Plans, contrôle et mise à jour",
+        contenu: `
+Les données mesurées sont contrôlées puis représentées sous forme de plans adaptés à l'objectif. La légende, l'échelle, la date, le système de coordonnées et les points de référence facilitent leur lecture et leur comparaison.
+
+Les travaux miniers modifient rapidement la géométrie des fronts et des excavations. Des levés réguliers permettent de comparer la situation observée au plan prévu et de mettre à jour les documents opérationnels.
+
+Les écarts doivent être analysés en tenant compte de la précision des mesures, du délai entre les levés et du déplacement des ouvrages.
+
+À retenir : un plan minier est un document évolutif ; il doit être contrôlé, daté et actualisé après les changements importants du site.
+        `,
+      },
+    ],
+  },
 ];
 
 export default cours;

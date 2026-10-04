@@ -691,6 +691,286 @@ const questions = [
     explication:
       "Une anomalie est un indice à vérifier : elle doit être interprétée avec le fond géochimique, la géologie et la qualité des données.",
   },
+  {
+    id: 47,
+    categorie: "Géologie minière",
+    difficulte: "Moyenne",
+    question: "Quel assemblage est fréquemment observé dans les systèmes porphyriques cuprifères ?",
+    options: [
+      "Chalcopyrite et bornite disséminées ou en veinules",
+      "Halite et gypse dans des couches évaporitiques",
+      "Graphite et talc dans des filons de quartz",
+      "Olivine et serpentine dans des pegmatites",
+    ],
+    reponse: 0,
+    explication:
+      "Les systèmes porphyriques cuprifères peuvent contenir de la chalcopyrite et de la bornite disséminées dans la roche ou concentrées en veinules.",
+  },
+  {
+    id: 48,
+    categorie: "Géologie minière",
+    difficulte: "Moyenne",
+    question: "Quel contexte structural est souvent associé aux gisements aurifères orogéniques ?",
+    options: [
+      "Des zones de cisaillement et des failles dans des ceintures déformées",
+      "Uniquement des cratères volcaniques récents",
+      "Des récifs coralliens sans déformation",
+      "Des dunes côtières actives",
+    ],
+    reponse: 0,
+    explication:
+      "Les gisements aurifères orogéniques sont fréquemment liés à la circulation de fluides dans des failles et des zones de cisaillement.",
+  },
+  {
+    id: 49,
+    categorie: "Géologie minière",
+    difficulte: "Facile",
+    question: "Lequel de ces minéraux peut porter du lithium dans certaines pegmatites ?",
+    options: ["Spodumène", "Pyrite", "Calcite", "Hématite"],
+    reponse: 0,
+    explication:
+      "Le spodumène est l'un des minéraux porteurs de lithium que l'on peut rencontrer dans des pegmatites.",
+  },
+  {
+    id: 50,
+    categorie: "Géologie minière",
+    difficulte: "Moyenne",
+    question: "Qu'est-ce qui rend un skarn particulièrement pertinent à rechercher près d'une intrusion ?",
+    options: [
+      "La réaction entre des fluides liés à l'intrusion et une roche carbonatée",
+      "Le dépôt éolien de sable quartzeux",
+      "La cristallisation d'une évaporite à la surface",
+      "La fusion complète de tous les calcaires encaissants",
+    ],
+    reponse: 0,
+    explication:
+      "Un skarn peut se développer par réaction métasomatique entre des fluides chauds associés à une intrusion et un encaissant carbonaté.",
+  },
+  {
+    id: 51,
+    categorie: "Géologie minière",
+    difficulte: "Facile",
+    question: "Quels éléments entrent dans le calcul du RQD à partir d'une passe de carottage ?",
+    options: [
+      "La somme des longueurs de morceaux retenus rapportée à la longueur de la passe",
+      "La profondeur finale du forage divisée par sa pente",
+      "Le nombre de minéraux par mètre de carotte",
+      "La masse de la carotte divisée par sa densité",
+    ],
+    reponse: 0,
+    explication:
+      "Le RQD rapporte la somme des longueurs des morceaux de carotte d'au moins 100 mm à la longueur totale de la passe.",
+  },
+  {
+    id: 52,
+    categorie: "Géologie minière",
+    difficulte: "Moyenne",
+    question: "Pourquoi faut-il interpréter un RQD avec d'autres observations géotechniques ?",
+    options: [
+      "Il ne décrit pas à lui seul l'orientation, l'état des discontinuités ni l'effet de l'eau",
+      "Il mesure directement toutes les contraintes du massif",
+      "Il donne automatiquement le type de soutènement à installer",
+      "Il n'est jamais influencé par la qualité du carottage",
+    ],
+    reponse: 0,
+    explication:
+      "Le RQD décrit principalement la continuité des morceaux de carotte ; il ne remplace pas l'étude des discontinuités, de l'eau et des conditions de l'ouvrage.",
+  },
+  {
+    id: 53,
+    categorie: "Géologie minière",
+    difficulte: "Moyenne",
+    question: "À quoi servent principalement les classifications RMR, Q et GSI ?",
+    options: [
+      "À organiser plusieurs observations du massif dans un cadre descriptif",
+      "À remplacer toute cartographie géologique",
+      "À prouver qu'une excavation est stable sans inspection",
+      "À déterminer automatiquement le prix du minerai",
+    ],
+    reponse: 0,
+    explication:
+      "Ces cadres synthétisent différentes caractéristiques du massif, mais doivent être appliqués dans leur domaine et confrontés aux conditions du site.",
+  },
+  {
+    id: 54,
+    categorie: "Géologie minière",
+    difficulte: "Facile",
+    question: "Quel est l'objectif général du soutènement d'une excavation souterraine ?",
+    options: [
+      "Contrôler les déformations et limiter les chutes de blocs",
+      "Augmenter la teneur du minerai",
+      "Remplacer l'aérage de la mine",
+      "Réduire la profondeur du gisement",
+    ],
+    reponse: 0,
+    explication:
+      "Le soutènement contribue à contrôler les déformations et les instabilités autour d'un ouvrage ; sa conception dépend des conditions du site.",
+  },
+  {
+    id: 55,
+    categorie: "Géologie minière",
+    difficulte: "Facile",
+    question: "Quel est le rôle principal de l'aérage dans une mine souterraine ?",
+    options: [
+      "Renouveler l'air et contribuer à évacuer chaleur et contaminants",
+      "Augmenter la teneur du minerai",
+      "Remplacer les soutènements",
+      "Mesurer la profondeur du gisement",
+    ],
+    reponse: 0,
+    explication:
+      "L'aérage apporte de l'air aux zones occupées et contribue à évacuer chaleur, poussières et contaminants.",
+  },
+  {
+    id: 56,
+    categorie: "Géologie minière",
+    difficulte: "Moyenne",
+    question: "À quoi sert notamment la ventilation secondaire d'un front en développement ?",
+    options: [
+      "À renouveler l'air dans une zone éloignée du réseau principal",
+      "À mesurer la teneur du minerai abattu",
+      "À stabiliser automatiquement les piliers",
+      "À transporter le concentré vers l'usine",
+    ],
+    reponse: 0,
+    explication:
+      "Des conduits et ventilateurs auxiliaires peuvent acheminer ou aspirer l'air à proximité d'un front éloigné du circuit principal.",
+  },
+  {
+    id: 57,
+    categorie: "Géologie minière",
+    difficulte: "Facile",
+    question: "Quel est le principe de base de la méthode des chambres et piliers ?",
+    options: [
+      "Extraire dans les chambres tout en laissant des piliers de soutien",
+      "Remplir tous les chantiers avec du béton",
+      "Faire s'effondrer systématiquement la surface avant l'extraction",
+      "Dissoudre le minerai en place avec un réactif",
+    ],
+    reponse: 0,
+    explication:
+      "La méthode des chambres et piliers extrait le minerai dans les chambres tout en conservant des piliers conçus pour soutenir les terrains.",
+  },
+  {
+    id: 58,
+    categorie: "Géologie minière",
+    difficulte: "Moyenne",
+    question: "Quel facteur est essentiel au choix d'une méthode d'exploitation souterraine ?",
+    options: [
+      "La géométrie du gisement et la stabilité du minerai et des encaissants",
+      "La couleur de la signalisation de surface",
+      "Le nombre de cartes dans le rapport",
+      "La distance du gisement à l'équateur uniquement",
+    ],
+    reponse: 0,
+    explication:
+      "La géométrie du gisement et le comportement mécanique du minerai et des encaissants influencent les ouvertures, le soutènement et la séquence d'exploitation.",
+  },
+  {
+    id: 59,
+    categorie: "Minéralurgie",
+    difficulte: "Facile",
+    question: "Quelle distinction entre minéralurgie et métallurgie est correcte ?",
+    options: [
+      "La minéralurgie prépare et concentre le minerai ; la métallurgie traite les matières pour produire ou transformer les métaux",
+      "La minéralurgie étudie les fossiles ; la métallurgie étudie les reliefs",
+      "Les deux termes désignent uniquement le forage",
+      "La métallurgie consiste à cartographier les gisements",
+    ],
+    reponse: 0,
+    explication:
+      "La minéralurgie porte sur la préparation et la concentration des minerais, tandis que la métallurgie traite les matières pour produire ou transformer les métaux.",
+  },
+  {
+    id: 60,
+    categorie: "Minéralurgie",
+    difficulte: "Moyenne",
+    question: "Pourquoi fragmente-t-on le minerai avant certaines opérations de concentration ?",
+    options: [
+      "Pour libérer les minéraux utiles de la gangue à une taille adaptée",
+      "Pour augmenter la teneur initiale du gisement",
+      "Pour modifier la position géographique des minéraux",
+      "Pour éviter toute classification des particules",
+    ],
+    reponse: 0,
+    explication:
+      "La fragmentation vise à séparer les minéraux utiles de la gangue ; le degré requis dépend de la texture et des associations minérales.",
+  },
+  {
+    id: 61,
+    categorie: "Minéralurgie",
+    difficulte: "Moyenne",
+    question: "Quelle opération exploite les différences de densité entre particules ?",
+    options: [
+      "La séparation gravimétrique",
+      "La cartographie structurale",
+      "Le nivellement géométrique",
+      "La ventilation secondaire",
+    ],
+    reponse: 0,
+    explication:
+      "La séparation gravimétrique exploite les contrastes de densité des particules dans un fluide.",
+  },
+  {
+    id: 62,
+    categorie: "Équipements miniers",
+    difficulte: "Facile",
+    question: "Quelles étapes composent généralement un cycle de transport par camion en mine ?",
+    options: [
+      "Chargement, trajet chargé, déversement et retour",
+      "Forage, cristallisation, fusion et dépôt",
+      "Nivellement, flottation, analyse et ventilation",
+      "Concassage, soutènement, cartographie et forage",
+    ],
+    reponse: 0,
+    explication:
+      "Un cycle courant comprend le chargement, le trajet chargé, le déversement et le retour à la zone de chargement.",
+  },
+  {
+    id: 63,
+    categorie: "Équipements miniers",
+    difficulte: "Moyenne",
+    question: "Pourquoi la capacité nominale d'un engin ne suffit-elle pas à estimer la production réelle ?",
+    options: [
+      "La durée des cycles, les attentes et la disponibilité modifient le rendement effectif",
+      "La capacité nominale indique toujours le tonnage journalier",
+      "Les pistes n'influencent jamais les cycles",
+      "Les engins ne nécessitent aucune maintenance",
+    ],
+    reponse: 0,
+    explication:
+      "La production réelle dépend aussi du temps de cycle, des attentes, de l'état des pistes, de l'organisation et de la disponibilité mécanique.",
+  },
+  {
+    id: 64,
+    categorie: "Topographie minière",
+    difficulte: "Facile",
+    question: "À quoi sert le nivellement en topographie ?",
+    options: [
+      "À déterminer des différences d'altitude entre des points",
+      "À identifier la composition d'un minerai",
+      "À mesurer directement la résistance d'une roche",
+      "À calculer la teneur d'un concentré",
+    ],
+    reponse: 0,
+    explication:
+      "Le nivellement détermine des différences de niveau qui permettent de calculer les altitudes des points.",
+  },
+  {
+    id: 65,
+    categorie: "Topographie minière",
+    difficulte: "Moyenne",
+    question: "Pourquoi les points d'un levé topographique sont-ils rattachés à un réseau de référence ?",
+    options: [
+      "Pour assurer la cohérence et le contrôle des coordonnées et des altitudes",
+      "Pour augmenter artificiellement l'échelle du plan",
+      "Pour remplacer les observations de terrain",
+      "Pour rendre les mesures indépendantes de leur localisation",
+    ],
+    reponse: 0,
+    explication:
+      "Le rattachement à des points de référence permet de comparer les levés dans un système de coordonnées et d'altitudes commun.",
+  },
 ];
 
 export default questions;

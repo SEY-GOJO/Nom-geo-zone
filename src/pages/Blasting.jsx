@@ -35,9 +35,8 @@ function Blasting() {
         </p>
 
         <p>
-          GEO ZONE présentera progressivement les notions
-          fondamentales, les paramètres de conception, le contrôle
-          de la fragmentation et les bonnes pratiques de sécurité.
+          Cette page présente les paramètres de tir, la fragmentation,
+          l'analyse des résultats et les principes généraux de sécurité.
         </p>
       </div>
 

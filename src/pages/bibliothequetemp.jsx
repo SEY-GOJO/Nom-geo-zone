@@ -4,12 +4,39 @@ import { Link } from "react-router-dom";
 import categories from "../data/categories";
 import cours from "../data/cours";
 
+function normaliserRecherche(texte) {
+  return texte
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase()
+    .trim();
+}
+
 function Bibliotheque() {
   const [recherche, setRecherche] = useState("");
+  const rechercheNormalisee = normaliserRecherche(recherche);
 
-  const categoriesFiltrees = categories.filter((categorie) =>
-    categorie.nom.toLowerCase().includes(recherche.toLowerCase())
-  );
+  const categoriesFiltrees = categories.filter((categorie) => {
+    if (!rechercheNormalisee) {
+      return true;
+    }
+
+    const coursCategorie = cours.filter(
+      (element) => element.categorieId === categorie.id
+    );
+    const texteRecherche = normaliserRecherche(
+      [
+        categorie.nom,
+        ...coursCategorie.flatMap((element) => [
+          element.titre,
+          element.description,
+          ...(element.chapitres || []).map((chapitre) => chapitre.titre),
+        ]),
+      ].join(" ")
+    );
+
+    return texteRecherche.includes(rechercheNormalisee);
+  });
 
   const nombreCours = (categorieId) => {
     return cours.filter(
@@ -18,6 +45,10 @@ function Bibliotheque() {
   };
 
   const totalCours = cours.length;
+  const totalChapitres = cours.reduce(
+    (total, element) => total + element.chapitres.length,
+    0
+  );
 
   return (
     <div className="container library-page">
@@ -79,12 +110,12 @@ function Bibliotheque() {
 
         <div className="library-stat">
           <div className="library-stat-icon">
-            🎓
+            📖
           </div>
 
           <div>
-            <strong>GEO</strong>
-            <span>Plateforme</span>
+            <strong>{totalChapitres}</strong>
+            <span>Chapitres</span>
           </div>
         </div>
 
@@ -103,7 +134,7 @@ function Bibliotheque() {
           </h2>
 
           <p className="library-search-description">
-            Recherche rapidement une catégorie ou une matière.
+            Recherche une catégorie, un cours ou un chapitre.
           </p>
         </div>
 
@@ -115,8 +146,8 @@ function Bibliotheque() {
 
           <input
             className="search library-search"
-            type="text"
-            placeholder="Rechercher..."
+            type="search"
+            placeholder="Ex. ventilation, quartz, RQD…"
             value={recherche}
             onChange={(e) => setRecherche(e.target.value)}
           />

@@ -2,34 +2,17 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import questions from "../data/questions";
+import { consoliderResultatsEvaluation } from "../utils/assessmentResults";
+import { creerSessionQuestions } from "../utils/assessmentQuestions";
 
 const QUIZ_RESULT_KEY = "geo-zone:quiz-result:v1";
 const QUIZ_HISTORY_KEY = "geo-zone:quiz-history:v1";
 
-function melangerQuestions(liste) {
-  const resultat = [...liste];
-
-  for (let i = resultat.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-
-    [resultat[i], resultat[j]] = [
-      resultat[j],
-      resultat[i],
-    ];
-  }
-
-  return resultat;
-}
-
 function Quiz() {
-  const nombreQuestions = 10;
-
-  const [questionsQuiz] = useState(() =>
-    melangerQuestions(questions).slice(
-      0,
-      Math.min(nombreQuestions, questions.length)
-    )
-  );
+  const [categorieSelectionnee, setCategorieSelectionnee] =
+    useState("Toutes");
+  const [questionsQuiz, setQuestionsQuiz] = useState([]);
+  const [demarre, setDemarre] = useState(false);
 
   const [questionActuelle, setQuestionActuelle] =
     useState(0);
@@ -43,7 +26,39 @@ function Quiz() {
 
   const [reponses, setReponses] = useState([]);
 
+  const categories = [...new Set(
+    questions.map((question) => question.categorie)
+  )].sort((a, b) => a.localeCompare(b, "fr"));
+  const nombreQuestionsDisponibles = questions.filter(
+    (question) =>
+      categorieSelectionnee === "Toutes" ||
+      question.categorie === categorieSelectionnee
+  ).length;
+
   const question = questionsQuiz[questionActuelle];
+
+  const commencerQuiz = () => {
+    const session = creerSessionQuestions(questions, {
+      categorie: categorieSelectionnee,
+    });
+    setQuestionsQuiz(session);
+    setQuestionActuelle(0);
+    setScore(0);
+    setReponseChoisie(null);
+    setReponses([]);
+    setTermine(false);
+    setDemarre(true);
+  };
+
+  const choisirAutreMatiere = () => {
+    setDemarre(false);
+    setQuestionsQuiz([]);
+    setQuestionActuelle(0);
+    setScore(0);
+    setReponseChoisie(null);
+    setReponses([]);
+    setTermine(false);
+  };
 
   const choisirReponse = (index) => {
     if (reponseChoisie !== null) {
@@ -73,69 +88,48 @@ function Quiz() {
       questionActuelle ===
       questionsQuiz.length - 1
     ) {
-      const derniereReponseCorrecte =
-        reponseChoisie === question.reponse;
-
-      const scoreFinal =
-        score +
-        (derniereReponseCorrecte ? 1 : 0);
-
-      const reponsesFinales = [
-        ...reponses,
-        {
-          questionId: question.id,
-          correcte: derniereReponseCorrecte,
-        },
-      ];
-
-      const pourcentageFinal =
-        questionsQuiz.length > 0
-          ? Math.round(
-              (scoreFinal /
-                questionsQuiz.length) *
-                100
-            )
-          : 0;
+      const resultatFinal = consoliderResultatsEvaluation(
+        reponses,
+        questionsQuiz.length
+      );
+      const reponsesFinales = resultatFinal.reponses;
 
       try {
-  const resultat = {
-    score: scoreFinal,
-    total: questionsQuiz.length,
-    pourcentage: pourcentageFinal,
-    reponses: reponsesFinales,
-    date: new Date().toISOString(),
-  };
+        const resultat = {
+          ...resultatFinal,
+          date: new Date().toISOString(),
+        };
 
-  localStorage.setItem(
-    QUIZ_RESULT_KEY,
-    JSON.stringify(resultat)
-  );
+        localStorage.setItem(
+          QUIZ_RESULT_KEY,
+          JSON.stringify(resultat)
+        );
 
-  const historiqueExistant = JSON.parse(
-    localStorage.getItem(QUIZ_HISTORY_KEY) || "[]"
-  );
+        const historiqueExistant = JSON.parse(
+          localStorage.getItem(QUIZ_HISTORY_KEY) || "[]"
+        );
 
-  const historiqueValide = Array.isArray(historiqueExistant)
-    ? historiqueExistant
-    : [];
+        const historiqueValide = Array.isArray(historiqueExistant)
+          ? historiqueExistant
+          : [];
 
-  const nouvelHistorique = [
-    resultat,
-    ...historiqueValide,
-  ].slice(0, 20);
+        const nouvelHistorique = [
+          resultat,
+          ...historiqueValide,
+        ].slice(0, 20);
 
-  localStorage.setItem(
-    QUIZ_HISTORY_KEY,
-    JSON.stringify(nouvelHistorique)
-  );
-} catch (error) {
-  console.error(
-    "Impossible d'enregistrer le résultat du quiz :",
-    error
-  );
-}
+        localStorage.setItem(
+          QUIZ_HISTORY_KEY,
+          JSON.stringify(nouvelHistorique)
+        );
+      } catch (error) {
+        console.error(
+          "Impossible d'enregistrer le résultat du quiz :",
+          error
+        );
+      }
 
-      setScore(scoreFinal);
+      setScore(resultatFinal.score);
       setReponses(reponsesFinales);
       setTermine(true);
 
@@ -150,7 +144,7 @@ function Quiz() {
   };
 
   const recommencer = () => {
-    window.location.reload();
+    commencerQuiz();
   };
 
   const pourcentage =
@@ -159,6 +153,58 @@ function Quiz() {
           (score / questionsQuiz.length) * 100
         )
       : 0;
+
+  if (!demarre) {
+    return (
+      <main className="container">
+        <Link to="/formation" className="back-link">
+          ← Formation
+        </Link>
+
+        <section className="welcome">
+          <div className="module-icon">📝</div>
+          <h1>Quiz par matière</h1>
+          <p>
+            Entraîne-toi sur un domaine précis avec une correction et
+            une explication après chaque réponse.
+          </p>
+        </section>
+
+        <section className="card quiz-setup">
+          <label htmlFor="quiz-categorie">Choisis une matière</label>
+          <select
+            id="quiz-categorie"
+            value={categorieSelectionnee}
+            onChange={(event) =>
+              setCategorieSelectionnee(event.target.value)
+            }
+          >
+            <option value="Toutes">Toutes les matières</option>
+            {categories.map((categorie) => (
+              <option key={categorie} value={categorie}>
+                {categorie}
+              </option>
+            ))}
+          </select>
+
+          <p aria-live="polite">
+            {nombreQuestionsDisponibles} question
+            {nombreQuestionsDisponibles === 1 ? "" : "s"} disponible
+            {nombreQuestionsDisponibles === 1 ? "" : "s"} ; jusqu'à 10
+            seront tirées au hasard.
+          </p>
+
+          <button
+            type="button"
+            onClick={commencerQuiz}
+            disabled={nombreQuestionsDisponibles === 0}
+          >
+            Commencer l'entraînement
+          </button>
+        </section>
+      </main>
+    );
+  }
 
   if (questionsQuiz.length === 0) {
     return (
@@ -228,7 +274,13 @@ function Quiz() {
               type="button"
               onClick={recommencer}
             >
-              🔄 Recommencer
+              🔄 Refaire ce quiz
+            </button>
+            <button
+              type="button"
+              onClick={choisirAutreMatiere}
+            >
+              Choisir une autre matière
             </button>
           </div>
         </section>
@@ -248,15 +300,6 @@ function Quiz() {
             </strong>
           </p>
 
-          <p>
-            Taux de réussite :{" "}
-            <strong>{pourcentage} %</strong>
-          </p>
-
-          <p>
-            Questions répondues :{" "}
-            <strong>{reponses.length}</strong>
-          </p>
         </section>
       </div>
     );
@@ -276,13 +319,17 @@ function Quiz() {
           📝
         </div>
 
-        <h1>Quiz GEO ZONE</h1>
+      <h1>
+        {categorieSelectionnee === "Toutes"
+          ? "Quiz GEO ZONE"
+          : `Quiz : ${categorieSelectionnee}`}
+      </h1>
 
-        <p>
-          Teste tes connaissances en géologie,
-          minéralogie, hydrogéologie et géologie
-          minière.
-        </p>
+      <p>
+        {categorieSelectionnee === "Toutes"
+          ? "Teste tes connaissances dans plusieurs domaines de la géologie."
+          : `Teste tes connaissances en ${categorieSelectionnee}. Une explication accompagne chaque réponse.`}
+      </p>
       </section>
 
       <section className="card">

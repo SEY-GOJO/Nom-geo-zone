@@ -6,9 +6,15 @@ function Glossaire() {
   const [recherche, setRecherche] = useState("");
   const [categorie, setCategorie] = useState("Toutes");
   const categories = ["Toutes", ...new Set(glossaire.map((item) => item.categorie))];
+  const normaliser = (texte) =>
+    texte
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLocaleLowerCase()
+      .trim();
   const termes = useMemo(() => glossaire.filter((item) => {
-    const texte = `${item.terme} ${item.definition} ${item.categorie}`.toLocaleLowerCase();
-    return (categorie === "Toutes" || item.categorie === categorie) && texte.includes(recherche.toLocaleLowerCase().trim());
+    const texte = normaliser(`${item.terme} ${item.definition} ${item.categorie}`);
+    return (categorie === "Toutes" || item.categorie === categorie) && texte.includes(normaliser(recherche));
   }), [recherche, categorie]);
 
   return (

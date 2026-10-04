@@ -2,6 +2,10 @@ import { Link, useParams } from "react-router-dom";
 
 import categories from "../data/categories";
 import cours from "../data/cours";
+import {
+  calculerProgressionCours,
+  lireChapitresTermines,
+} from "../utils/courseProgress";
 
 function CoursDetail() {
   const { categorieId, id } = useParams();
@@ -14,36 +18,24 @@ function CoursDetail() {
     (element) => element.id === Number(categorieId)
   );
 
-  const progressKey =
-    `geo-zone:course-progress:${id}`;
+  const chapitresTermines = (() => {
+    if (!coursActuel) {
+      return [];
+    }
 
-  let chapitresTermines = [];
-
-  if (coursActuel) {
     try {
-      const progressionEnregistree =
-        localStorage.getItem(progressKey);
-
-      if (progressionEnregistree) {
-        const progressionParsee =
-          JSON.parse(progressionEnregistree);
-
-        if (Array.isArray(progressionParsee)) {
-          chapitresTermines =
-            progressionParsee.filter((chapitreId) =>
-              coursActuel.chapitres.some(
-                (chapitre) => chapitre.id === chapitreId
-              )
-            );
-        }
-      }
+      return lireChapitresTermines(
+        coursActuel.id,
+        coursActuel.chapitres
+      );
     } catch (error) {
       console.error(
         "Impossible de récupérer la progression du cours :",
         error
       );
+      return [];
     }
-  }
+  })();
 
   if (!coursActuel) {
     return (
@@ -68,18 +60,14 @@ function CoursDetail() {
     );
   }
 
-  const totalChapitres =
-    coursActuel.chapitres.length;
-
-  const nombreChapitresTermines =
-    chapitresTermines.length;
-
-  const progression =
-    totalChapitres > 0
-      ? Math.round(
-          (nombreChapitresTermines / totalChapitres) * 100
-        )
-      : 0;
+  const {
+    totalChapitres,
+    nombreTermines: nombreChapitresTermines,
+    pourcentage: progression,
+  } = calculerProgressionCours(
+    coursActuel.chapitres,
+    chapitresTermines
+  );
 
   return (
     <div className="container course-detail-page">

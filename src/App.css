@@ -746,6 +746,39 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(23, 96, 68, 0.1);
 }
 
+.quiz-setup {
+  display: grid;
+  max-width: 720px;
+  gap: 12px;
+  margin: 0 auto;
+}
+
+.quiz-setup label {
+  color: #0b2e20;
+  font-weight: 700;
+}
+
+.quiz-setup select {
+  margin: 0;
+}
+
+.quiz-setup p {
+  margin: 0;
+  color: #52645a;
+}
+
+.quiz-setup button {
+  justify-self: start;
+  min-height: 46px;
+  padding: 10px 18px;
+}
+
+@media (max-width: 600px) {
+  .quiz-setup button {
+    width: 100%;
+  }
+}
+
 /* =========================================================
    RESPONSIVE TABLETTE
 ========================================================= */
@@ -4233,6 +4266,13 @@ textarea:focus-visible {
   gap: 14px;
 }
 
+.revision-flashcard-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .revision-flashcard-meta {
   color: #64748b;
 }
@@ -7576,6 +7616,17 @@ textarea:focus-visible {
   .home-page .home-quick-actions a {
     font-size: 9px;
   }
+}
+
+.identification-method-note {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid #1b7887;
+  border-radius: 8px;
+  background: #eff7f6;
+  color: #425b60;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 .identification-mode-tabs {
@@ -13868,11 +13919,11 @@ textarea:focus-visible {
 .chapter-reading-header > div:last-child > span {
   display: block;
 
-  margin-bottom: 4px;
+  margin: 0;
 
   color: #176044;
 
-  font-size: 8px;
+  font-size: 10px;
 
   font-weight: 900;
 
@@ -13918,6 +13969,21 @@ textarea:focus-visible {
   color: #0f382a;
   font-size: 1.48rem;
   line-height: 1.35;
+}
+
+.chapter-reading-card .chapter-list {
+  display: grid;
+  max-width: 760px;
+  gap: 10px;
+  margin: 0 auto 22px;
+  padding-left: 24px;
+  color: #2f413b;
+  font-size: 1.04rem;
+  line-height: 1.75;
+}
+
+.chapter-reading-card .chapter-list li::marker {
+  color: #176044;
 }
 
 .chapter-reading-card .content-space {
@@ -14290,6 +14356,18 @@ textarea:focus-visible {
   color: #42574e;
   font-size: 14px;
   line-height: 1.6;
+}
+
+.chapter-progress-count {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+}
+
+.chapter-progress-error {
+  margin: -8px 0 18px;
+  color: #9f2d24;
+  font-size: 14px;
 }
 
 .chapter-validate-button {

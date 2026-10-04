@@ -185,6 +185,12 @@ function RocheDetail() {
             : "Non renseigné"}
         </p>
 
+        {roche.indices && (
+          <p>
+            <strong>Indice de reconnaissance :</strong> {roche.indices}
+          </p>
+        )}
+
         {minerauxAssocies.length > 0 && (
           <div className="roche-mineral-links">
             <strong>Fiches minérales liées :</strong>
@@ -293,15 +299,6 @@ function RocheDetail() {
         </section>
       )}
 
-      <div className="card">
-        <h2>📚 Informations supplémentaires</h2>
-
-        <p>
-          Cette fiche sera progressivement enrichie avec
-          davantage de données géologiques et des ressources
-          pédagogiques liées à cette roche.
-        </p>
-      </div>
     </div>
   );
 }

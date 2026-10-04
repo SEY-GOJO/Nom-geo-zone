@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import { createPortal } from "react-dom";
 
 const BibliothequeTemp = lazy(() => import("./pages/bibliothequetemp"));
 const Categorie = lazy(() => import("./pages/Categorie"));
@@ -52,6 +53,7 @@ const Evaluation = lazy(() => import("./pages/Evaluation"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Glossaire = lazy(() => import("./pages/Glossaire"));
 import "./App.css";
+import "./global-polish.css";
 
 function BrandLogo() {
   return (
@@ -137,8 +139,8 @@ function Accueil() {
     },
     {
   icon: "📊",
-  title: "Dashboard",
-  description: "Suis ta progression, tes résultats et tes objectifs.",
+  title: "Tableau de bord",
+  description: "Retrouve tes résultats, tes favoris et ton activité récente.",
   link: "/dashboard",
   className: "dashboard",
 },
@@ -203,9 +205,9 @@ function Accueil() {
           </h2>
 
           <p>
-            Cours, roches, formation, outils, identification, mining et
-            intelligence artificielle : GEO ZONE rassemble progressivement
-            les ressources essentielles pour apprendre et progresser.
+            Cours, fiches de roches et minéraux, outils de calcul,
+            identification et activités interactives : choisis le format
+            adapté à ce que tu veux apprendre ou vérifier.
           </p>
         </section>
 
@@ -250,29 +252,6 @@ function Accueil() {
             ))}
           </div>
         </section>
-
-       <section className="home-quick-access">
-  <div className="home-quick-icon">⚡</div>
-
-  <div className="home-quick-content">
-    <span>ACCÈS RAPIDE</span>
-
-    <h2>Commence ton exploration</h2>
-
-    <p>
-      Accède directement aux ressources les plus utiles.
-    </p>
-  </div>
-
-  <div className="home-quick-actions">
-    <Link to="/bibliotheque">📚 Cours</Link>
-    <Link to="/roches">⛰️ Roches</Link>
-    <Link to="/mineraux">💎 Minéraux</Link>
-    <Link to="/glossaire">📖 Glossaire</Link>
-    <Link to="/outils">🛠️ Outils</Link>
-    <Link to="/dashboard">📊 Dashboard</Link>
-  </div>
-</section>
 
         <section className="home-quote">
           <div className="quote-icon">🌍</div>
@@ -330,6 +309,17 @@ function App() {
           <BrandLogo />
         </Link>
 
+        <div className="desktop-nav-links" aria-label="Navigation principale">
+          <NavLink to="/bibliotheque">Bibliothèque</NavLink>
+          <NavLink to="/formation">Formation</NavLink>
+          <NavLink to="/mining">Mining</NavLink>
+          <NavLink to="/roches">Roches</NavLink>
+          <NavLink to="/mineraux">Minéraux</NavLink>
+          <NavLink to="/identification">Identification</NavLink>
+          <NavLink to="/outils">Outils</NavLink>
+          <NavLink to="/dashboard">Tableau de bord</NavLink>
+        </div>
+
         <button
           className="mobile-menu-button"
           type="button"
@@ -345,18 +335,16 @@ function App() {
           {menuOuvert ? "✕" : "☰"}
         </button>
 
-        {menuOuvert && (
-          <div
-            className="mobile-menu-overlay"
-            onClick={() => setMenuOuvert(false)}
-          ></div>
-        )}
-
+        {menuOuvert && createPortal(
         <div
+          className="mobile-menu-overlay"
+          onClick={() => setMenuOuvert(false)}
+        >
+        <nav
           id="navigation-principale"
-          className={`nav-links ${
-            menuOuvert ? "mobile-menu-open" : ""
-          }`}
+          className="mobile-menu-panel nav-links mobile-menu-open"
+          aria-label="Navigation mobile"
+          onClick={(event) => event.stopPropagation()}
         >
           <div className="mobile-menu-header">
             <div>
@@ -382,8 +370,9 @@ function App() {
               PRINCIPAL
             </span>
 
-            <Link
+            <NavLink
               to="/"
+              end
               onClick={() => setMenuOuvert(false)}
             >
               <span className="mobile-menu-icon">🏠</span>
@@ -392,9 +381,9 @@ function App() {
                 <strong>Accueil</strong>
                 <small>Page principale</small>
               </span>
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/bibliotheque"
               onClick={() => setMenuOuvert(false)}
             >
@@ -404,9 +393,9 @@ function App() {
                 <strong>Bibliothèque</strong>
                 <small>Cours et ressources</small>
               </span>
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/formation"
               onClick={() => setMenuOuvert(false)}
             >
@@ -416,20 +405,20 @@ function App() {
                 <strong>Formation</strong>
                 <small>Apprendre et progresser</small>
               </span>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
   to="/dashboard"
   onClick={() => setMenuOuvert(false)}
 >
   <span className="mobile-menu-icon">📊</span>
 
   <span className="mobile-menu-text">
-    <strong>Dashboard</strong>
-    <small>Ma progression et mes résultats</small>
+    <strong>Tableau de bord</strong>
+    <small>Mes résultats, favoris et activité récente</small>
   </span>
-</Link>
+</NavLink>
 
-            <Link
+            <NavLink
               to="/geo-ai"
               onClick={() => setMenuOuvert(false)}
             >
@@ -439,7 +428,7 @@ function App() {
                 <strong>GEO AI</strong>
                 <small>Assistant géologique</small>
               </span>
-            </Link>
+            </NavLink>
           </div>
 
           <div className="mobile-menu-divider"></div>
@@ -449,7 +438,7 @@ function App() {
               EXPLORER
             </span>
 
-            <Link
+            <NavLink
               to="/mining"
               onClick={() => setMenuOuvert(false)}
             >
@@ -459,9 +448,9 @@ function App() {
                 <strong>Mining</strong>
                 <small>Univers minier</small>
               </span>
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/roches"
               onClick={() => setMenuOuvert(false)}
             >
@@ -471,9 +460,9 @@ function App() {
                 <strong>Roches</strong>
                 <small>Base de données</small>
               </span>
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/mineraux"
               onClick={() => setMenuOuvert(false)}
             >
@@ -483,9 +472,9 @@ function App() {
                 <strong>Minéraux</strong>
                 <small>Fiches et propriétés</small>
               </span>
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/identification"
               onClick={() => setMenuOuvert(false)}
             >
@@ -495,9 +484,9 @@ function App() {
                 <strong>Identification</strong>
                 <small>Identifier les roches</small>
               </span>
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/glossaire"
               onClick={() => setMenuOuvert(false)}
             >
@@ -507,9 +496,9 @@ function App() {
                 <strong>Glossaire</strong>
                 <small>Définitions géologiques</small>
               </span>
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/outils"
               onClick={() => setMenuOuvert(false)}
             >
@@ -519,7 +508,7 @@ function App() {
                 <strong>Outils</strong>
                 <small>Outils du géologue</small>
               </span>
-            </Link>
+            </NavLink>
           </div>
 
           <div className="mobile-menu-footer">
@@ -530,7 +519,10 @@ function App() {
               <small>Apprendre • Explorer • Comprendre</small>
             </div>
           </div>
-        </div>
+        </nav>
+        </div>,
+        document.body
+        )}
       </nav>
 
       <Suspense fallback={<PageLoading />}>
@@ -807,7 +799,7 @@ function App() {
             <Link to="/roches">Roches</Link>
             <Link to="/mineraux">Minéraux</Link>
             <Link to="/glossaire">Glossaire</Link>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/dashboard">Tableau de bord</Link>
           </div>
 
           <div className="geo-footer-links">

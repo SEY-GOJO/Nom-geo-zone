@@ -15,7 +15,7 @@ function Formation() {
   icon: "📝",
   titre: "Quiz",
   description:
-    "Teste tes connaissances avec des questions adaptées aux différentes matières.",
+    "Entraîne-toi dans la matière de ton choix avec une correction après chaque réponse.",
   link: "/quiz",
   disponible: true,
   action: "Commencer",
@@ -24,7 +24,7 @@ function Formation() {
   icon: "🧠",
   titre: "Révision",
   description:
-    "Révise les notions importantes avant tes examens et évaluations.",
+    "Retrouve une notion dans les chapitres et révise avec des cartes mémoire.",
   link: "/revision",
   disponible: true,
   action: "Réviser",
@@ -33,7 +33,7 @@ function Formation() {
   icon: "🎯",
   titre: "Évaluation",
   description:
-    "Évalue ton niveau et identifie les notions à approfondir.",
+    "Fais un diagnostic transversal et repère les matières à retravailler.",
   link: "/evaluation",
   disponible: true,
   action: "Commencer",
@@ -42,7 +42,7 @@ function Formation() {
       icon: "📈",
       titre: "Progression",
       description:
-        "Suis ton évolution et ton avancement dans ton apprentissage.",
+        "Suis tes cours terminés et reprends là où tu t'es arrêté.",
       link: "/progression",
       disponible: true,
       action: "Voir ma progression",
@@ -88,9 +88,8 @@ function Formation() {
           <h2>Ton espace d'apprentissage</h2>
 
           <p>
-            GEO ZONE rassemble progressivement plusieurs outils
-            pour progresser, renforcer tes connaissances et mieux
-            te préparer à tes études.
+            Apprends avec les cours, entraîne-toi avec les quiz et
+            les défis, puis retrouve tes résultats dans ta progression.
           </p>
         </div>
       </section>

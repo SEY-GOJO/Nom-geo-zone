@@ -2,38 +2,17 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import questions from "../data/questions";
+import { consoliderResultatsEvaluation } from "../utils/assessmentResults";
+import { creerSessionQuestions } from "../utils/assessmentQuestions";
 
 const EVALUATION_RESULT_KEY =
   "geo-zone:evaluation-result:v1";
   const EVALUATION_HISTORY_KEY =
   "geo-zone:evaluation-history:v1";
 
-function melangerQuestions(liste) {
-  const resultat = [...liste];
-
-  for (let i = resultat.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-
-    [resultat[i], resultat[j]] = [
-      resultat[j],
-      resultat[i],
-    ];
-  }
-
-  return resultat;
-}
-
 function Evaluation() {
-  const nombreQuestions = Math.min(
-    10,
-    questions.length
-  );
-
   const [questionsEvaluation] = useState(() =>
-    melangerQuestions(questions).slice(
-      0,
-      nombreQuestions
-    )
+    creerSessionQuestions(questions)
   );
 
   const [questionActuelle, setQuestionActuelle] =
@@ -84,31 +63,13 @@ function Evaluation() {
       questionActuelle ===
       questionsEvaluation.length - 1
     ) {
-      const derniereReponseCorrecte =
-        reponseChoisie === question.reponse;
-
-      const scoreFinal =
-        score +
-        (derniereReponseCorrecte ? 1 : 0);
-
-      const resultatsFinaux = [
-        ...resultats,
-        {
-          questionId: question.id,
-          categorie: question.categorie,
-          correcte:
-            derniereReponseCorrecte,
-        },
-      ];
-
-      const pourcentageFinal =
-        questionsEvaluation.length > 0
-          ? Math.round(
-              (scoreFinal /
-                questionsEvaluation.length) *
-                100
-            )
-          : 0;
+      const resultatFinal = consoliderResultatsEvaluation(
+        resultats,
+        questionsEvaluation.length
+      );
+      const resultatsFinaux = resultatFinal.reponses;
+      const scoreFinal = resultatFinal.score;
+      const pourcentageFinal = resultatFinal.pourcentage;
 
       const bilanCategoriesFinal = {};
 
@@ -500,9 +461,8 @@ function Evaluation() {
         <h1>Évaluation</h1>
 
         <p>
-          Mesure ton niveau dans plusieurs domaines
-          de la géologie et identifie les notions
-          à renforcer.
+          Réponds à des questions tirées de plusieurs matières pour obtenir
+          un diagnostic global et repérer les domaines à renforcer.
         </p>
       </section>
 

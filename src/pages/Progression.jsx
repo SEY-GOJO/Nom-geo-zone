@@ -3,54 +3,44 @@ import { useState } from "react";
 
 import cours from "../data/cours";
 import categories from "../data/categories";
+import {
+  calculerProgressionCours,
+  lireChapitresTermines,
+} from "../utils/courseProgress";
 
 function Progression() {
   const [actualisation, setActualisation] = useState(0);
 
-  const getProgression = (coursId) => {
+  const getProgression = (coursActuel) => {
     try {
-      const donnees = localStorage.getItem(
-        `geo-zone:course-progress:${coursId}`
+      const chapitresTermines = lireChapitresTermines(
+        coursActuel.id,
+        coursActuel.chapitres
       );
 
-      if (!donnees) {
-        return [];
-      }
-
-      const progression = JSON.parse(donnees);
-
-      return Array.isArray(progression) ? progression : [];
+      return calculerProgressionCours(
+        coursActuel.chapitres,
+        chapitresTermines
+      );
     } catch (error) {
       console.error(
         "Impossible de lire la progression :",
         error
       );
 
-      return [];
+      return calculerProgressionCours(
+        coursActuel.chapitres,
+        []
+      );
     }
   };
 
   const coursProgression = cours.map((coursActuel) => {
-    const chapitresTermines = getProgression(
-      coursActuel.id
-    );
-
-    const totalChapitres =
-      coursActuel.chapitres.length;
-
-    const nombreTermines =
-      chapitresTermines.filter((chapitreId) =>
-        coursActuel.chapitres.some(
-          (chapitre) => chapitre.id === chapitreId
-        )
-      ).length;
-
-    const pourcentage =
-      totalChapitres > 0
-        ? Math.round(
-            (nombreTermines / totalChapitres) * 100
-          )
-        : 0;
+    const {
+      nombreTermines,
+      totalChapitres,
+      pourcentage,
+    } = getProgression(coursActuel);
 
     const categorie = categories.find(
       (element) =>

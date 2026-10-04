@@ -1,7 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import { useMemo, useState } from "react";
 import cours from "../data/cours";
-import { analyserContenuChapitre } from "../utils/courseReading";
+import {
+  calculerProgressionCours,
+  lireChapitresTermines,
+  validerChapitre as enregistrerValidationChapitre,
+} from "../utils/courseProgress";
 
 function Chapitre() {
   const {
@@ -20,73 +24,48 @@ function Chapitre() {
       )
     : -1;
 
-  const progressKey = `geo-zone:course-progress:${id}`;
-
-  const [chapitreValide, setChapitreValide] = useState(() => {
-    if (!coursActuel || chapitreIndex === -1) {
-      return false;
+  const etatProgressionCharge = useMemo(() => {
+    if (!coursActuel) {
+      return {
+        coursId: null,
+        chapitresTermines: [],
+        messageErreur: "",
+      };
     }
 
     try {
-      const progressionExistante =
-        localStorage.getItem(progressKey);
-
-      if (!progressionExistante) {
-        return false;
-      }
-
-      const progressionParsee = JSON.parse(
-        progressionExistante
-      );
-
-      return (
-        Array.isArray(progressionParsee) &&
-        progressionParsee.includes(Number(chapitreId))
-      );
+      return {
+        coursId: coursActuel.id,
+        chapitresTermines: lireChapitresTermines(
+          coursActuel.id,
+          coursActuel.chapitres
+        ),
+        messageErreur: "",
+      };
     } catch (error) {
       console.error(
         "Impossible de restaurer la validation du chapitre :",
         error
       );
-      return false;
+      return {
+        coursId: coursActuel.id,
+        chapitresTermines: [],
+        messageErreur:
+          "La progression enregistrée n'a pas pu être lue sur cet appareil.",
+      };
     }
-  });
+  }, [coursActuel]);
+  const [progressionModifiee, setProgressionModifiee] =
+    useState(null);
+  const etatProgression =
+    progressionModifiee?.coursId === coursActuel?.id
+      ? progressionModifiee
+      : etatProgressionCharge;
 
   const chapitre =
     coursActuel && chapitreIndex !== -1
       ? coursActuel.chapitres[chapitreIndex]
       : null;
-
-  const analyseContenu = useMemo(
-    () => analyserContenuChapitre(chapitre?.contenu || ""),
-    [chapitre?.contenu]
-  );
-
-  const cartesVisuelles = [
-    {
-      icon: "🔍",
-      titre: "Observation",
-      texte: `Repère les éléments essentiels dans ${chapitre.titre.toLowerCase()}.`,
-    },
-    {
-      icon: "🧭",
-      titre: "Méthode",
-      texte: "Relie le concept aux définitions et aux exemples pour mieux mémoriser.",
-    },
-    {
-      icon: "✅",
-      titre: "À retenir",
-      texte:
-        analyseContenu.pointsCle[0] ||
-        "Le point clé de ce chapitre est à mémoriser pour la suite.",
-    },
-  ];
-
-  const schemaExplicatif = [
-    { label: "Concept", icon: "💡" },
-    { label: "Exemple", icon: "🧪" },
-    { label: "Application", icon: "📌" },
-  ];
 
   if (!coursActuel) {
     return (
@@ -101,10 +80,8 @@ function Chapitre() {
             disponible.
           </p>
 
-          <Link to="/bibliotheque">
-            <button type="button">
-              ← Retour à la bibliothèque
-            </button>
+          <Link to="/bibliotheque" className="secondary-button">
+            ← Retour à la bibliothèque
           </Link>
         </div>
       </div>
@@ -125,10 +102,9 @@ function Chapitre() {
 
           <Link
             to={`/bibliotheque/${categorieId}/cours/${id}`}
+            className="secondary-button"
           >
-            <button type="button">
-              ← Retour au cours
-            </button>
+            ← Retour au cours
           </Link>
         </div>
       </div>
@@ -138,8 +114,11 @@ function Chapitre() {
   const totalChapitres =
     coursActuel.chapitres.length;
 
-  const progression = Math.round(
-    ((chapitreIndex + 1) / totalChapitres) * 100
+  const chapitreValide =
+    etatProgression.chapitresTermines.includes(Number(chapitreId));
+  const progression = calculerProgressionCours(
+    coursActuel.chapitres,
+    etatProgression.chapitresTermines
   );
 
   const chapitrePrecedent =
@@ -163,44 +142,81 @@ function Chapitre() {
     ? chapitre.contenu.split("\n")
     : [];
 
-  const validerChapitre = () => {
-    try {
-      const progressionExistante =
-        localStorage.getItem(progressKey);
+  const blocsContenu = [];
 
-      let chapitresTermines = [];
+  for (let index = 0; index < lignesContenu.length; index += 1) {
+    const texte = lignesContenu[index].trim();
 
-      if (progressionExistante) {
-        const progressionParsee = JSON.parse(
-          progressionExistante
-        );
+    if (!texte) {
+      continue;
+    }
 
-        if (Array.isArray(progressionParsee)) {
-          chapitresTermines = progressionParsee;
-        }
-      }
+    if (texte.startsWith("- ")) {
+      const elements = [];
 
-      const chapitreIdNumerique = Number(chapitreId);
-
-      if (
-        !chapitresTermines.includes(
-          chapitreIdNumerique
-        )
+      while (
+        index < lignesContenu.length &&
+        lignesContenu[index].trim().startsWith("- ")
       ) {
-        chapitresTermines.push(chapitreIdNumerique);
+        elements.push(lignesContenu[index].trim().slice(2));
+        index += 1;
       }
 
-      localStorage.setItem(
-        progressKey,
-        JSON.stringify(chapitresTermines)
+      index -= 1;
+      blocsContenu.push(
+        <ul className="chapter-list" key={`liste-${index}`}>
+          {elements.map((element, elementIndex) => (
+            <li key={`${index}-${elementIndex}`}>{element}</li>
+          ))}
+        </ul>
+      );
+      continue;
+    }
+
+    if (texte.startsWith("À retenir :")) {
+      blocsContenu.push(
+        <aside key={index} className="lesson-takeaway">
+          <strong>À retenir</strong>
+          <p>{texte.replace("À retenir :", "").trim()}</p>
+        </aside>
+      );
+      continue;
+    }
+
+    if (texte.length < 105 && texte.endsWith(":")) {
+      blocsContenu.push(
+        <h3 key={index}>{texte.slice(0, -1)}</h3>
+      );
+      continue;
+    }
+
+    blocsContenu.push(<p key={index}>{texte}</p>);
+  }
+
+  const validerChapitreActuel = () => {
+    try {
+      const chapitresTermines = enregistrerValidationChapitre(
+        coursActuel.id,
+        Number(chapitreId),
+        coursActuel.chapitres
       );
 
-      setChapitreValide(true);
+      setProgressionModifiee({
+        coursId: coursActuel.id,
+        chapitresTermines,
+        messageErreur: "",
+      });
     } catch (error) {
       console.error(
         "Impossible d'enregistrer la validation du chapitre :",
         error
       );
+      setProgressionModifiee((etatActuel) => ({
+        ...etatActuel,
+        coursId: coursActuel.id,
+        messageErreur:
+          "La progression n'a pas pu être enregistrée. Vérifie les réglages de stockage de ton navigateur.",
+      }));
     }
   };
 
@@ -241,34 +257,38 @@ function Chapitre() {
           </span>
 
           <span>
-            🎓 GEO ZONE
-          </span>
-
-          <span>
-            ✅ Progression enregistrée
+            {chapitreValide ? "✅ Chapitre terminé" : "À terminer"}
           </span>
         </div>
 
         <div className="progress-section">
           <div className="progress-top">
             <span>
-              Progression dans le cours
+              Chapitres terminés dans ce cours
             </span>
 
-            <strong>{progression}%</strong>
+            <strong>{progression.pourcentage}%</strong>
           </div>
 
           <div
             className="progress-bar"
-            aria-label={`Progression ${progression}%`}
+            role="progressbar"
+            aria-label="Progression du cours"
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-valuenow={progression.pourcentage}
           >
             <div
               className="progress-fill"
               style={{
-                width: `${progression}%`,
+                width: `${progression.pourcentage}%`,
               }}
             />
           </div>
+          <p className="chapter-progress-count">
+            {progression.nombreTermines} sur {totalChapitres} chapitres
+            terminés
+          </p>
         </div>
       </section>
 
@@ -279,134 +299,21 @@ function Chapitre() {
           </div>
 
           <div>
-            <span>
-              LEÇON {chapitreIndex + 1}
-            </span>
-
-            <h2>{chapitre.titre}</h2>
+            <span>LEÇON {chapitreIndex + 1}</span>
+            <h2>Lecture du chapitre</h2>
           </div>
         </header>
 
-        <div className="chapter-reader-summary">
-          <div className="summary-pill">Résumé</div>
-          <p>{analyseContenu.resume}</p>
-
-          <div className="summary-objective">
-            <strong>Objectif</strong>
-            <p>{analyseContenu.objectif}</p>
-          </div>
-
-          {analyseContenu.pointsCle.length > 0 && (
-            <div className="summary-points">
-              <strong>Points clés</strong>
-              <ul>
-                {analyseContenu.pointsCle.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-
-        <div className="chapter-visual-panel" aria-label="Illustration pédagogique du chapitre">
-          <div className="visual-scene">
-            <div className="visual-core">
-              <span className="visual-badge">Leçon</span>
-              <div className="visual-icon">📘</div>
-              <h3>{chapitre.titre}</h3>
-            </div>
-
-            <div className="visual-flow">
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-            </div>
-          </div>
-
-          <div className="visual-cards">
-            {cartesVisuelles.map((carte) => (
-              <div className="visual-card" key={carte.titre}>
-                <div className="visual-card-icon">{carte.icon}</div>
-                <div>
-                  <strong>{carte.titre}</strong>
-                  <p>{carte.texte}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="chapter-diagram" aria-label="Schéma explicatif du chapitre">
-          <div className="diagram-header">
-            <span>Schéma</span>
-            <strong>Comprendre le chapitre</strong>
-          </div>
-
-          <div className="diagram-track">
-            {schemaExplicatif.map((step, index) => (
-              <div className="diagram-step" key={step.label}>
-                <div className="diagram-node">
-                  <span>{step.icon}</span>
-                  <strong>{step.label}</strong>
-                </div>
-                {index < schemaExplicatif.length - 1 && (
-                  <div className="diagram-arrow" aria-hidden="true">→</div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-
         <div className="content-body">
           {chapitre.contenu ? (
-            lignesContenu.map((ligne, index) => {
-              const texte = ligne.trim();
-              const estListe = texte.startsWith("- ");
-              const estEncadre = texte.startsWith("À retenir :");
-              const estIntertitre =
-                texte.length > 0 &&
-                texte.length < 105 &&
-                texte.endsWith(":") &&
-                !estListe &&
-                !estEncadre;
-
-              if (!texte) {
-                return <div key={index} className="content-space" />;
-              }
-
-              if (estEncadre) {
-                return (
-                  <aside key={index} className="lesson-takeaway">
-                    <strong>À retenir</strong>
-                    <p>{texte.replace("À retenir :", "").trim()}</p>
-                  </aside>
-                );
-              }
-
-              if (estIntertitre) {
-                return <h3 key={index}>{texte.slice(0, -1)}</h3>;
-              }
-
-              return (
-                <p
-                  key={index}
-                  className={estListe ? "lesson-list-item" : ""}
-                >
-                  {estListe ? texte.slice(2) : texte}
-                </p>
-              );
-            })
+            blocsContenu
           ) : (
             <div className="empty-content">
-              <div>📚</div>
-
-              <h3>
-                Contenu bientôt disponible
-              </h3>
+              <h3>Aucun contenu disponible</h3>
 
               <p>
-                Le contenu de ce chapitre sera
-                bientôt ajouté à GEO ZONE.
+                Ce chapitre n'a pas encore de contenu. Reviens plus tard
+                ou choisis une autre leçon du cours.
               </p>
             </div>
           )}
@@ -415,21 +322,36 @@ function Chapitre() {
 
       <div className="chapter-validation">
         <div>
-          <strong>Lecture terminée ?</strong>
+          <strong>
+            {chapitre.contenu?.trim()
+              ? "Lecture terminée ?"
+              : "Leçon indisponible"}
+          </strong>
           <p>
-            Valide ce chapitre pour enregistrer ta progression et passer à la suite.
+            {chapitre.contenu?.trim()
+              ? "Marque cette leçon comme terminée pour mettre à jour ta progression."
+              : "Cette leçon ne peut pas être validée tant que son contenu n'est pas disponible."}
           </p>
         </div>
 
         <button
           type="button"
           className="chapter-validate-button"
-          onClick={validerChapitre}
-          disabled={chapitreValide}
+          onClick={validerChapitreActuel}
+          disabled={chapitreValide || !chapitre.contenu?.trim()}
         >
-          {chapitreValide ? "✓ Chapitre validé" : "Valider le chapitre"}
+          {chapitreValide
+            ? "✓ Chapitre validé"
+            : chapitre.contenu?.trim()
+              ? "Valider le chapitre"
+              : "Contenu indisponible"}
         </button>
       </div>
+      {etatProgression.messageErreur && (
+        <p className="chapter-progress-error" role="alert">
+          {etatProgression.messageErreur}
+        </p>
+      )}
 
       <div className="chapter-navigation">
         <div className="navigation-left">

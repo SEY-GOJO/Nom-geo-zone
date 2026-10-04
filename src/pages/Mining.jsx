@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import categories from "../data/categories";
+import cours from "../data/cours";
 
 function Mining() {
   const domaines = [
@@ -46,6 +48,10 @@ function Mining() {
     },
   ];
 
+  const coursMiniers = cours.filter((coursActuel) =>
+    [8, 9].includes(coursActuel.categorieId)
+  );
+
   return (
     <div className="container mining-page">
       <Link to="/" className="back-link">
@@ -80,9 +86,9 @@ function Mining() {
           <h2>Découvre le monde minier</h2>
 
           <p>
-            De l'exploration à la planification minière, GEO ZONE
-            rassemble progressivement les notions essentielles pour
-            comprendre le fonctionnement d'une exploitation minière.
+            De l'exploration à la planification, retrouve des fiches
+            thématiques et des cours détaillés pour comprendre les
+            principales étapes d'une exploitation minière.
           </p>
         </div>
       </section>
@@ -134,6 +140,68 @@ function Mining() {
         </div>
       </section>
 
+      <section className="mining-section">
+        <div className="mining-section-heading">
+          <div>
+            <span>COURS ET RESSOURCES</span>
+            <h2>Approfondir les domaines miniers</h2>
+          </div>
+
+          <p>
+            {coursMiniers.length} cours spécialisés disponibles
+            dans la bibliothèque.
+          </p>
+        </div>
+
+        <div className="mining-grid">
+          {coursMiniers.map((coursActuel, index) => {
+            const categorie = categories.find(
+              (element) => element.id === coursActuel.categorieId
+            );
+
+            return (
+              <article
+                className="mining-domain-card"
+                key={coursActuel.id}
+              >
+                <div className="mining-domain-top">
+                  <div className="mining-domain-icon">
+                    {categorie?.icon || "📚"}
+                  </div>
+
+                  <span className="mining-domain-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+
+                <div className="mining-domain-content">
+                  <span className="course-label">
+                    {coursActuel.matiere || categorie?.nom}
+                  </span>
+                  <h3>{coursActuel.titre}</h3>
+                  <p>{coursActuel.description}</p>
+                  <p>
+                    📖 {coursActuel.chapitres.length} chapitre
+                    {coursActuel.chapitres.length === 1 ? "" : "s"}
+                  </p>
+                </div>
+
+                <div className="mining-domain-footer">
+                  <Link
+                    to={`/bibliotheque/${coursActuel.categorieId}/cours/${coursActuel.id}`}
+                  >
+                    <span>
+                      Lire le cours
+                      <strong>→</strong>
+                    </span>
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
       <section className="mining-info">
         <div className="mining-info-icon">💡</div>
 
@@ -141,9 +209,9 @@ function Mining() {
           <h3>Une approche progressive</h3>
 
           <p>
-            GEO ZONE développera progressivement chaque domaine
-            avec des cours, des explications, des exercices et
-            des ressources spécialisées.
+            Les cours spécialisés complètent les fiches de domaine.
+            Les ressources de géotechnique, minéralurgie, ventilation
+            et topographie sont aussi accessibles depuis ces cours.
           </p>
         </div>
       </section>

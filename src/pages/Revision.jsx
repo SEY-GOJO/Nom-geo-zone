@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import categories from "../data/categories";
 import cours from "../data/cours";
+import { analyserContenuChapitre } from "../utils/courseReading";
 
 function Revision() {
   const [recherche, setRecherche] = useState("");
@@ -11,19 +12,27 @@ function Revision() {
   const [categorieSelectionnee, setCategorieSelectionnee] =
     useState("Toutes");
 
-  const coursFiltres = cours.filter((coursActuel) => {
-    const texteRecherche = recherche
-      .toLowerCase()
+  const texteNormalise = (valeur) =>
+    String(valeur ?? "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLocaleLowerCase()
       .trim();
+
+  const coursFiltres = cours.filter((coursActuel) => {
+    const texteRecherche = texteNormalise(recherche);
 
     const correspondRecherche =
       texteRecherche === "" ||
-      coursActuel.titre
-        .toLowerCase()
-        .includes(texteRecherche) ||
-      coursActuel.description
-        .toLowerCase()
-        .includes(texteRecherche);
+      texteNormalise([
+        coursActuel.titre,
+        coursActuel.matiere,
+        coursActuel.description,
+        ...(coursActuel.chapitres || []).flatMap((chapitre) => [
+          chapitre.titre,
+          chapitre.contenu,
+        ]),
+      ].join(" ")).includes(texteRecherche);
 
     const correspondCategorie =
       categorieSelectionnee === "Toutes" ||
@@ -39,25 +48,40 @@ function Revision() {
   const reinitialiser = () => {
     setRecherche("");
     setCategorieSelectionnee("Toutes");
+    setCarteActuelle(0);
+    setVersoVisible(false);
   };
 
   const cartesMemoire = cours.flatMap((coursActuel) =>
-    (coursActuel.chapitres || []).map((chapitre) => ({
-      id: `${coursActuel.id}-${chapitre.id}`,
-      cours: coursActuel.titre,
-      titre: chapitre.titre,
-      contenu: String(chapitre.contenu || "")
-        .split("\n")
-        .filter((ligne) => ligne.trim())
-        .slice(0, 2)
-        .join(" "),
-    }))
+    categorieSelectionnee === "Toutes" ||
+    coursActuel.categorieId === Number(categorieSelectionnee)
+      ? (coursActuel.chapitres || []).map((chapitre) => ({
+          id: `${coursActuel.id}-${chapitre.id}`,
+          cours: coursActuel.titre,
+          coursId: coursActuel.id,
+          categorieId: coursActuel.categorieId,
+          chapitreId: chapitre.id,
+          titre: chapitre.titre,
+          contenu: analyserContenuChapitre(
+            chapitre.contenu || ""
+          ).resume,
+        }))
+      : []
   );
 
   const carte = cartesMemoire[carteActuelle];
 
   const carteSuivante = () => {
     setCarteActuelle((index) => (index + 1) % cartesMemoire.length);
+    setVersoVisible(false);
+  };
+
+  const cartePrecedente = () => {
+    setCarteActuelle(
+      (index) =>
+        (index - 1 + cartesMemoire.length) %
+        cartesMemoire.length
+    );
     setVersoVisible(false);
   };
 
@@ -78,8 +102,8 @@ function Revision() {
           <h1>Révision</h1>
 
           <p>
-            Retrouvez rapidement les cours et les chapitres
-            que tu veux revoir avant tes examens.
+            Recherche dans le contenu des chapitres, puis révise
+            les notions avec des cartes mémoire liées aux leçons.
           </p>
         </div>
       </section>
@@ -95,8 +119,8 @@ function Revision() {
           <h2>Choisis ce que tu veux revoir</h2>
 
           <p>
-            Utilise la recherche ou sélectionne une matière
-            pour retrouver rapidement les contenus disponibles.
+            La recherche couvre les titres, les matières et le texte
+            des chapitres. Le filtre de matière s'applique aussi aux cartes.
           </p>
         </div>
       </section>
@@ -116,13 +140,24 @@ function Revision() {
             aria-pressed={versoVisible}
           >
             <span>{versoVisible ? "RÉPONSE" : "NOTION À RETENIR"}</span>
-            <strong>{versoVisible ? carte.contenu || "Contenu bientôt disponible." : carte.titre}</strong>
+            <strong>{versoVisible ? carte.contenu : carte.titre}</strong>
             <small>Cliquer pour {versoVisible ? "revoir la notion" : "voir le rappel"}</small>
           </button>
 
-          <button type="button" onClick={carteSuivante}>
-            Carte suivante →
-          </button>
+          <div className="revision-flashcard-actions">
+            <button type="button" onClick={cartePrecedente}>
+              ← Précédente
+            </button>
+            <Link
+              className="chapter-link"
+              to={`/bibliotheque/${carte.categorieId}/cours/${carte.coursId}/chapitre/${carte.chapitreId}`}
+            >
+              Ouvrir le chapitre →
+            </Link>
+            <button type="button" onClick={carteSuivante}>
+              Suivante →
+            </button>
+          </div>
         </section>
       )}
 
@@ -138,7 +173,7 @@ function Revision() {
             <h2>Rechercher un cours</h2>
 
             <p>
-              Recherche par titre, description ou matière.
+              Recherche aussi dans le contenu des chapitres.
             </p>
           </div>
         </div>
@@ -146,14 +181,14 @@ function Revision() {
         <div className="identification-filters">
           <div className="identification-filter">
             <label htmlFor="revision-recherche">
-              🔎 Cours
+              🔎 Cours ou notion
             </label>
 
             <input
               className="search"
               id="revision-recherche"
               type="search"
-              placeholder="Exemple : pétrographie, cristallographie..."
+              placeholder="Exemple : flottation, RQD, ventilation..."
               value={recherche}
               onChange={(event) =>
                 setRecherche(event.target.value)
@@ -169,11 +204,11 @@ function Revision() {
             <select
               id="revision-categorie"
               value={categorieSelectionnee}
-              onChange={(event) =>
-                setCategorieSelectionnee(
-                  event.target.value
-                )
-              }
+              onChange={(event) => {
+                setCategorieSelectionnee(event.target.value);
+                setCarteActuelle(0);
+                setVersoVisible(false);
+              }}
             >
               <option value="Toutes">
                 Toutes les matières
